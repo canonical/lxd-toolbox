@@ -1,1 +1,6 @@
-{}
+{
+  "addLabel": "추가",
+  "@addLabel": {},
+  "addOptionTitle": "옵션 추가",
+  "@addOptionTitle": {}
+}
