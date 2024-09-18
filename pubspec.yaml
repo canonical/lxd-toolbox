@@ -64,7 +64,7 @@ dependencies:
   terminal_view:
     path: packages/terminal_view
   ubuntu_localizations: ^0.1.6
-  ubuntu_logger: ^0.0.2
+  ubuntu_logger: ^0.2.0
   ubuntu_service: ^0.2.0
   ubuntu_widgets:
     git:
