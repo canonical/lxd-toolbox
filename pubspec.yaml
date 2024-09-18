@@ -55,7 +55,7 @@ dependencies:
   petname:
     path: packages/petname
   provider: ^6.0.3
-  safe_change_notifier: ^0.2.0
+  safe_change_notifier: ^0.4.0
   simplestreams:
     git:
       url: https://github.com/canonical/simplestreams.dart
