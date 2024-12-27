@@ -12,7 +12,7 @@ part of 'config_schema.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 ConfigSchemaEntry _$ConfigSchemaEntryFromJson(Map<String, dynamic> json) {
   return _ConfigSchemaEntry.fromJson(json);
@@ -27,8 +27,12 @@ mixin _$ConfigSchemaEntry {
   @JsonKey(name: 'Type')
   String get type => throw _privateConstructorUsedError;
 
+  /// Serializes this ConfigSchemaEntry to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of ConfigSchemaEntry
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $ConfigSchemaEntryCopyWith<ConfigSchemaEntry> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -55,6 +59,8 @@ class _$ConfigSchemaEntryCopyWithImpl<$Res, $Val extends ConfigSchemaEntry>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of ConfigSchemaEntry
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -80,11 +86,11 @@ class _$ConfigSchemaEntryCopyWithImpl<$Res, $Val extends ConfigSchemaEntry>
 }
 
 /// @nodoc
-abstract class _$$_ConfigSchemaEntryCopyWith<$Res>
+abstract class _$$ConfigSchemaEntryImplCopyWith<$Res>
     implements $ConfigSchemaEntryCopyWith<$Res> {
-  factory _$$_ConfigSchemaEntryCopyWith(_$_ConfigSchemaEntry value,
-          $Res Function(_$_ConfigSchemaEntry) then) =
-      __$$_ConfigSchemaEntryCopyWithImpl<$Res>;
+  factory _$$ConfigSchemaEntryImplCopyWith(_$ConfigSchemaEntryImpl value,
+          $Res Function(_$ConfigSchemaEntryImpl) then) =
+      __$$ConfigSchemaEntryImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -94,13 +100,15 @@ abstract class _$$_ConfigSchemaEntryCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_ConfigSchemaEntryCopyWithImpl<$Res>
-    extends _$ConfigSchemaEntryCopyWithImpl<$Res, _$_ConfigSchemaEntry>
-    implements _$$_ConfigSchemaEntryCopyWith<$Res> {
-  __$$_ConfigSchemaEntryCopyWithImpl(
-      _$_ConfigSchemaEntry _value, $Res Function(_$_ConfigSchemaEntry) _then)
+class __$$ConfigSchemaEntryImplCopyWithImpl<$Res>
+    extends _$ConfigSchemaEntryCopyWithImpl<$Res, _$ConfigSchemaEntryImpl>
+    implements _$$ConfigSchemaEntryImplCopyWith<$Res> {
+  __$$ConfigSchemaEntryImplCopyWithImpl(_$ConfigSchemaEntryImpl _value,
+      $Res Function(_$ConfigSchemaEntryImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of ConfigSchemaEntry
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -108,7 +116,7 @@ class __$$_ConfigSchemaEntryCopyWithImpl<$Res>
     Object? description = null,
     Object? type = null,
   }) {
-    return _then(_$_ConfigSchemaEntry(
+    return _then(_$ConfigSchemaEntryImpl(
       defaultValue: null == defaultValue
           ? _value.defaultValue
           : defaultValue // ignore: cast_nullable_to_non_nullable
@@ -127,14 +135,14 @@ class __$$_ConfigSchemaEntryCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_ConfigSchemaEntry implements _ConfigSchemaEntry {
-  const _$_ConfigSchemaEntry(
+class _$ConfigSchemaEntryImpl implements _ConfigSchemaEntry {
+  const _$ConfigSchemaEntryImpl(
       {@JsonKey(name: 'Default', defaultValue: '') required this.defaultValue,
       @JsonKey(name: 'Description', defaultValue: '') required this.description,
       @JsonKey(name: 'Type') required this.type});
 
-  factory _$_ConfigSchemaEntry.fromJson(Map<String, dynamic> json) =>
-      _$$_ConfigSchemaEntryFromJson(json);
+  factory _$ConfigSchemaEntryImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ConfigSchemaEntryImplFromJson(json);
 
   @override
   @JsonKey(name: 'Default', defaultValue: '')
@@ -152,10 +160,10 @@ class _$_ConfigSchemaEntry implements _ConfigSchemaEntry {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ConfigSchemaEntry &&
+            other is _$ConfigSchemaEntryImpl &&
             (identical(other.defaultValue, defaultValue) ||
                 other.defaultValue == defaultValue) &&
             (identical(other.description, description) ||
@@ -163,20 +171,22 @@ class _$_ConfigSchemaEntry implements _ConfigSchemaEntry {
             (identical(other.type, type) || other.type == type));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, defaultValue, description, type);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of ConfigSchemaEntry
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ConfigSchemaEntryCopyWith<_$_ConfigSchemaEntry> get copyWith =>
-      __$$_ConfigSchemaEntryCopyWithImpl<_$_ConfigSchemaEntry>(
+  _$$ConfigSchemaEntryImplCopyWith<_$ConfigSchemaEntryImpl> get copyWith =>
+      __$$ConfigSchemaEntryImplCopyWithImpl<_$ConfigSchemaEntryImpl>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ConfigSchemaEntryToJson(
+    return _$$ConfigSchemaEntryImplToJson(
       this,
     );
   }
@@ -189,10 +199,10 @@ abstract class _ConfigSchemaEntry implements ConfigSchemaEntry {
           @JsonKey(name: 'Description', defaultValue: '')
           required final String description,
           @JsonKey(name: 'Type') required final String type}) =
-      _$_ConfigSchemaEntry;
+      _$ConfigSchemaEntryImpl;
 
   factory _ConfigSchemaEntry.fromJson(Map<String, dynamic> json) =
-      _$_ConfigSchemaEntry.fromJson;
+      _$ConfigSchemaEntryImpl.fromJson;
 
   @override
   @JsonKey(name: 'Default', defaultValue: '')
@@ -203,8 +213,11 @@ abstract class _ConfigSchemaEntry implements ConfigSchemaEntry {
   @override
   @JsonKey(name: 'Type')
   String get type;
+
+  /// Create a copy of ConfigSchemaEntry
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
-  _$$_ConfigSchemaEntryCopyWith<_$_ConfigSchemaEntry> get copyWith =>
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$ConfigSchemaEntryImplCopyWith<_$ConfigSchemaEntryImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

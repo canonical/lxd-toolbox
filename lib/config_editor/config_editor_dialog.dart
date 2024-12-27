@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
-import 'package:yaru_icons/yaru_icons.dart';
-import 'package:yaru_widgets/yaru_widgets.dart';
+import 'package:yaru/icons.dart';
+import 'package:yaru/widgets.dart';
 
 import 'config_editor_model.dart';
 import 'config_schema.dart';
@@ -149,7 +149,7 @@ class ConfigEditor extends StatelessWidget {
       children: [
         Expanded(
           child: YaruBorderContainer(
-            color: Theme.of(context).colorScheme.background,
+            color: Theme.of(context).colorScheme.surface,
             child: ListView(
               children: [
                 ...model.keys
@@ -194,6 +194,7 @@ class ConfigEditor extends StatelessWidget {
                 try {
                   await model.save();
                 } on Exception catch (e) {
+                  if (!context.mounted) return;
                   await showDialog(
                     context: context,
                     builder: (context) => AlertDialog(
@@ -211,7 +212,7 @@ class ConfigEditor extends StatelessWidget {
                   );
                   return;
                 }
-                if (!mounted) return;
+                if (!context.mounted) return;
                 await Navigator.of(context).maybePop();
               },
               child: Text(l10n.saveButton),

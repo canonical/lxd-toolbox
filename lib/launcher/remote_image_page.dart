@@ -6,7 +6,7 @@ import 'package:lxd/lxd.dart';
 import 'package:os_logo/os_logo.dart';
 import 'package:provider/provider.dart';
 import 'package:wizard_router/wizard_router.dart';
-import 'package:yaru_widgets/yaru_widgets.dart';
+import 'package:yaru/widgets.dart';
 
 import 'launcher_l10n.dart';
 import 'launcher_model.dart';
@@ -37,7 +37,7 @@ class RemoteImagePage extends StatelessWidget {
     return LauncherPage(
       title: Text(l10n.selectImageTitle),
       content: YaruBorderContainer(
-        color: Theme.of(context).colorScheme.background,
+        color: Theme.of(context).colorScheme.surface,
         child: Padding(
           padding: const EdgeInsets.all(48),
           child: images?.when(

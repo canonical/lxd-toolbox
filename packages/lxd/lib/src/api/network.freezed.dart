@@ -12,7 +12,7 @@ part of 'network.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 LxdNetwork _$LxdNetworkFromJson(Map<String, dynamic> json) {
   return _LxdNetwork.fromJson(json);
@@ -27,8 +27,12 @@ mixin _$LxdNetwork {
   String get status => throw _privateConstructorUsedError;
   String get type => throw _privateConstructorUsedError;
 
+  /// Serializes this LxdNetwork to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of LxdNetwork
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $LxdNetworkCopyWith<LxdNetwork> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -58,6 +62,8 @@ class _$LxdNetworkCopyWithImpl<$Res, $Val extends LxdNetwork>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of LxdNetwork
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -98,11 +104,11 @@ class _$LxdNetworkCopyWithImpl<$Res, $Val extends LxdNetwork>
 }
 
 /// @nodoc
-abstract class _$$_LxdNetworkCopyWith<$Res>
+abstract class _$$LxdNetworkImplCopyWith<$Res>
     implements $LxdNetworkCopyWith<$Res> {
-  factory _$$_LxdNetworkCopyWith(
-          _$_LxdNetwork value, $Res Function(_$_LxdNetwork) then) =
-      __$$_LxdNetworkCopyWithImpl<$Res>;
+  factory _$$LxdNetworkImplCopyWith(
+          _$LxdNetworkImpl value, $Res Function(_$LxdNetworkImpl) then) =
+      __$$LxdNetworkImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -115,13 +121,15 @@ abstract class _$$_LxdNetworkCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_LxdNetworkCopyWithImpl<$Res>
-    extends _$LxdNetworkCopyWithImpl<$Res, _$_LxdNetwork>
-    implements _$$_LxdNetworkCopyWith<$Res> {
-  __$$_LxdNetworkCopyWithImpl(
-      _$_LxdNetwork _value, $Res Function(_$_LxdNetwork) _then)
+class __$$LxdNetworkImplCopyWithImpl<$Res>
+    extends _$LxdNetworkCopyWithImpl<$Res, _$LxdNetworkImpl>
+    implements _$$LxdNetworkImplCopyWith<$Res> {
+  __$$LxdNetworkImplCopyWithImpl(
+      _$LxdNetworkImpl _value, $Res Function(_$LxdNetworkImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of LxdNetwork
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -132,7 +140,7 @@ class __$$_LxdNetworkCopyWithImpl<$Res>
     Object? status = null,
     Object? type = null,
   }) {
-    return _then(_$_LxdNetwork(
+    return _then(_$LxdNetworkImpl(
       config: null == config
           ? _value._config
           : config // ignore: cast_nullable_to_non_nullable
@@ -163,8 +171,8 @@ class __$$_LxdNetworkCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_LxdNetwork implements _LxdNetwork {
-  const _$_LxdNetwork(
+class _$LxdNetworkImpl implements _LxdNetwork {
+  const _$LxdNetworkImpl(
       {required final Map<String, String> config,
       required this.description,
       required this.managed,
@@ -173,8 +181,8 @@ class _$_LxdNetwork implements _LxdNetwork {
       required this.type})
       : _config = config;
 
-  factory _$_LxdNetwork.fromJson(Map<String, dynamic> json) =>
-      _$$_LxdNetworkFromJson(json);
+  factory _$LxdNetworkImpl.fromJson(Map<String, dynamic> json) =>
+      _$$LxdNetworkImplFromJson(json);
 
   final Map<String, String> _config;
   @override
@@ -201,10 +209,10 @@ class _$_LxdNetwork implements _LxdNetwork {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_LxdNetwork &&
+            other is _$LxdNetworkImpl &&
             const DeepCollectionEquality().equals(other._config, _config) &&
             (identical(other.description, description) ||
                 other.description == description) &&
@@ -214,7 +222,7 @@ class _$_LxdNetwork implements _LxdNetwork {
             (identical(other.type, type) || other.type == type));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -225,15 +233,17 @@ class _$_LxdNetwork implements _LxdNetwork {
       status,
       type);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of LxdNetwork
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$_LxdNetworkCopyWith<_$_LxdNetwork> get copyWith =>
-      __$$_LxdNetworkCopyWithImpl<_$_LxdNetwork>(this, _$identity);
+  _$$LxdNetworkImplCopyWith<_$LxdNetworkImpl> get copyWith =>
+      __$$LxdNetworkImplCopyWithImpl<_$LxdNetworkImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_LxdNetworkToJson(
+    return _$$LxdNetworkImplToJson(
       this,
     );
   }
@@ -246,10 +256,10 @@ abstract class _LxdNetwork implements LxdNetwork {
       required final bool managed,
       required final String name,
       required final String status,
-      required final String type}) = _$_LxdNetwork;
+      required final String type}) = _$LxdNetworkImpl;
 
   factory _LxdNetwork.fromJson(Map<String, dynamic> json) =
-      _$_LxdNetwork.fromJson;
+      _$LxdNetworkImpl.fromJson;
 
   @override
   Map<String, String> get config;
@@ -263,9 +273,12 @@ abstract class _LxdNetwork implements LxdNetwork {
   String get status;
   @override
   String get type;
+
+  /// Create a copy of LxdNetwork
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
-  _$$_LxdNetworkCopyWith<_$_LxdNetwork> get copyWith =>
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$LxdNetworkImplCopyWith<_$LxdNetworkImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -281,8 +294,12 @@ mixin _$LxdNetworkLease {
   String get location => throw _privateConstructorUsedError;
   String get type => throw _privateConstructorUsedError;
 
+  /// Serializes this LxdNetworkLease to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of LxdNetworkLease
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $LxdNetworkLeaseCopyWith<LxdNetworkLease> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -311,6 +328,8 @@ class _$LxdNetworkLeaseCopyWithImpl<$Res, $Val extends LxdNetworkLease>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of LxdNetworkLease
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -346,11 +365,11 @@ class _$LxdNetworkLeaseCopyWithImpl<$Res, $Val extends LxdNetworkLease>
 }
 
 /// @nodoc
-abstract class _$$_LxdNetworkLeaseCopyWith<$Res>
+abstract class _$$LxdNetworkLeaseImplCopyWith<$Res>
     implements $LxdNetworkLeaseCopyWith<$Res> {
-  factory _$$_LxdNetworkLeaseCopyWith(
-          _$_LxdNetworkLease value, $Res Function(_$_LxdNetworkLease) then) =
-      __$$_LxdNetworkLeaseCopyWithImpl<$Res>;
+  factory _$$LxdNetworkLeaseImplCopyWith(_$LxdNetworkLeaseImpl value,
+          $Res Function(_$LxdNetworkLeaseImpl) then) =
+      __$$LxdNetworkLeaseImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -362,13 +381,15 @@ abstract class _$$_LxdNetworkLeaseCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_LxdNetworkLeaseCopyWithImpl<$Res>
-    extends _$LxdNetworkLeaseCopyWithImpl<$Res, _$_LxdNetworkLease>
-    implements _$$_LxdNetworkLeaseCopyWith<$Res> {
-  __$$_LxdNetworkLeaseCopyWithImpl(
-      _$_LxdNetworkLease _value, $Res Function(_$_LxdNetworkLease) _then)
+class __$$LxdNetworkLeaseImplCopyWithImpl<$Res>
+    extends _$LxdNetworkLeaseCopyWithImpl<$Res, _$LxdNetworkLeaseImpl>
+    implements _$$LxdNetworkLeaseImplCopyWith<$Res> {
+  __$$LxdNetworkLeaseImplCopyWithImpl(
+      _$LxdNetworkLeaseImpl _value, $Res Function(_$LxdNetworkLeaseImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of LxdNetworkLease
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -378,7 +399,7 @@ class __$$_LxdNetworkLeaseCopyWithImpl<$Res>
     Object? location = null,
     Object? type = null,
   }) {
-    return _then(_$_LxdNetworkLease(
+    return _then(_$LxdNetworkLeaseImpl(
       address: null == address
           ? _value.address
           : address // ignore: cast_nullable_to_non_nullable
@@ -405,16 +426,16 @@ class __$$_LxdNetworkLeaseCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_LxdNetworkLease implements _LxdNetworkLease {
-  const _$_LxdNetworkLease(
+class _$LxdNetworkLeaseImpl implements _LxdNetworkLease {
+  const _$LxdNetworkLeaseImpl(
       {required this.address,
       required this.hostname,
       required this.hwaddr,
       required this.location,
       required this.type});
 
-  factory _$_LxdNetworkLease.fromJson(Map<String, dynamic> json) =>
-      _$$_LxdNetworkLeaseFromJson(json);
+  factory _$LxdNetworkLeaseImpl.fromJson(Map<String, dynamic> json) =>
+      _$$LxdNetworkLeaseImplFromJson(json);
 
   @override
   final String address;
@@ -433,10 +454,10 @@ class _$_LxdNetworkLease implements _LxdNetworkLease {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_LxdNetworkLease &&
+            other is _$LxdNetworkLeaseImpl &&
             (identical(other.address, address) || other.address == address) &&
             (identical(other.hostname, hostname) ||
                 other.hostname == hostname) &&
@@ -446,20 +467,23 @@ class _$_LxdNetworkLease implements _LxdNetworkLease {
             (identical(other.type, type) || other.type == type));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode =>
       Object.hash(runtimeType, address, hostname, hwaddr, location, type);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of LxdNetworkLease
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$_LxdNetworkLeaseCopyWith<_$_LxdNetworkLease> get copyWith =>
-      __$$_LxdNetworkLeaseCopyWithImpl<_$_LxdNetworkLease>(this, _$identity);
+  _$$LxdNetworkLeaseImplCopyWith<_$LxdNetworkLeaseImpl> get copyWith =>
+      __$$LxdNetworkLeaseImplCopyWithImpl<_$LxdNetworkLeaseImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_LxdNetworkLeaseToJson(
+    return _$$LxdNetworkLeaseImplToJson(
       this,
     );
   }
@@ -471,10 +495,10 @@ abstract class _LxdNetworkLease implements LxdNetworkLease {
       required final String hostname,
       required final String hwaddr,
       required final String location,
-      required final String type}) = _$_LxdNetworkLease;
+      required final String type}) = _$LxdNetworkLeaseImpl;
 
   factory _LxdNetworkLease.fromJson(Map<String, dynamic> json) =
-      _$_LxdNetworkLease.fromJson;
+      _$LxdNetworkLeaseImpl.fromJson;
 
   @override
   String get address;
@@ -486,9 +510,12 @@ abstract class _LxdNetworkLease implements LxdNetworkLease {
   String get location;
   @override
   String get type;
+
+  /// Create a copy of LxdNetworkLease
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
-  _$$_LxdNetworkLeaseCopyWith<_$_LxdNetworkLease> get copyWith =>
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$LxdNetworkLeaseImplCopyWith<_$LxdNetworkLeaseImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -505,8 +532,12 @@ mixin _$LxdNetworkState {
   String get state => throw _privateConstructorUsedError;
   String get type => throw _privateConstructorUsedError;
 
+  /// Serializes this LxdNetworkState to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of LxdNetworkState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $LxdNetworkStateCopyWith<LxdNetworkState> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -538,6 +569,8 @@ class _$LxdNetworkStateCopyWithImpl<$Res, $Val extends LxdNetworkState>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of LxdNetworkState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -576,6 +609,8 @@ class _$LxdNetworkStateCopyWithImpl<$Res, $Val extends LxdNetworkState>
     ) as $Val);
   }
 
+  /// Create a copy of LxdNetworkState
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $LxdNetworkCountersCopyWith<$Res> get counters {
@@ -586,11 +621,11 @@ class _$LxdNetworkStateCopyWithImpl<$Res, $Val extends LxdNetworkState>
 }
 
 /// @nodoc
-abstract class _$$_LxdNetworkStateCopyWith<$Res>
+abstract class _$$LxdNetworkStateImplCopyWith<$Res>
     implements $LxdNetworkStateCopyWith<$Res> {
-  factory _$$_LxdNetworkStateCopyWith(
-          _$_LxdNetworkState value, $Res Function(_$_LxdNetworkState) then) =
-      __$$_LxdNetworkStateCopyWithImpl<$Res>;
+  factory _$$LxdNetworkStateImplCopyWith(_$LxdNetworkStateImpl value,
+          $Res Function(_$LxdNetworkStateImpl) then) =
+      __$$LxdNetworkStateImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -606,13 +641,15 @@ abstract class _$$_LxdNetworkStateCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_LxdNetworkStateCopyWithImpl<$Res>
-    extends _$LxdNetworkStateCopyWithImpl<$Res, _$_LxdNetworkState>
-    implements _$$_LxdNetworkStateCopyWith<$Res> {
-  __$$_LxdNetworkStateCopyWithImpl(
-      _$_LxdNetworkState _value, $Res Function(_$_LxdNetworkState) _then)
+class __$$LxdNetworkStateImplCopyWithImpl<$Res>
+    extends _$LxdNetworkStateCopyWithImpl<$Res, _$LxdNetworkStateImpl>
+    implements _$$LxdNetworkStateImplCopyWith<$Res> {
+  __$$LxdNetworkStateImplCopyWithImpl(
+      _$LxdNetworkStateImpl _value, $Res Function(_$LxdNetworkStateImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of LxdNetworkState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -623,7 +660,7 @@ class __$$_LxdNetworkStateCopyWithImpl<$Res>
     Object? state = null,
     Object? type = null,
   }) {
-    return _then(_$_LxdNetworkState(
+    return _then(_$LxdNetworkStateImpl(
       addresses: null == addresses
           ? _value._addresses
           : addresses // ignore: cast_nullable_to_non_nullable
@@ -654,8 +691,8 @@ class __$$_LxdNetworkStateCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_LxdNetworkState implements _LxdNetworkState {
-  const _$_LxdNetworkState(
+class _$LxdNetworkStateImpl implements _LxdNetworkState {
+  const _$LxdNetworkStateImpl(
       {required final List<LxdNetworkAddress> addresses,
       required this.counters,
       required this.hwaddr,
@@ -664,8 +701,8 @@ class _$_LxdNetworkState implements _LxdNetworkState {
       required this.type})
       : _addresses = addresses;
 
-  factory _$_LxdNetworkState.fromJson(Map<String, dynamic> json) =>
-      _$$_LxdNetworkStateFromJson(json);
+  factory _$LxdNetworkStateImpl.fromJson(Map<String, dynamic> json) =>
+      _$$LxdNetworkStateImplFromJson(json);
 
   final List<LxdNetworkAddress> _addresses;
   @override
@@ -692,10 +729,10 @@ class _$_LxdNetworkState implements _LxdNetworkState {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_LxdNetworkState &&
+            other is _$LxdNetworkStateImpl &&
             const DeepCollectionEquality()
                 .equals(other._addresses, _addresses) &&
             (identical(other.counters, counters) ||
@@ -706,7 +743,7 @@ class _$_LxdNetworkState implements _LxdNetworkState {
             (identical(other.type, type) || other.type == type));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -717,15 +754,18 @@ class _$_LxdNetworkState implements _LxdNetworkState {
       state,
       type);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of LxdNetworkState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$_LxdNetworkStateCopyWith<_$_LxdNetworkState> get copyWith =>
-      __$$_LxdNetworkStateCopyWithImpl<_$_LxdNetworkState>(this, _$identity);
+  _$$LxdNetworkStateImplCopyWith<_$LxdNetworkStateImpl> get copyWith =>
+      __$$LxdNetworkStateImplCopyWithImpl<_$LxdNetworkStateImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_LxdNetworkStateToJson(
+    return _$$LxdNetworkStateImplToJson(
       this,
     );
   }
@@ -738,10 +778,10 @@ abstract class _LxdNetworkState implements LxdNetworkState {
       required final String hwaddr,
       required final int mtu,
       required final String state,
-      required final String type}) = _$_LxdNetworkState;
+      required final String type}) = _$LxdNetworkStateImpl;
 
   factory _LxdNetworkState.fromJson(Map<String, dynamic> json) =
-      _$_LxdNetworkState.fromJson;
+      _$LxdNetworkStateImpl.fromJson;
 
   @override
   List<LxdNetworkAddress> get addresses;
@@ -755,9 +795,12 @@ abstract class _LxdNetworkState implements LxdNetworkState {
   String get state;
   @override
   String get type;
+
+  /// Create a copy of LxdNetworkState
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
-  _$$_LxdNetworkStateCopyWith<_$_LxdNetworkState> get copyWith =>
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$LxdNetworkStateImplCopyWith<_$LxdNetworkStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -772,8 +815,12 @@ mixin _$LxdNetworkAddress {
   String get netmask => throw _privateConstructorUsedError;
   String get scope => throw _privateConstructorUsedError;
 
+  /// Serializes this LxdNetworkAddress to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of LxdNetworkAddress
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $LxdNetworkAddressCopyWith<LxdNetworkAddress> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -797,6 +844,8 @@ class _$LxdNetworkAddressCopyWithImpl<$Res, $Val extends LxdNetworkAddress>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of LxdNetworkAddress
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -827,24 +876,26 @@ class _$LxdNetworkAddressCopyWithImpl<$Res, $Val extends LxdNetworkAddress>
 }
 
 /// @nodoc
-abstract class _$$_LxdNetworkAddressCopyWith<$Res>
+abstract class _$$LxdNetworkAddressImplCopyWith<$Res>
     implements $LxdNetworkAddressCopyWith<$Res> {
-  factory _$$_LxdNetworkAddressCopyWith(_$_LxdNetworkAddress value,
-          $Res Function(_$_LxdNetworkAddress) then) =
-      __$$_LxdNetworkAddressCopyWithImpl<$Res>;
+  factory _$$LxdNetworkAddressImplCopyWith(_$LxdNetworkAddressImpl value,
+          $Res Function(_$LxdNetworkAddressImpl) then) =
+      __$$LxdNetworkAddressImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String address, String family, String netmask, String scope});
 }
 
 /// @nodoc
-class __$$_LxdNetworkAddressCopyWithImpl<$Res>
-    extends _$LxdNetworkAddressCopyWithImpl<$Res, _$_LxdNetworkAddress>
-    implements _$$_LxdNetworkAddressCopyWith<$Res> {
-  __$$_LxdNetworkAddressCopyWithImpl(
-      _$_LxdNetworkAddress _value, $Res Function(_$_LxdNetworkAddress) _then)
+class __$$LxdNetworkAddressImplCopyWithImpl<$Res>
+    extends _$LxdNetworkAddressCopyWithImpl<$Res, _$LxdNetworkAddressImpl>
+    implements _$$LxdNetworkAddressImplCopyWith<$Res> {
+  __$$LxdNetworkAddressImplCopyWithImpl(_$LxdNetworkAddressImpl _value,
+      $Res Function(_$LxdNetworkAddressImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of LxdNetworkAddress
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -853,7 +904,7 @@ class __$$_LxdNetworkAddressCopyWithImpl<$Res>
     Object? netmask = null,
     Object? scope = null,
   }) {
-    return _then(_$_LxdNetworkAddress(
+    return _then(_$LxdNetworkAddressImpl(
       address: null == address
           ? _value.address
           : address // ignore: cast_nullable_to_non_nullable
@@ -876,15 +927,15 @@ class __$$_LxdNetworkAddressCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_LxdNetworkAddress implements _LxdNetworkAddress {
-  const _$_LxdNetworkAddress(
+class _$LxdNetworkAddressImpl implements _LxdNetworkAddress {
+  const _$LxdNetworkAddressImpl(
       {required this.address,
       required this.family,
       required this.netmask,
       required this.scope});
 
-  factory _$_LxdNetworkAddress.fromJson(Map<String, dynamic> json) =>
-      _$$_LxdNetworkAddressFromJson(json);
+  factory _$LxdNetworkAddressImpl.fromJson(Map<String, dynamic> json) =>
+      _$$LxdNetworkAddressImplFromJson(json);
 
   @override
   final String address;
@@ -901,30 +952,32 @@ class _$_LxdNetworkAddress implements _LxdNetworkAddress {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_LxdNetworkAddress &&
+            other is _$LxdNetworkAddressImpl &&
             (identical(other.address, address) || other.address == address) &&
             (identical(other.family, family) || other.family == family) &&
             (identical(other.netmask, netmask) || other.netmask == netmask) &&
             (identical(other.scope, scope) || other.scope == scope));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, address, family, netmask, scope);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of LxdNetworkAddress
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$_LxdNetworkAddressCopyWith<_$_LxdNetworkAddress> get copyWith =>
-      __$$_LxdNetworkAddressCopyWithImpl<_$_LxdNetworkAddress>(
+  _$$LxdNetworkAddressImplCopyWith<_$LxdNetworkAddressImpl> get copyWith =>
+      __$$LxdNetworkAddressImplCopyWithImpl<_$LxdNetworkAddressImpl>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_LxdNetworkAddressToJson(
+    return _$$LxdNetworkAddressImplToJson(
       this,
     );
   }
@@ -935,10 +988,10 @@ abstract class _LxdNetworkAddress implements LxdNetworkAddress {
       {required final String address,
       required final String family,
       required final String netmask,
-      required final String scope}) = _$_LxdNetworkAddress;
+      required final String scope}) = _$LxdNetworkAddressImpl;
 
   factory _LxdNetworkAddress.fromJson(Map<String, dynamic> json) =
-      _$_LxdNetworkAddress.fromJson;
+      _$LxdNetworkAddressImpl.fromJson;
 
   @override
   String get address;
@@ -948,9 +1001,12 @@ abstract class _LxdNetworkAddress implements LxdNetworkAddress {
   String get netmask;
   @override
   String get scope;
+
+  /// Create a copy of LxdNetworkAddress
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
-  _$$_LxdNetworkAddressCopyWith<_$_LxdNetworkAddress> get copyWith =>
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$LxdNetworkAddressImplCopyWith<_$LxdNetworkAddressImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -965,8 +1021,12 @@ mixin _$LxdNetworkCounters {
   int get packetsReceived => throw _privateConstructorUsedError;
   int get packetsSent => throw _privateConstructorUsedError;
 
+  /// Serializes this LxdNetworkCounters to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of LxdNetworkCounters
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $LxdNetworkCountersCopyWith<LxdNetworkCounters> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -991,6 +1051,8 @@ class _$LxdNetworkCountersCopyWithImpl<$Res, $Val extends LxdNetworkCounters>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of LxdNetworkCounters
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -1021,11 +1083,11 @@ class _$LxdNetworkCountersCopyWithImpl<$Res, $Val extends LxdNetworkCounters>
 }
 
 /// @nodoc
-abstract class _$$_LxdNetworkCountersCopyWith<$Res>
+abstract class _$$LxdNetworkCountersImplCopyWith<$Res>
     implements $LxdNetworkCountersCopyWith<$Res> {
-  factory _$$_LxdNetworkCountersCopyWith(_$_LxdNetworkCounters value,
-          $Res Function(_$_LxdNetworkCounters) then) =
-      __$$_LxdNetworkCountersCopyWithImpl<$Res>;
+  factory _$$LxdNetworkCountersImplCopyWith(_$LxdNetworkCountersImpl value,
+          $Res Function(_$LxdNetworkCountersImpl) then) =
+      __$$LxdNetworkCountersImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -1033,13 +1095,15 @@ abstract class _$$_LxdNetworkCountersCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_LxdNetworkCountersCopyWithImpl<$Res>
-    extends _$LxdNetworkCountersCopyWithImpl<$Res, _$_LxdNetworkCounters>
-    implements _$$_LxdNetworkCountersCopyWith<$Res> {
-  __$$_LxdNetworkCountersCopyWithImpl(
-      _$_LxdNetworkCounters _value, $Res Function(_$_LxdNetworkCounters) _then)
+class __$$LxdNetworkCountersImplCopyWithImpl<$Res>
+    extends _$LxdNetworkCountersCopyWithImpl<$Res, _$LxdNetworkCountersImpl>
+    implements _$$LxdNetworkCountersImplCopyWith<$Res> {
+  __$$LxdNetworkCountersImplCopyWithImpl(_$LxdNetworkCountersImpl _value,
+      $Res Function(_$LxdNetworkCountersImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of LxdNetworkCounters
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -1048,7 +1112,7 @@ class __$$_LxdNetworkCountersCopyWithImpl<$Res>
     Object? packetsReceived = null,
     Object? packetsSent = null,
   }) {
-    return _then(_$_LxdNetworkCounters(
+    return _then(_$LxdNetworkCountersImpl(
       bytesReceived: null == bytesReceived
           ? _value.bytesReceived
           : bytesReceived // ignore: cast_nullable_to_non_nullable
@@ -1071,15 +1135,15 @@ class __$$_LxdNetworkCountersCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_LxdNetworkCounters implements _LxdNetworkCounters {
-  const _$_LxdNetworkCounters(
+class _$LxdNetworkCountersImpl implements _LxdNetworkCounters {
+  const _$LxdNetworkCountersImpl(
       {required this.bytesReceived,
       required this.bytesSent,
       required this.packetsReceived,
       required this.packetsSent});
 
-  factory _$_LxdNetworkCounters.fromJson(Map<String, dynamic> json) =>
-      _$$_LxdNetworkCountersFromJson(json);
+  factory _$LxdNetworkCountersImpl.fromJson(Map<String, dynamic> json) =>
+      _$$LxdNetworkCountersImplFromJson(json);
 
   @override
   final int bytesReceived;
@@ -1096,10 +1160,10 @@ class _$_LxdNetworkCounters implements _LxdNetworkCounters {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_LxdNetworkCounters &&
+            other is _$LxdNetworkCountersImpl &&
             (identical(other.bytesReceived, bytesReceived) ||
                 other.bytesReceived == bytesReceived) &&
             (identical(other.bytesSent, bytesSent) ||
@@ -1110,21 +1174,23 @@ class _$_LxdNetworkCounters implements _LxdNetworkCounters {
                 other.packetsSent == packetsSent));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType, bytesReceived, bytesSent, packetsReceived, packetsSent);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of LxdNetworkCounters
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$_LxdNetworkCountersCopyWith<_$_LxdNetworkCounters> get copyWith =>
-      __$$_LxdNetworkCountersCopyWithImpl<_$_LxdNetworkCounters>(
+  _$$LxdNetworkCountersImplCopyWith<_$LxdNetworkCountersImpl> get copyWith =>
+      __$$LxdNetworkCountersImplCopyWithImpl<_$LxdNetworkCountersImpl>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_LxdNetworkCountersToJson(
+    return _$$LxdNetworkCountersImplToJson(
       this,
     );
   }
@@ -1135,10 +1201,10 @@ abstract class _LxdNetworkCounters implements LxdNetworkCounters {
       {required final int bytesReceived,
       required final int bytesSent,
       required final int packetsReceived,
-      required final int packetsSent}) = _$_LxdNetworkCounters;
+      required final int packetsSent}) = _$LxdNetworkCountersImpl;
 
   factory _LxdNetworkCounters.fromJson(Map<String, dynamic> json) =
-      _$_LxdNetworkCounters.fromJson;
+      _$LxdNetworkCountersImpl.fromJson;
 
   @override
   int get bytesReceived;
@@ -1148,8 +1214,11 @@ abstract class _LxdNetworkCounters implements LxdNetworkCounters {
   int get packetsReceived;
   @override
   int get packetsSent;
+
+  /// Create a copy of LxdNetworkCounters
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
-  _$$_LxdNetworkCountersCopyWith<_$_LxdNetworkCounters> get copyWith =>
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$LxdNetworkCountersImplCopyWith<_$LxdNetworkCountersImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

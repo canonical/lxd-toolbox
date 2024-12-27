@@ -7,14 +7,16 @@ on:
   pull_request:
   workflow_dispatch:
 
+env:
+  flutter-version: '3.24.x'
 jobs:
   analyze:
     runs-on: ubuntu-22.04
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       - uses: subosito/flutter-action@v2
         with:
-          flutter-version: '3.10.x'
+          flutter-version: ${{ env.flutter-version }}
       - run: flutter pub global activate melos
       - run: melos pub-get
       - run: melos run analyze
@@ -22,10 +24,10 @@ jobs:
   format:
     runs-on: ubuntu-22.04
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       - uses: subosito/flutter-action@v2
         with:
-          flutter-version: '3.10.x'
+          flutter-version: ${{ env.flutter-version }}
       - run: flutter pub global activate melos
       - run: melos pub-get
       - run: melos run format
@@ -33,10 +35,10 @@ jobs:
   pub:
     runs-on: ubuntu-22.04
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       - uses: subosito/flutter-action@v2
         with:
-          flutter-version: '3.10.x'
+          flutter-version: ${{ env.flutter-version }}
       - run: flutter pub global activate melos
       - run: melos pub-get
       - run: melos exec --no-private -- \

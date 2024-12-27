@@ -6,15 +6,16 @@ part of 'config_schema.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_ConfigSchemaEntry _$$_ConfigSchemaEntryFromJson(Map<String, dynamic> json) =>
-    _$_ConfigSchemaEntry(
+_$ConfigSchemaEntryImpl _$$ConfigSchemaEntryImplFromJson(
+        Map<String, dynamic> json) =>
+    _$ConfigSchemaEntryImpl(
       defaultValue: json['Default'] as String? ?? '',
       description: json['Description'] as String? ?? '',
       type: json['Type'] as String,
     );
 
-Map<String, dynamic> _$$_ConfigSchemaEntryToJson(
-        _$_ConfigSchemaEntry instance) =>
+Map<String, dynamic> _$$ConfigSchemaEntryImplToJson(
+        _$ConfigSchemaEntryImpl instance) =>
     <String, dynamic>{
       'Default': instance.defaultValue,
       'Description': instance.description,

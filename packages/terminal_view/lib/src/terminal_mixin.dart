@@ -23,11 +23,11 @@ mixin TerminalMixin {
   }
 
   void selectAll() {
+    // TODO: Make sure this works.
     controller.setSelection(
-      BufferRangeLine(
-        CellOffset(0, terminal.buffer.height - terminal.viewHeight),
-        CellOffset(terminal.viewWidth, terminal.buffer.height - 1),
-      ),
+      CellAnchor(0),
+      CellAnchor(terminal.buffer.height - 1),
+      mode: SelectionMode.line,
     );
   }
 }

@@ -2,16 +2,13 @@ name: terminal_view
 publish_to: 'none'
 
 environment:
-  sdk: ">=2.17.0 <3.0.0"
-  flutter: ">=3.0.0"
+  sdk: '>=3.5.0 <4.0.0'
+  flutter: '>=3.24.0'
 
 dependencies:
   flutter:
     sdk: flutter
-  xterm: #^3.2.7
-    git:
-      ref: 4ced5906af42d774a1185d7c3e2b368b589738f8 # dev3
-      url: https://github.com/jpnurmi/xterm.dart.git
+  xterm: ^4.0.0
 
 dev_dependencies:
   flutter_lints: ^2.0.0

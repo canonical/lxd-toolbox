@@ -92,21 +92,14 @@ class MockFile extends Mock implements File {
   }
 }
 
-class FakeFileSystemEvent extends Fake implements FileSystemEvent {
-  FakeFileSystemEvent(this.type, this.path);
-  factory FakeFileSystemEvent.create(String path) =>
-      FakeFileSystemEvent(FileSystemEvent.create, path);
-  factory FakeFileSystemEvent.modify(String path) =>
-      FakeFileSystemEvent(FileSystemEvent.modify, path);
-  factory FakeFileSystemEvent.delete(String path) =>
-      FakeFileSystemEvent(FileSystemEvent.delete, path);
+/// This helper loosely mimics the [FileSystemEvent] interface.
+class FakeFileSystemEvent extends Fake {
+  static FileSystemEvent create(String path) =>
+      FileSystemCreateEvent(path, isDirectory);
+  static FileSystemEvent modify(String path) =>
+      FileSystemModifyEvent(path, isDirectory, true);
+  static FileSystemEvent delete(String path) =>
+      FileSystemDeleteEvent(path, isDirectory);
 
-  @override
-  final int type;
-
-  @override
-  final String path;
-
-  @override
-  bool get isDirectory => false;
+  static const bool isDirectory = false;
 }

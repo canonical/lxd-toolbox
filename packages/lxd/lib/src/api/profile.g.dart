@@ -6,13 +6,13 @@ part of 'profile.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_LxdProfile _$$_LxdProfileFromJson(Map json) => _$_LxdProfile(
+_$LxdProfileImpl _$$LxdProfileImplFromJson(Map json) => _$LxdProfileImpl(
       config: Map<String, String>.from(json['config'] as Map),
       description: json['description'] as String,
       name: json['name'] as String,
     );
 
-Map<String, dynamic> _$$_LxdProfileToJson(_$_LxdProfile instance) =>
+Map<String, dynamic> _$$LxdProfileImplToJson(_$LxdProfileImpl instance) =>
     <String, dynamic>{
       'config': instance.config,
       'description': instance.description,

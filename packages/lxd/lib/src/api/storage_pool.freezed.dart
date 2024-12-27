@@ -12,7 +12,7 @@ part of 'storage_pool.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 LxdStoragePool _$LxdStoragePoolFromJson(Map<String, dynamic> json) {
   return _LxdStoragePool.fromJson(json);
@@ -25,8 +25,12 @@ mixin _$LxdStoragePool {
   String get name => throw _privateConstructorUsedError;
   String get status => throw _privateConstructorUsedError;
 
+  /// Serializes this LxdStoragePool to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of LxdStoragePool
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $LxdStoragePoolCopyWith<LxdStoragePool> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -54,6 +58,8 @@ class _$LxdStoragePoolCopyWithImpl<$Res, $Val extends LxdStoragePool>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of LxdStoragePool
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -84,11 +90,11 @@ class _$LxdStoragePoolCopyWithImpl<$Res, $Val extends LxdStoragePool>
 }
 
 /// @nodoc
-abstract class _$$_LxdStoragePoolCopyWith<$Res>
+abstract class _$$LxdStoragePoolImplCopyWith<$Res>
     implements $LxdStoragePoolCopyWith<$Res> {
-  factory _$$_LxdStoragePoolCopyWith(
-          _$_LxdStoragePool value, $Res Function(_$_LxdStoragePool) then) =
-      __$$_LxdStoragePoolCopyWithImpl<$Res>;
+  factory _$$LxdStoragePoolImplCopyWith(_$LxdStoragePoolImpl value,
+          $Res Function(_$LxdStoragePoolImpl) then) =
+      __$$LxdStoragePoolImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -99,13 +105,15 @@ abstract class _$$_LxdStoragePoolCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_LxdStoragePoolCopyWithImpl<$Res>
-    extends _$LxdStoragePoolCopyWithImpl<$Res, _$_LxdStoragePool>
-    implements _$$_LxdStoragePoolCopyWith<$Res> {
-  __$$_LxdStoragePoolCopyWithImpl(
-      _$_LxdStoragePool _value, $Res Function(_$_LxdStoragePool) _then)
+class __$$LxdStoragePoolImplCopyWithImpl<$Res>
+    extends _$LxdStoragePoolCopyWithImpl<$Res, _$LxdStoragePoolImpl>
+    implements _$$LxdStoragePoolImplCopyWith<$Res> {
+  __$$LxdStoragePoolImplCopyWithImpl(
+      _$LxdStoragePoolImpl _value, $Res Function(_$LxdStoragePoolImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of LxdStoragePool
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -114,7 +122,7 @@ class __$$_LxdStoragePoolCopyWithImpl<$Res>
     Object? name = null,
     Object? status = null,
   }) {
-    return _then(_$_LxdStoragePool(
+    return _then(_$LxdStoragePoolImpl(
       config: null == config
           ? _value._config
           : config // ignore: cast_nullable_to_non_nullable
@@ -137,16 +145,16 @@ class __$$_LxdStoragePoolCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_LxdStoragePool implements _LxdStoragePool {
-  const _$_LxdStoragePool(
+class _$LxdStoragePoolImpl implements _LxdStoragePool {
+  const _$LxdStoragePoolImpl(
       {required final Map<String, String> config,
       required this.description,
       required this.name,
       required this.status})
       : _config = config;
 
-  factory _$_LxdStoragePool.fromJson(Map<String, dynamic> json) =>
-      _$$_LxdStoragePoolFromJson(json);
+  factory _$LxdStoragePoolImpl.fromJson(Map<String, dynamic> json) =>
+      _$$LxdStoragePoolImplFromJson(json);
 
   final Map<String, String> _config;
   @override
@@ -169,10 +177,10 @@ class _$_LxdStoragePool implements _LxdStoragePool {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_LxdStoragePool &&
+            other is _$LxdStoragePoolImpl &&
             const DeepCollectionEquality().equals(other._config, _config) &&
             (identical(other.description, description) ||
                 other.description == description) &&
@@ -180,20 +188,23 @@ class _$_LxdStoragePool implements _LxdStoragePool {
             (identical(other.status, status) || other.status == status));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType,
       const DeepCollectionEquality().hash(_config), description, name, status);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of LxdStoragePool
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$_LxdStoragePoolCopyWith<_$_LxdStoragePool> get copyWith =>
-      __$$_LxdStoragePoolCopyWithImpl<_$_LxdStoragePool>(this, _$identity);
+  _$$LxdStoragePoolImplCopyWith<_$LxdStoragePoolImpl> get copyWith =>
+      __$$LxdStoragePoolImplCopyWithImpl<_$LxdStoragePoolImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_LxdStoragePoolToJson(
+    return _$$LxdStoragePoolImplToJson(
       this,
     );
   }
@@ -204,10 +215,10 @@ abstract class _LxdStoragePool implements LxdStoragePool {
       {required final Map<String, String> config,
       required final String description,
       required final String name,
-      required final String status}) = _$_LxdStoragePool;
+      required final String status}) = _$LxdStoragePoolImpl;
 
   factory _LxdStoragePool.fromJson(Map<String, dynamic> json) =
-      _$_LxdStoragePool.fromJson;
+      _$LxdStoragePoolImpl.fromJson;
 
   @override
   Map<String, String> get config;
@@ -217,8 +228,11 @@ abstract class _LxdStoragePool implements LxdStoragePool {
   String get name;
   @override
   String get status;
+
+  /// Create a copy of LxdStoragePool
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
-  _$$_LxdStoragePoolCopyWith<_$_LxdStoragePool> get copyWith =>
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$LxdStoragePoolImplCopyWith<_$LxdStoragePoolImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

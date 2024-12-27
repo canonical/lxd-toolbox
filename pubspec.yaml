@@ -3,8 +3,8 @@ description: Workshops
 publish_to: 'none'
 
 environment:
-  sdk: ">=2.17.0 <3.0.0"
-  flutter: ">=3.0.0"
+  sdk: '>=3.5.0 <4.0.0'
+  flutter: '>=3.24.0 <4.0.0'
 
 dependencies:
   accel_key:
@@ -12,16 +12,15 @@ dependencies:
   async_value:
     path: packages/async_value
   collection: ^1.15.0
-  command_palette:
-    git:
-      ref: scroll-to-highlighted-action
-      url: https://github.com/jpnurmi/command_palette.git
+  command_palette: ^0.7.5
   command_store:
     path: packages/command_store
   context_menu:
     path: packages/context_menu
   data_size: ^0.2.0
-  data_table_2: ^2.3.8
+  # TODO: Remove this pin when upgrading to Flutter 3.27.
+  # ^2.5.0 we'll get 2.5.18 which requires Flutter 3.27. Some people don't get what a breaking change is.
+  data_table_2: 2.5.16
   fake_async: ^1.3.1
   flutter:
     sdk: flutter
@@ -31,7 +30,7 @@ dependencies:
   flutter_staggered_grid_view: ^0.6.1
   freezed_annotation: ^2.0.3
   handy_window: ^0.2.0
-  intl: ^0.18.0
+  intl: ^0.19.0
   jsettings: ^0.1.1
   json_annotation: ^4.5.0
   lxd:
@@ -59,11 +58,11 @@ dependencies:
   simplestreams:
     git:
       url: https://github.com/canonical/simplestreams.dart
-      ref: 9a55c5ff1fa545d4d95ded509d2ac7e81ea1d296
+      ref: 2574f1d7da1b6e28dde8799beab7d30ba5eb9848
   substring_highlight: ^1.0.33
   terminal_view:
     path: packages/terminal_view
-  ubuntu_localizations: ^0.1.6
+  ubuntu_localizations: ^0.5.0
   ubuntu_logger: ^0.0.2
   ubuntu_service: ^0.2.0
   ubuntu_widgets:
@@ -71,13 +70,11 @@ dependencies:
       url: https://github.com/canonical/ubuntu-flutter-plugins.git
       path: packages/ubuntu_widgets
       ref: 2549b38607f8c634404f478f719a6ab6a5344605
-  window_manager: ^0.3.0
+  window_manager: ^0.4.2
   wizard_router: ^0.9.0
-  xdg_directories: ^0.2.0+2
+  xdg_directories: ^1.0.0
   yaml: ^3.1.1
-  yaru: ^0.5.0
-  yaru_icons: ^1.0.0
-  yaru_widgets: ^2.0.0
+  yaru: ^6.0.0
 
 dev_dependencies:
   build_runner: ^2.1.11
@@ -87,7 +84,7 @@ dev_dependencies:
   freezed: ^2.3.1
   json_serializable: ^6.2.0
   melos: ^3.0.1
-  mockito: 5.4.0
+  mockito: '>=5.4.0 <5.5.0'
 
 flutter:
   generate: true

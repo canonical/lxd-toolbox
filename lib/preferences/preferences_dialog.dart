@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:yaru_widgets/yaru_widgets.dart';
+import 'package:yaru/widgets.dart';
 
 import 'appearance_view.dart';
 import 'project_settings_view.dart';
@@ -65,12 +65,15 @@ class PreferencesDialog extends StatelessWidget {
                 child: Padding(
                   padding: const EdgeInsets.all(24),
                   child: YaruBorderContainer(
-                    color: Theme.of(context).colorScheme.background,
+                    color: Theme.of(context).colorScheme.surface,
                     clipBehavior: Clip.antiAlias,
                     child: YaruMasterDetailPage(
                       length: preferences.length,
-                      tileBuilder: (context, index, selected) => YaruMasterTile(
-                        title: Text(preferences[index].title),
+                      tileBuilder: (context, index, selected, _) =>
+                          YaruMasterTile(
+                        title: Text(
+                          preferences[index].title,
+                        ),
                       ),
                       pageBuilder: (context, index) => YaruDetailPage(
                         body: preferences[index].builder(context),

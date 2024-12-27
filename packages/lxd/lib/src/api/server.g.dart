@@ -6,8 +6,8 @@ part of 'server.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_LxdServerEnvironment _$$_LxdServerEnvironmentFromJson(Map json) =>
-    _$_LxdServerEnvironment(
+_$LxdServerEnvironmentImpl _$$LxdServerEnvironmentImplFromJson(Map json) =>
+    _$LxdServerEnvironmentImpl(
       addresses: (json['addresses'] as List<dynamic>?)
               ?.map((e) => e as String)
               .toList() ??
@@ -37,7 +37,7 @@ _$_LxdServerEnvironment _$$_LxdServerEnvironmentFromJson(Map json) =>
       serverClustered: json['server_clustered'] as bool?,
       serverEventMode: json['server_event_mode'] as String?,
       serverName: json['server_name'] as String?,
-      serverPid: json['server_pid'] as int,
+      serverPid: (json['server_pid'] as num).toInt(),
       serverVersion: json['server_version'] as String,
       storage: json['storage'] as String,
       storageVersion: json['storage_version'] as String,
@@ -49,8 +49,8 @@ _$_LxdServerEnvironment _$$_LxdServerEnvironmentFromJson(Map json) =>
               const [],
     );
 
-Map<String, dynamic> _$$_LxdServerEnvironmentToJson(
-        _$_LxdServerEnvironment instance) =>
+Map<String, dynamic> _$$LxdServerEnvironmentImplToJson(
+        _$LxdServerEnvironmentImpl instance) =>
     <String, dynamic>{
       'addresses': instance.addresses,
       'architectures': instance.architectures,
@@ -79,23 +79,23 @@ Map<String, dynamic> _$$_LxdServerEnvironmentToJson(
           instance.storageSupportedDrivers.map((e) => e.toJson()).toList(),
     };
 
-_$_LxdServerStorageDriverInfo _$$_LxdServerStorageDriverInfoFromJson(
+_$LxdServerStorageDriverInfoImpl _$$LxdServerStorageDriverInfoImplFromJson(
         Map json) =>
-    _$_LxdServerStorageDriverInfo(
+    _$LxdServerStorageDriverInfoImpl(
       name: json['Name'] as String,
       version: json['Version'] as String,
       remote: json['Remote'] as bool,
     );
 
-Map<String, dynamic> _$$_LxdServerStorageDriverInfoToJson(
-        _$_LxdServerStorageDriverInfo instance) =>
+Map<String, dynamic> _$$LxdServerStorageDriverInfoImplToJson(
+        _$LxdServerStorageDriverInfoImpl instance) =>
     <String, dynamic>{
       'Name': instance.name,
       'Version': instance.version,
       'Remote': instance.remote,
     };
 
-_$_LxdServer _$$_LxdServerFromJson(Map json) => _$_LxdServer(
+_$LxdServerImpl _$$LxdServerImplFromJson(Map json) => _$LxdServerImpl(
       config: Map<String, dynamic>.from(json['config'] as Map),
       apiExtensions: (json['api_extensions'] as List<dynamic>?)
               ?.map((e) => e as String)
@@ -112,7 +112,7 @@ _$_LxdServer _$$_LxdServerFromJson(Map json) => _$_LxdServer(
           Map<String, dynamic>.from(json['environment'] as Map)),
     );
 
-Map<String, dynamic> _$$_LxdServerToJson(_$_LxdServer instance) =>
+Map<String, dynamic> _$$LxdServerImplToJson(_$LxdServerImpl instance) =>
     <String, dynamic>{
       'config': instance.config,
       'api_extensions': instance.apiExtensions,

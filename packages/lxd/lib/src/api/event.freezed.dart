@@ -12,7 +12,7 @@ part of 'event.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 LxdEvent _$LxdEventFromJson(Map<String, dynamic> json) {
   return _LxdEvent.fromJson(json);
@@ -43,8 +43,12 @@ mixin _$LxdEvent {
   /// Example: default
   String? get project => throw _privateConstructorUsedError;
 
+  /// Serializes this LxdEvent to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of LxdEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $LxdEventCopyWith<LxdEvent> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -72,6 +76,8 @@ class _$LxdEventCopyWithImpl<$Res, $Val extends LxdEvent>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of LxdEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -107,10 +113,11 @@ class _$LxdEventCopyWithImpl<$Res, $Val extends LxdEvent>
 }
 
 /// @nodoc
-abstract class _$$_LxdEventCopyWith<$Res> implements $LxdEventCopyWith<$Res> {
-  factory _$$_LxdEventCopyWith(
-          _$_LxdEvent value, $Res Function(_$_LxdEvent) then) =
-      __$$_LxdEventCopyWithImpl<$Res>;
+abstract class _$$LxdEventImplCopyWith<$Res>
+    implements $LxdEventCopyWith<$Res> {
+  factory _$$LxdEventImplCopyWith(
+          _$LxdEventImpl value, $Res Function(_$LxdEventImpl) then) =
+      __$$LxdEventImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -122,13 +129,15 @@ abstract class _$$_LxdEventCopyWith<$Res> implements $LxdEventCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_LxdEventCopyWithImpl<$Res>
-    extends _$LxdEventCopyWithImpl<$Res, _$_LxdEvent>
-    implements _$$_LxdEventCopyWith<$Res> {
-  __$$_LxdEventCopyWithImpl(
-      _$_LxdEvent _value, $Res Function(_$_LxdEvent) _then)
+class __$$LxdEventImplCopyWithImpl<$Res>
+    extends _$LxdEventCopyWithImpl<$Res, _$LxdEventImpl>
+    implements _$$LxdEventImplCopyWith<$Res> {
+  __$$LxdEventImplCopyWithImpl(
+      _$LxdEventImpl _value, $Res Function(_$LxdEventImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of LxdEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -138,7 +147,7 @@ class __$$_LxdEventCopyWithImpl<$Res>
     Object? location = freezed,
     Object? project = freezed,
   }) {
-    return _then(_$_LxdEvent(
+    return _then(_$LxdEventImpl(
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
@@ -165,8 +174,8 @@ class __$$_LxdEventCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_LxdEvent implements _LxdEvent {
-  const _$_LxdEvent(
+class _$LxdEventImpl implements _LxdEvent {
+  const _$LxdEventImpl(
       {required this.type,
       required this.timestamp,
       required final Map<String, dynamic>? metadata,
@@ -174,8 +183,8 @@ class _$_LxdEvent implements _LxdEvent {
       this.project})
       : _metadata = metadata;
 
-  factory _$_LxdEvent.fromJson(Map<String, dynamic> json) =>
-      _$$_LxdEventFromJson(json);
+  factory _$LxdEventImpl.fromJson(Map<String, dynamic> json) =>
+      _$$LxdEventImplFromJson(json);
 
   /// Event type
   @override
@@ -224,10 +233,10 @@ class _$_LxdEvent implements _LxdEvent {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_LxdEvent &&
+            other is _$LxdEventImpl &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.timestamp, timestamp) ||
                 other.timestamp == timestamp) &&
@@ -237,20 +246,22 @@ class _$_LxdEvent implements _LxdEvent {
             (identical(other.project, project) || other.project == project));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, type, timestamp,
       const DeepCollectionEquality().hash(_metadata), location, project);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of LxdEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$_LxdEventCopyWith<_$_LxdEvent> get copyWith =>
-      __$$_LxdEventCopyWithImpl<_$_LxdEvent>(this, _$identity);
+  _$$LxdEventImplCopyWith<_$LxdEventImpl> get copyWith =>
+      __$$LxdEventImplCopyWithImpl<_$LxdEventImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_LxdEventToJson(
+    return _$$LxdEventImplToJson(
       this,
     );
   }
@@ -262,41 +273,44 @@ abstract class _LxdEvent implements LxdEvent {
       required final DateTime timestamp,
       required final Map<String, dynamic>? metadata,
       final String? location,
-      final String? project}) = _$_LxdEvent;
+      final String? project}) = _$LxdEventImpl;
 
-  factory _LxdEvent.fromJson(Map<String, dynamic> json) = _$_LxdEvent.fromJson;
-
-  @override
+  factory _LxdEvent.fromJson(Map<String, dynamic> json) =
+      _$LxdEventImpl.fromJson;
 
   /// Event type
-  LxdEventType get type;
   @override
+  LxdEventType get type;
 
   /// Time at which the event was sent
-  DateTime get timestamp;
   @override
+  DateTime get timestamp;
 
   /// JSON encoded metadata
   ///
   /// See [LxdEventLogging], [LxdEventLifecycle] or [LxdOperation]
   ///
   /// Example: {"action": "instance-started", "source": "/1.0/instances/c1", "context": {}}
-  Map<String, dynamic>? get metadata;
   @override
+  Map<String, dynamic>? get metadata;
 
   /// Originating cluster member
   ///
   /// Example: lxd01
-  String? get location;
   @override
+  String? get location;
 
   /// Project the event belongs to.
   ///
   /// Example: default
-  String? get project;
   @override
-  @JsonKey(ignore: true)
-  _$$_LxdEventCopyWith<_$_LxdEvent> get copyWith =>
+  String? get project;
+
+  /// Create a copy of LxdEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$LxdEventImplCopyWith<_$LxdEventImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -310,8 +324,12 @@ mixin _$LxdEventLogging {
   String get level => throw _privateConstructorUsedError;
   Map<String, String> get context => throw _privateConstructorUsedError;
 
+  /// Serializes this LxdEventLogging to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of LxdEventLogging
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $LxdEventLoggingCopyWith<LxdEventLogging> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -335,6 +353,8 @@ class _$LxdEventLoggingCopyWithImpl<$Res, $Val extends LxdEventLogging>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of LxdEventLogging
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -360,24 +380,26 @@ class _$LxdEventLoggingCopyWithImpl<$Res, $Val extends LxdEventLogging>
 }
 
 /// @nodoc
-abstract class _$$_LxdEventLoggingCopyWith<$Res>
+abstract class _$$LxdEventLoggingImplCopyWith<$Res>
     implements $LxdEventLoggingCopyWith<$Res> {
-  factory _$$_LxdEventLoggingCopyWith(
-          _$_LxdEventLogging value, $Res Function(_$_LxdEventLogging) then) =
-      __$$_LxdEventLoggingCopyWithImpl<$Res>;
+  factory _$$LxdEventLoggingImplCopyWith(_$LxdEventLoggingImpl value,
+          $Res Function(_$LxdEventLoggingImpl) then) =
+      __$$LxdEventLoggingImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String message, String level, Map<String, String> context});
 }
 
 /// @nodoc
-class __$$_LxdEventLoggingCopyWithImpl<$Res>
-    extends _$LxdEventLoggingCopyWithImpl<$Res, _$_LxdEventLogging>
-    implements _$$_LxdEventLoggingCopyWith<$Res> {
-  __$$_LxdEventLoggingCopyWithImpl(
-      _$_LxdEventLogging _value, $Res Function(_$_LxdEventLogging) _then)
+class __$$LxdEventLoggingImplCopyWithImpl<$Res>
+    extends _$LxdEventLoggingCopyWithImpl<$Res, _$LxdEventLoggingImpl>
+    implements _$$LxdEventLoggingImplCopyWith<$Res> {
+  __$$LxdEventLoggingImplCopyWithImpl(
+      _$LxdEventLoggingImpl _value, $Res Function(_$LxdEventLoggingImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of LxdEventLogging
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -385,7 +407,7 @@ class __$$_LxdEventLoggingCopyWithImpl<$Res>
     Object? level = null,
     Object? context = null,
   }) {
-    return _then(_$_LxdEventLogging(
+    return _then(_$LxdEventLoggingImpl(
       message: null == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
@@ -404,15 +426,15 @@ class __$$_LxdEventLoggingCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_LxdEventLogging implements _LxdEventLogging {
-  const _$_LxdEventLogging(
+class _$LxdEventLoggingImpl implements _LxdEventLogging {
+  const _$LxdEventLoggingImpl(
       {required this.message,
       required this.level,
       required final Map<String, String> context})
       : _context = context;
 
-  factory _$_LxdEventLogging.fromJson(Map<String, dynamic> json) =>
-      _$$_LxdEventLoggingFromJson(json);
+  factory _$LxdEventLoggingImpl.fromJson(Map<String, dynamic> json) =>
+      _$$LxdEventLoggingImplFromJson(json);
 
   @override
   final String message;
@@ -432,29 +454,32 @@ class _$_LxdEventLogging implements _LxdEventLogging {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_LxdEventLogging &&
+            other is _$LxdEventLoggingImpl &&
             (identical(other.message, message) || other.message == message) &&
             (identical(other.level, level) || other.level == level) &&
             const DeepCollectionEquality().equals(other._context, _context));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, message, level,
       const DeepCollectionEquality().hash(_context));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of LxdEventLogging
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$_LxdEventLoggingCopyWith<_$_LxdEventLogging> get copyWith =>
-      __$$_LxdEventLoggingCopyWithImpl<_$_LxdEventLogging>(this, _$identity);
+  _$$LxdEventLoggingImplCopyWith<_$LxdEventLoggingImpl> get copyWith =>
+      __$$LxdEventLoggingImplCopyWithImpl<_$LxdEventLoggingImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_LxdEventLoggingToJson(
+    return _$$LxdEventLoggingImplToJson(
       this,
     );
   }
@@ -464,10 +489,10 @@ abstract class _LxdEventLogging implements LxdEventLogging {
   const factory _LxdEventLogging(
       {required final String message,
       required final String level,
-      required final Map<String, String> context}) = _$_LxdEventLogging;
+      required final Map<String, String> context}) = _$LxdEventLoggingImpl;
 
   factory _LxdEventLogging.fromJson(Map<String, dynamic> json) =
-      _$_LxdEventLogging.fromJson;
+      _$LxdEventLoggingImpl.fromJson;
 
   @override
   String get message;
@@ -475,9 +500,12 @@ abstract class _LxdEventLogging implements LxdEventLogging {
   String get level;
   @override
   Map<String, String> get context;
+
+  /// Create a copy of LxdEventLogging
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
-  _$$_LxdEventLoggingCopyWith<_$_LxdEventLogging> get copyWith =>
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$LxdEventLoggingImplCopyWith<_$LxdEventLoggingImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -495,8 +523,12 @@ mixin _$LxdEventLifecycle {
   LxdEventLifecycleRequestor? get requestor =>
       throw _privateConstructorUsedError;
 
+  /// Serializes this LxdEventLifecycle to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of LxdEventLifecycle
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $LxdEventLifecycleCopyWith<LxdEventLifecycle> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -526,6 +558,8 @@ class _$LxdEventLifecycleCopyWithImpl<$Res, $Val extends LxdEventLifecycle>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of LxdEventLifecycle
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -554,6 +588,8 @@ class _$LxdEventLifecycleCopyWithImpl<$Res, $Val extends LxdEventLifecycle>
     ) as $Val);
   }
 
+  /// Create a copy of LxdEventLifecycle
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $LxdEventLifecycleRequestorCopyWith<$Res>? get requestor {
@@ -569,11 +605,11 @@ class _$LxdEventLifecycleCopyWithImpl<$Res, $Val extends LxdEventLifecycle>
 }
 
 /// @nodoc
-abstract class _$$_LxdEventLifecycleCopyWith<$Res>
+abstract class _$$LxdEventLifecycleImplCopyWith<$Res>
     implements $LxdEventLifecycleCopyWith<$Res> {
-  factory _$$_LxdEventLifecycleCopyWith(_$_LxdEventLifecycle value,
-          $Res Function(_$_LxdEventLifecycle) then) =
-      __$$_LxdEventLifecycleCopyWithImpl<$Res>;
+  factory _$$LxdEventLifecycleImplCopyWith(_$LxdEventLifecycleImpl value,
+          $Res Function(_$LxdEventLifecycleImpl) then) =
+      __$$LxdEventLifecycleImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -587,13 +623,15 @@ abstract class _$$_LxdEventLifecycleCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_LxdEventLifecycleCopyWithImpl<$Res>
-    extends _$LxdEventLifecycleCopyWithImpl<$Res, _$_LxdEventLifecycle>
-    implements _$$_LxdEventLifecycleCopyWith<$Res> {
-  __$$_LxdEventLifecycleCopyWithImpl(
-      _$_LxdEventLifecycle _value, $Res Function(_$_LxdEventLifecycle) _then)
+class __$$LxdEventLifecycleImplCopyWithImpl<$Res>
+    extends _$LxdEventLifecycleCopyWithImpl<$Res, _$LxdEventLifecycleImpl>
+    implements _$$LxdEventLifecycleImplCopyWith<$Res> {
+  __$$LxdEventLifecycleImplCopyWithImpl(_$LxdEventLifecycleImpl _value,
+      $Res Function(_$LxdEventLifecycleImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of LxdEventLifecycle
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -602,7 +640,7 @@ class __$$_LxdEventLifecycleCopyWithImpl<$Res>
     Object? context = freezed,
     Object? requestor = freezed,
   }) {
-    return _then(_$_LxdEventLifecycle(
+    return _then(_$LxdEventLifecycleImpl(
       action: null == action
           ? _value.action
           : action // ignore: cast_nullable_to_non_nullable
@@ -625,16 +663,16 @@ class __$$_LxdEventLifecycleCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_LxdEventLifecycle implements _LxdEventLifecycle {
-  const _$_LxdEventLifecycle(
+class _$LxdEventLifecycleImpl implements _LxdEventLifecycle {
+  const _$LxdEventLifecycleImpl(
       {required this.action,
       required this.source,
       final Map<String, dynamic>? context,
       this.requestor})
       : _context = context;
 
-  factory _$_LxdEventLifecycle.fromJson(Map<String, dynamic> json) =>
-      _$$_LxdEventLifecycleFromJson(json);
+  factory _$LxdEventLifecycleImpl.fromJson(Map<String, dynamic> json) =>
+      _$$LxdEventLifecycleImplFromJson(json);
 
   @override
   final String action;
@@ -660,10 +698,10 @@ class _$_LxdEventLifecycle implements _LxdEventLifecycle {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_LxdEventLifecycle &&
+            other is _$LxdEventLifecycleImpl &&
             (identical(other.action, action) || other.action == action) &&
             (identical(other.source, source) || other.source == source) &&
             const DeepCollectionEquality().equals(other._context, _context) &&
@@ -671,21 +709,23 @@ class _$_LxdEventLifecycle implements _LxdEventLifecycle {
                 other.requestor == requestor));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, action, source,
       const DeepCollectionEquality().hash(_context), requestor);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of LxdEventLifecycle
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$_LxdEventLifecycleCopyWith<_$_LxdEventLifecycle> get copyWith =>
-      __$$_LxdEventLifecycleCopyWithImpl<_$_LxdEventLifecycle>(
+  _$$LxdEventLifecycleImplCopyWith<_$LxdEventLifecycleImpl> get copyWith =>
+      __$$LxdEventLifecycleImplCopyWithImpl<_$LxdEventLifecycleImpl>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_LxdEventLifecycleToJson(
+    return _$$LxdEventLifecycleImplToJson(
       this,
     );
   }
@@ -696,10 +736,10 @@ abstract class _LxdEventLifecycle implements LxdEventLifecycle {
       {required final String action,
       required final String source,
       final Map<String, dynamic>? context,
-      final LxdEventLifecycleRequestor? requestor}) = _$_LxdEventLifecycle;
+      final LxdEventLifecycleRequestor? requestor}) = _$LxdEventLifecycleImpl;
 
   factory _LxdEventLifecycle.fromJson(Map<String, dynamic> json) =
-      _$_LxdEventLifecycle.fromJson;
+      _$LxdEventLifecycleImpl.fromJson;
 
   @override
   String get action;
@@ -707,13 +747,16 @@ abstract class _LxdEventLifecycle implements LxdEventLifecycle {
   String get source;
   @override
   Map<String, dynamic>? get context;
-  @override
 
   /// API extension: event_lifecycle_requestor
-  LxdEventLifecycleRequestor? get requestor;
   @override
-  @JsonKey(ignore: true)
-  _$$_LxdEventLifecycleCopyWith<_$_LxdEventLifecycle> get copyWith =>
+  LxdEventLifecycleRequestor? get requestor;
+
+  /// Create a copy of LxdEventLifecycle
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$LxdEventLifecycleImplCopyWith<_$LxdEventLifecycleImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -734,8 +777,12 @@ mixin _$LxdEventLifecycleRequestor {
   /// API extension: event_lifecycle_requestor_address
   String get address => throw _privateConstructorUsedError;
 
+  /// Serializes this LxdEventLifecycleRequestor to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of LxdEventLifecycleRequestor
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $LxdEventLifecycleRequestorCopyWith<LxdEventLifecycleRequestor>
       get copyWith => throw _privateConstructorUsedError;
 }
@@ -761,6 +808,8 @@ class _$LxdEventLifecycleRequestorCopyWithImpl<$Res,
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of LxdEventLifecycleRequestor
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -786,27 +835,29 @@ class _$LxdEventLifecycleRequestorCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_LxdEventLifecycleRequestorCopyWith<$Res>
+abstract class _$$LxdEventLifecycleRequestorImplCopyWith<$Res>
     implements $LxdEventLifecycleRequestorCopyWith<$Res> {
-  factory _$$_LxdEventLifecycleRequestorCopyWith(
-          _$_LxdEventLifecycleRequestor value,
-          $Res Function(_$_LxdEventLifecycleRequestor) then) =
-      __$$_LxdEventLifecycleRequestorCopyWithImpl<$Res>;
+  factory _$$LxdEventLifecycleRequestorImplCopyWith(
+          _$LxdEventLifecycleRequestorImpl value,
+          $Res Function(_$LxdEventLifecycleRequestorImpl) then) =
+      __$$LxdEventLifecycleRequestorImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String username, String protocol, String address});
 }
 
 /// @nodoc
-class __$$_LxdEventLifecycleRequestorCopyWithImpl<$Res>
+class __$$LxdEventLifecycleRequestorImplCopyWithImpl<$Res>
     extends _$LxdEventLifecycleRequestorCopyWithImpl<$Res,
-        _$_LxdEventLifecycleRequestor>
-    implements _$$_LxdEventLifecycleRequestorCopyWith<$Res> {
-  __$$_LxdEventLifecycleRequestorCopyWithImpl(
-      _$_LxdEventLifecycleRequestor _value,
-      $Res Function(_$_LxdEventLifecycleRequestor) _then)
+        _$LxdEventLifecycleRequestorImpl>
+    implements _$$LxdEventLifecycleRequestorImplCopyWith<$Res> {
+  __$$LxdEventLifecycleRequestorImplCopyWithImpl(
+      _$LxdEventLifecycleRequestorImpl _value,
+      $Res Function(_$LxdEventLifecycleRequestorImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of LxdEventLifecycleRequestor
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -814,7 +865,7 @@ class __$$_LxdEventLifecycleRequestorCopyWithImpl<$Res>
     Object? protocol = null,
     Object? address = null,
   }) {
-    return _then(_$_LxdEventLifecycleRequestor(
+    return _then(_$LxdEventLifecycleRequestorImpl(
       username: null == username
           ? _value.username
           : username // ignore: cast_nullable_to_non_nullable
@@ -833,12 +884,13 @@ class __$$_LxdEventLifecycleRequestorCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_LxdEventLifecycleRequestor implements _LxdEventLifecycleRequestor {
-  const _$_LxdEventLifecycleRequestor(
+class _$LxdEventLifecycleRequestorImpl implements _LxdEventLifecycleRequestor {
+  const _$LxdEventLifecycleRequestorImpl(
       {required this.username, required this.protocol, required this.address});
 
-  factory _$_LxdEventLifecycleRequestor.fromJson(Map<String, dynamic> json) =>
-      _$$_LxdEventLifecycleRequestorFromJson(json);
+  factory _$LxdEventLifecycleRequestorImpl.fromJson(
+          Map<String, dynamic> json) =>
+      _$$LxdEventLifecycleRequestorImplFromJson(json);
 
   @override
   final String username;
@@ -859,10 +911,10 @@ class _$_LxdEventLifecycleRequestor implements _LxdEventLifecycleRequestor {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_LxdEventLifecycleRequestor &&
+            other is _$LxdEventLifecycleRequestorImpl &&
             (identical(other.username, username) ||
                 other.username == username) &&
             (identical(other.protocol, protocol) ||
@@ -870,20 +922,22 @@ class _$_LxdEventLifecycleRequestor implements _LxdEventLifecycleRequestor {
             (identical(other.address, address) || other.address == address));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, username, protocol, address);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of LxdEventLifecycleRequestor
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$_LxdEventLifecycleRequestorCopyWith<_$_LxdEventLifecycleRequestor>
-      get copyWith => __$$_LxdEventLifecycleRequestorCopyWithImpl<
-          _$_LxdEventLifecycleRequestor>(this, _$identity);
+  _$$LxdEventLifecycleRequestorImplCopyWith<_$LxdEventLifecycleRequestorImpl>
+      get copyWith => __$$LxdEventLifecycleRequestorImplCopyWithImpl<
+          _$LxdEventLifecycleRequestorImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_LxdEventLifecycleRequestorToJson(
+    return _$$LxdEventLifecycleRequestorImplToJson(
       this,
     );
   }
@@ -894,25 +948,28 @@ abstract class _LxdEventLifecycleRequestor
   const factory _LxdEventLifecycleRequestor(
       {required final String username,
       required final String protocol,
-      required final String address}) = _$_LxdEventLifecycleRequestor;
+      required final String address}) = _$LxdEventLifecycleRequestorImpl;
 
   factory _LxdEventLifecycleRequestor.fromJson(Map<String, dynamic> json) =
-      _$_LxdEventLifecycleRequestor.fromJson;
+      _$LxdEventLifecycleRequestorImpl.fromJson;
 
   @override
   String get username;
   @override
   String get protocol;
-  @override
 
   /// Requestor address
   ///
   /// Example: 10.0.2.15
   ///
   /// API extension: event_lifecycle_requestor_address
-  String get address;
   @override
-  @JsonKey(ignore: true)
-  _$$_LxdEventLifecycleRequestorCopyWith<_$_LxdEventLifecycleRequestor>
+  String get address;
+
+  /// Create a copy of LxdEventLifecycleRequestor
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$LxdEventLifecycleRequestorImplCopyWith<_$LxdEventLifecycleRequestorImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

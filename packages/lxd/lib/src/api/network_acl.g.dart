@@ -6,8 +6,8 @@ part of 'network_acl.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_LxdNetworkAclRule _$$_LxdNetworkAclRuleFromJson(Map json) =>
-    _$_LxdNetworkAclRule(
+_$LxdNetworkAclRuleImpl _$$LxdNetworkAclRuleImplFromJson(Map json) =>
+    _$LxdNetworkAclRuleImpl(
       action: json['action'] as String,
       source: json['source'] as String?,
       destination: json['destination'] as String?,
@@ -20,31 +20,23 @@ _$_LxdNetworkAclRule _$$_LxdNetworkAclRuleFromJson(Map json) =>
       state: json['state'] as String,
     );
 
-Map<String, dynamic> _$$_LxdNetworkAclRuleToJson(
-    _$_LxdNetworkAclRule instance) {
-  final val = <String, dynamic>{
-    'action': instance.action,
-  };
+Map<String, dynamic> _$$LxdNetworkAclRuleImplToJson(
+        _$LxdNetworkAclRuleImpl instance) =>
+    <String, dynamic>{
+      'action': instance.action,
+      if (instance.source case final value?) 'source': value,
+      if (instance.destination case final value?) 'destination': value,
+      if (instance.protocol case final value?) 'protocol': value,
+      if (instance.sourcePort case final value?) 'source_port': value,
+      if (instance.destinationPort case final value?) 'destination_port': value,
+      if (instance.icmpType case final value?) 'icmp_type': value,
+      if (instance.icmpCode case final value?) 'icmp_code': value,
+      if (instance.description case final value?) 'description': value,
+      'state': instance.state,
+    };
 
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('source', instance.source);
-  writeNotNull('destination', instance.destination);
-  writeNotNull('protocol', instance.protocol);
-  writeNotNull('source_port', instance.sourcePort);
-  writeNotNull('destination_port', instance.destinationPort);
-  writeNotNull('icmp_type', instance.icmpType);
-  writeNotNull('icmp_code', instance.icmpCode);
-  writeNotNull('description', instance.description);
-  val['state'] = instance.state;
-  return val;
-}
-
-_$_LxdNetworkAcl _$$_LxdNetworkAclFromJson(Map json) => _$_LxdNetworkAcl(
+_$LxdNetworkAclImpl _$$LxdNetworkAclImplFromJson(Map json) =>
+    _$LxdNetworkAclImpl(
       name: json['name'] as String,
       description: json['description'] as String,
       egress: (json['egress'] as List<dynamic>)
@@ -60,7 +52,7 @@ _$_LxdNetworkAcl _$$_LxdNetworkAclFromJson(Map json) => _$_LxdNetworkAcl(
           (json['used_by'] as List<dynamic>).map((e) => e as String).toList(),
     );
 
-Map<String, dynamic> _$$_LxdNetworkAclToJson(_$_LxdNetworkAcl instance) =>
+Map<String, dynamic> _$$LxdNetworkAclImplToJson(_$LxdNetworkAclImpl instance) =>
     <String, dynamic>{
       'name': instance.name,
       'description': instance.description,

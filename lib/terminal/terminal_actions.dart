@@ -6,7 +6,7 @@ import 'terminal_settings.dart';
 
 class ScrollToEndAction extends ScrollAction {
   @override
-  void invoke(covariant ScrollIntent intent) {
+  void invoke(covariant ScrollIntent intent, [BuildContext? context]) {
     final context = primaryFocus!.context!;
     var state = Scrollable.maybeOf(context);
     if (state == null) {

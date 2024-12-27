@@ -12,7 +12,7 @@ part of 'image.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 LxdImage _$LxdImageFromJson(Map<String, dynamic> json) {
   return _LxdImage.fromJson(json);
@@ -87,8 +87,12 @@ mixin _$LxdImage {
   /// When the image was added to this LXD server
   DateTime get uploadedAt => throw _privateConstructorUsedError;
 
+  /// Serializes this LxdImage to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of LxdImage
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $LxdImageCopyWith<LxdImage> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -129,6 +133,8 @@ class _$LxdImageCopyWithImpl<$Res, $Val extends LxdImage>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of LxdImage
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -217,6 +223,8 @@ class _$LxdImageCopyWithImpl<$Res, $Val extends LxdImage>
     ) as $Val);
   }
 
+  /// Create a copy of LxdImage
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $LxdImageSourceCopyWith<$Res>? get updateSource {
@@ -231,10 +239,11 @@ class _$LxdImageCopyWithImpl<$Res, $Val extends LxdImage>
 }
 
 /// @nodoc
-abstract class _$$_LxdImageCopyWith<$Res> implements $LxdImageCopyWith<$Res> {
-  factory _$$_LxdImageCopyWith(
-          _$_LxdImage value, $Res Function(_$_LxdImage) then) =
-      __$$_LxdImageCopyWithImpl<$Res>;
+abstract class _$$LxdImageImplCopyWith<$Res>
+    implements $LxdImageCopyWith<$Res> {
+  factory _$$LxdImageImplCopyWith(
+          _$LxdImageImpl value, $Res Function(_$LxdImageImpl) then) =
+      __$$LxdImageImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -260,13 +269,15 @@ abstract class _$$_LxdImageCopyWith<$Res> implements $LxdImageCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_LxdImageCopyWithImpl<$Res>
-    extends _$LxdImageCopyWithImpl<$Res, _$_LxdImage>
-    implements _$$_LxdImageCopyWith<$Res> {
-  __$$_LxdImageCopyWithImpl(
-      _$_LxdImage _value, $Res Function(_$_LxdImage) _then)
+class __$$LxdImageImplCopyWithImpl<$Res>
+    extends _$LxdImageCopyWithImpl<$Res, _$LxdImageImpl>
+    implements _$$LxdImageImplCopyWith<$Res> {
+  __$$LxdImageImplCopyWithImpl(
+      _$LxdImageImpl _value, $Res Function(_$LxdImageImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of LxdImage
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -287,7 +298,7 @@ class __$$_LxdImageCopyWithImpl<$Res>
     Object? lastUsedAt = freezed,
     Object? uploadedAt = null,
   }) {
-    return _then(_$_LxdImage(
+    return _then(_$LxdImageImpl(
       autoUpdate: null == autoUpdate
           ? _value.autoUpdate
           : autoUpdate // ignore: cast_nullable_to_non_nullable
@@ -358,8 +369,8 @@ class __$$_LxdImageCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_LxdImage implements _LxdImage {
-  const _$_LxdImage(
+class _$LxdImageImpl implements _LxdImage {
+  const _$LxdImageImpl(
       {this.autoUpdate = false,
       final Map<String, String> properties = const {},
       this.public = true,
@@ -380,8 +391,8 @@ class _$_LxdImage implements _LxdImage {
         _profiles = profiles,
         _aliases = aliases;
 
-  factory _$_LxdImage.fromJson(Map<String, dynamic> json) =>
-      _$$_LxdImageFromJson(json);
+  factory _$LxdImageImpl.fromJson(Map<String, dynamic> json) =>
+      _$$LxdImageImplFromJson(json);
 
   /// Whether the image should auto-update when a new build is available
   @override
@@ -507,10 +518,10 @@ class _$_LxdImage implements _LxdImage {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_LxdImage &&
+            other is _$LxdImageImpl &&
             (identical(other.autoUpdate, autoUpdate) ||
                 other.autoUpdate == autoUpdate) &&
             const DeepCollectionEquality()
@@ -539,7 +550,7 @@ class _$_LxdImage implements _LxdImage {
                 other.uploadedAt == uploadedAt));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -560,15 +571,17 @@ class _$_LxdImage implements _LxdImage {
       lastUsedAt,
       uploadedAt);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of LxdImage
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$_LxdImageCopyWith<_$_LxdImage> get copyWith =>
-      __$$_LxdImageCopyWithImpl<_$_LxdImage>(this, _$identity);
+  _$$LxdImageImplCopyWith<_$LxdImageImpl> get copyWith =>
+      __$$LxdImageImplCopyWithImpl<_$LxdImageImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_LxdImageToJson(
+    return _$$LxdImageImplToJson(
       this,
     );
   }
@@ -591,96 +604,99 @@ abstract class _LxdImage implements LxdImage {
       required final LxdImageType type,
       required final DateTime createdAt,
       final DateTime? lastUsedAt,
-      required final DateTime uploadedAt}) = _$_LxdImage;
+      required final DateTime uploadedAt}) = _$LxdImageImpl;
 
-  factory _LxdImage.fromJson(Map<String, dynamic> json) = _$_LxdImage.fromJson;
-
-  @override
+  factory _LxdImage.fromJson(Map<String, dynamic> json) =
+      _$LxdImageImpl.fromJson;
 
   /// Whether the image should auto-update when a new build is available
-  bool get autoUpdate;
   @override
+  bool get autoUpdate;
 
   /// Descriptive properties
   ///
   /// Example:
   /// ```json
   /// {"os": "Ubuntu", "release": "jammy", "variant": "cloud"}
-  Map<String, String> get properties;
   @override
+  Map<String, String> get properties;
 
   /// Whether the image is available to unauthenticated users
-  bool get public;
   @override
+  bool get public;
 
   /// When the image becomes obsolete
   ///
   /// API extension: images_expiry
-  DateTime get expiresAt;
   @override
+  DateTime get expiresAt;
 
   /// List of profiles to use when creating from this image (if none provided by user)
   ///
   /// Example: ["default"]
   ///
   /// API extension: image_profiles
-  List<String> get profiles;
   @override
+  List<String> get profiles;
 
   /// List of aliases
-  List<LxdImageAlias> get aliases;
   @override
+  List<LxdImageAlias> get aliases;
 
   /// Architecture
   /// Example: x86_64
-  String get architecture;
   @override
+  String get architecture;
 
   /// Whether the image is an automatically cached remote image
-  bool get cached;
   @override
+  bool get cached;
 
   /// Original filename
   ///
   /// Example: 06b86454720d36b20f94e31c6812e05ec51c1b568cf3a8abd273769d213394bb.rootfs
-  String get filename;
   @override
+  String get filename;
 
   /// Full SHA-256 fingerprint
   ///
   /// Example: 06b86454720d36b20f94e31c6812e05ec51c1b568cf3a8abd273769d213394bb
-  String get fingerprint;
   @override
+  String get fingerprint;
 
   /// Size of the image in bytes
   ///
   /// Example: 272237676
-  int get size;
   @override
+  int get size;
 
   /// Where the image came from
-  LxdImageSource? get updateSource;
   @override
+  LxdImageSource? get updateSource;
 
   /// Type of image
   ///
   /// API extension: image_types
-  LxdImageType get type;
   @override
+  LxdImageType get type;
 
   /// When the image was originally created
-  DateTime get createdAt;
   @override
+  DateTime get createdAt;
 
   /// Last time the image was used
-  DateTime? get lastUsedAt;
   @override
+  DateTime? get lastUsedAt;
 
   /// When the image was added to this LXD server
-  DateTime get uploadedAt;
   @override
-  @JsonKey(ignore: true)
-  _$$_LxdImageCopyWith<_$_LxdImage> get copyWith =>
+  DateTime get uploadedAt;
+
+  /// Create a copy of LxdImage
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$LxdImageImplCopyWith<_$LxdImageImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -700,8 +716,12 @@ mixin _$LxdImageAlias {
   /// Example: Our preferred Ubuntu image
   String? get description => throw _privateConstructorUsedError;
 
+  /// Serializes this LxdImageAlias to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of LxdImageAlias
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $LxdImageAliasCopyWith<LxdImageAlias> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -725,6 +745,8 @@ class _$LxdImageAliasCopyWithImpl<$Res, $Val extends LxdImageAlias>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of LxdImageAlias
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -745,31 +767,33 @@ class _$LxdImageAliasCopyWithImpl<$Res, $Val extends LxdImageAlias>
 }
 
 /// @nodoc
-abstract class _$$_LxdImageAliasCopyWith<$Res>
+abstract class _$$LxdImageAliasImplCopyWith<$Res>
     implements $LxdImageAliasCopyWith<$Res> {
-  factory _$$_LxdImageAliasCopyWith(
-          _$_LxdImageAlias value, $Res Function(_$_LxdImageAlias) then) =
-      __$$_LxdImageAliasCopyWithImpl<$Res>;
+  factory _$$LxdImageAliasImplCopyWith(
+          _$LxdImageAliasImpl value, $Res Function(_$LxdImageAliasImpl) then) =
+      __$$LxdImageAliasImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String name, String? description});
 }
 
 /// @nodoc
-class __$$_LxdImageAliasCopyWithImpl<$Res>
-    extends _$LxdImageAliasCopyWithImpl<$Res, _$_LxdImageAlias>
-    implements _$$_LxdImageAliasCopyWith<$Res> {
-  __$$_LxdImageAliasCopyWithImpl(
-      _$_LxdImageAlias _value, $Res Function(_$_LxdImageAlias) _then)
+class __$$LxdImageAliasImplCopyWithImpl<$Res>
+    extends _$LxdImageAliasCopyWithImpl<$Res, _$LxdImageAliasImpl>
+    implements _$$LxdImageAliasImplCopyWith<$Res> {
+  __$$LxdImageAliasImplCopyWithImpl(
+      _$LxdImageAliasImpl _value, $Res Function(_$LxdImageAliasImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of LxdImageAlias
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? name = null,
     Object? description = freezed,
   }) {
-    return _then(_$_LxdImageAlias(
+    return _then(_$LxdImageAliasImpl(
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -784,11 +808,11 @@ class __$$_LxdImageAliasCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_LxdImageAlias implements _LxdImageAlias {
-  const _$_LxdImageAlias({required this.name, this.description});
+class _$LxdImageAliasImpl implements _LxdImageAlias {
+  const _$LxdImageAliasImpl({required this.name, this.description});
 
-  factory _$_LxdImageAlias.fromJson(Map<String, dynamic> json) =>
-      _$$_LxdImageAliasFromJson(json);
+  factory _$LxdImageAliasImpl.fromJson(Map<String, dynamic> json) =>
+      _$$LxdImageAliasImplFromJson(json);
 
   /// Name of the alias
   ///
@@ -808,28 +832,30 @@ class _$_LxdImageAlias implements _LxdImageAlias {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_LxdImageAlias &&
+            other is _$LxdImageAliasImpl &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.description, description) ||
                 other.description == description));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, name, description);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of LxdImageAlias
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$_LxdImageAliasCopyWith<_$_LxdImageAlias> get copyWith =>
-      __$$_LxdImageAliasCopyWithImpl<_$_LxdImageAlias>(this, _$identity);
+  _$$LxdImageAliasImplCopyWith<_$LxdImageAliasImpl> get copyWith =>
+      __$$LxdImageAliasImplCopyWithImpl<_$LxdImageAliasImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_LxdImageAliasToJson(
+    return _$$LxdImageAliasImplToJson(
       this,
     );
   }
@@ -838,26 +864,28 @@ class _$_LxdImageAlias implements _LxdImageAlias {
 abstract class _LxdImageAlias implements LxdImageAlias {
   const factory _LxdImageAlias(
       {required final String name,
-      final String? description}) = _$_LxdImageAlias;
+      final String? description}) = _$LxdImageAliasImpl;
 
   factory _LxdImageAlias.fromJson(Map<String, dynamic> json) =
-      _$_LxdImageAlias.fromJson;
-
-  @override
+      _$LxdImageAliasImpl.fromJson;
 
   /// Name of the alias
   ///
   /// Example: ubuntu-22.04
-  String get name;
   @override
+  String get name;
 
   /// Description of the alias
   ///
   /// Example: Our preferred Ubuntu image
-  String? get description;
   @override
-  @JsonKey(ignore: true)
-  _$$_LxdImageAliasCopyWith<_$_LxdImageAlias> get copyWith =>
+  String? get description;
+
+  /// Create a copy of LxdImageAlias
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$LxdImageAliasImplCopyWith<_$LxdImageAliasImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -884,7 +912,7 @@ mixin _$LxdImageSource {
 
   /// URL of the source server
   ///
-  /// Example: https://images.linuxcontainers.org
+  /// Example: https://images.lxd.canonical.com
   String get server => throw _privateConstructorUsedError;
 
   /// Type of image
@@ -893,8 +921,12 @@ mixin _$LxdImageSource {
   @JsonKey(unknownEnumValue: JsonKey.nullForUndefinedEnumValue)
   LxdImageType? get imageType => throw _privateConstructorUsedError;
 
+  /// Serializes this LxdImageSource to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of LxdImageSource
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $LxdImageSourceCopyWith<LxdImageSource> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -924,6 +956,8 @@ class _$LxdImageSourceCopyWithImpl<$Res, $Val extends LxdImageSource>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of LxdImageSource
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -959,11 +993,11 @@ class _$LxdImageSourceCopyWithImpl<$Res, $Val extends LxdImageSource>
 }
 
 /// @nodoc
-abstract class _$$_LxdImageSourceCopyWith<$Res>
+abstract class _$$LxdImageSourceImplCopyWith<$Res>
     implements $LxdImageSourceCopyWith<$Res> {
-  factory _$$_LxdImageSourceCopyWith(
-          _$_LxdImageSource value, $Res Function(_$_LxdImageSource) then) =
-      __$$_LxdImageSourceCopyWithImpl<$Res>;
+  factory _$$LxdImageSourceImplCopyWith(_$LxdImageSourceImpl value,
+          $Res Function(_$LxdImageSourceImpl) then) =
+      __$$LxdImageSourceImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -976,13 +1010,15 @@ abstract class _$$_LxdImageSourceCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_LxdImageSourceCopyWithImpl<$Res>
-    extends _$LxdImageSourceCopyWithImpl<$Res, _$_LxdImageSource>
-    implements _$$_LxdImageSourceCopyWith<$Res> {
-  __$$_LxdImageSourceCopyWithImpl(
-      _$_LxdImageSource _value, $Res Function(_$_LxdImageSource) _then)
+class __$$LxdImageSourceImplCopyWithImpl<$Res>
+    extends _$LxdImageSourceCopyWithImpl<$Res, _$LxdImageSourceImpl>
+    implements _$$LxdImageSourceImplCopyWith<$Res> {
+  __$$LxdImageSourceImplCopyWithImpl(
+      _$LxdImageSourceImpl _value, $Res Function(_$LxdImageSourceImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of LxdImageSource
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -992,7 +1028,7 @@ class __$$_LxdImageSourceCopyWithImpl<$Res>
     Object? server = null,
     Object? imageType = freezed,
   }) {
-    return _then(_$_LxdImageSource(
+    return _then(_$LxdImageSourceImpl(
       alias: null == alias
           ? _value.alias
           : alias // ignore: cast_nullable_to_non_nullable
@@ -1019,8 +1055,8 @@ class __$$_LxdImageSourceCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_LxdImageSource implements _LxdImageSource {
-  const _$_LxdImageSource(
+class _$LxdImageSourceImpl implements _LxdImageSource {
+  const _$LxdImageSourceImpl(
       {required this.alias,
       this.certificate,
       required this.protocol,
@@ -1028,8 +1064,8 @@ class _$_LxdImageSource implements _LxdImageSource {
       @JsonKey(unknownEnumValue: JsonKey.nullForUndefinedEnumValue)
       this.imageType});
 
-  factory _$_LxdImageSource.fromJson(Map<String, dynamic> json) =>
-      _$$_LxdImageSourceFromJson(json);
+  factory _$LxdImageSourceImpl.fromJson(Map<String, dynamic> json) =>
+      _$$LxdImageSourceImplFromJson(json);
 
   /// Source alias to download from
   ///
@@ -1051,7 +1087,7 @@ class _$_LxdImageSource implements _LxdImageSource {
 
   /// URL of the source server
   ///
-  /// Example: https://images.linuxcontainers.org
+  /// Example: https://images.lxd.canonical.com
   @override
   final String server;
 
@@ -1068,10 +1104,10 @@ class _$_LxdImageSource implements _LxdImageSource {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_LxdImageSource &&
+            other is _$LxdImageSourceImpl &&
             (identical(other.alias, alias) || other.alias == alias) &&
             (identical(other.certificate, certificate) ||
                 other.certificate == certificate) &&
@@ -1082,20 +1118,23 @@ class _$_LxdImageSource implements _LxdImageSource {
                 other.imageType == imageType));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode =>
       Object.hash(runtimeType, alias, certificate, protocol, server, imageType);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of LxdImageSource
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$_LxdImageSourceCopyWith<_$_LxdImageSource> get copyWith =>
-      __$$_LxdImageSourceCopyWithImpl<_$_LxdImageSource>(this, _$identity);
+  _$$LxdImageSourceImplCopyWith<_$LxdImageSourceImpl> get copyWith =>
+      __$$LxdImageSourceImplCopyWithImpl<_$LxdImageSourceImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_LxdImageSourceToJson(
+    return _$$LxdImageSourceImplToJson(
       this,
     );
   }
@@ -1108,45 +1147,47 @@ abstract class _LxdImageSource implements LxdImageSource {
       required final String protocol,
       required final String server,
       @JsonKey(unknownEnumValue: JsonKey.nullForUndefinedEnumValue)
-      final LxdImageType? imageType}) = _$_LxdImageSource;
+      final LxdImageType? imageType}) = _$LxdImageSourceImpl;
 
   factory _LxdImageSource.fromJson(Map<String, dynamic> json) =
-      _$_LxdImageSource.fromJson;
-
-  @override
+      _$LxdImageSourceImpl.fromJson;
 
   /// Source alias to download from
   ///
   /// Example: jammy
-  String get alias;
   @override
+  String get alias;
 
   /// Source server certificate (if not trusted by system CA)
   ///
   /// Example: X509 PEM certificate
-  String? get certificate;
   @override
+  String? get certificate;
 
   /// Source server protocol
   ///
   /// Example: simplestreams
-  String get protocol;
   @override
+  String get protocol;
 
   /// URL of the source server
   ///
-  /// Example: https://images.linuxcontainers.org
-  String get server;
+  /// Example: https://images.lxd.canonical.com
   @override
+  String get server;
 
   /// Type of image
   ///
   /// API extension: image_types
+  @override
   @JsonKey(unknownEnumValue: JsonKey.nullForUndefinedEnumValue)
   LxdImageType? get imageType;
+
+  /// Create a copy of LxdImageSource
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
-  _$$_LxdImageSourceCopyWith<_$_LxdImageSource> get copyWith =>
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$LxdImageSourceImplCopyWith<_$LxdImageSourceImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -1179,8 +1220,12 @@ mixin _$LxdImageMetadata {
   Map<String, LxdImageMetadataTemplate> get templates =>
       throw _privateConstructorUsedError;
 
+  /// Serializes this LxdImageMetadata to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of LxdImageMetadata
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $LxdImageMetadataCopyWith<LxdImageMetadata> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -1209,6 +1254,8 @@ class _$LxdImageMetadataCopyWithImpl<$Res, $Val extends LxdImageMetadata>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of LxdImageMetadata
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -1244,11 +1291,11 @@ class _$LxdImageMetadataCopyWithImpl<$Res, $Val extends LxdImageMetadata>
 }
 
 /// @nodoc
-abstract class _$$_LxdImageMetadataCopyWith<$Res>
+abstract class _$$LxdImageMetadataImplCopyWith<$Res>
     implements $LxdImageMetadataCopyWith<$Res> {
-  factory _$$_LxdImageMetadataCopyWith(
-          _$_LxdImageMetadata value, $Res Function(_$_LxdImageMetadata) then) =
-      __$$_LxdImageMetadataCopyWithImpl<$Res>;
+  factory _$$LxdImageMetadataImplCopyWith(_$LxdImageMetadataImpl value,
+          $Res Function(_$LxdImageMetadataImpl) then) =
+      __$$LxdImageMetadataImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -1260,13 +1307,15 @@ abstract class _$$_LxdImageMetadataCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_LxdImageMetadataCopyWithImpl<$Res>
-    extends _$LxdImageMetadataCopyWithImpl<$Res, _$_LxdImageMetadata>
-    implements _$$_LxdImageMetadataCopyWith<$Res> {
-  __$$_LxdImageMetadataCopyWithImpl(
-      _$_LxdImageMetadata _value, $Res Function(_$_LxdImageMetadata) _then)
+class __$$LxdImageMetadataImplCopyWithImpl<$Res>
+    extends _$LxdImageMetadataCopyWithImpl<$Res, _$LxdImageMetadataImpl>
+    implements _$$LxdImageMetadataImplCopyWith<$Res> {
+  __$$LxdImageMetadataImplCopyWithImpl(_$LxdImageMetadataImpl _value,
+      $Res Function(_$LxdImageMetadataImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of LxdImageMetadata
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -1276,7 +1325,7 @@ class __$$_LxdImageMetadataCopyWithImpl<$Res>
     Object? properties = null,
     Object? templates = null,
   }) {
-    return _then(_$_LxdImageMetadata(
+    return _then(_$LxdImageMetadataImpl(
       architecture: null == architecture
           ? _value.architecture
           : architecture // ignore: cast_nullable_to_non_nullable
@@ -1303,8 +1352,8 @@ class __$$_LxdImageMetadataCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_LxdImageMetadata implements _LxdImageMetadata {
-  const _$_LxdImageMetadata(
+class _$LxdImageMetadataImpl implements _LxdImageMetadata {
+  const _$LxdImageMetadataImpl(
       {required this.architecture,
       required this.creationDate,
       required this.expiryDate,
@@ -1313,8 +1362,8 @@ class _$_LxdImageMetadata implements _LxdImageMetadata {
       : _properties = properties,
         _templates = templates;
 
-  factory _$_LxdImageMetadata.fromJson(Map<String, dynamic> json) =>
-      _$$_LxdImageMetadataFromJson(json);
+  factory _$LxdImageMetadataImpl.fromJson(Map<String, dynamic> json) =>
+      _$$LxdImageMetadataImplFromJson(json);
 
   /// Architecture name
   ///
@@ -1365,10 +1414,10 @@ class _$_LxdImageMetadata implements _LxdImageMetadata {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_LxdImageMetadata &&
+            other is _$LxdImageMetadataImpl &&
             (identical(other.architecture, architecture) ||
                 other.architecture == architecture) &&
             (identical(other.creationDate, creationDate) ||
@@ -1381,7 +1430,7 @@ class _$_LxdImageMetadata implements _LxdImageMetadata {
                 .equals(other._templates, _templates));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -1391,15 +1440,18 @@ class _$_LxdImageMetadata implements _LxdImageMetadata {
       const DeepCollectionEquality().hash(_properties),
       const DeepCollectionEquality().hash(_templates));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of LxdImageMetadata
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$_LxdImageMetadataCopyWith<_$_LxdImageMetadata> get copyWith =>
-      __$$_LxdImageMetadataCopyWithImpl<_$_LxdImageMetadata>(this, _$identity);
+  _$$LxdImageMetadataImplCopyWith<_$LxdImageMetadataImpl> get copyWith =>
+      __$$LxdImageMetadataImplCopyWithImpl<_$LxdImageMetadataImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_LxdImageMetadataToJson(
+    return _$$LxdImageMetadataImplToJson(
       this,
     );
   }
@@ -1412,40 +1464,42 @@ abstract class _LxdImageMetadata implements LxdImageMetadata {
           required final int expiryDate,
           required final Map<String, String> properties,
           required final Map<String, LxdImageMetadataTemplate> templates}) =
-      _$_LxdImageMetadata;
+      _$LxdImageMetadataImpl;
 
   factory _LxdImageMetadata.fromJson(Map<String, dynamic> json) =
-      _$_LxdImageMetadata.fromJson;
-
-  @override
+      _$LxdImageMetadataImpl.fromJson;
 
   /// Architecture name
   ///
   /// Example: x86_64
-  String get architecture;
   @override
+  String get architecture;
 
   /// Image creation data (as UNIX epoch)
   ///
   /// Example: 1620655439
-  int get creationDate;
   @override
+  int get creationDate;
 
   /// Image expiry data (as UNIX epoch)
   ///
   /// Example: 1620685757
-  int get expiryDate;
   @override
+  int get expiryDate;
 
   /// Descriptive properties
   ///
   /// Example: {"os": "Ubuntu", "release": "jammy", "variant": "cloud"}
-  Map<String, String> get properties;
-  @override // Template for files in the image
-  Map<String, LxdImageMetadataTemplate> get templates;
   @override
-  @JsonKey(ignore: true)
-  _$$_LxdImageMetadataCopyWith<_$_LxdImageMetadata> get copyWith =>
+  Map<String, String> get properties; // Template for files in the image
+  @override
+  Map<String, LxdImageMetadataTemplate> get templates;
+
+  /// Create a copy of LxdImageMetadata
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$LxdImageMetadataImplCopyWith<_$LxdImageMetadataImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -1473,8 +1527,12 @@ mixin _$LxdImageMetadataTemplate {
   /// Example: {"foo": "bar"}
   Map<String, String> get properties => throw _privateConstructorUsedError;
 
+  /// Serializes this LxdImageMetadataTemplate to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of LxdImageMetadataTemplate
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $LxdImageMetadataTemplateCopyWith<LxdImageMetadataTemplate> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -1503,6 +1561,8 @@ class _$LxdImageMetadataTemplateCopyWithImpl<$Res,
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of LxdImageMetadataTemplate
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -1533,12 +1593,12 @@ class _$LxdImageMetadataTemplateCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_LxdImageMetadataTemplateCopyWith<$Res>
+abstract class _$$LxdImageMetadataTemplateImplCopyWith<$Res>
     implements $LxdImageMetadataTemplateCopyWith<$Res> {
-  factory _$$_LxdImageMetadataTemplateCopyWith(
-          _$_LxdImageMetadataTemplate value,
-          $Res Function(_$_LxdImageMetadataTemplate) then) =
-      __$$_LxdImageMetadataTemplateCopyWithImpl<$Res>;
+  factory _$$LxdImageMetadataTemplateImplCopyWith(
+          _$LxdImageMetadataTemplateImpl value,
+          $Res Function(_$LxdImageMetadataTemplateImpl) then) =
+      __$$LxdImageMetadataTemplateImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -1549,14 +1609,17 @@ abstract class _$$_LxdImageMetadataTemplateCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_LxdImageMetadataTemplateCopyWithImpl<$Res>
+class __$$LxdImageMetadataTemplateImplCopyWithImpl<$Res>
     extends _$LxdImageMetadataTemplateCopyWithImpl<$Res,
-        _$_LxdImageMetadataTemplate>
-    implements _$$_LxdImageMetadataTemplateCopyWith<$Res> {
-  __$$_LxdImageMetadataTemplateCopyWithImpl(_$_LxdImageMetadataTemplate _value,
-      $Res Function(_$_LxdImageMetadataTemplate) _then)
+        _$LxdImageMetadataTemplateImpl>
+    implements _$$LxdImageMetadataTemplateImplCopyWith<$Res> {
+  __$$LxdImageMetadataTemplateImplCopyWithImpl(
+      _$LxdImageMetadataTemplateImpl _value,
+      $Res Function(_$LxdImageMetadataTemplateImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of LxdImageMetadataTemplate
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -1565,7 +1628,7 @@ class __$$_LxdImageMetadataTemplateCopyWithImpl<$Res>
     Object? template = null,
     Object? properties = null,
   }) {
-    return _then(_$_LxdImageMetadataTemplate(
+    return _then(_$LxdImageMetadataTemplateImpl(
       when: null == when
           ? _value._when
           : when // ignore: cast_nullable_to_non_nullable
@@ -1588,8 +1651,8 @@ class __$$_LxdImageMetadataTemplateCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_LxdImageMetadataTemplate implements _LxdImageMetadataTemplate {
-  const _$_LxdImageMetadataTemplate(
+class _$LxdImageMetadataTemplateImpl implements _LxdImageMetadataTemplate {
+  const _$LxdImageMetadataTemplateImpl(
       {required final List<String> when,
       required this.createOnly,
       required this.template,
@@ -1597,8 +1660,8 @@ class _$_LxdImageMetadataTemplate implements _LxdImageMetadataTemplate {
       : _when = when,
         _properties = properties;
 
-  factory _$_LxdImageMetadataTemplate.fromJson(Map<String, dynamic> json) =>
-      _$$_LxdImageMetadataTemplateFromJson(json);
+  factory _$LxdImageMetadataTemplateImpl.fromJson(Map<String, dynamic> json) =>
+      _$$LxdImageMetadataTemplateImplFromJson(json);
 
   /// When to trigger the template (create, copy or start)
   ///
@@ -1646,10 +1709,10 @@ class _$_LxdImageMetadataTemplate implements _LxdImageMetadataTemplate {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_LxdImageMetadataTemplate &&
+            other is _$LxdImageMetadataTemplateImpl &&
             const DeepCollectionEquality().equals(other._when, _when) &&
             (identical(other.createOnly, createOnly) ||
                 other.createOnly == createOnly) &&
@@ -1659,7 +1722,7 @@ class _$_LxdImageMetadataTemplate implements _LxdImageMetadataTemplate {
                 .equals(other._properties, _properties));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -1668,16 +1731,18 @@ class _$_LxdImageMetadataTemplate implements _LxdImageMetadataTemplate {
       template,
       const DeepCollectionEquality().hash(_properties));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of LxdImageMetadataTemplate
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$_LxdImageMetadataTemplateCopyWith<_$_LxdImageMetadataTemplate>
-      get copyWith => __$$_LxdImageMetadataTemplateCopyWithImpl<
-          _$_LxdImageMetadataTemplate>(this, _$identity);
+  _$$LxdImageMetadataTemplateImplCopyWith<_$LxdImageMetadataTemplateImpl>
+      get copyWith => __$$LxdImageMetadataTemplateImplCopyWithImpl<
+          _$LxdImageMetadataTemplateImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_LxdImageMetadataTemplateToJson(
+    return _$$LxdImageMetadataTemplateImplToJson(
       this,
     );
   }
@@ -1689,33 +1754,35 @@ abstract class _LxdImageMetadataTemplate implements LxdImageMetadataTemplate {
           required final bool createOnly,
           required final String template,
           required final Map<String, String> properties}) =
-      _$_LxdImageMetadataTemplate;
+      _$LxdImageMetadataTemplateImpl;
 
   factory _LxdImageMetadataTemplate.fromJson(Map<String, dynamic> json) =
-      _$_LxdImageMetadataTemplate.fromJson;
-
-  @override
+      _$LxdImageMetadataTemplateImpl.fromJson;
 
   /// When to trigger the template (create, copy or start)
   ///
   /// Example: create
-  List<String> get when;
-  @override // /Whether to trigger only if the file is missing
-  bool get createOnly;
   @override
+  List<String> get when; // /Whether to trigger only if the file is missing
+  @override
+  bool get createOnly;
 
   /// The template itself as a valid pongo2 template
   ///
   /// Example: pongo2-template
-  String get template;
   @override
+  String get template;
 
   /// Key/value properties to pass to the template
   ///
   /// Example: {"foo": "bar"}
-  Map<String, String> get properties;
   @override
-  @JsonKey(ignore: true)
-  _$$_LxdImageMetadataTemplateCopyWith<_$_LxdImageMetadataTemplate>
+  Map<String, String> get properties;
+
+  /// Create a copy of LxdImageMetadataTemplate
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$LxdImageMetadataTemplateImplCopyWith<_$LxdImageMetadataTemplateImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

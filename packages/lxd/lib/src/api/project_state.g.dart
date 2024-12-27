@@ -6,20 +6,22 @@ part of 'project_state.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_LxdProjectStateResource _$$_LxdProjectStateResourceFromJson(Map json) =>
-    _$_LxdProjectStateResource(
-      limit: json['Limit'] as int,
-      usage: json['Usage'] as int,
+_$LxdProjectStateResourceImpl _$$LxdProjectStateResourceImplFromJson(
+        Map json) =>
+    _$LxdProjectStateResourceImpl(
+      limit: (json['Limit'] as num).toInt(),
+      usage: (json['Usage'] as num).toInt(),
     );
 
-Map<String, dynamic> _$$_LxdProjectStateResourceToJson(
-        _$_LxdProjectStateResource instance) =>
+Map<String, dynamic> _$$LxdProjectStateResourceImplToJson(
+        _$LxdProjectStateResourceImpl instance) =>
     <String, dynamic>{
       'Limit': instance.limit,
       'Usage': instance.usage,
     };
 
-_$_LxdProjectState _$$_LxdProjectStateFromJson(Map json) => _$_LxdProjectState(
+_$LxdProjectStateImpl _$$LxdProjectStateImplFromJson(Map json) =>
+    _$LxdProjectStateImpl(
       resources: (json['resources'] as Map).map(
         (k, e) => MapEntry(
             k as String,
@@ -28,7 +30,8 @@ _$_LxdProjectState _$$_LxdProjectStateFromJson(Map json) => _$_LxdProjectState(
       ),
     );
 
-Map<String, dynamic> _$$_LxdProjectStateToJson(_$_LxdProjectState instance) =>
+Map<String, dynamic> _$$LxdProjectStateImplToJson(
+        _$LxdProjectStateImpl instance) =>
     <String, dynamic>{
       'resources': instance.resources.map((k, e) => MapEntry(k, e.toJson())),
     };

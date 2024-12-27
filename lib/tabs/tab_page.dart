@@ -5,8 +5,9 @@ import 'package:lxd_x/lxd_x.dart';
 import 'package:movable_tabs/movable_tabs.dart';
 import 'package:os_logo/os_logo.dart';
 import 'package:provider/provider.dart';
-import 'package:yaru_icons/yaru_icons.dart';
-import 'package:yaru_widgets/yaru_widgets.dart';
+import 'package:yaru/constants.dart';
+import 'package:yaru/icons.dart';
+import 'package:yaru/widgets.dart';
 
 import '../home/home_page.dart';
 import '../home/instance_actions.dart';

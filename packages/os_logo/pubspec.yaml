@@ -3,8 +3,8 @@ description: OS logo
 publish_to: 'none'
 
 environment:
-  sdk: ">=2.17.0 <3.0.0"
-  flutter: ">=3.0.0"
+  sdk: '>=3.5.0 <4.0.0'
+  flutter: '>=3.24.0'
 
 dependencies:
   flutter:
@@ -16,7 +16,7 @@ dev_dependencies:
   flutter_lints: ^2.0.0
   flutter_test:
     sdk: flutter
-  mockito: 5.4.0
+  mockito: '>=5.4.0 <5.5.0'
 
 flutter:
   assets:

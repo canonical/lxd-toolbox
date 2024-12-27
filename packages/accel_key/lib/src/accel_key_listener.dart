@@ -17,21 +17,21 @@ class AccelKeyListener extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return RawKeyboardListener(
+    return KeyboardListener(
       autofocus: autofocus,
       focusNode: focusNode,
-      onKey: _handleKey,
+      onKeyEvent: _handleKey,
       child: child,
     );
   }
 
-  void _handleKey(RawKeyEvent event) {
-    if (event is! RawKeyDownEvent || event.repeat) return;
+  void _handleKey(KeyEvent event) {
+    if (event is! KeyDownEvent || event is KeyRepeatEvent) return;
 
-    final isModifierPressed = event.isAltPressed ||
-        event.isControlPressed ||
-        event.isMetaPressed ||
-        event.isShiftPressed;
+    final isModifierPressed = HardwareKeyboard.instance.isControlPressed ||
+        HardwareKeyboard.instance.isShiftPressed ||
+        HardwareKeyboard.instance.isAltPressed ||
+        HardwareKeyboard.instance.isMetaPressed;
 
     if (!isModifierPressed &&
         (event.logicalKey == LogicalKeyboardKey.escape ||
@@ -41,16 +41,16 @@ class AccelKeyListener extends StatelessWidget {
 
     onAccelKey(LogicalKeySet.fromSet({
       event.logicalKey,
-      if (event.isAltPressed &&
+      if (HardwareKeyboard.instance.isAltPressed &&
           !event.logicalKey.synonyms.contains(LogicalKeyboardKey.alt))
         LogicalKeyboardKey.alt,
-      if (event.isControlPressed &&
+      if (HardwareKeyboard.instance.isControlPressed &&
           !event.logicalKey.synonyms.contains(LogicalKeyboardKey.control))
         LogicalKeyboardKey.control,
-      if (event.isMetaPressed &&
+      if (HardwareKeyboard.instance.isMetaPressed &&
           !event.logicalKey.synonyms.contains(LogicalKeyboardKey.meta))
         LogicalKeyboardKey.meta,
-      if (event.isShiftPressed &&
+      if (HardwareKeyboard.instance.isShiftPressed &&
           !event.logicalKey.synonyms.contains(LogicalKeyboardKey.shift))
         LogicalKeyboardKey.shift,
     }));

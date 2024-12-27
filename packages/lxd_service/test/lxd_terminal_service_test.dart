@@ -98,7 +98,7 @@ void main() {
     final ws0 = MockWebSocket();
     when(ws0.close()).thenAnswer((_) async {});
 
-    final terminal = await LxdTerminal(testOperation(), wsc, ws0);
+    final terminal = LxdTerminal(testOperation(), wsc, ws0);
 
     await terminal.close();
     verify(wsc.close()).called(1);

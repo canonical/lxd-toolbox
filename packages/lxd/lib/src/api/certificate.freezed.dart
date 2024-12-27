@@ -12,7 +12,7 @@ part of 'certificate.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 LxdCertificate _$LxdCertificateFromJson(Map<String, dynamic> json) {
   return _LxdCertificate.fromJson(json);
@@ -55,8 +55,12 @@ mixin _$LxdCertificate {
   /// Example: fd200419b271f1dc2a5591b693cc5774b7f234e1ff8c6b78ad703b6888fe2b69
   String get fingerprint => throw _privateConstructorUsedError;
 
+  /// Serializes this LxdCertificate to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of LxdCertificate
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $LxdCertificateCopyWith<LxdCertificate> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -87,6 +91,8 @@ class _$LxdCertificateCopyWithImpl<$Res, $Val extends LxdCertificate>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of LxdCertificate
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -127,11 +133,11 @@ class _$LxdCertificateCopyWithImpl<$Res, $Val extends LxdCertificate>
 }
 
 /// @nodoc
-abstract class _$$_LxdCertificateCopyWith<$Res>
+abstract class _$$LxdCertificateImplCopyWith<$Res>
     implements $LxdCertificateCopyWith<$Res> {
-  factory _$$_LxdCertificateCopyWith(
-          _$_LxdCertificate value, $Res Function(_$_LxdCertificate) then) =
-      __$$_LxdCertificateCopyWithImpl<$Res>;
+  factory _$$LxdCertificateImplCopyWith(_$LxdCertificateImpl value,
+          $Res Function(_$LxdCertificateImpl) then) =
+      __$$LxdCertificateImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -145,13 +151,15 @@ abstract class _$$_LxdCertificateCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_LxdCertificateCopyWithImpl<$Res>
-    extends _$LxdCertificateCopyWithImpl<$Res, _$_LxdCertificate>
-    implements _$$_LxdCertificateCopyWith<$Res> {
-  __$$_LxdCertificateCopyWithImpl(
-      _$_LxdCertificate _value, $Res Function(_$_LxdCertificate) _then)
+class __$$LxdCertificateImplCopyWithImpl<$Res>
+    extends _$LxdCertificateCopyWithImpl<$Res, _$LxdCertificateImpl>
+    implements _$$LxdCertificateImplCopyWith<$Res> {
+  __$$LxdCertificateImplCopyWithImpl(
+      _$LxdCertificateImpl _value, $Res Function(_$LxdCertificateImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of LxdCertificate
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -162,7 +170,7 @@ class __$$_LxdCertificateCopyWithImpl<$Res>
     Object? certificate = null,
     Object? fingerprint = null,
   }) {
-    return _then(_$_LxdCertificate(
+    return _then(_$LxdCertificateImpl(
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -193,8 +201,8 @@ class __$$_LxdCertificateCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_LxdCertificate implements _LxdCertificate {
-  const _$_LxdCertificate(
+class _$LxdCertificateImpl implements _LxdCertificate {
+  const _$LxdCertificateImpl(
       {required this.name,
       @JsonKey(unknownEnumValue: LxdCertificateType.unknown) required this.type,
       required this.restricted,
@@ -203,8 +211,8 @@ class _$_LxdCertificate implements _LxdCertificate {
       required this.fingerprint})
       : _projects = projects;
 
-  factory _$_LxdCertificate.fromJson(Map<String, dynamic> json) =>
-      _$$_LxdCertificateFromJson(json);
+  factory _$LxdCertificateImpl.fromJson(Map<String, dynamic> json) =>
+      _$$LxdCertificateImplFromJson(json);
 
   /// Name associated with the certificate
   ///
@@ -264,10 +272,10 @@ class _$_LxdCertificate implements _LxdCertificate {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_LxdCertificate &&
+            other is _$LxdCertificateImpl &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.restricted, restricted) ||
@@ -279,20 +287,23 @@ class _$_LxdCertificate implements _LxdCertificate {
                 other.fingerprint == fingerprint));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, name, type, restricted,
       const DeepCollectionEquality().hash(_projects), certificate, fingerprint);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of LxdCertificate
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$_LxdCertificateCopyWith<_$_LxdCertificate> get copyWith =>
-      __$$_LxdCertificateCopyWithImpl<_$_LxdCertificate>(this, _$identity);
+  _$$LxdCertificateImplCopyWith<_$LxdCertificateImpl> get copyWith =>
+      __$$LxdCertificateImplCopyWithImpl<_$LxdCertificateImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_LxdCertificateToJson(
+    return _$$LxdCertificateImplToJson(
       this,
     );
   }
@@ -306,54 +317,56 @@ abstract class _LxdCertificate implements LxdCertificate {
       required final bool restricted,
       required final List<String> projects,
       required final String certificate,
-      required final String fingerprint}) = _$_LxdCertificate;
+      required final String fingerprint}) = _$LxdCertificateImpl;
 
   factory _LxdCertificate.fromJson(Map<String, dynamic> json) =
-      _$_LxdCertificate.fromJson;
-
-  @override
+      _$LxdCertificateImpl.fromJson;
 
   /// Name associated with the certificate
   ///
   /// Example: castiana
-  String get name;
   @override
+  String get name;
 
   /// Usage type for the certificate
+  @override
   @JsonKey(unknownEnumValue: LxdCertificateType.unknown)
   LxdCertificateType get type;
-  @override
 
   /// Whether to limit the certificate to listed projects
   ///
   /// API extension: certificate_project
-  bool get restricted;
   @override
+  bool get restricted;
 
   /// List of allowed projects (applies when restricted)
   ///
   /// Example: ["default", "foo", "bar"]
   ///
   /// API extension: certificate_project
-  List<String> get projects;
   @override
+  List<String> get projects;
 
   /// The certificate itself, as PEM encoded X509
   ///
   /// Example: X509 PEM certificate
   ///
   /// API extension: certificate_self_renewal
-  String get certificate;
   @override
+  String get certificate;
 
   /// SHA256 fingerprint of the certificate
   ///
   /// Read only: true
   ///
   /// Example: fd200419b271f1dc2a5591b693cc5774b7f234e1ff8c6b78ad703b6888fe2b69
-  String get fingerprint;
   @override
-  @JsonKey(ignore: true)
-  _$$_LxdCertificateCopyWith<_$_LxdCertificate> get copyWith =>
+  String get fingerprint;
+
+  /// Create a copy of LxdCertificate
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$LxdCertificateImplCopyWith<_$LxdCertificateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

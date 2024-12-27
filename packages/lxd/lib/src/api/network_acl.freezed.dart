@@ -12,7 +12,7 @@ part of 'network_acl.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 LxdNetworkAclRule _$LxdNetworkAclRuleFromJson(Map<String, dynamic> json) {
   return _LxdNetworkAclRule.fromJson(json);
@@ -78,8 +78,12 @@ mixin _$LxdNetworkAclRule {
   /// Example: enabled
   String get state => throw _privateConstructorUsedError;
 
+  /// Serializes this LxdNetworkAclRule to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of LxdNetworkAclRule
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $LxdNetworkAclRuleCopyWith<LxdNetworkAclRule> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -113,6 +117,8 @@ class _$LxdNetworkAclRuleCopyWithImpl<$Res, $Val extends LxdNetworkAclRule>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of LxdNetworkAclRule
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -173,11 +179,11 @@ class _$LxdNetworkAclRuleCopyWithImpl<$Res, $Val extends LxdNetworkAclRule>
 }
 
 /// @nodoc
-abstract class _$$_LxdNetworkAclRuleCopyWith<$Res>
+abstract class _$$LxdNetworkAclRuleImplCopyWith<$Res>
     implements $LxdNetworkAclRuleCopyWith<$Res> {
-  factory _$$_LxdNetworkAclRuleCopyWith(_$_LxdNetworkAclRule value,
-          $Res Function(_$_LxdNetworkAclRule) then) =
-      __$$_LxdNetworkAclRuleCopyWithImpl<$Res>;
+  factory _$$LxdNetworkAclRuleImplCopyWith(_$LxdNetworkAclRuleImpl value,
+          $Res Function(_$LxdNetworkAclRuleImpl) then) =
+      __$$LxdNetworkAclRuleImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -194,13 +200,15 @@ abstract class _$$_LxdNetworkAclRuleCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_LxdNetworkAclRuleCopyWithImpl<$Res>
-    extends _$LxdNetworkAclRuleCopyWithImpl<$Res, _$_LxdNetworkAclRule>
-    implements _$$_LxdNetworkAclRuleCopyWith<$Res> {
-  __$$_LxdNetworkAclRuleCopyWithImpl(
-      _$_LxdNetworkAclRule _value, $Res Function(_$_LxdNetworkAclRule) _then)
+class __$$LxdNetworkAclRuleImplCopyWithImpl<$Res>
+    extends _$LxdNetworkAclRuleCopyWithImpl<$Res, _$LxdNetworkAclRuleImpl>
+    implements _$$LxdNetworkAclRuleImplCopyWith<$Res> {
+  __$$LxdNetworkAclRuleImplCopyWithImpl(_$LxdNetworkAclRuleImpl _value,
+      $Res Function(_$LxdNetworkAclRuleImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of LxdNetworkAclRule
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -215,7 +223,7 @@ class __$$_LxdNetworkAclRuleCopyWithImpl<$Res>
     Object? description = freezed,
     Object? state = null,
   }) {
-    return _then(_$_LxdNetworkAclRule(
+    return _then(_$LxdNetworkAclRuleImpl(
       action: null == action
           ? _value.action
           : action // ignore: cast_nullable_to_non_nullable
@@ -262,8 +270,8 @@ class __$$_LxdNetworkAclRuleCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_LxdNetworkAclRule implements _LxdNetworkAclRule {
-  const _$_LxdNetworkAclRule(
+class _$LxdNetworkAclRuleImpl implements _LxdNetworkAclRule {
+  const _$LxdNetworkAclRuleImpl(
       {required this.action,
       @JsonKey(includeIfNull: false) this.source,
       @JsonKey(includeIfNull: false) this.destination,
@@ -275,8 +283,8 @@ class _$_LxdNetworkAclRule implements _LxdNetworkAclRule {
       @JsonKey(includeIfNull: false) this.description,
       required this.state});
 
-  factory _$_LxdNetworkAclRule.fromJson(Map<String, dynamic> json) =>
-      _$$_LxdNetworkAclRuleFromJson(json);
+  factory _$LxdNetworkAclRuleImpl.fromJson(Map<String, dynamic> json) =>
+      _$$LxdNetworkAclRuleImplFromJson(json);
 
   /// Action to perform on rule match
   ///
@@ -352,10 +360,10 @@ class _$_LxdNetworkAclRule implements _LxdNetworkAclRule {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_LxdNetworkAclRule &&
+            other is _$LxdNetworkAclRuleImpl &&
             (identical(other.action, action) || other.action == action) &&
             (identical(other.source, source) || other.source == source) &&
             (identical(other.destination, destination) ||
@@ -375,7 +383,7 @@ class _$_LxdNetworkAclRule implements _LxdNetworkAclRule {
             (identical(other.state, state) || other.state == state));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -390,16 +398,18 @@ class _$_LxdNetworkAclRule implements _LxdNetworkAclRule {
       description,
       state);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of LxdNetworkAclRule
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$_LxdNetworkAclRuleCopyWith<_$_LxdNetworkAclRule> get copyWith =>
-      __$$_LxdNetworkAclRuleCopyWithImpl<_$_LxdNetworkAclRule>(
+  _$$LxdNetworkAclRuleImplCopyWith<_$LxdNetworkAclRuleImpl> get copyWith =>
+      __$$LxdNetworkAclRuleImplCopyWithImpl<_$LxdNetworkAclRuleImpl>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_LxdNetworkAclRuleToJson(
+    return _$$LxdNetworkAclRuleImplToJson(
       this,
     );
   }
@@ -416,82 +426,84 @@ abstract class _LxdNetworkAclRule implements LxdNetworkAclRule {
       @JsonKey(includeIfNull: false) final String? icmpType,
       @JsonKey(includeIfNull: false) final String? icmpCode,
       @JsonKey(includeIfNull: false) final String? description,
-      required final String state}) = _$_LxdNetworkAclRule;
+      required final String state}) = _$LxdNetworkAclRuleImpl;
 
   factory _LxdNetworkAclRule.fromJson(Map<String, dynamic> json) =
-      _$_LxdNetworkAclRule.fromJson;
-
-  @override
+      _$LxdNetworkAclRuleImpl.fromJson;
 
   /// Action to perform on rule match
   ///
   /// Example: allow
-  String get action;
   @override
+  String get action;
 
   /// Source address
   ///
   /// Example: @internal
+  @override
   @JsonKey(includeIfNull: false)
   String? get source;
-  @override
 
   /// Destination address
   ///
   /// Example: 8.8.8.8/32,8.8.4.4/32
+  @override
   @JsonKey(includeIfNull: false)
   String? get destination;
-  @override
 
   /// Protocol
   ///
   /// Example: udp
+  @override
   @JsonKey(includeIfNull: false)
   String? get protocol;
-  @override
 
   /// Source port
   ///
   /// Example: 1234
+  @override
   @JsonKey(includeIfNull: false)
   String? get sourcePort;
-  @override
 
   /// Destination port
   ///
   /// Example: 53
+  @override
   @JsonKey(includeIfNull: false)
   String? get destinationPort;
-  @override
 
   /// Type of ICMP message (for ICMP protocol)
   ///
   /// Example: 8
+  @override
   @JsonKey(includeIfNull: false)
   String? get icmpType;
-  @override
 
   /// ICMP message code (for ICMP protocol)
   ///
   /// Example: 0
+  @override
   @JsonKey(includeIfNull: false)
   String? get icmpCode;
-  @override
 
   /// Description of the rule
   ///
   /// Example: Allow DNS queries to Google DNS
+  @override
   @JsonKey(includeIfNull: false)
   String? get description;
-  @override
 
   /// State of the rule
   ///
   /// Example: enabled
-  String get state;
   @override
-  @JsonKey(ignore: true)
-  _$$_LxdNetworkAclRuleCopyWith<_$_LxdNetworkAclRule> get copyWith =>
+  String get state;
+
+  /// Create a copy of LxdNetworkAclRule
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$LxdNetworkAclRuleImplCopyWith<_$LxdNetworkAclRuleImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -528,8 +540,12 @@ mixin _$LxdNetworkAcl {
   /// Resources that use the ACL
   List<String> get usedBy => throw _privateConstructorUsedError;
 
+  /// Serializes this LxdNetworkAcl to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of LxdNetworkAcl
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $LxdNetworkAclCopyWith<LxdNetworkAcl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -559,6 +575,8 @@ class _$LxdNetworkAclCopyWithImpl<$Res, $Val extends LxdNetworkAcl>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of LxdNetworkAcl
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -599,11 +617,11 @@ class _$LxdNetworkAclCopyWithImpl<$Res, $Val extends LxdNetworkAcl>
 }
 
 /// @nodoc
-abstract class _$$_LxdNetworkAclCopyWith<$Res>
+abstract class _$$LxdNetworkAclImplCopyWith<$Res>
     implements $LxdNetworkAclCopyWith<$Res> {
-  factory _$$_LxdNetworkAclCopyWith(
-          _$_LxdNetworkAcl value, $Res Function(_$_LxdNetworkAcl) then) =
-      __$$_LxdNetworkAclCopyWithImpl<$Res>;
+  factory _$$LxdNetworkAclImplCopyWith(
+          _$LxdNetworkAclImpl value, $Res Function(_$LxdNetworkAclImpl) then) =
+      __$$LxdNetworkAclImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -616,13 +634,15 @@ abstract class _$$_LxdNetworkAclCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_LxdNetworkAclCopyWithImpl<$Res>
-    extends _$LxdNetworkAclCopyWithImpl<$Res, _$_LxdNetworkAcl>
-    implements _$$_LxdNetworkAclCopyWith<$Res> {
-  __$$_LxdNetworkAclCopyWithImpl(
-      _$_LxdNetworkAcl _value, $Res Function(_$_LxdNetworkAcl) _then)
+class __$$LxdNetworkAclImplCopyWithImpl<$Res>
+    extends _$LxdNetworkAclCopyWithImpl<$Res, _$LxdNetworkAclImpl>
+    implements _$$LxdNetworkAclImplCopyWith<$Res> {
+  __$$LxdNetworkAclImplCopyWithImpl(
+      _$LxdNetworkAclImpl _value, $Res Function(_$LxdNetworkAclImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of LxdNetworkAcl
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -633,7 +653,7 @@ class __$$_LxdNetworkAclCopyWithImpl<$Res>
     Object? config = null,
     Object? usedBy = null,
   }) {
-    return _then(_$_LxdNetworkAcl(
+    return _then(_$LxdNetworkAclImpl(
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -664,8 +684,8 @@ class __$$_LxdNetworkAclCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_LxdNetworkAcl implements _LxdNetworkAcl {
-  const _$_LxdNetworkAcl(
+class _$LxdNetworkAclImpl implements _LxdNetworkAcl {
+  const _$LxdNetworkAclImpl(
       {required this.name,
       required this.description,
       required final List<LxdNetworkAclRule> egress,
@@ -677,8 +697,8 @@ class _$_LxdNetworkAcl implements _LxdNetworkAcl {
         _config = config,
         _usedBy = usedBy;
 
-  factory _$_LxdNetworkAcl.fromJson(Map<String, dynamic> json) =>
-      _$$_LxdNetworkAclFromJson(json);
+  factory _$LxdNetworkAclImpl.fromJson(Map<String, dynamic> json) =>
+      _$$LxdNetworkAclImplFromJson(json);
 
   /// Name of the ACL
   ///
@@ -752,10 +772,10 @@ class _$_LxdNetworkAcl implements _LxdNetworkAcl {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_LxdNetworkAcl &&
+            other is _$LxdNetworkAclImpl &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.description, description) ||
                 other.description == description) &&
@@ -765,7 +785,7 @@ class _$_LxdNetworkAcl implements _LxdNetworkAcl {
             const DeepCollectionEquality().equals(other._usedBy, _usedBy));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -776,15 +796,17 @@ class _$_LxdNetworkAcl implements _LxdNetworkAcl {
       const DeepCollectionEquality().hash(_config),
       const DeepCollectionEquality().hash(_usedBy));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of LxdNetworkAcl
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$_LxdNetworkAclCopyWith<_$_LxdNetworkAcl> get copyWith =>
-      __$$_LxdNetworkAclCopyWithImpl<_$_LxdNetworkAcl>(this, _$identity);
+  _$$LxdNetworkAclImplCopyWith<_$LxdNetworkAclImpl> get copyWith =>
+      __$$LxdNetworkAclImplCopyWithImpl<_$LxdNetworkAclImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_LxdNetworkAclToJson(
+    return _$$LxdNetworkAclImplToJson(
       this,
     );
   }
@@ -797,32 +819,30 @@ abstract class _LxdNetworkAcl implements LxdNetworkAcl {
       required final List<LxdNetworkAclRule> egress,
       required final List<LxdNetworkAclRule> ingress,
       required final Map<String, String> config,
-      required final List<String> usedBy}) = _$_LxdNetworkAcl;
+      required final List<String> usedBy}) = _$LxdNetworkAclImpl;
 
   factory _LxdNetworkAcl.fromJson(Map<String, dynamic> json) =
-      _$_LxdNetworkAcl.fromJson;
-
-  @override
+      _$LxdNetworkAclImpl.fromJson;
 
   /// Name of the ACL
   ///
   /// Example: bar
-  String get name;
   @override
+  String get name;
 
   /// Description of the ACL
   ///
   /// Example: Web servers
-  String get description;
   @override
+  String get description;
 
   /// List of egress rules (order independent)
-  List<LxdNetworkAclRule> get egress;
   @override
+  List<LxdNetworkAclRule> get egress;
 
   /// List of ingress rules (order independent)
-  List<LxdNetworkAclRule> get ingress;
   @override
+  List<LxdNetworkAclRule> get ingress;
 
   /// ACL configuration map
   ///
@@ -830,13 +850,17 @@ abstract class _LxdNetworkAcl implements LxdNetworkAcl {
   /// ```json
   /// {"user.mykey": "foo"}
   /// ```
-  Map<String, String> get config;
   @override
+  Map<String, String> get config;
 
   /// Resources that use the ACL
-  List<String> get usedBy;
   @override
-  @JsonKey(ignore: true)
-  _$$_LxdNetworkAclCopyWith<_$_LxdNetworkAcl> get copyWith =>
+  List<String> get usedBy;
+
+  /// Create a copy of LxdNetworkAcl
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$LxdNetworkAclImplCopyWith<_$LxdNetworkAclImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

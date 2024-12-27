@@ -10,7 +10,7 @@
     },
     {
       "name": "images",
-      "address": "https://images.linuxcontainers.org",
+      "address": "https://images.lxd.canonical.com",
       "isPublic": true,
       "protocol": "simplestreams"
     },

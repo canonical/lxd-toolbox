@@ -12,7 +12,7 @@ part of 'project_state.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 LxdProjectStateResource _$LxdProjectStateResourceFromJson(
     Map<String, dynamic> json) {
@@ -26,8 +26,12 @@ mixin _$LxdProjectStateResource {
   @JsonKey(name: 'Usage')
   int get usage => throw _privateConstructorUsedError;
 
+  /// Serializes this LxdProjectStateResource to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of LxdProjectStateResource
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $LxdProjectStateResourceCopyWith<LxdProjectStateResource> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -53,6 +57,8 @@ class _$LxdProjectStateResourceCopyWithImpl<$Res,
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of LxdProjectStateResource
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -73,11 +79,12 @@ class _$LxdProjectStateResourceCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_LxdProjectStateResourceCopyWith<$Res>
+abstract class _$$LxdProjectStateResourceImplCopyWith<$Res>
     implements $LxdProjectStateResourceCopyWith<$Res> {
-  factory _$$_LxdProjectStateResourceCopyWith(_$_LxdProjectStateResource value,
-          $Res Function(_$_LxdProjectStateResource) then) =
-      __$$_LxdProjectStateResourceCopyWithImpl<$Res>;
+  factory _$$LxdProjectStateResourceImplCopyWith(
+          _$LxdProjectStateResourceImpl value,
+          $Res Function(_$LxdProjectStateResourceImpl) then) =
+      __$$LxdProjectStateResourceImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -85,21 +92,24 @@ abstract class _$$_LxdProjectStateResourceCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_LxdProjectStateResourceCopyWithImpl<$Res>
+class __$$LxdProjectStateResourceImplCopyWithImpl<$Res>
     extends _$LxdProjectStateResourceCopyWithImpl<$Res,
-        _$_LxdProjectStateResource>
-    implements _$$_LxdProjectStateResourceCopyWith<$Res> {
-  __$$_LxdProjectStateResourceCopyWithImpl(_$_LxdProjectStateResource _value,
-      $Res Function(_$_LxdProjectStateResource) _then)
+        _$LxdProjectStateResourceImpl>
+    implements _$$LxdProjectStateResourceImplCopyWith<$Res> {
+  __$$LxdProjectStateResourceImplCopyWithImpl(
+      _$LxdProjectStateResourceImpl _value,
+      $Res Function(_$LxdProjectStateResourceImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of LxdProjectStateResource
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? limit = null,
     Object? usage = null,
   }) {
-    return _then(_$_LxdProjectStateResource(
+    return _then(_$LxdProjectStateResourceImpl(
       limit: null == limit
           ? _value.limit
           : limit // ignore: cast_nullable_to_non_nullable
@@ -114,13 +124,13 @@ class __$$_LxdProjectStateResourceCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_LxdProjectStateResource implements _LxdProjectStateResource {
-  const _$_LxdProjectStateResource(
+class _$LxdProjectStateResourceImpl implements _LxdProjectStateResource {
+  const _$LxdProjectStateResourceImpl(
       {@JsonKey(name: 'Limit') required this.limit,
       @JsonKey(name: 'Usage') required this.usage});
 
-  factory _$_LxdProjectStateResource.fromJson(Map<String, dynamic> json) =>
-      _$$_LxdProjectStateResourceFromJson(json);
+  factory _$LxdProjectStateResourceImpl.fromJson(Map<String, dynamic> json) =>
+      _$$LxdProjectStateResourceImplFromJson(json);
 
   @override
   @JsonKey(name: 'Limit')
@@ -135,29 +145,30 @@ class _$_LxdProjectStateResource implements _LxdProjectStateResource {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_LxdProjectStateResource &&
+            other is _$LxdProjectStateResourceImpl &&
             (identical(other.limit, limit) || other.limit == limit) &&
             (identical(other.usage, usage) || other.usage == usage));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, limit, usage);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of LxdProjectStateResource
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$_LxdProjectStateResourceCopyWith<_$_LxdProjectStateResource>
-      get copyWith =>
-          __$$_LxdProjectStateResourceCopyWithImpl<_$_LxdProjectStateResource>(
-              this, _$identity);
+  _$$LxdProjectStateResourceImplCopyWith<_$LxdProjectStateResourceImpl>
+      get copyWith => __$$LxdProjectStateResourceImplCopyWithImpl<
+          _$LxdProjectStateResourceImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_LxdProjectStateResourceToJson(
+    return _$$LxdProjectStateResourceImplToJson(
       this,
     );
   }
@@ -167,10 +178,10 @@ abstract class _LxdProjectStateResource implements LxdProjectStateResource {
   const factory _LxdProjectStateResource(
           {@JsonKey(name: 'Limit') required final int limit,
           @JsonKey(name: 'Usage') required final int usage}) =
-      _$_LxdProjectStateResource;
+      _$LxdProjectStateResourceImpl;
 
   factory _LxdProjectStateResource.fromJson(Map<String, dynamic> json) =
-      _$_LxdProjectStateResource.fromJson;
+      _$LxdProjectStateResourceImpl.fromJson;
 
   @override
   @JsonKey(name: 'Limit')
@@ -178,9 +189,12 @@ abstract class _LxdProjectStateResource implements LxdProjectStateResource {
   @override
   @JsonKey(name: 'Usage')
   int get usage;
+
+  /// Create a copy of LxdProjectStateResource
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
-  _$$_LxdProjectStateResourceCopyWith<_$_LxdProjectStateResource>
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$LxdProjectStateResourceImplCopyWith<_$LxdProjectStateResourceImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -193,8 +207,12 @@ mixin _$LxdProjectState {
   Map<String, LxdProjectStateResource> get resources =>
       throw _privateConstructorUsedError;
 
+  /// Serializes this LxdProjectState to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of LxdProjectState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $LxdProjectStateCopyWith<LxdProjectState> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -218,6 +236,8 @@ class _$LxdProjectStateCopyWithImpl<$Res, $Val extends LxdProjectState>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of LxdProjectState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -233,30 +253,32 @@ class _$LxdProjectStateCopyWithImpl<$Res, $Val extends LxdProjectState>
 }
 
 /// @nodoc
-abstract class _$$_LxdProjectStateCopyWith<$Res>
+abstract class _$$LxdProjectStateImplCopyWith<$Res>
     implements $LxdProjectStateCopyWith<$Res> {
-  factory _$$_LxdProjectStateCopyWith(
-          _$_LxdProjectState value, $Res Function(_$_LxdProjectState) then) =
-      __$$_LxdProjectStateCopyWithImpl<$Res>;
+  factory _$$LxdProjectStateImplCopyWith(_$LxdProjectStateImpl value,
+          $Res Function(_$LxdProjectStateImpl) then) =
+      __$$LxdProjectStateImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({Map<String, LxdProjectStateResource> resources});
 }
 
 /// @nodoc
-class __$$_LxdProjectStateCopyWithImpl<$Res>
-    extends _$LxdProjectStateCopyWithImpl<$Res, _$_LxdProjectState>
-    implements _$$_LxdProjectStateCopyWith<$Res> {
-  __$$_LxdProjectStateCopyWithImpl(
-      _$_LxdProjectState _value, $Res Function(_$_LxdProjectState) _then)
+class __$$LxdProjectStateImplCopyWithImpl<$Res>
+    extends _$LxdProjectStateCopyWithImpl<$Res, _$LxdProjectStateImpl>
+    implements _$$LxdProjectStateImplCopyWith<$Res> {
+  __$$LxdProjectStateImplCopyWithImpl(
+      _$LxdProjectStateImpl _value, $Res Function(_$LxdProjectStateImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of LxdProjectState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? resources = null,
   }) {
-    return _then(_$_LxdProjectState(
+    return _then(_$LxdProjectStateImpl(
       resources: null == resources
           ? _value._resources
           : resources // ignore: cast_nullable_to_non_nullable
@@ -267,13 +289,13 @@ class __$$_LxdProjectStateCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_LxdProjectState implements _LxdProjectState {
-  const _$_LxdProjectState(
+class _$LxdProjectStateImpl implements _LxdProjectState {
+  const _$LxdProjectStateImpl(
       {required final Map<String, LxdProjectStateResource> resources})
       : _resources = resources;
 
-  factory _$_LxdProjectState.fromJson(Map<String, dynamic> json) =>
-      _$$_LxdProjectStateFromJson(json);
+  factory _$LxdProjectStateImpl.fromJson(Map<String, dynamic> json) =>
+      _$$LxdProjectStateImplFromJson(json);
 
   final Map<String, LxdProjectStateResource> _resources;
   @override
@@ -289,28 +311,31 @@ class _$_LxdProjectState implements _LxdProjectState {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_LxdProjectState &&
+            other is _$LxdProjectStateImpl &&
             const DeepCollectionEquality()
                 .equals(other._resources, _resources));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode =>
       Object.hash(runtimeType, const DeepCollectionEquality().hash(_resources));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of LxdProjectState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$_LxdProjectStateCopyWith<_$_LxdProjectState> get copyWith =>
-      __$$_LxdProjectStateCopyWithImpl<_$_LxdProjectState>(this, _$identity);
+  _$$LxdProjectStateImplCopyWith<_$LxdProjectStateImpl> get copyWith =>
+      __$$LxdProjectStateImplCopyWithImpl<_$LxdProjectStateImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_LxdProjectStateToJson(
+    return _$$LxdProjectStateImplToJson(
       this,
     );
   }
@@ -319,15 +344,18 @@ class _$_LxdProjectState implements _LxdProjectState {
 abstract class _LxdProjectState implements LxdProjectState {
   const factory _LxdProjectState(
           {required final Map<String, LxdProjectStateResource> resources}) =
-      _$_LxdProjectState;
+      _$LxdProjectStateImpl;
 
   factory _LxdProjectState.fromJson(Map<String, dynamic> json) =
-      _$_LxdProjectState.fromJson;
+      _$LxdProjectStateImpl.fromJson;
 
   @override
   Map<String, LxdProjectStateResource> get resources;
+
+  /// Create a copy of LxdProjectState
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
-  _$$_LxdProjectStateCopyWith<_$_LxdProjectState> get copyWith =>
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$LxdProjectStateImplCopyWith<_$LxdProjectStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

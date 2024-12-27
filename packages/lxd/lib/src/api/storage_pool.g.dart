@@ -6,14 +6,16 @@ part of 'storage_pool.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_LxdStoragePool _$$_LxdStoragePoolFromJson(Map json) => _$_LxdStoragePool(
+_$LxdStoragePoolImpl _$$LxdStoragePoolImplFromJson(Map json) =>
+    _$LxdStoragePoolImpl(
       config: Map<String, String>.from(json['config'] as Map),
       description: json['description'] as String,
       name: json['name'] as String,
       status: json['status'] as String,
     );
 
-Map<String, dynamic> _$$_LxdStoragePoolToJson(_$_LxdStoragePool instance) =>
+Map<String, dynamic> _$$LxdStoragePoolImplToJson(
+        _$LxdStoragePoolImpl instance) =>
     <String, dynamic>{
       'config': instance.config,
       'description': instance.description,

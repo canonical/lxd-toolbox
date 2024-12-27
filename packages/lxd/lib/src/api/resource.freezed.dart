@@ -12,7 +12,7 @@ part of 'resource.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 LxdCpuResources _$LxdCpuResourcesFromJson(Map<String, dynamic> json) {
   return _LxdCpuResources.fromJson(json);
@@ -23,8 +23,12 @@ mixin _$LxdCpuResources {
   String get architecture => throw _privateConstructorUsedError;
   List<String> get sockets => throw _privateConstructorUsedError;
 
+  /// Serializes this LxdCpuResources to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of LxdCpuResources
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $LxdCpuResourcesCopyWith<LxdCpuResources> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -48,6 +52,8 @@ class _$LxdCpuResourcesCopyWithImpl<$Res, $Val extends LxdCpuResources>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of LxdCpuResources
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -68,31 +74,33 @@ class _$LxdCpuResourcesCopyWithImpl<$Res, $Val extends LxdCpuResources>
 }
 
 /// @nodoc
-abstract class _$$_LxdCpuResourcesCopyWith<$Res>
+abstract class _$$LxdCpuResourcesImplCopyWith<$Res>
     implements $LxdCpuResourcesCopyWith<$Res> {
-  factory _$$_LxdCpuResourcesCopyWith(
-          _$_LxdCpuResources value, $Res Function(_$_LxdCpuResources) then) =
-      __$$_LxdCpuResourcesCopyWithImpl<$Res>;
+  factory _$$LxdCpuResourcesImplCopyWith(_$LxdCpuResourcesImpl value,
+          $Res Function(_$LxdCpuResourcesImpl) then) =
+      __$$LxdCpuResourcesImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String architecture, List<String> sockets});
 }
 
 /// @nodoc
-class __$$_LxdCpuResourcesCopyWithImpl<$Res>
-    extends _$LxdCpuResourcesCopyWithImpl<$Res, _$_LxdCpuResources>
-    implements _$$_LxdCpuResourcesCopyWith<$Res> {
-  __$$_LxdCpuResourcesCopyWithImpl(
-      _$_LxdCpuResources _value, $Res Function(_$_LxdCpuResources) _then)
+class __$$LxdCpuResourcesImplCopyWithImpl<$Res>
+    extends _$LxdCpuResourcesCopyWithImpl<$Res, _$LxdCpuResourcesImpl>
+    implements _$$LxdCpuResourcesImplCopyWith<$Res> {
+  __$$LxdCpuResourcesImplCopyWithImpl(
+      _$LxdCpuResourcesImpl _value, $Res Function(_$LxdCpuResourcesImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of LxdCpuResources
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? architecture = null,
     Object? sockets = null,
   }) {
-    return _then(_$_LxdCpuResources(
+    return _then(_$LxdCpuResourcesImpl(
       architecture: null == architecture
           ? _value.architecture
           : architecture // ignore: cast_nullable_to_non_nullable
@@ -107,13 +115,13 @@ class __$$_LxdCpuResourcesCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_LxdCpuResources implements _LxdCpuResources {
-  const _$_LxdCpuResources(
+class _$LxdCpuResourcesImpl implements _LxdCpuResources {
+  const _$LxdCpuResourcesImpl(
       {required this.architecture, required final List<String> sockets})
       : _sockets = sockets;
 
-  factory _$_LxdCpuResources.fromJson(Map<String, dynamic> json) =>
-      _$$_LxdCpuResourcesFromJson(json);
+  factory _$LxdCpuResourcesImpl.fromJson(Map<String, dynamic> json) =>
+      _$$LxdCpuResourcesImplFromJson(json);
 
   @override
   final String architecture;
@@ -131,29 +139,32 @@ class _$_LxdCpuResources implements _LxdCpuResources {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_LxdCpuResources &&
+            other is _$LxdCpuResourcesImpl &&
             (identical(other.architecture, architecture) ||
                 other.architecture == architecture) &&
             const DeepCollectionEquality().equals(other._sockets, _sockets));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType, architecture, const DeepCollectionEquality().hash(_sockets));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of LxdCpuResources
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$_LxdCpuResourcesCopyWith<_$_LxdCpuResources> get copyWith =>
-      __$$_LxdCpuResourcesCopyWithImpl<_$_LxdCpuResources>(this, _$identity);
+  _$$LxdCpuResourcesImplCopyWith<_$LxdCpuResourcesImpl> get copyWith =>
+      __$$LxdCpuResourcesImplCopyWithImpl<_$LxdCpuResourcesImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_LxdCpuResourcesToJson(
+    return _$$LxdCpuResourcesImplToJson(
       this,
     );
   }
@@ -162,18 +173,21 @@ class _$_LxdCpuResources implements _LxdCpuResources {
 abstract class _LxdCpuResources implements LxdCpuResources {
   const factory _LxdCpuResources(
       {required final String architecture,
-      required final List<String> sockets}) = _$_LxdCpuResources;
+      required final List<String> sockets}) = _$LxdCpuResourcesImpl;
 
   factory _LxdCpuResources.fromJson(Map<String, dynamic> json) =
-      _$_LxdCpuResources.fromJson;
+      _$LxdCpuResourcesImpl.fromJson;
 
   @override
   String get architecture;
   @override
   List<String> get sockets;
+
+  /// Create a copy of LxdCpuResources
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
-  _$$_LxdCpuResourcesCopyWith<_$_LxdCpuResources> get copyWith =>
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$LxdCpuResourcesImplCopyWith<_$LxdCpuResourcesImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -186,8 +200,12 @@ mixin _$LxdMemoryResources {
   int get used => throw _privateConstructorUsedError;
   int get total => throw _privateConstructorUsedError;
 
+  /// Serializes this LxdMemoryResources to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of LxdMemoryResources
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $LxdMemoryResourcesCopyWith<LxdMemoryResources> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -211,6 +229,8 @@ class _$LxdMemoryResourcesCopyWithImpl<$Res, $Val extends LxdMemoryResources>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of LxdMemoryResources
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -231,31 +251,33 @@ class _$LxdMemoryResourcesCopyWithImpl<$Res, $Val extends LxdMemoryResources>
 }
 
 /// @nodoc
-abstract class _$$_LxdMemoryResourcesCopyWith<$Res>
+abstract class _$$LxdMemoryResourcesImplCopyWith<$Res>
     implements $LxdMemoryResourcesCopyWith<$Res> {
-  factory _$$_LxdMemoryResourcesCopyWith(_$_LxdMemoryResources value,
-          $Res Function(_$_LxdMemoryResources) then) =
-      __$$_LxdMemoryResourcesCopyWithImpl<$Res>;
+  factory _$$LxdMemoryResourcesImplCopyWith(_$LxdMemoryResourcesImpl value,
+          $Res Function(_$LxdMemoryResourcesImpl) then) =
+      __$$LxdMemoryResourcesImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({int used, int total});
 }
 
 /// @nodoc
-class __$$_LxdMemoryResourcesCopyWithImpl<$Res>
-    extends _$LxdMemoryResourcesCopyWithImpl<$Res, _$_LxdMemoryResources>
-    implements _$$_LxdMemoryResourcesCopyWith<$Res> {
-  __$$_LxdMemoryResourcesCopyWithImpl(
-      _$_LxdMemoryResources _value, $Res Function(_$_LxdMemoryResources) _then)
+class __$$LxdMemoryResourcesImplCopyWithImpl<$Res>
+    extends _$LxdMemoryResourcesCopyWithImpl<$Res, _$LxdMemoryResourcesImpl>
+    implements _$$LxdMemoryResourcesImplCopyWith<$Res> {
+  __$$LxdMemoryResourcesImplCopyWithImpl(_$LxdMemoryResourcesImpl _value,
+      $Res Function(_$LxdMemoryResourcesImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of LxdMemoryResources
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? used = null,
     Object? total = null,
   }) {
-    return _then(_$_LxdMemoryResources(
+    return _then(_$LxdMemoryResourcesImpl(
       used: null == used
           ? _value.used
           : used // ignore: cast_nullable_to_non_nullable
@@ -270,11 +292,11 @@ class __$$_LxdMemoryResourcesCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_LxdMemoryResources implements _LxdMemoryResources {
-  const _$_LxdMemoryResources({required this.used, required this.total});
+class _$LxdMemoryResourcesImpl implements _LxdMemoryResources {
+  const _$LxdMemoryResourcesImpl({required this.used, required this.total});
 
-  factory _$_LxdMemoryResources.fromJson(Map<String, dynamic> json) =>
-      _$$_LxdMemoryResourcesFromJson(json);
+  factory _$LxdMemoryResourcesImpl.fromJson(Map<String, dynamic> json) =>
+      _$$LxdMemoryResourcesImplFromJson(json);
 
   @override
   final int used;
@@ -287,28 +309,30 @@ class _$_LxdMemoryResources implements _LxdMemoryResources {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_LxdMemoryResources &&
+            other is _$LxdMemoryResourcesImpl &&
             (identical(other.used, used) || other.used == used) &&
             (identical(other.total, total) || other.total == total));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, used, total);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of LxdMemoryResources
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$_LxdMemoryResourcesCopyWith<_$_LxdMemoryResources> get copyWith =>
-      __$$_LxdMemoryResourcesCopyWithImpl<_$_LxdMemoryResources>(
+  _$$LxdMemoryResourcesImplCopyWith<_$LxdMemoryResourcesImpl> get copyWith =>
+      __$$LxdMemoryResourcesImplCopyWithImpl<_$LxdMemoryResourcesImpl>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_LxdMemoryResourcesToJson(
+    return _$$LxdMemoryResourcesImplToJson(
       this,
     );
   }
@@ -317,18 +341,21 @@ class _$_LxdMemoryResources implements _LxdMemoryResources {
 abstract class _LxdMemoryResources implements LxdMemoryResources {
   const factory _LxdMemoryResources(
       {required final int used,
-      required final int total}) = _$_LxdMemoryResources;
+      required final int total}) = _$LxdMemoryResourcesImpl;
 
   factory _LxdMemoryResources.fromJson(Map<String, dynamic> json) =
-      _$_LxdMemoryResources.fromJson;
+      _$LxdMemoryResourcesImpl.fromJson;
 
   @override
   int get used;
   @override
   int get total;
+
+  /// Create a copy of LxdMemoryResources
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
-  _$$_LxdMemoryResourcesCopyWith<_$_LxdMemoryResources> get copyWith =>
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$LxdMemoryResourcesImplCopyWith<_$LxdMemoryResourcesImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -340,8 +367,12 @@ LxdGpuResources _$LxdGpuResourcesFromJson(Map<String, dynamic> json) {
 mixin _$LxdGpuResources {
   List<LxdGpuCard> get cards => throw _privateConstructorUsedError;
 
+  /// Serializes this LxdGpuResources to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of LxdGpuResources
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $LxdGpuResourcesCopyWith<LxdGpuResources> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -365,6 +396,8 @@ class _$LxdGpuResourcesCopyWithImpl<$Res, $Val extends LxdGpuResources>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of LxdGpuResources
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -380,30 +413,32 @@ class _$LxdGpuResourcesCopyWithImpl<$Res, $Val extends LxdGpuResources>
 }
 
 /// @nodoc
-abstract class _$$_LxdGpuResourcesCopyWith<$Res>
+abstract class _$$LxdGpuResourcesImplCopyWith<$Res>
     implements $LxdGpuResourcesCopyWith<$Res> {
-  factory _$$_LxdGpuResourcesCopyWith(
-          _$_LxdGpuResources value, $Res Function(_$_LxdGpuResources) then) =
-      __$$_LxdGpuResourcesCopyWithImpl<$Res>;
+  factory _$$LxdGpuResourcesImplCopyWith(_$LxdGpuResourcesImpl value,
+          $Res Function(_$LxdGpuResourcesImpl) then) =
+      __$$LxdGpuResourcesImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({List<LxdGpuCard> cards});
 }
 
 /// @nodoc
-class __$$_LxdGpuResourcesCopyWithImpl<$Res>
-    extends _$LxdGpuResourcesCopyWithImpl<$Res, _$_LxdGpuResources>
-    implements _$$_LxdGpuResourcesCopyWith<$Res> {
-  __$$_LxdGpuResourcesCopyWithImpl(
-      _$_LxdGpuResources _value, $Res Function(_$_LxdGpuResources) _then)
+class __$$LxdGpuResourcesImplCopyWithImpl<$Res>
+    extends _$LxdGpuResourcesCopyWithImpl<$Res, _$LxdGpuResourcesImpl>
+    implements _$$LxdGpuResourcesImplCopyWith<$Res> {
+  __$$LxdGpuResourcesImplCopyWithImpl(
+      _$LxdGpuResourcesImpl _value, $Res Function(_$LxdGpuResourcesImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of LxdGpuResources
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? cards = null,
   }) {
-    return _then(_$_LxdGpuResources(
+    return _then(_$LxdGpuResourcesImpl(
       cards: null == cards
           ? _value._cards
           : cards // ignore: cast_nullable_to_non_nullable
@@ -414,12 +449,12 @@ class __$$_LxdGpuResourcesCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_LxdGpuResources implements _LxdGpuResources {
-  const _$_LxdGpuResources({required final List<LxdGpuCard> cards})
+class _$LxdGpuResourcesImpl implements _LxdGpuResources {
+  const _$LxdGpuResourcesImpl({required final List<LxdGpuCard> cards})
       : _cards = cards;
 
-  factory _$_LxdGpuResources.fromJson(Map<String, dynamic> json) =>
-      _$$_LxdGpuResourcesFromJson(json);
+  factory _$LxdGpuResourcesImpl.fromJson(Map<String, dynamic> json) =>
+      _$$LxdGpuResourcesImplFromJson(json);
 
   final List<LxdGpuCard> _cards;
   @override
@@ -435,27 +470,30 @@ class _$_LxdGpuResources implements _LxdGpuResources {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_LxdGpuResources &&
+            other is _$LxdGpuResourcesImpl &&
             const DeepCollectionEquality().equals(other._cards, _cards));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode =>
       Object.hash(runtimeType, const DeepCollectionEquality().hash(_cards));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of LxdGpuResources
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$_LxdGpuResourcesCopyWith<_$_LxdGpuResources> get copyWith =>
-      __$$_LxdGpuResourcesCopyWithImpl<_$_LxdGpuResources>(this, _$identity);
+  _$$LxdGpuResourcesImplCopyWith<_$LxdGpuResourcesImpl> get copyWith =>
+      __$$LxdGpuResourcesImplCopyWithImpl<_$LxdGpuResourcesImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_LxdGpuResourcesToJson(
+    return _$$LxdGpuResourcesImplToJson(
       this,
     );
   }
@@ -463,16 +501,19 @@ class _$_LxdGpuResources implements _LxdGpuResources {
 
 abstract class _LxdGpuResources implements LxdGpuResources {
   const factory _LxdGpuResources({required final List<LxdGpuCard> cards}) =
-      _$_LxdGpuResources;
+      _$LxdGpuResourcesImpl;
 
   factory _LxdGpuResources.fromJson(Map<String, dynamic> json) =
-      _$_LxdGpuResources.fromJson;
+      _$LxdGpuResourcesImpl.fromJson;
 
   @override
   List<LxdGpuCard> get cards;
+
+  /// Create a copy of LxdGpuResources
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
-  _$$_LxdGpuResourcesCopyWith<_$_LxdGpuResources> get copyWith =>
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$LxdGpuResourcesImplCopyWith<_$LxdGpuResourcesImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -487,8 +528,12 @@ mixin _$LxdGpuCard {
   String get vendor => throw _privateConstructorUsedError;
   String get vendorId => throw _privateConstructorUsedError;
 
+  /// Serializes this LxdGpuCard to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of LxdGpuCard
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $LxdGpuCardCopyWith<LxdGpuCard> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -513,6 +558,8 @@ class _$LxdGpuCardCopyWithImpl<$Res, $Val extends LxdGpuCard>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of LxdGpuCard
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -543,11 +590,11 @@ class _$LxdGpuCardCopyWithImpl<$Res, $Val extends LxdGpuCard>
 }
 
 /// @nodoc
-abstract class _$$_LxdGpuCardCopyWith<$Res>
+abstract class _$$LxdGpuCardImplCopyWith<$Res>
     implements $LxdGpuCardCopyWith<$Res> {
-  factory _$$_LxdGpuCardCopyWith(
-          _$_LxdGpuCard value, $Res Function(_$_LxdGpuCard) then) =
-      __$$_LxdGpuCardCopyWithImpl<$Res>;
+  factory _$$LxdGpuCardImplCopyWith(
+          _$LxdGpuCardImpl value, $Res Function(_$LxdGpuCardImpl) then) =
+      __$$LxdGpuCardImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -555,13 +602,15 @@ abstract class _$$_LxdGpuCardCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_LxdGpuCardCopyWithImpl<$Res>
-    extends _$LxdGpuCardCopyWithImpl<$Res, _$_LxdGpuCard>
-    implements _$$_LxdGpuCardCopyWith<$Res> {
-  __$$_LxdGpuCardCopyWithImpl(
-      _$_LxdGpuCard _value, $Res Function(_$_LxdGpuCard) _then)
+class __$$LxdGpuCardImplCopyWithImpl<$Res>
+    extends _$LxdGpuCardCopyWithImpl<$Res, _$LxdGpuCardImpl>
+    implements _$$LxdGpuCardImplCopyWith<$Res> {
+  __$$LxdGpuCardImplCopyWithImpl(
+      _$LxdGpuCardImpl _value, $Res Function(_$LxdGpuCardImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of LxdGpuCard
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -570,7 +619,7 @@ class __$$_LxdGpuCardCopyWithImpl<$Res>
     Object? vendor = null,
     Object? vendorId = null,
   }) {
-    return _then(_$_LxdGpuCard(
+    return _then(_$LxdGpuCardImpl(
       driver: null == driver
           ? _value.driver
           : driver // ignore: cast_nullable_to_non_nullable
@@ -593,15 +642,15 @@ class __$$_LxdGpuCardCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_LxdGpuCard implements _LxdGpuCard {
-  const _$_LxdGpuCard(
+class _$LxdGpuCardImpl implements _LxdGpuCard {
+  const _$LxdGpuCardImpl(
       {required this.driver,
       required this.driverVersion,
       required this.vendor,
       required this.vendorId});
 
-  factory _$_LxdGpuCard.fromJson(Map<String, dynamic> json) =>
-      _$$_LxdGpuCardFromJson(json);
+  factory _$LxdGpuCardImpl.fromJson(Map<String, dynamic> json) =>
+      _$$LxdGpuCardImplFromJson(json);
 
   @override
   final String driver;
@@ -618,10 +667,10 @@ class _$_LxdGpuCard implements _LxdGpuCard {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_LxdGpuCard &&
+            other is _$LxdGpuCardImpl &&
             (identical(other.driver, driver) || other.driver == driver) &&
             (identical(other.driverVersion, driverVersion) ||
                 other.driverVersion == driverVersion) &&
@@ -630,20 +679,22 @@ class _$_LxdGpuCard implements _LxdGpuCard {
                 other.vendorId == vendorId));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode =>
       Object.hash(runtimeType, driver, driverVersion, vendor, vendorId);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of LxdGpuCard
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$_LxdGpuCardCopyWith<_$_LxdGpuCard> get copyWith =>
-      __$$_LxdGpuCardCopyWithImpl<_$_LxdGpuCard>(this, _$identity);
+  _$$LxdGpuCardImplCopyWith<_$LxdGpuCardImpl> get copyWith =>
+      __$$LxdGpuCardImplCopyWithImpl<_$LxdGpuCardImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_LxdGpuCardToJson(
+    return _$$LxdGpuCardImplToJson(
       this,
     );
   }
@@ -654,10 +705,10 @@ abstract class _LxdGpuCard implements LxdGpuCard {
       {required final String driver,
       required final String driverVersion,
       required final String vendor,
-      required final String vendorId}) = _$_LxdGpuCard;
+      required final String vendorId}) = _$LxdGpuCardImpl;
 
   factory _LxdGpuCard.fromJson(Map<String, dynamic> json) =
-      _$_LxdGpuCard.fromJson;
+      _$LxdGpuCardImpl.fromJson;
 
   @override
   String get driver;
@@ -667,9 +718,12 @@ abstract class _LxdGpuCard implements LxdGpuCard {
   String get vendor;
   @override
   String get vendorId;
+
+  /// Create a copy of LxdGpuCard
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
-  _$$_LxdGpuCardCopyWith<_$_LxdGpuCard> get copyWith =>
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$LxdGpuCardImplCopyWith<_$LxdGpuCardImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -681,8 +735,12 @@ LXdNetworkResources _$LXdNetworkResourcesFromJson(Map<String, dynamic> json) {
 mixin _$LXdNetworkResources {
   List<LxdNetworkCard> get cards => throw _privateConstructorUsedError;
 
+  /// Serializes this LXdNetworkResources to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of LXdNetworkResources
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $LXdNetworkResourcesCopyWith<LXdNetworkResources> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -706,6 +764,8 @@ class _$LXdNetworkResourcesCopyWithImpl<$Res, $Val extends LXdNetworkResources>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of LXdNetworkResources
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -721,30 +781,32 @@ class _$LXdNetworkResourcesCopyWithImpl<$Res, $Val extends LXdNetworkResources>
 }
 
 /// @nodoc
-abstract class _$$_LXdNetworkResourcesCopyWith<$Res>
+abstract class _$$LXdNetworkResourcesImplCopyWith<$Res>
     implements $LXdNetworkResourcesCopyWith<$Res> {
-  factory _$$_LXdNetworkResourcesCopyWith(_$_LXdNetworkResources value,
-          $Res Function(_$_LXdNetworkResources) then) =
-      __$$_LXdNetworkResourcesCopyWithImpl<$Res>;
+  factory _$$LXdNetworkResourcesImplCopyWith(_$LXdNetworkResourcesImpl value,
+          $Res Function(_$LXdNetworkResourcesImpl) then) =
+      __$$LXdNetworkResourcesImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({List<LxdNetworkCard> cards});
 }
 
 /// @nodoc
-class __$$_LXdNetworkResourcesCopyWithImpl<$Res>
-    extends _$LXdNetworkResourcesCopyWithImpl<$Res, _$_LXdNetworkResources>
-    implements _$$_LXdNetworkResourcesCopyWith<$Res> {
-  __$$_LXdNetworkResourcesCopyWithImpl(_$_LXdNetworkResources _value,
-      $Res Function(_$_LXdNetworkResources) _then)
+class __$$LXdNetworkResourcesImplCopyWithImpl<$Res>
+    extends _$LXdNetworkResourcesCopyWithImpl<$Res, _$LXdNetworkResourcesImpl>
+    implements _$$LXdNetworkResourcesImplCopyWith<$Res> {
+  __$$LXdNetworkResourcesImplCopyWithImpl(_$LXdNetworkResourcesImpl _value,
+      $Res Function(_$LXdNetworkResourcesImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of LXdNetworkResources
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? cards = null,
   }) {
-    return _then(_$_LXdNetworkResources(
+    return _then(_$LXdNetworkResourcesImpl(
       cards: null == cards
           ? _value._cards
           : cards // ignore: cast_nullable_to_non_nullable
@@ -755,12 +817,12 @@ class __$$_LXdNetworkResourcesCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_LXdNetworkResources implements _LXdNetworkResources {
-  const _$_LXdNetworkResources({required final List<LxdNetworkCard> cards})
+class _$LXdNetworkResourcesImpl implements _LXdNetworkResources {
+  const _$LXdNetworkResourcesImpl({required final List<LxdNetworkCard> cards})
       : _cards = cards;
 
-  factory _$_LXdNetworkResources.fromJson(Map<String, dynamic> json) =>
-      _$$_LXdNetworkResourcesFromJson(json);
+  factory _$LXdNetworkResourcesImpl.fromJson(Map<String, dynamic> json) =>
+      _$$LXdNetworkResourcesImplFromJson(json);
 
   final List<LxdNetworkCard> _cards;
   @override
@@ -776,28 +838,30 @@ class _$_LXdNetworkResources implements _LXdNetworkResources {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_LXdNetworkResources &&
+            other is _$LXdNetworkResourcesImpl &&
             const DeepCollectionEquality().equals(other._cards, _cards));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode =>
       Object.hash(runtimeType, const DeepCollectionEquality().hash(_cards));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of LXdNetworkResources
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$_LXdNetworkResourcesCopyWith<_$_LXdNetworkResources> get copyWith =>
-      __$$_LXdNetworkResourcesCopyWithImpl<_$_LXdNetworkResources>(
+  _$$LXdNetworkResourcesImplCopyWith<_$LXdNetworkResourcesImpl> get copyWith =>
+      __$$LXdNetworkResourcesImplCopyWithImpl<_$LXdNetworkResourcesImpl>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_LXdNetworkResourcesToJson(
+    return _$$LXdNetworkResourcesImplToJson(
       this,
     );
   }
@@ -805,16 +869,19 @@ class _$_LXdNetworkResources implements _LXdNetworkResources {
 
 abstract class _LXdNetworkResources implements LXdNetworkResources {
   const factory _LXdNetworkResources(
-      {required final List<LxdNetworkCard> cards}) = _$_LXdNetworkResources;
+      {required final List<LxdNetworkCard> cards}) = _$LXdNetworkResourcesImpl;
 
   factory _LXdNetworkResources.fromJson(Map<String, dynamic> json) =
-      _$_LXdNetworkResources.fromJson;
+      _$LXdNetworkResourcesImpl.fromJson;
 
   @override
   List<LxdNetworkCard> get cards;
+
+  /// Create a copy of LXdNetworkResources
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
-  _$$_LXdNetworkResourcesCopyWith<_$_LXdNetworkResources> get copyWith =>
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$LXdNetworkResourcesImplCopyWith<_$LXdNetworkResourcesImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -829,8 +896,12 @@ mixin _$LxdNetworkCard {
   String get vendor => throw _privateConstructorUsedError;
   String get vendorId => throw _privateConstructorUsedError;
 
+  /// Serializes this LxdNetworkCard to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of LxdNetworkCard
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $LxdNetworkCardCopyWith<LxdNetworkCard> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -855,6 +926,8 @@ class _$LxdNetworkCardCopyWithImpl<$Res, $Val extends LxdNetworkCard>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of LxdNetworkCard
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -885,11 +958,11 @@ class _$LxdNetworkCardCopyWithImpl<$Res, $Val extends LxdNetworkCard>
 }
 
 /// @nodoc
-abstract class _$$_LxdNetworkCardCopyWith<$Res>
+abstract class _$$LxdNetworkCardImplCopyWith<$Res>
     implements $LxdNetworkCardCopyWith<$Res> {
-  factory _$$_LxdNetworkCardCopyWith(
-          _$_LxdNetworkCard value, $Res Function(_$_LxdNetworkCard) then) =
-      __$$_LxdNetworkCardCopyWithImpl<$Res>;
+  factory _$$LxdNetworkCardImplCopyWith(_$LxdNetworkCardImpl value,
+          $Res Function(_$LxdNetworkCardImpl) then) =
+      __$$LxdNetworkCardImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -897,13 +970,15 @@ abstract class _$$_LxdNetworkCardCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_LxdNetworkCardCopyWithImpl<$Res>
-    extends _$LxdNetworkCardCopyWithImpl<$Res, _$_LxdNetworkCard>
-    implements _$$_LxdNetworkCardCopyWith<$Res> {
-  __$$_LxdNetworkCardCopyWithImpl(
-      _$_LxdNetworkCard _value, $Res Function(_$_LxdNetworkCard) _then)
+class __$$LxdNetworkCardImplCopyWithImpl<$Res>
+    extends _$LxdNetworkCardCopyWithImpl<$Res, _$LxdNetworkCardImpl>
+    implements _$$LxdNetworkCardImplCopyWith<$Res> {
+  __$$LxdNetworkCardImplCopyWithImpl(
+      _$LxdNetworkCardImpl _value, $Res Function(_$LxdNetworkCardImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of LxdNetworkCard
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -912,7 +987,7 @@ class __$$_LxdNetworkCardCopyWithImpl<$Res>
     Object? vendor = null,
     Object? vendorId = null,
   }) {
-    return _then(_$_LxdNetworkCard(
+    return _then(_$LxdNetworkCardImpl(
       driver: null == driver
           ? _value.driver
           : driver // ignore: cast_nullable_to_non_nullable
@@ -935,15 +1010,15 @@ class __$$_LxdNetworkCardCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_LxdNetworkCard implements _LxdNetworkCard {
-  const _$_LxdNetworkCard(
+class _$LxdNetworkCardImpl implements _LxdNetworkCard {
+  const _$LxdNetworkCardImpl(
       {required this.driver,
       required this.driverVersion,
       required this.vendor,
       required this.vendorId});
 
-  factory _$_LxdNetworkCard.fromJson(Map<String, dynamic> json) =>
-      _$$_LxdNetworkCardFromJson(json);
+  factory _$LxdNetworkCardImpl.fromJson(Map<String, dynamic> json) =>
+      _$$LxdNetworkCardImplFromJson(json);
 
   @override
   final String driver;
@@ -960,10 +1035,10 @@ class _$_LxdNetworkCard implements _LxdNetworkCard {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_LxdNetworkCard &&
+            other is _$LxdNetworkCardImpl &&
             (identical(other.driver, driver) || other.driver == driver) &&
             (identical(other.driverVersion, driverVersion) ||
                 other.driverVersion == driverVersion) &&
@@ -972,20 +1047,23 @@ class _$_LxdNetworkCard implements _LxdNetworkCard {
                 other.vendorId == vendorId));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode =>
       Object.hash(runtimeType, driver, driverVersion, vendor, vendorId);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of LxdNetworkCard
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$_LxdNetworkCardCopyWith<_$_LxdNetworkCard> get copyWith =>
-      __$$_LxdNetworkCardCopyWithImpl<_$_LxdNetworkCard>(this, _$identity);
+  _$$LxdNetworkCardImplCopyWith<_$LxdNetworkCardImpl> get copyWith =>
+      __$$LxdNetworkCardImplCopyWithImpl<_$LxdNetworkCardImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_LxdNetworkCardToJson(
+    return _$$LxdNetworkCardImplToJson(
       this,
     );
   }
@@ -996,10 +1074,10 @@ abstract class _LxdNetworkCard implements LxdNetworkCard {
       {required final String driver,
       required final String driverVersion,
       required final String vendor,
-      required final String vendorId}) = _$_LxdNetworkCard;
+      required final String vendorId}) = _$LxdNetworkCardImpl;
 
   factory _LxdNetworkCard.fromJson(Map<String, dynamic> json) =
-      _$_LxdNetworkCard.fromJson;
+      _$LxdNetworkCardImpl.fromJson;
 
   @override
   String get driver;
@@ -1009,9 +1087,12 @@ abstract class _LxdNetworkCard implements LxdNetworkCard {
   String get vendor;
   @override
   String get vendorId;
+
+  /// Create a copy of LxdNetworkCard
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
-  _$$_LxdNetworkCardCopyWith<_$_LxdNetworkCard> get copyWith =>
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$LxdNetworkCardImplCopyWith<_$LxdNetworkCardImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -1023,8 +1104,12 @@ LxdStorageResources _$LxdStorageResourcesFromJson(Map<String, dynamic> json) {
 mixin _$LxdStorageResources {
   List<LxdStorageDisk> get disks => throw _privateConstructorUsedError;
 
+  /// Serializes this LxdStorageResources to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of LxdStorageResources
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $LxdStorageResourcesCopyWith<LxdStorageResources> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -1048,6 +1133,8 @@ class _$LxdStorageResourcesCopyWithImpl<$Res, $Val extends LxdStorageResources>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of LxdStorageResources
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -1063,30 +1150,32 @@ class _$LxdStorageResourcesCopyWithImpl<$Res, $Val extends LxdStorageResources>
 }
 
 /// @nodoc
-abstract class _$$_LxdStorageResourcesCopyWith<$Res>
+abstract class _$$LxdStorageResourcesImplCopyWith<$Res>
     implements $LxdStorageResourcesCopyWith<$Res> {
-  factory _$$_LxdStorageResourcesCopyWith(_$_LxdStorageResources value,
-          $Res Function(_$_LxdStorageResources) then) =
-      __$$_LxdStorageResourcesCopyWithImpl<$Res>;
+  factory _$$LxdStorageResourcesImplCopyWith(_$LxdStorageResourcesImpl value,
+          $Res Function(_$LxdStorageResourcesImpl) then) =
+      __$$LxdStorageResourcesImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({List<LxdStorageDisk> disks});
 }
 
 /// @nodoc
-class __$$_LxdStorageResourcesCopyWithImpl<$Res>
-    extends _$LxdStorageResourcesCopyWithImpl<$Res, _$_LxdStorageResources>
-    implements _$$_LxdStorageResourcesCopyWith<$Res> {
-  __$$_LxdStorageResourcesCopyWithImpl(_$_LxdStorageResources _value,
-      $Res Function(_$_LxdStorageResources) _then)
+class __$$LxdStorageResourcesImplCopyWithImpl<$Res>
+    extends _$LxdStorageResourcesCopyWithImpl<$Res, _$LxdStorageResourcesImpl>
+    implements _$$LxdStorageResourcesImplCopyWith<$Res> {
+  __$$LxdStorageResourcesImplCopyWithImpl(_$LxdStorageResourcesImpl _value,
+      $Res Function(_$LxdStorageResourcesImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of LxdStorageResources
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? disks = null,
   }) {
-    return _then(_$_LxdStorageResources(
+    return _then(_$LxdStorageResourcesImpl(
       disks: null == disks
           ? _value._disks
           : disks // ignore: cast_nullable_to_non_nullable
@@ -1097,12 +1186,12 @@ class __$$_LxdStorageResourcesCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_LxdStorageResources implements _LxdStorageResources {
-  const _$_LxdStorageResources({required final List<LxdStorageDisk> disks})
+class _$LxdStorageResourcesImpl implements _LxdStorageResources {
+  const _$LxdStorageResourcesImpl({required final List<LxdStorageDisk> disks})
       : _disks = disks;
 
-  factory _$_LxdStorageResources.fromJson(Map<String, dynamic> json) =>
-      _$$_LxdStorageResourcesFromJson(json);
+  factory _$LxdStorageResourcesImpl.fromJson(Map<String, dynamic> json) =>
+      _$$LxdStorageResourcesImplFromJson(json);
 
   final List<LxdStorageDisk> _disks;
   @override
@@ -1118,28 +1207,30 @@ class _$_LxdStorageResources implements _LxdStorageResources {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_LxdStorageResources &&
+            other is _$LxdStorageResourcesImpl &&
             const DeepCollectionEquality().equals(other._disks, _disks));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode =>
       Object.hash(runtimeType, const DeepCollectionEquality().hash(_disks));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of LxdStorageResources
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$_LxdStorageResourcesCopyWith<_$_LxdStorageResources> get copyWith =>
-      __$$_LxdStorageResourcesCopyWithImpl<_$_LxdStorageResources>(
+  _$$LxdStorageResourcesImplCopyWith<_$LxdStorageResourcesImpl> get copyWith =>
+      __$$LxdStorageResourcesImplCopyWithImpl<_$LxdStorageResourcesImpl>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_LxdStorageResourcesToJson(
+    return _$$LxdStorageResourcesImplToJson(
       this,
     );
   }
@@ -1147,16 +1238,19 @@ class _$_LxdStorageResources implements _LxdStorageResources {
 
 abstract class _LxdStorageResources implements LxdStorageResources {
   const factory _LxdStorageResources(
-      {required final List<LxdStorageDisk> disks}) = _$_LxdStorageResources;
+      {required final List<LxdStorageDisk> disks}) = _$LxdStorageResourcesImpl;
 
   factory _LxdStorageResources.fromJson(Map<String, dynamic> json) =
-      _$_LxdStorageResources.fromJson;
+      _$LxdStorageResourcesImpl.fromJson;
 
   @override
   List<LxdStorageDisk> get disks;
+
+  /// Create a copy of LxdStorageResources
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
-  _$$_LxdStorageResourcesCopyWith<_$_LxdStorageResources> get copyWith =>
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$LxdStorageResourcesImplCopyWith<_$LxdStorageResourcesImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -1172,8 +1266,12 @@ mixin _$LxdStorageDisk {
   int get size => throw _privateConstructorUsedError;
   String get type => throw _privateConstructorUsedError;
 
+  /// Serializes this LxdStorageDisk to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of LxdStorageDisk
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $LxdStorageDiskCopyWith<LxdStorageDisk> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -1197,6 +1295,8 @@ class _$LxdStorageDiskCopyWithImpl<$Res, $Val extends LxdStorageDisk>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of LxdStorageDisk
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -1232,24 +1332,26 @@ class _$LxdStorageDiskCopyWithImpl<$Res, $Val extends LxdStorageDisk>
 }
 
 /// @nodoc
-abstract class _$$_LxdStorageDiskCopyWith<$Res>
+abstract class _$$LxdStorageDiskImplCopyWith<$Res>
     implements $LxdStorageDiskCopyWith<$Res> {
-  factory _$$_LxdStorageDiskCopyWith(
-          _$_LxdStorageDisk value, $Res Function(_$_LxdStorageDisk) then) =
-      __$$_LxdStorageDiskCopyWithImpl<$Res>;
+  factory _$$LxdStorageDiskImplCopyWith(_$LxdStorageDiskImpl value,
+          $Res Function(_$LxdStorageDiskImpl) then) =
+      __$$LxdStorageDiskImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String id, String model, String serial, int size, String type});
 }
 
 /// @nodoc
-class __$$_LxdStorageDiskCopyWithImpl<$Res>
-    extends _$LxdStorageDiskCopyWithImpl<$Res, _$_LxdStorageDisk>
-    implements _$$_LxdStorageDiskCopyWith<$Res> {
-  __$$_LxdStorageDiskCopyWithImpl(
-      _$_LxdStorageDisk _value, $Res Function(_$_LxdStorageDisk) _then)
+class __$$LxdStorageDiskImplCopyWithImpl<$Res>
+    extends _$LxdStorageDiskCopyWithImpl<$Res, _$LxdStorageDiskImpl>
+    implements _$$LxdStorageDiskImplCopyWith<$Res> {
+  __$$LxdStorageDiskImplCopyWithImpl(
+      _$LxdStorageDiskImpl _value, $Res Function(_$LxdStorageDiskImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of LxdStorageDisk
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -1259,7 +1361,7 @@ class __$$_LxdStorageDiskCopyWithImpl<$Res>
     Object? size = null,
     Object? type = null,
   }) {
-    return _then(_$_LxdStorageDisk(
+    return _then(_$LxdStorageDiskImpl(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -1286,16 +1388,16 @@ class __$$_LxdStorageDiskCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_LxdStorageDisk implements _LxdStorageDisk {
-  const _$_LxdStorageDisk(
+class _$LxdStorageDiskImpl implements _LxdStorageDisk {
+  const _$LxdStorageDiskImpl(
       {required this.id,
       required this.model,
       required this.serial,
       required this.size,
       required this.type});
 
-  factory _$_LxdStorageDisk.fromJson(Map<String, dynamic> json) =>
-      _$$_LxdStorageDiskFromJson(json);
+  factory _$LxdStorageDiskImpl.fromJson(Map<String, dynamic> json) =>
+      _$$LxdStorageDiskImplFromJson(json);
 
   @override
   final String id;
@@ -1314,10 +1416,10 @@ class _$_LxdStorageDisk implements _LxdStorageDisk {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_LxdStorageDisk &&
+            other is _$LxdStorageDiskImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.model, model) || other.model == model) &&
             (identical(other.serial, serial) || other.serial == serial) &&
@@ -1325,19 +1427,22 @@ class _$_LxdStorageDisk implements _LxdStorageDisk {
             (identical(other.type, type) || other.type == type));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, id, model, serial, size, type);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of LxdStorageDisk
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$_LxdStorageDiskCopyWith<_$_LxdStorageDisk> get copyWith =>
-      __$$_LxdStorageDiskCopyWithImpl<_$_LxdStorageDisk>(this, _$identity);
+  _$$LxdStorageDiskImplCopyWith<_$LxdStorageDiskImpl> get copyWith =>
+      __$$LxdStorageDiskImplCopyWithImpl<_$LxdStorageDiskImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_LxdStorageDiskToJson(
+    return _$$LxdStorageDiskImplToJson(
       this,
     );
   }
@@ -1349,10 +1454,10 @@ abstract class _LxdStorageDisk implements LxdStorageDisk {
       required final String model,
       required final String serial,
       required final int size,
-      required final String type}) = _$_LxdStorageDisk;
+      required final String type}) = _$LxdStorageDiskImpl;
 
   factory _LxdStorageDisk.fromJson(Map<String, dynamic> json) =
-      _$_LxdStorageDisk.fromJson;
+      _$LxdStorageDiskImpl.fromJson;
 
   @override
   String get id;
@@ -1364,9 +1469,12 @@ abstract class _LxdStorageDisk implements LxdStorageDisk {
   int get size;
   @override
   String get type;
+
+  /// Create a copy of LxdStorageDisk
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
-  _$$_LxdStorageDiskCopyWith<_$_LxdStorageDisk> get copyWith =>
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$LxdStorageDiskImplCopyWith<_$LxdStorageDiskImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -1378,8 +1486,12 @@ LxdUsbResources _$LxdUsbResourcesFromJson(Map<String, dynamic> json) {
 mixin _$LxdUsbResources {
   List<LxdUsbDevice> get devices => throw _privateConstructorUsedError;
 
+  /// Serializes this LxdUsbResources to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of LxdUsbResources
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $LxdUsbResourcesCopyWith<LxdUsbResources> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -1403,6 +1515,8 @@ class _$LxdUsbResourcesCopyWithImpl<$Res, $Val extends LxdUsbResources>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of LxdUsbResources
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -1418,30 +1532,32 @@ class _$LxdUsbResourcesCopyWithImpl<$Res, $Val extends LxdUsbResources>
 }
 
 /// @nodoc
-abstract class _$$_LxdUsbResourcesCopyWith<$Res>
+abstract class _$$LxdUsbResourcesImplCopyWith<$Res>
     implements $LxdUsbResourcesCopyWith<$Res> {
-  factory _$$_LxdUsbResourcesCopyWith(
-          _$_LxdUsbResources value, $Res Function(_$_LxdUsbResources) then) =
-      __$$_LxdUsbResourcesCopyWithImpl<$Res>;
+  factory _$$LxdUsbResourcesImplCopyWith(_$LxdUsbResourcesImpl value,
+          $Res Function(_$LxdUsbResourcesImpl) then) =
+      __$$LxdUsbResourcesImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({List<LxdUsbDevice> devices});
 }
 
 /// @nodoc
-class __$$_LxdUsbResourcesCopyWithImpl<$Res>
-    extends _$LxdUsbResourcesCopyWithImpl<$Res, _$_LxdUsbResources>
-    implements _$$_LxdUsbResourcesCopyWith<$Res> {
-  __$$_LxdUsbResourcesCopyWithImpl(
-      _$_LxdUsbResources _value, $Res Function(_$_LxdUsbResources) _then)
+class __$$LxdUsbResourcesImplCopyWithImpl<$Res>
+    extends _$LxdUsbResourcesCopyWithImpl<$Res, _$LxdUsbResourcesImpl>
+    implements _$$LxdUsbResourcesImplCopyWith<$Res> {
+  __$$LxdUsbResourcesImplCopyWithImpl(
+      _$LxdUsbResourcesImpl _value, $Res Function(_$LxdUsbResourcesImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of LxdUsbResources
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? devices = null,
   }) {
-    return _then(_$_LxdUsbResources(
+    return _then(_$LxdUsbResourcesImpl(
       devices: null == devices
           ? _value._devices
           : devices // ignore: cast_nullable_to_non_nullable
@@ -1452,12 +1568,12 @@ class __$$_LxdUsbResourcesCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_LxdUsbResources implements _LxdUsbResources {
-  const _$_LxdUsbResources({required final List<LxdUsbDevice> devices})
+class _$LxdUsbResourcesImpl implements _LxdUsbResources {
+  const _$LxdUsbResourcesImpl({required final List<LxdUsbDevice> devices})
       : _devices = devices;
 
-  factory _$_LxdUsbResources.fromJson(Map<String, dynamic> json) =>
-      _$$_LxdUsbResourcesFromJson(json);
+  factory _$LxdUsbResourcesImpl.fromJson(Map<String, dynamic> json) =>
+      _$$LxdUsbResourcesImplFromJson(json);
 
   final List<LxdUsbDevice> _devices;
   @override
@@ -1473,27 +1589,30 @@ class _$_LxdUsbResources implements _LxdUsbResources {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_LxdUsbResources &&
+            other is _$LxdUsbResourcesImpl &&
             const DeepCollectionEquality().equals(other._devices, _devices));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode =>
       Object.hash(runtimeType, const DeepCollectionEquality().hash(_devices));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of LxdUsbResources
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$_LxdUsbResourcesCopyWith<_$_LxdUsbResources> get copyWith =>
-      __$$_LxdUsbResourcesCopyWithImpl<_$_LxdUsbResources>(this, _$identity);
+  _$$LxdUsbResourcesImplCopyWith<_$LxdUsbResourcesImpl> get copyWith =>
+      __$$LxdUsbResourcesImplCopyWithImpl<_$LxdUsbResourcesImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_LxdUsbResourcesToJson(
+    return _$$LxdUsbResourcesImplToJson(
       this,
     );
   }
@@ -1501,16 +1620,19 @@ class _$_LxdUsbResources implements _LxdUsbResources {
 
 abstract class _LxdUsbResources implements LxdUsbResources {
   const factory _LxdUsbResources({required final List<LxdUsbDevice> devices}) =
-      _$_LxdUsbResources;
+      _$LxdUsbResourcesImpl;
 
   factory _LxdUsbResources.fromJson(Map<String, dynamic> json) =
-      _$_LxdUsbResources.fromJson;
+      _$LxdUsbResourcesImpl.fromJson;
 
   @override
   List<LxdUsbDevice> get devices;
+
+  /// Create a copy of LxdUsbResources
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
-  _$$_LxdUsbResourcesCopyWith<_$_LxdUsbResources> get copyWith =>
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$LxdUsbResourcesImplCopyWith<_$LxdUsbResourcesImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -1528,8 +1650,12 @@ mixin _$LxdUsbDevice {
   String get vendor => throw _privateConstructorUsedError;
   String get vendorId => throw _privateConstructorUsedError;
 
+  /// Serializes this LxdUsbDevice to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of LxdUsbDevice
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $LxdUsbDeviceCopyWith<LxdUsbDevice> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -1560,6 +1686,8 @@ class _$LxdUsbDeviceCopyWithImpl<$Res, $Val extends LxdUsbDevice>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of LxdUsbDevice
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -1605,11 +1733,11 @@ class _$LxdUsbDeviceCopyWithImpl<$Res, $Val extends LxdUsbDevice>
 }
 
 /// @nodoc
-abstract class _$$_LxdUsbDeviceCopyWith<$Res>
+abstract class _$$LxdUsbDeviceImplCopyWith<$Res>
     implements $LxdUsbDeviceCopyWith<$Res> {
-  factory _$$_LxdUsbDeviceCopyWith(
-          _$_LxdUsbDevice value, $Res Function(_$_LxdUsbDevice) then) =
-      __$$_LxdUsbDeviceCopyWithImpl<$Res>;
+  factory _$$LxdUsbDeviceImplCopyWith(
+          _$LxdUsbDeviceImpl value, $Res Function(_$LxdUsbDeviceImpl) then) =
+      __$$LxdUsbDeviceImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -1623,13 +1751,15 @@ abstract class _$$_LxdUsbDeviceCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_LxdUsbDeviceCopyWithImpl<$Res>
-    extends _$LxdUsbDeviceCopyWithImpl<$Res, _$_LxdUsbDevice>
-    implements _$$_LxdUsbDeviceCopyWith<$Res> {
-  __$$_LxdUsbDeviceCopyWithImpl(
-      _$_LxdUsbDevice _value, $Res Function(_$_LxdUsbDevice) _then)
+class __$$LxdUsbDeviceImplCopyWithImpl<$Res>
+    extends _$LxdUsbDeviceCopyWithImpl<$Res, _$LxdUsbDeviceImpl>
+    implements _$$LxdUsbDeviceImplCopyWith<$Res> {
+  __$$LxdUsbDeviceImplCopyWithImpl(
+      _$LxdUsbDeviceImpl _value, $Res Function(_$LxdUsbDeviceImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of LxdUsbDevice
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -1641,7 +1771,7 @@ class __$$_LxdUsbDeviceCopyWithImpl<$Res>
     Object? vendor = null,
     Object? vendorId = null,
   }) {
-    return _then(_$_LxdUsbDevice(
+    return _then(_$LxdUsbDeviceImpl(
       busAddress: null == busAddress
           ? _value.busAddress
           : busAddress // ignore: cast_nullable_to_non_nullable
@@ -1676,8 +1806,8 @@ class __$$_LxdUsbDeviceCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_LxdUsbDevice implements _LxdUsbDevice {
-  const _$_LxdUsbDevice(
+class _$LxdUsbDeviceImpl implements _LxdUsbDevice {
+  const _$LxdUsbDeviceImpl(
       {required this.busAddress,
       required this.deviceAddress,
       required this.product,
@@ -1686,8 +1816,8 @@ class _$_LxdUsbDevice implements _LxdUsbDevice {
       required this.vendor,
       required this.vendorId});
 
-  factory _$_LxdUsbDevice.fromJson(Map<String, dynamic> json) =>
-      _$$_LxdUsbDeviceFromJson(json);
+  factory _$LxdUsbDeviceImpl.fromJson(Map<String, dynamic> json) =>
+      _$$LxdUsbDeviceImplFromJson(json);
 
   @override
   final int busAddress;
@@ -1710,10 +1840,10 @@ class _$_LxdUsbDevice implements _LxdUsbDevice {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_LxdUsbDevice &&
+            other is _$LxdUsbDeviceImpl &&
             (identical(other.busAddress, busAddress) ||
                 other.busAddress == busAddress) &&
             (identical(other.deviceAddress, deviceAddress) ||
@@ -1727,20 +1857,22 @@ class _$_LxdUsbDevice implements _LxdUsbDevice {
                 other.vendorId == vendorId));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, busAddress, deviceAddress,
       product, productId, speed, vendor, vendorId);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of LxdUsbDevice
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$_LxdUsbDeviceCopyWith<_$_LxdUsbDevice> get copyWith =>
-      __$$_LxdUsbDeviceCopyWithImpl<_$_LxdUsbDevice>(this, _$identity);
+  _$$LxdUsbDeviceImplCopyWith<_$LxdUsbDeviceImpl> get copyWith =>
+      __$$LxdUsbDeviceImplCopyWithImpl<_$LxdUsbDeviceImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_LxdUsbDeviceToJson(
+    return _$$LxdUsbDeviceImplToJson(
       this,
     );
   }
@@ -1754,10 +1886,10 @@ abstract class _LxdUsbDevice implements LxdUsbDevice {
       required final String productId,
       required final double speed,
       required final String vendor,
-      required final String vendorId}) = _$_LxdUsbDevice;
+      required final String vendorId}) = _$LxdUsbDeviceImpl;
 
   factory _LxdUsbDevice.fromJson(Map<String, dynamic> json) =
-      _$_LxdUsbDevice.fromJson;
+      _$LxdUsbDeviceImpl.fromJson;
 
   @override
   int get busAddress;
@@ -1773,9 +1905,12 @@ abstract class _LxdUsbDevice implements LxdUsbDevice {
   String get vendor;
   @override
   String get vendorId;
+
+  /// Create a copy of LxdUsbDevice
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
-  _$$_LxdUsbDeviceCopyWith<_$_LxdUsbDevice> get copyWith =>
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$LxdUsbDeviceImplCopyWith<_$LxdUsbDeviceImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -1787,8 +1922,12 @@ LxdPciResources _$LxdPciResourcesFromJson(Map<String, dynamic> json) {
 mixin _$LxdPciResources {
   List<LxdPciDevice> get devices => throw _privateConstructorUsedError;
 
+  /// Serializes this LxdPciResources to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of LxdPciResources
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $LxdPciResourcesCopyWith<LxdPciResources> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -1812,6 +1951,8 @@ class _$LxdPciResourcesCopyWithImpl<$Res, $Val extends LxdPciResources>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of LxdPciResources
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -1827,30 +1968,32 @@ class _$LxdPciResourcesCopyWithImpl<$Res, $Val extends LxdPciResources>
 }
 
 /// @nodoc
-abstract class _$$_LxdPciResourcesCopyWith<$Res>
+abstract class _$$LxdPciResourcesImplCopyWith<$Res>
     implements $LxdPciResourcesCopyWith<$Res> {
-  factory _$$_LxdPciResourcesCopyWith(
-          _$_LxdPciResources value, $Res Function(_$_LxdPciResources) then) =
-      __$$_LxdPciResourcesCopyWithImpl<$Res>;
+  factory _$$LxdPciResourcesImplCopyWith(_$LxdPciResourcesImpl value,
+          $Res Function(_$LxdPciResourcesImpl) then) =
+      __$$LxdPciResourcesImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({List<LxdPciDevice> devices});
 }
 
 /// @nodoc
-class __$$_LxdPciResourcesCopyWithImpl<$Res>
-    extends _$LxdPciResourcesCopyWithImpl<$Res, _$_LxdPciResources>
-    implements _$$_LxdPciResourcesCopyWith<$Res> {
-  __$$_LxdPciResourcesCopyWithImpl(
-      _$_LxdPciResources _value, $Res Function(_$_LxdPciResources) _then)
+class __$$LxdPciResourcesImplCopyWithImpl<$Res>
+    extends _$LxdPciResourcesCopyWithImpl<$Res, _$LxdPciResourcesImpl>
+    implements _$$LxdPciResourcesImplCopyWith<$Res> {
+  __$$LxdPciResourcesImplCopyWithImpl(
+      _$LxdPciResourcesImpl _value, $Res Function(_$LxdPciResourcesImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of LxdPciResources
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? devices = null,
   }) {
-    return _then(_$_LxdPciResources(
+    return _then(_$LxdPciResourcesImpl(
       devices: null == devices
           ? _value._devices
           : devices // ignore: cast_nullable_to_non_nullable
@@ -1861,12 +2004,12 @@ class __$$_LxdPciResourcesCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_LxdPciResources implements _LxdPciResources {
-  const _$_LxdPciResources({required final List<LxdPciDevice> devices})
+class _$LxdPciResourcesImpl implements _LxdPciResources {
+  const _$LxdPciResourcesImpl({required final List<LxdPciDevice> devices})
       : _devices = devices;
 
-  factory _$_LxdPciResources.fromJson(Map<String, dynamic> json) =>
-      _$$_LxdPciResourcesFromJson(json);
+  factory _$LxdPciResourcesImpl.fromJson(Map<String, dynamic> json) =>
+      _$$LxdPciResourcesImplFromJson(json);
 
   final List<LxdPciDevice> _devices;
   @override
@@ -1882,27 +2025,30 @@ class _$_LxdPciResources implements _LxdPciResources {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_LxdPciResources &&
+            other is _$LxdPciResourcesImpl &&
             const DeepCollectionEquality().equals(other._devices, _devices));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode =>
       Object.hash(runtimeType, const DeepCollectionEquality().hash(_devices));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of LxdPciResources
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$_LxdPciResourcesCopyWith<_$_LxdPciResources> get copyWith =>
-      __$$_LxdPciResourcesCopyWithImpl<_$_LxdPciResources>(this, _$identity);
+  _$$LxdPciResourcesImplCopyWith<_$LxdPciResourcesImpl> get copyWith =>
+      __$$LxdPciResourcesImplCopyWithImpl<_$LxdPciResourcesImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_LxdPciResourcesToJson(
+    return _$$LxdPciResourcesImplToJson(
       this,
     );
   }
@@ -1910,16 +2056,19 @@ class _$_LxdPciResources implements _LxdPciResources {
 
 abstract class _LxdPciResources implements LxdPciResources {
   const factory _LxdPciResources({required final List<LxdPciDevice> devices}) =
-      _$_LxdPciResources;
+      _$LxdPciResourcesImpl;
 
   factory _LxdPciResources.fromJson(Map<String, dynamic> json) =
-      _$_LxdPciResources.fromJson;
+      _$LxdPciResourcesImpl.fromJson;
 
   @override
   List<LxdPciDevice> get devices;
+
+  /// Create a copy of LxdPciResources
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
-  _$$_LxdPciResourcesCopyWith<_$_LxdPciResources> get copyWith =>
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$LxdPciResourcesImplCopyWith<_$LxdPciResourcesImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -1937,8 +2086,12 @@ mixin _$LxdPciDevice {
   String get vendor => throw _privateConstructorUsedError;
   String get vendorId => throw _privateConstructorUsedError;
 
+  /// Serializes this LxdPciDevice to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of LxdPciDevice
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $LxdPciDeviceCopyWith<LxdPciDevice> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -1969,6 +2122,8 @@ class _$LxdPciDeviceCopyWithImpl<$Res, $Val extends LxdPciDevice>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of LxdPciDevice
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -2014,11 +2169,11 @@ class _$LxdPciDeviceCopyWithImpl<$Res, $Val extends LxdPciDevice>
 }
 
 /// @nodoc
-abstract class _$$_LxdPciDeviceCopyWith<$Res>
+abstract class _$$LxdPciDeviceImplCopyWith<$Res>
     implements $LxdPciDeviceCopyWith<$Res> {
-  factory _$$_LxdPciDeviceCopyWith(
-          _$_LxdPciDevice value, $Res Function(_$_LxdPciDevice) then) =
-      __$$_LxdPciDeviceCopyWithImpl<$Res>;
+  factory _$$LxdPciDeviceImplCopyWith(
+          _$LxdPciDeviceImpl value, $Res Function(_$LxdPciDeviceImpl) then) =
+      __$$LxdPciDeviceImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -2032,13 +2187,15 @@ abstract class _$$_LxdPciDeviceCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_LxdPciDeviceCopyWithImpl<$Res>
-    extends _$LxdPciDeviceCopyWithImpl<$Res, _$_LxdPciDevice>
-    implements _$$_LxdPciDeviceCopyWith<$Res> {
-  __$$_LxdPciDeviceCopyWithImpl(
-      _$_LxdPciDevice _value, $Res Function(_$_LxdPciDevice) _then)
+class __$$LxdPciDeviceImplCopyWithImpl<$Res>
+    extends _$LxdPciDeviceCopyWithImpl<$Res, _$LxdPciDeviceImpl>
+    implements _$$LxdPciDeviceImplCopyWith<$Res> {
+  __$$LxdPciDeviceImplCopyWithImpl(
+      _$LxdPciDeviceImpl _value, $Res Function(_$LxdPciDeviceImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of LxdPciDevice
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -2050,7 +2207,7 @@ class __$$_LxdPciDeviceCopyWithImpl<$Res>
     Object? vendor = null,
     Object? vendorId = null,
   }) {
-    return _then(_$_LxdPciDevice(
+    return _then(_$LxdPciDeviceImpl(
       driver: null == driver
           ? _value.driver
           : driver // ignore: cast_nullable_to_non_nullable
@@ -2085,8 +2242,8 @@ class __$$_LxdPciDeviceCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_LxdPciDevice implements _LxdPciDevice {
-  const _$_LxdPciDevice(
+class _$LxdPciDeviceImpl implements _LxdPciDevice {
+  const _$LxdPciDeviceImpl(
       {required this.driver,
       required this.driverVersion,
       required this.pciAddress,
@@ -2095,8 +2252,8 @@ class _$_LxdPciDevice implements _LxdPciDevice {
       required this.vendor,
       required this.vendorId});
 
-  factory _$_LxdPciDevice.fromJson(Map<String, dynamic> json) =>
-      _$$_LxdPciDeviceFromJson(json);
+  factory _$LxdPciDeviceImpl.fromJson(Map<String, dynamic> json) =>
+      _$$LxdPciDeviceImplFromJson(json);
 
   @override
   final String driver;
@@ -2119,10 +2276,10 @@ class _$_LxdPciDevice implements _LxdPciDevice {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_LxdPciDevice &&
+            other is _$LxdPciDeviceImpl &&
             (identical(other.driver, driver) || other.driver == driver) &&
             (identical(other.driverVersion, driverVersion) ||
                 other.driverVersion == driverVersion) &&
@@ -2136,20 +2293,22 @@ class _$_LxdPciDevice implements _LxdPciDevice {
                 other.vendorId == vendorId));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, driver, driverVersion,
       pciAddress, product, productId, vendor, vendorId);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of LxdPciDevice
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$_LxdPciDeviceCopyWith<_$_LxdPciDevice> get copyWith =>
-      __$$_LxdPciDeviceCopyWithImpl<_$_LxdPciDevice>(this, _$identity);
+  _$$LxdPciDeviceImplCopyWith<_$LxdPciDeviceImpl> get copyWith =>
+      __$$LxdPciDeviceImplCopyWithImpl<_$LxdPciDeviceImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_LxdPciDeviceToJson(
+    return _$$LxdPciDeviceImplToJson(
       this,
     );
   }
@@ -2163,10 +2322,10 @@ abstract class _LxdPciDevice implements LxdPciDevice {
       required final String product,
       required final String productId,
       required final String vendor,
-      required final String vendorId}) = _$_LxdPciDevice;
+      required final String vendorId}) = _$LxdPciDeviceImpl;
 
   factory _LxdPciDevice.fromJson(Map<String, dynamic> json) =
-      _$_LxdPciDevice.fromJson;
+      _$LxdPciDeviceImpl.fromJson;
 
   @override
   String get driver;
@@ -2182,9 +2341,12 @@ abstract class _LxdPciDevice implements LxdPciDevice {
   String get vendor;
   @override
   String get vendorId;
+
+  /// Create a copy of LxdPciDevice
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
-  _$$_LxdPciDeviceCopyWith<_$_LxdPciDevice> get copyWith =>
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$LxdPciDeviceImplCopyWith<_$LxdPciDeviceImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -2198,8 +2360,12 @@ mixin _$LxdFirmware {
   String get vendor => throw _privateConstructorUsedError;
   String get version => throw _privateConstructorUsedError;
 
+  /// Serializes this LxdFirmware to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of LxdFirmware
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $LxdFirmwareCopyWith<LxdFirmware> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -2223,6 +2389,8 @@ class _$LxdFirmwareCopyWithImpl<$Res, $Val extends LxdFirmware>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of LxdFirmware
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -2248,24 +2416,26 @@ class _$LxdFirmwareCopyWithImpl<$Res, $Val extends LxdFirmware>
 }
 
 /// @nodoc
-abstract class _$$_LxdFirmwareCopyWith<$Res>
+abstract class _$$LxdFirmwareImplCopyWith<$Res>
     implements $LxdFirmwareCopyWith<$Res> {
-  factory _$$_LxdFirmwareCopyWith(
-          _$_LxdFirmware value, $Res Function(_$_LxdFirmware) then) =
-      __$$_LxdFirmwareCopyWithImpl<$Res>;
+  factory _$$LxdFirmwareImplCopyWith(
+          _$LxdFirmwareImpl value, $Res Function(_$LxdFirmwareImpl) then) =
+      __$$LxdFirmwareImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String date, String vendor, String version});
 }
 
 /// @nodoc
-class __$$_LxdFirmwareCopyWithImpl<$Res>
-    extends _$LxdFirmwareCopyWithImpl<$Res, _$_LxdFirmware>
-    implements _$$_LxdFirmwareCopyWith<$Res> {
-  __$$_LxdFirmwareCopyWithImpl(
-      _$_LxdFirmware _value, $Res Function(_$_LxdFirmware) _then)
+class __$$LxdFirmwareImplCopyWithImpl<$Res>
+    extends _$LxdFirmwareCopyWithImpl<$Res, _$LxdFirmwareImpl>
+    implements _$$LxdFirmwareImplCopyWith<$Res> {
+  __$$LxdFirmwareImplCopyWithImpl(
+      _$LxdFirmwareImpl _value, $Res Function(_$LxdFirmwareImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of LxdFirmware
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -2273,7 +2443,7 @@ class __$$_LxdFirmwareCopyWithImpl<$Res>
     Object? vendor = null,
     Object? version = null,
   }) {
-    return _then(_$_LxdFirmware(
+    return _then(_$LxdFirmwareImpl(
       date: null == date
           ? _value.date
           : date // ignore: cast_nullable_to_non_nullable
@@ -2292,12 +2462,12 @@ class __$$_LxdFirmwareCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_LxdFirmware implements _LxdFirmware {
-  const _$_LxdFirmware(
+class _$LxdFirmwareImpl implements _LxdFirmware {
+  const _$LxdFirmwareImpl(
       {required this.date, required this.vendor, required this.version});
 
-  factory _$_LxdFirmware.fromJson(Map<String, dynamic> json) =>
-      _$$_LxdFirmwareFromJson(json);
+  factory _$LxdFirmwareImpl.fromJson(Map<String, dynamic> json) =>
+      _$$LxdFirmwareImplFromJson(json);
 
   @override
   final String date;
@@ -2312,28 +2482,30 @@ class _$_LxdFirmware implements _LxdFirmware {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_LxdFirmware &&
+            other is _$LxdFirmwareImpl &&
             (identical(other.date, date) || other.date == date) &&
             (identical(other.vendor, vendor) || other.vendor == vendor) &&
             (identical(other.version, version) || other.version == version));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, date, vendor, version);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of LxdFirmware
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$_LxdFirmwareCopyWith<_$_LxdFirmware> get copyWith =>
-      __$$_LxdFirmwareCopyWithImpl<_$_LxdFirmware>(this, _$identity);
+  _$$LxdFirmwareImplCopyWith<_$LxdFirmwareImpl> get copyWith =>
+      __$$LxdFirmwareImplCopyWithImpl<_$LxdFirmwareImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_LxdFirmwareToJson(
+    return _$$LxdFirmwareImplToJson(
       this,
     );
   }
@@ -2343,10 +2515,10 @@ abstract class _LxdFirmware implements LxdFirmware {
   const factory _LxdFirmware(
       {required final String date,
       required final String vendor,
-      required final String version}) = _$_LxdFirmware;
+      required final String version}) = _$LxdFirmwareImpl;
 
   factory _LxdFirmware.fromJson(Map<String, dynamic> json) =
-      _$_LxdFirmware.fromJson;
+      _$LxdFirmwareImpl.fromJson;
 
   @override
   String get date;
@@ -2354,9 +2526,12 @@ abstract class _LxdFirmware implements LxdFirmware {
   String get vendor;
   @override
   String get version;
+
+  /// Create a copy of LxdFirmware
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
-  _$$_LxdFirmwareCopyWith<_$_LxdFirmware> get copyWith =>
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$LxdFirmwareImplCopyWith<_$LxdFirmwareImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -2371,8 +2546,12 @@ mixin _$LxdChassis {
   String get vendor => throw _privateConstructorUsedError;
   String get version => throw _privateConstructorUsedError;
 
+  /// Serializes this LxdChassis to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of LxdChassis
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $LxdChassisCopyWith<LxdChassis> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -2396,6 +2575,8 @@ class _$LxdChassisCopyWithImpl<$Res, $Val extends LxdChassis>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of LxdChassis
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -2426,24 +2607,26 @@ class _$LxdChassisCopyWithImpl<$Res, $Val extends LxdChassis>
 }
 
 /// @nodoc
-abstract class _$$_LxdChassisCopyWith<$Res>
+abstract class _$$LxdChassisImplCopyWith<$Res>
     implements $LxdChassisCopyWith<$Res> {
-  factory _$$_LxdChassisCopyWith(
-          _$_LxdChassis value, $Res Function(_$_LxdChassis) then) =
-      __$$_LxdChassisCopyWithImpl<$Res>;
+  factory _$$LxdChassisImplCopyWith(
+          _$LxdChassisImpl value, $Res Function(_$LxdChassisImpl) then) =
+      __$$LxdChassisImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String serial, String type, String vendor, String version});
 }
 
 /// @nodoc
-class __$$_LxdChassisCopyWithImpl<$Res>
-    extends _$LxdChassisCopyWithImpl<$Res, _$_LxdChassis>
-    implements _$$_LxdChassisCopyWith<$Res> {
-  __$$_LxdChassisCopyWithImpl(
-      _$_LxdChassis _value, $Res Function(_$_LxdChassis) _then)
+class __$$LxdChassisImplCopyWithImpl<$Res>
+    extends _$LxdChassisCopyWithImpl<$Res, _$LxdChassisImpl>
+    implements _$$LxdChassisImplCopyWith<$Res> {
+  __$$LxdChassisImplCopyWithImpl(
+      _$LxdChassisImpl _value, $Res Function(_$LxdChassisImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of LxdChassis
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -2452,7 +2635,7 @@ class __$$_LxdChassisCopyWithImpl<$Res>
     Object? vendor = null,
     Object? version = null,
   }) {
-    return _then(_$_LxdChassis(
+    return _then(_$LxdChassisImpl(
       serial: null == serial
           ? _value.serial
           : serial // ignore: cast_nullable_to_non_nullable
@@ -2475,15 +2658,15 @@ class __$$_LxdChassisCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_LxdChassis implements _LxdChassis {
-  const _$_LxdChassis(
+class _$LxdChassisImpl implements _LxdChassis {
+  const _$LxdChassisImpl(
       {required this.serial,
       required this.type,
       required this.vendor,
       required this.version});
 
-  factory _$_LxdChassis.fromJson(Map<String, dynamic> json) =>
-      _$$_LxdChassisFromJson(json);
+  factory _$LxdChassisImpl.fromJson(Map<String, dynamic> json) =>
+      _$$LxdChassisImplFromJson(json);
 
   @override
   final String serial;
@@ -2500,29 +2683,31 @@ class _$_LxdChassis implements _LxdChassis {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_LxdChassis &&
+            other is _$LxdChassisImpl &&
             (identical(other.serial, serial) || other.serial == serial) &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.vendor, vendor) || other.vendor == vendor) &&
             (identical(other.version, version) || other.version == version));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, serial, type, vendor, version);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of LxdChassis
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$_LxdChassisCopyWith<_$_LxdChassis> get copyWith =>
-      __$$_LxdChassisCopyWithImpl<_$_LxdChassis>(this, _$identity);
+  _$$LxdChassisImplCopyWith<_$LxdChassisImpl> get copyWith =>
+      __$$LxdChassisImplCopyWithImpl<_$LxdChassisImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_LxdChassisToJson(
+    return _$$LxdChassisImplToJson(
       this,
     );
   }
@@ -2533,10 +2718,10 @@ abstract class _LxdChassis implements LxdChassis {
       {required final String serial,
       required final String type,
       required final String vendor,
-      required final String version}) = _$_LxdChassis;
+      required final String version}) = _$LxdChassisImpl;
 
   factory _LxdChassis.fromJson(Map<String, dynamic> json) =
-      _$_LxdChassis.fromJson;
+      _$LxdChassisImpl.fromJson;
 
   @override
   String get serial;
@@ -2546,9 +2731,12 @@ abstract class _LxdChassis implements LxdChassis {
   String get vendor;
   @override
   String get version;
+
+  /// Create a copy of LxdChassis
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
-  _$$_LxdChassisCopyWith<_$_LxdChassis> get copyWith =>
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$LxdChassisImplCopyWith<_$LxdChassisImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -2563,8 +2751,12 @@ mixin _$LxdMotherboard {
   String get vendor => throw _privateConstructorUsedError;
   String get version => throw _privateConstructorUsedError;
 
+  /// Serializes this LxdMotherboard to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of LxdMotherboard
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $LxdMotherboardCopyWith<LxdMotherboard> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -2588,6 +2780,8 @@ class _$LxdMotherboardCopyWithImpl<$Res, $Val extends LxdMotherboard>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of LxdMotherboard
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -2618,24 +2812,26 @@ class _$LxdMotherboardCopyWithImpl<$Res, $Val extends LxdMotherboard>
 }
 
 /// @nodoc
-abstract class _$$_LxdMotherboardCopyWith<$Res>
+abstract class _$$LxdMotherboardImplCopyWith<$Res>
     implements $LxdMotherboardCopyWith<$Res> {
-  factory _$$_LxdMotherboardCopyWith(
-          _$_LxdMotherboard value, $Res Function(_$_LxdMotherboard) then) =
-      __$$_LxdMotherboardCopyWithImpl<$Res>;
+  factory _$$LxdMotherboardImplCopyWith(_$LxdMotherboardImpl value,
+          $Res Function(_$LxdMotherboardImpl) then) =
+      __$$LxdMotherboardImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String product, String serial, String vendor, String version});
 }
 
 /// @nodoc
-class __$$_LxdMotherboardCopyWithImpl<$Res>
-    extends _$LxdMotherboardCopyWithImpl<$Res, _$_LxdMotherboard>
-    implements _$$_LxdMotherboardCopyWith<$Res> {
-  __$$_LxdMotherboardCopyWithImpl(
-      _$_LxdMotherboard _value, $Res Function(_$_LxdMotherboard) _then)
+class __$$LxdMotherboardImplCopyWithImpl<$Res>
+    extends _$LxdMotherboardCopyWithImpl<$Res, _$LxdMotherboardImpl>
+    implements _$$LxdMotherboardImplCopyWith<$Res> {
+  __$$LxdMotherboardImplCopyWithImpl(
+      _$LxdMotherboardImpl _value, $Res Function(_$LxdMotherboardImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of LxdMotherboard
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -2644,7 +2840,7 @@ class __$$_LxdMotherboardCopyWithImpl<$Res>
     Object? vendor = null,
     Object? version = null,
   }) {
-    return _then(_$_LxdMotherboard(
+    return _then(_$LxdMotherboardImpl(
       product: null == product
           ? _value.product
           : product // ignore: cast_nullable_to_non_nullable
@@ -2667,15 +2863,15 @@ class __$$_LxdMotherboardCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_LxdMotherboard implements _LxdMotherboard {
-  const _$_LxdMotherboard(
+class _$LxdMotherboardImpl implements _LxdMotherboard {
+  const _$LxdMotherboardImpl(
       {required this.product,
       required this.serial,
       required this.vendor,
       required this.version});
 
-  factory _$_LxdMotherboard.fromJson(Map<String, dynamic> json) =>
-      _$$_LxdMotherboardFromJson(json);
+  factory _$LxdMotherboardImpl.fromJson(Map<String, dynamic> json) =>
+      _$$LxdMotherboardImplFromJson(json);
 
   @override
   final String product;
@@ -2692,30 +2888,33 @@ class _$_LxdMotherboard implements _LxdMotherboard {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_LxdMotherboard &&
+            other is _$LxdMotherboardImpl &&
             (identical(other.product, product) || other.product == product) &&
             (identical(other.serial, serial) || other.serial == serial) &&
             (identical(other.vendor, vendor) || other.vendor == vendor) &&
             (identical(other.version, version) || other.version == version));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode =>
       Object.hash(runtimeType, product, serial, vendor, version);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of LxdMotherboard
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$_LxdMotherboardCopyWith<_$_LxdMotherboard> get copyWith =>
-      __$$_LxdMotherboardCopyWithImpl<_$_LxdMotherboard>(this, _$identity);
+  _$$LxdMotherboardImplCopyWith<_$LxdMotherboardImpl> get copyWith =>
+      __$$LxdMotherboardImplCopyWithImpl<_$LxdMotherboardImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_LxdMotherboardToJson(
+    return _$$LxdMotherboardImplToJson(
       this,
     );
   }
@@ -2726,10 +2925,10 @@ abstract class _LxdMotherboard implements LxdMotherboard {
       {required final String product,
       required final String serial,
       required final String vendor,
-      required final String version}) = _$_LxdMotherboard;
+      required final String version}) = _$LxdMotherboardImpl;
 
   factory _LxdMotherboard.fromJson(Map<String, dynamic> json) =
-      _$_LxdMotherboard.fromJson;
+      _$LxdMotherboardImpl.fromJson;
 
   @override
   String get product;
@@ -2739,9 +2938,12 @@ abstract class _LxdMotherboard implements LxdMotherboard {
   String get vendor;
   @override
   String get version;
+
+  /// Create a copy of LxdMotherboard
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
-  _$$_LxdMotherboardCopyWith<_$_LxdMotherboard> get copyWith =>
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$LxdMotherboardImplCopyWith<_$LxdMotherboardImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -2763,8 +2965,12 @@ mixin _$LxdSystemResources {
   LxdChassis get chassis => throw _privateConstructorUsedError;
   LxdMotherboard get motherboard => throw _privateConstructorUsedError;
 
+  /// Serializes this LxdSystemResources to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of LxdSystemResources
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $LxdSystemResourcesCopyWith<LxdSystemResources> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -2803,6 +3009,8 @@ class _$LxdSystemResourcesCopyWithImpl<$Res, $Val extends LxdSystemResources>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of LxdSystemResources
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -2866,6 +3074,8 @@ class _$LxdSystemResourcesCopyWithImpl<$Res, $Val extends LxdSystemResources>
     ) as $Val);
   }
 
+  /// Create a copy of LxdSystemResources
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $LxdFirmwareCopyWith<$Res> get firmware {
@@ -2874,6 +3084,8 @@ class _$LxdSystemResourcesCopyWithImpl<$Res, $Val extends LxdSystemResources>
     });
   }
 
+  /// Create a copy of LxdSystemResources
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $LxdChassisCopyWith<$Res> get chassis {
@@ -2882,6 +3094,8 @@ class _$LxdSystemResourcesCopyWithImpl<$Res, $Val extends LxdSystemResources>
     });
   }
 
+  /// Create a copy of LxdSystemResources
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $LxdMotherboardCopyWith<$Res> get motherboard {
@@ -2892,11 +3106,11 @@ class _$LxdSystemResourcesCopyWithImpl<$Res, $Val extends LxdSystemResources>
 }
 
 /// @nodoc
-abstract class _$$_LxdSystemResourcesCopyWith<$Res>
+abstract class _$$LxdSystemResourcesImplCopyWith<$Res>
     implements $LxdSystemResourcesCopyWith<$Res> {
-  factory _$$_LxdSystemResourcesCopyWith(_$_LxdSystemResources value,
-          $Res Function(_$_LxdSystemResources) then) =
-      __$$_LxdSystemResourcesCopyWithImpl<$Res>;
+  factory _$$LxdSystemResourcesImplCopyWith(_$LxdSystemResourcesImpl value,
+          $Res Function(_$LxdSystemResourcesImpl) then) =
+      __$$LxdSystemResourcesImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -2921,13 +3135,15 @@ abstract class _$$_LxdSystemResourcesCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_LxdSystemResourcesCopyWithImpl<$Res>
-    extends _$LxdSystemResourcesCopyWithImpl<$Res, _$_LxdSystemResources>
-    implements _$$_LxdSystemResourcesCopyWith<$Res> {
-  __$$_LxdSystemResourcesCopyWithImpl(
-      _$_LxdSystemResources _value, $Res Function(_$_LxdSystemResources) _then)
+class __$$LxdSystemResourcesImplCopyWithImpl<$Res>
+    extends _$LxdSystemResourcesCopyWithImpl<$Res, _$LxdSystemResourcesImpl>
+    implements _$$LxdSystemResourcesImplCopyWith<$Res> {
+  __$$LxdSystemResourcesImplCopyWithImpl(_$LxdSystemResourcesImpl _value,
+      $Res Function(_$LxdSystemResourcesImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of LxdSystemResources
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -2943,7 +3159,7 @@ class __$$_LxdSystemResourcesCopyWithImpl<$Res>
     Object? chassis = null,
     Object? motherboard = null,
   }) {
-    return _then(_$_LxdSystemResources(
+    return _then(_$LxdSystemResourcesImpl(
       uuid: null == uuid
           ? _value.uuid
           : uuid // ignore: cast_nullable_to_non_nullable
@@ -2994,8 +3210,8 @@ class __$$_LxdSystemResourcesCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_LxdSystemResources implements _LxdSystemResources {
-  const _$_LxdSystemResources(
+class _$LxdSystemResourcesImpl implements _LxdSystemResources {
+  const _$LxdSystemResourcesImpl(
       {required this.uuid,
       required this.vendor,
       required this.product,
@@ -3008,8 +3224,8 @@ class _$_LxdSystemResources implements _LxdSystemResources {
       required this.chassis,
       required this.motherboard});
 
-  factory _$_LxdSystemResources.fromJson(Map<String, dynamic> json) =>
-      _$$_LxdSystemResourcesFromJson(json);
+  factory _$LxdSystemResourcesImpl.fromJson(Map<String, dynamic> json) =>
+      _$$LxdSystemResourcesImplFromJson(json);
 
   @override
   final String uuid;
@@ -3040,10 +3256,10 @@ class _$_LxdSystemResources implements _LxdSystemResources {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_LxdSystemResources &&
+            other is _$LxdSystemResourcesImpl &&
             (identical(other.uuid, uuid) || other.uuid == uuid) &&
             (identical(other.vendor, vendor) || other.vendor == vendor) &&
             (identical(other.product, product) || other.product == product) &&
@@ -3059,21 +3275,23 @@ class _$_LxdSystemResources implements _LxdSystemResources {
                 other.motherboard == motherboard));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, uuid, vendor, product, family,
       version, sku, serial, type, firmware, chassis, motherboard);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of LxdSystemResources
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$_LxdSystemResourcesCopyWith<_$_LxdSystemResources> get copyWith =>
-      __$$_LxdSystemResourcesCopyWithImpl<_$_LxdSystemResources>(
+  _$$LxdSystemResourcesImplCopyWith<_$LxdSystemResourcesImpl> get copyWith =>
+      __$$LxdSystemResourcesImplCopyWithImpl<_$LxdSystemResourcesImpl>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_LxdSystemResourcesToJson(
+    return _$$LxdSystemResourcesImplToJson(
       this,
     );
   }
@@ -3091,10 +3309,10 @@ abstract class _LxdSystemResources implements LxdSystemResources {
       required final String type,
       required final LxdFirmware firmware,
       required final LxdChassis chassis,
-      required final LxdMotherboard motherboard}) = _$_LxdSystemResources;
+      required final LxdMotherboard motherboard}) = _$LxdSystemResourcesImpl;
 
   factory _LxdSystemResources.fromJson(Map<String, dynamic> json) =
-      _$_LxdSystemResources.fromJson;
+      _$LxdSystemResourcesImpl.fromJson;
 
   @override
   String get uuid;
@@ -3118,9 +3336,12 @@ abstract class _LxdSystemResources implements LxdSystemResources {
   LxdChassis get chassis;
   @override
   LxdMotherboard get motherboard;
+
+  /// Create a copy of LxdSystemResources
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
-  _$$_LxdSystemResourcesCopyWith<_$_LxdSystemResources> get copyWith =>
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$LxdSystemResourcesImplCopyWith<_$LxdSystemResourcesImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -3139,8 +3360,12 @@ mixin _$LxdResources {
   LxdPciResources get pci => throw _privateConstructorUsedError;
   LxdSystemResources get system => throw _privateConstructorUsedError;
 
+  /// Serializes this LxdResources to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of LxdResources
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $LxdResourcesCopyWith<LxdResources> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -3181,6 +3406,8 @@ class _$LxdResourcesCopyWithImpl<$Res, $Val extends LxdResources>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of LxdResources
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -3229,6 +3456,8 @@ class _$LxdResourcesCopyWithImpl<$Res, $Val extends LxdResources>
     ) as $Val);
   }
 
+  /// Create a copy of LxdResources
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $LxdCpuResourcesCopyWith<$Res> get cpu {
@@ -3237,6 +3466,8 @@ class _$LxdResourcesCopyWithImpl<$Res, $Val extends LxdResources>
     });
   }
 
+  /// Create a copy of LxdResources
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $LxdMemoryResourcesCopyWith<$Res> get memory {
@@ -3245,6 +3476,8 @@ class _$LxdResourcesCopyWithImpl<$Res, $Val extends LxdResources>
     });
   }
 
+  /// Create a copy of LxdResources
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $LxdGpuResourcesCopyWith<$Res> get gpu {
@@ -3253,6 +3486,8 @@ class _$LxdResourcesCopyWithImpl<$Res, $Val extends LxdResources>
     });
   }
 
+  /// Create a copy of LxdResources
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $LXdNetworkResourcesCopyWith<$Res> get network {
@@ -3261,6 +3496,8 @@ class _$LxdResourcesCopyWithImpl<$Res, $Val extends LxdResources>
     });
   }
 
+  /// Create a copy of LxdResources
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $LxdStorageResourcesCopyWith<$Res> get storage {
@@ -3269,6 +3506,8 @@ class _$LxdResourcesCopyWithImpl<$Res, $Val extends LxdResources>
     });
   }
 
+  /// Create a copy of LxdResources
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $LxdUsbResourcesCopyWith<$Res> get usb {
@@ -3277,6 +3516,8 @@ class _$LxdResourcesCopyWithImpl<$Res, $Val extends LxdResources>
     });
   }
 
+  /// Create a copy of LxdResources
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $LxdPciResourcesCopyWith<$Res> get pci {
@@ -3285,6 +3526,8 @@ class _$LxdResourcesCopyWithImpl<$Res, $Val extends LxdResources>
     });
   }
 
+  /// Create a copy of LxdResources
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $LxdSystemResourcesCopyWith<$Res> get system {
@@ -3295,11 +3538,11 @@ class _$LxdResourcesCopyWithImpl<$Res, $Val extends LxdResources>
 }
 
 /// @nodoc
-abstract class _$$_LxdResourcesCopyWith<$Res>
+abstract class _$$LxdResourcesImplCopyWith<$Res>
     implements $LxdResourcesCopyWith<$Res> {
-  factory _$$_LxdResourcesCopyWith(
-          _$_LxdResources value, $Res Function(_$_LxdResources) then) =
-      __$$_LxdResourcesCopyWithImpl<$Res>;
+  factory _$$LxdResourcesImplCopyWith(
+          _$LxdResourcesImpl value, $Res Function(_$LxdResourcesImpl) then) =
+      __$$LxdResourcesImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -3331,13 +3574,15 @@ abstract class _$$_LxdResourcesCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_LxdResourcesCopyWithImpl<$Res>
-    extends _$LxdResourcesCopyWithImpl<$Res, _$_LxdResources>
-    implements _$$_LxdResourcesCopyWith<$Res> {
-  __$$_LxdResourcesCopyWithImpl(
-      _$_LxdResources _value, $Res Function(_$_LxdResources) _then)
+class __$$LxdResourcesImplCopyWithImpl<$Res>
+    extends _$LxdResourcesCopyWithImpl<$Res, _$LxdResourcesImpl>
+    implements _$$LxdResourcesImplCopyWith<$Res> {
+  __$$LxdResourcesImplCopyWithImpl(
+      _$LxdResourcesImpl _value, $Res Function(_$LxdResourcesImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of LxdResources
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -3350,7 +3595,7 @@ class __$$_LxdResourcesCopyWithImpl<$Res>
     Object? pci = null,
     Object? system = null,
   }) {
-    return _then(_$_LxdResources(
+    return _then(_$LxdResourcesImpl(
       cpu: null == cpu
           ? _value.cpu
           : cpu // ignore: cast_nullable_to_non_nullable
@@ -3389,8 +3634,8 @@ class __$$_LxdResourcesCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_LxdResources implements _LxdResources {
-  const _$_LxdResources(
+class _$LxdResourcesImpl implements _LxdResources {
+  const _$LxdResourcesImpl(
       {required this.cpu,
       required this.memory,
       required this.gpu,
@@ -3400,8 +3645,8 @@ class _$_LxdResources implements _LxdResources {
       required this.pci,
       required this.system});
 
-  factory _$_LxdResources.fromJson(Map<String, dynamic> json) =>
-      _$$_LxdResourcesFromJson(json);
+  factory _$LxdResourcesImpl.fromJson(Map<String, dynamic> json) =>
+      _$$LxdResourcesImplFromJson(json);
 
   @override
   final LxdCpuResources cpu;
@@ -3426,10 +3671,10 @@ class _$_LxdResources implements _LxdResources {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_LxdResources &&
+            other is _$LxdResourcesImpl &&
             (identical(other.cpu, cpu) || other.cpu == cpu) &&
             (identical(other.memory, memory) || other.memory == memory) &&
             (identical(other.gpu, gpu) || other.gpu == gpu) &&
@@ -3440,20 +3685,22 @@ class _$_LxdResources implements _LxdResources {
             (identical(other.system, system) || other.system == system));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType, cpu, memory, gpu, network, storage, usb, pci, system);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of LxdResources
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$_LxdResourcesCopyWith<_$_LxdResources> get copyWith =>
-      __$$_LxdResourcesCopyWithImpl<_$_LxdResources>(this, _$identity);
+  _$$LxdResourcesImplCopyWith<_$LxdResourcesImpl> get copyWith =>
+      __$$LxdResourcesImplCopyWithImpl<_$LxdResourcesImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_LxdResourcesToJson(
+    return _$$LxdResourcesImplToJson(
       this,
     );
   }
@@ -3468,10 +3715,10 @@ abstract class _LxdResources implements LxdResources {
       required final LxdStorageResources storage,
       required final LxdUsbResources usb,
       required final LxdPciResources pci,
-      required final LxdSystemResources system}) = _$_LxdResources;
+      required final LxdSystemResources system}) = _$LxdResourcesImpl;
 
   factory _LxdResources.fromJson(Map<String, dynamic> json) =
-      _$_LxdResources.fromJson;
+      _$LxdResourcesImpl.fromJson;
 
   @override
   LxdCpuResources get cpu;
@@ -3489,8 +3736,11 @@ abstract class _LxdResources implements LxdResources {
   LxdPciResources get pci;
   @override
   LxdSystemResources get system;
+
+  /// Create a copy of LxdResources
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
-  _$$_LxdResourcesCopyWith<_$_LxdResources> get copyWith =>
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$LxdResourcesImplCopyWith<_$LxdResourcesImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -3,7 +3,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:lxd_service/lxd_service.dart';
 import 'package:provider/provider.dart';
 import 'package:wizard_router/wizard_router.dart';
-import 'package:yaru_widgets/yaru_widgets.dart';
+import 'package:yaru/widgets.dart';
 
 import 'feature_model.dart';
 import 'launcher_l10n.dart';
@@ -40,7 +40,7 @@ class _FeaturePageState extends State<FeaturePage> {
     return LauncherPage(
       title: Text(l10n.selectFeaturesTitle),
       content: YaruBorderContainer(
-        color: Theme.of(context).colorScheme.background,
+        color: Theme.of(context).colorScheme.surface,
         child: ListView(
           children: [
             if (LxdFeature.user.isSupported(model.type))

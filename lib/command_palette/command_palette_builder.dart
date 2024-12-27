@@ -12,7 +12,7 @@ import 'package:accel_key/accel_key.dart';
 import 'package:command_palette/command_palette.dart';
 import 'package:flutter/material.dart';
 import 'package:substring_highlight/substring_highlight.dart';
-import 'package:yaru_icons/yaru_icons.dart';
+import 'package:yaru/icons.dart';
 
 /// Default builder of Actions.
 /// Uses all the parameters, so this is a good place to look if you're wanting

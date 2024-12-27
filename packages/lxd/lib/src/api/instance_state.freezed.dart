@@ -12,7 +12,7 @@ part of 'instance_state.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 LxdInstanceState _$LxdInstanceStateFromJson(Map<String, dynamic> json) {
   return _LxdInstanceState.fromJson(json);
@@ -46,8 +46,12 @@ mixin _$LxdInstanceState {
   /// CPU usage information
   LxdInstanceCpuState? get cpu => throw _privateConstructorUsedError;
 
+  /// Serializes this LxdInstanceState to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of LxdInstanceState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $LxdInstanceStateCopyWith<LxdInstanceState> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -82,6 +86,8 @@ class _$LxdInstanceStateCopyWithImpl<$Res, $Val extends LxdInstanceState>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of LxdInstanceState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -130,6 +136,8 @@ class _$LxdInstanceStateCopyWithImpl<$Res, $Val extends LxdInstanceState>
     ) as $Val);
   }
 
+  /// Create a copy of LxdInstanceState
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $LxdInstanceMemoryStateCopyWith<$Res>? get memory {
@@ -142,6 +150,8 @@ class _$LxdInstanceStateCopyWithImpl<$Res, $Val extends LxdInstanceState>
     });
   }
 
+  /// Create a copy of LxdInstanceState
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $LxdInstanceCpuStateCopyWith<$Res>? get cpu {
@@ -156,11 +166,11 @@ class _$LxdInstanceStateCopyWithImpl<$Res, $Val extends LxdInstanceState>
 }
 
 /// @nodoc
-abstract class _$$_LxdInstanceStateCopyWith<$Res>
+abstract class _$$LxdInstanceStateImplCopyWith<$Res>
     implements $LxdInstanceStateCopyWith<$Res> {
-  factory _$$_LxdInstanceStateCopyWith(
-          _$_LxdInstanceState value, $Res Function(_$_LxdInstanceState) then) =
-      __$$_LxdInstanceStateCopyWithImpl<$Res>;
+  factory _$$LxdInstanceStateImplCopyWith(_$LxdInstanceStateImpl value,
+          $Res Function(_$LxdInstanceStateImpl) then) =
+      __$$LxdInstanceStateImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -180,13 +190,15 @@ abstract class _$$_LxdInstanceStateCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_LxdInstanceStateCopyWithImpl<$Res>
-    extends _$LxdInstanceStateCopyWithImpl<$Res, _$_LxdInstanceState>
-    implements _$$_LxdInstanceStateCopyWith<$Res> {
-  __$$_LxdInstanceStateCopyWithImpl(
-      _$_LxdInstanceState _value, $Res Function(_$_LxdInstanceState) _then)
+class __$$LxdInstanceStateImplCopyWithImpl<$Res>
+    extends _$LxdInstanceStateCopyWithImpl<$Res, _$LxdInstanceStateImpl>
+    implements _$$LxdInstanceStateImplCopyWith<$Res> {
+  __$$LxdInstanceStateImplCopyWithImpl(_$LxdInstanceStateImpl _value,
+      $Res Function(_$LxdInstanceStateImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of LxdInstanceState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -199,7 +211,7 @@ class __$$_LxdInstanceStateCopyWithImpl<$Res>
     Object? processes = null,
     Object? cpu = freezed,
   }) {
-    return _then(_$_LxdInstanceState(
+    return _then(_$LxdInstanceStateImpl(
       status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
@@ -238,8 +250,8 @@ class __$$_LxdInstanceStateCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_LxdInstanceState implements _LxdInstanceState {
-  const _$_LxdInstanceState(
+class _$LxdInstanceStateImpl implements _LxdInstanceState {
+  const _$LxdInstanceStateImpl(
       {required this.status,
       required this.statusCode,
       final Map<String, LxdInstanceDiskState>? disk,
@@ -251,8 +263,8 @@ class _$_LxdInstanceState implements _LxdInstanceState {
       : _disk = disk,
         _network = network;
 
-  factory _$_LxdInstanceState.fromJson(Map<String, dynamic> json) =>
-      _$$_LxdInstanceStateFromJson(json);
+  factory _$LxdInstanceStateImpl.fromJson(Map<String, dynamic> json) =>
+      _$$LxdInstanceStateImplFromJson(json);
 
   /// Current status
   @override
@@ -311,10 +323,10 @@ class _$_LxdInstanceState implements _LxdInstanceState {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_LxdInstanceState &&
+            other is _$LxdInstanceStateImpl &&
             (identical(other.status, status) || other.status == status) &&
             (identical(other.statusCode, statusCode) ||
                 other.statusCode == statusCode) &&
@@ -327,7 +339,7 @@ class _$_LxdInstanceState implements _LxdInstanceState {
             (identical(other.cpu, cpu) || other.cpu == cpu));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -340,15 +352,18 @@ class _$_LxdInstanceState implements _LxdInstanceState {
       processes,
       cpu);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of LxdInstanceState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$_LxdInstanceStateCopyWith<_$_LxdInstanceState> get copyWith =>
-      __$$_LxdInstanceStateCopyWithImpl<_$_LxdInstanceState>(this, _$identity);
+  _$$LxdInstanceStateImplCopyWith<_$LxdInstanceStateImpl> get copyWith =>
+      __$$LxdInstanceStateImplCopyWithImpl<_$LxdInstanceStateImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_LxdInstanceStateToJson(
+    return _$$LxdInstanceStateImplToJson(
       this,
     );
   }
@@ -363,46 +378,48 @@ abstract class _LxdInstanceState implements LxdInstanceState {
       final Map<String, LxdInstanceNetworkState>? network,
       required final int pid,
       final int processes,
-      final LxdInstanceCpuState? cpu}) = _$_LxdInstanceState;
+      final LxdInstanceCpuState? cpu}) = _$LxdInstanceStateImpl;
 
   factory _LxdInstanceState.fromJson(Map<String, dynamic> json) =
-      _$_LxdInstanceState.fromJson;
-
-  @override
+      _$LxdInstanceStateImpl.fromJson;
 
   /// Current status
-  LxdInstanceStatus get status;
   @override
+  LxdInstanceStatus get status;
 
   /// Numeric status code (101, 102, 110, 112)
-  int get statusCode;
   @override
+  int get statusCode;
 
   /// Disk usage
-  Map<String, LxdInstanceDiskState>? get disk;
   @override
+  Map<String, LxdInstanceDiskState>? get disk;
 
   /// Memory usage information
-  LxdInstanceMemoryState? get memory;
   @override
+  LxdInstanceMemoryState? get memory;
 
   /// Network usage
-  Map<String, LxdInstanceNetworkState>? get network;
   @override
+  Map<String, LxdInstanceNetworkState>? get network;
 
   /// PID of the runtime
-  int get pid;
   @override
+  int get pid;
 
   /// Number of processes in the instance
-  int get processes;
   @override
+  int get processes;
 
   /// CPU usage information
-  LxdInstanceCpuState? get cpu;
   @override
-  @JsonKey(ignore: true)
-  _$$_LxdInstanceStateCopyWith<_$_LxdInstanceState> get copyWith =>
+  LxdInstanceCpuState? get cpu;
+
+  /// Create a copy of LxdInstanceState
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$LxdInstanceStateImplCopyWith<_$LxdInstanceStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -417,8 +434,12 @@ mixin _$LxdInstanceDiskState {
   /// Example: 502239232
   int get usage => throw _privateConstructorUsedError;
 
+  /// Serializes this LxdInstanceDiskState to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of LxdInstanceDiskState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $LxdInstanceDiskStateCopyWith<LxdInstanceDiskState> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -443,6 +464,8 @@ class _$LxdInstanceDiskStateCopyWithImpl<$Res,
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of LxdInstanceDiskState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -458,30 +481,32 @@ class _$LxdInstanceDiskStateCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_LxdInstanceDiskStateCopyWith<$Res>
+abstract class _$$LxdInstanceDiskStateImplCopyWith<$Res>
     implements $LxdInstanceDiskStateCopyWith<$Res> {
-  factory _$$_LxdInstanceDiskStateCopyWith(_$_LxdInstanceDiskState value,
-          $Res Function(_$_LxdInstanceDiskState) then) =
-      __$$_LxdInstanceDiskStateCopyWithImpl<$Res>;
+  factory _$$LxdInstanceDiskStateImplCopyWith(_$LxdInstanceDiskStateImpl value,
+          $Res Function(_$LxdInstanceDiskStateImpl) then) =
+      __$$LxdInstanceDiskStateImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({int usage});
 }
 
 /// @nodoc
-class __$$_LxdInstanceDiskStateCopyWithImpl<$Res>
-    extends _$LxdInstanceDiskStateCopyWithImpl<$Res, _$_LxdInstanceDiskState>
-    implements _$$_LxdInstanceDiskStateCopyWith<$Res> {
-  __$$_LxdInstanceDiskStateCopyWithImpl(_$_LxdInstanceDiskState _value,
-      $Res Function(_$_LxdInstanceDiskState) _then)
+class __$$LxdInstanceDiskStateImplCopyWithImpl<$Res>
+    extends _$LxdInstanceDiskStateCopyWithImpl<$Res, _$LxdInstanceDiskStateImpl>
+    implements _$$LxdInstanceDiskStateImplCopyWith<$Res> {
+  __$$LxdInstanceDiskStateImplCopyWithImpl(_$LxdInstanceDiskStateImpl _value,
+      $Res Function(_$LxdInstanceDiskStateImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of LxdInstanceDiskState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? usage = null,
   }) {
-    return _then(_$_LxdInstanceDiskState(
+    return _then(_$LxdInstanceDiskStateImpl(
       usage: null == usage
           ? _value.usage
           : usage // ignore: cast_nullable_to_non_nullable
@@ -492,11 +517,11 @@ class __$$_LxdInstanceDiskStateCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_LxdInstanceDiskState implements _LxdInstanceDiskState {
-  const _$_LxdInstanceDiskState({required this.usage});
+class _$LxdInstanceDiskStateImpl implements _LxdInstanceDiskState {
+  const _$LxdInstanceDiskStateImpl({required this.usage});
 
-  factory _$_LxdInstanceDiskState.fromJson(Map<String, dynamic> json) =>
-      _$$_LxdInstanceDiskStateFromJson(json);
+  factory _$LxdInstanceDiskStateImpl.fromJson(Map<String, dynamic> json) =>
+      _$$LxdInstanceDiskStateImplFromJson(json);
 
   /// Disk usage in bytes
   ///
@@ -510,27 +535,30 @@ class _$_LxdInstanceDiskState implements _LxdInstanceDiskState {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_LxdInstanceDiskState &&
+            other is _$LxdInstanceDiskStateImpl &&
             (identical(other.usage, usage) || other.usage == usage));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, usage);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of LxdInstanceDiskState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$_LxdInstanceDiskStateCopyWith<_$_LxdInstanceDiskState> get copyWith =>
-      __$$_LxdInstanceDiskStateCopyWithImpl<_$_LxdInstanceDiskState>(
-          this, _$identity);
+  _$$LxdInstanceDiskStateImplCopyWith<_$LxdInstanceDiskStateImpl>
+      get copyWith =>
+          __$$LxdInstanceDiskStateImplCopyWithImpl<_$LxdInstanceDiskStateImpl>(
+              this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_LxdInstanceDiskStateToJson(
+    return _$$LxdInstanceDiskStateImplToJson(
       this,
     );
   }
@@ -538,21 +566,23 @@ class _$_LxdInstanceDiskState implements _LxdInstanceDiskState {
 
 abstract class _LxdInstanceDiskState implements LxdInstanceDiskState {
   const factory _LxdInstanceDiskState({required final int usage}) =
-      _$_LxdInstanceDiskState;
+      _$LxdInstanceDiskStateImpl;
 
   factory _LxdInstanceDiskState.fromJson(Map<String, dynamic> json) =
-      _$_LxdInstanceDiskState.fromJson;
-
-  @override
+      _$LxdInstanceDiskStateImpl.fromJson;
 
   /// Disk usage in bytes
   ///
   /// Example: 502239232
-  int get usage;
   @override
-  @JsonKey(ignore: true)
-  _$$_LxdInstanceDiskStateCopyWith<_$_LxdInstanceDiskState> get copyWith =>
-      throw _privateConstructorUsedError;
+  int get usage;
+
+  /// Create a copy of LxdInstanceDiskState
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$LxdInstanceDiskStateImplCopyWith<_$LxdInstanceDiskStateImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 LxdInstanceCpuState _$LxdInstanceCpuStateFromJson(Map<String, dynamic> json) {
@@ -566,8 +596,12 @@ mixin _$LxdInstanceCpuState {
   /// Example: 3637691016
   int get usage => throw _privateConstructorUsedError;
 
+  /// Serializes this LxdInstanceCpuState to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of LxdInstanceCpuState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $LxdInstanceCpuStateCopyWith<LxdInstanceCpuState> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -591,6 +625,8 @@ class _$LxdInstanceCpuStateCopyWithImpl<$Res, $Val extends LxdInstanceCpuState>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of LxdInstanceCpuState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -606,30 +642,32 @@ class _$LxdInstanceCpuStateCopyWithImpl<$Res, $Val extends LxdInstanceCpuState>
 }
 
 /// @nodoc
-abstract class _$$_LxdInstanceCpuStateCopyWith<$Res>
+abstract class _$$LxdInstanceCpuStateImplCopyWith<$Res>
     implements $LxdInstanceCpuStateCopyWith<$Res> {
-  factory _$$_LxdInstanceCpuStateCopyWith(_$_LxdInstanceCpuState value,
-          $Res Function(_$_LxdInstanceCpuState) then) =
-      __$$_LxdInstanceCpuStateCopyWithImpl<$Res>;
+  factory _$$LxdInstanceCpuStateImplCopyWith(_$LxdInstanceCpuStateImpl value,
+          $Res Function(_$LxdInstanceCpuStateImpl) then) =
+      __$$LxdInstanceCpuStateImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({int usage});
 }
 
 /// @nodoc
-class __$$_LxdInstanceCpuStateCopyWithImpl<$Res>
-    extends _$LxdInstanceCpuStateCopyWithImpl<$Res, _$_LxdInstanceCpuState>
-    implements _$$_LxdInstanceCpuStateCopyWith<$Res> {
-  __$$_LxdInstanceCpuStateCopyWithImpl(_$_LxdInstanceCpuState _value,
-      $Res Function(_$_LxdInstanceCpuState) _then)
+class __$$LxdInstanceCpuStateImplCopyWithImpl<$Res>
+    extends _$LxdInstanceCpuStateCopyWithImpl<$Res, _$LxdInstanceCpuStateImpl>
+    implements _$$LxdInstanceCpuStateImplCopyWith<$Res> {
+  __$$LxdInstanceCpuStateImplCopyWithImpl(_$LxdInstanceCpuStateImpl _value,
+      $Res Function(_$LxdInstanceCpuStateImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of LxdInstanceCpuState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? usage = null,
   }) {
-    return _then(_$_LxdInstanceCpuState(
+    return _then(_$LxdInstanceCpuStateImpl(
       usage: null == usage
           ? _value.usage
           : usage // ignore: cast_nullable_to_non_nullable
@@ -640,11 +678,11 @@ class __$$_LxdInstanceCpuStateCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_LxdInstanceCpuState implements _LxdInstanceCpuState {
-  const _$_LxdInstanceCpuState({required this.usage});
+class _$LxdInstanceCpuStateImpl implements _LxdInstanceCpuState {
+  const _$LxdInstanceCpuStateImpl({required this.usage});
 
-  factory _$_LxdInstanceCpuState.fromJson(Map<String, dynamic> json) =>
-      _$$_LxdInstanceCpuStateFromJson(json);
+  factory _$LxdInstanceCpuStateImpl.fromJson(Map<String, dynamic> json) =>
+      _$$LxdInstanceCpuStateImplFromJson(json);
 
   /// CPU usage in nanoseconds
   ///
@@ -658,27 +696,29 @@ class _$_LxdInstanceCpuState implements _LxdInstanceCpuState {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_LxdInstanceCpuState &&
+            other is _$LxdInstanceCpuStateImpl &&
             (identical(other.usage, usage) || other.usage == usage));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, usage);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of LxdInstanceCpuState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$_LxdInstanceCpuStateCopyWith<_$_LxdInstanceCpuState> get copyWith =>
-      __$$_LxdInstanceCpuStateCopyWithImpl<_$_LxdInstanceCpuState>(
+  _$$LxdInstanceCpuStateImplCopyWith<_$LxdInstanceCpuStateImpl> get copyWith =>
+      __$$LxdInstanceCpuStateImplCopyWithImpl<_$LxdInstanceCpuStateImpl>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_LxdInstanceCpuStateToJson(
+    return _$$LxdInstanceCpuStateImplToJson(
       this,
     );
   }
@@ -686,20 +726,22 @@ class _$_LxdInstanceCpuState implements _LxdInstanceCpuState {
 
 abstract class _LxdInstanceCpuState implements LxdInstanceCpuState {
   const factory _LxdInstanceCpuState({required final int usage}) =
-      _$_LxdInstanceCpuState;
+      _$LxdInstanceCpuStateImpl;
 
   factory _LxdInstanceCpuState.fromJson(Map<String, dynamic> json) =
-      _$_LxdInstanceCpuState.fromJson;
-
-  @override
+      _$LxdInstanceCpuStateImpl.fromJson;
 
   /// CPU usage in nanoseconds
   ///
   /// Example: 3637691016
-  int get usage;
   @override
-  @JsonKey(ignore: true)
-  _$$_LxdInstanceCpuStateCopyWith<_$_LxdInstanceCpuState> get copyWith =>
+  int get usage;
+
+  /// Create a copy of LxdInstanceCpuState
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$LxdInstanceCpuStateImplCopyWith<_$LxdInstanceCpuStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -730,8 +772,12 @@ mixin _$LxdInstanceMemoryState {
   /// Example: 12297557
   int get swapUsagePeak => throw _privateConstructorUsedError;
 
+  /// Serializes this LxdInstanceMemoryState to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of LxdInstanceMemoryState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $LxdInstanceMemoryStateCopyWith<LxdInstanceMemoryState> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -756,6 +802,8 @@ class _$LxdInstanceMemoryStateCopyWithImpl<$Res,
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of LxdInstanceMemoryState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -786,25 +834,29 @@ class _$LxdInstanceMemoryStateCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_LxdInstanceMemoryStateCopyWith<$Res>
+abstract class _$$LxdInstanceMemoryStateImplCopyWith<$Res>
     implements $LxdInstanceMemoryStateCopyWith<$Res> {
-  factory _$$_LxdInstanceMemoryStateCopyWith(_$_LxdInstanceMemoryState value,
-          $Res Function(_$_LxdInstanceMemoryState) then) =
-      __$$_LxdInstanceMemoryStateCopyWithImpl<$Res>;
+  factory _$$LxdInstanceMemoryStateImplCopyWith(
+          _$LxdInstanceMemoryStateImpl value,
+          $Res Function(_$LxdInstanceMemoryStateImpl) then) =
+      __$$LxdInstanceMemoryStateImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({int usage, int usagePeak, int swapUsage, int swapUsagePeak});
 }
 
 /// @nodoc
-class __$$_LxdInstanceMemoryStateCopyWithImpl<$Res>
+class __$$LxdInstanceMemoryStateImplCopyWithImpl<$Res>
     extends _$LxdInstanceMemoryStateCopyWithImpl<$Res,
-        _$_LxdInstanceMemoryState>
-    implements _$$_LxdInstanceMemoryStateCopyWith<$Res> {
-  __$$_LxdInstanceMemoryStateCopyWithImpl(_$_LxdInstanceMemoryState _value,
-      $Res Function(_$_LxdInstanceMemoryState) _then)
+        _$LxdInstanceMemoryStateImpl>
+    implements _$$LxdInstanceMemoryStateImplCopyWith<$Res> {
+  __$$LxdInstanceMemoryStateImplCopyWithImpl(
+      _$LxdInstanceMemoryStateImpl _value,
+      $Res Function(_$LxdInstanceMemoryStateImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of LxdInstanceMemoryState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -813,7 +865,7 @@ class __$$_LxdInstanceMemoryStateCopyWithImpl<$Res>
     Object? swapUsage = null,
     Object? swapUsagePeak = null,
   }) {
-    return _then(_$_LxdInstanceMemoryState(
+    return _then(_$LxdInstanceMemoryStateImpl(
       usage: null == usage
           ? _value.usage
           : usage // ignore: cast_nullable_to_non_nullable
@@ -836,15 +888,15 @@ class __$$_LxdInstanceMemoryStateCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_LxdInstanceMemoryState implements _LxdInstanceMemoryState {
-  const _$_LxdInstanceMemoryState(
+class _$LxdInstanceMemoryStateImpl implements _LxdInstanceMemoryState {
+  const _$LxdInstanceMemoryStateImpl(
       {required this.usage,
       required this.usagePeak,
       required this.swapUsage,
       required this.swapUsagePeak});
 
-  factory _$_LxdInstanceMemoryState.fromJson(Map<String, dynamic> json) =>
-      _$$_LxdInstanceMemoryStateFromJson(json);
+  factory _$LxdInstanceMemoryStateImpl.fromJson(Map<String, dynamic> json) =>
+      _$$LxdInstanceMemoryStateImplFromJson(json);
 
   /// Memory usage in bytes
   ///
@@ -876,10 +928,10 @@ class _$_LxdInstanceMemoryState implements _LxdInstanceMemoryState {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_LxdInstanceMemoryState &&
+            other is _$LxdInstanceMemoryStateImpl &&
             (identical(other.usage, usage) || other.usage == usage) &&
             (identical(other.usagePeak, usagePeak) ||
                 other.usagePeak == usagePeak) &&
@@ -889,21 +941,23 @@ class _$_LxdInstanceMemoryState implements _LxdInstanceMemoryState {
                 other.swapUsagePeak == swapUsagePeak));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode =>
       Object.hash(runtimeType, usage, usagePeak, swapUsage, swapUsagePeak);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of LxdInstanceMemoryState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$_LxdInstanceMemoryStateCopyWith<_$_LxdInstanceMemoryState> get copyWith =>
-      __$$_LxdInstanceMemoryStateCopyWithImpl<_$_LxdInstanceMemoryState>(
-          this, _$identity);
+  _$$LxdInstanceMemoryStateImplCopyWith<_$LxdInstanceMemoryStateImpl>
+      get copyWith => __$$LxdInstanceMemoryStateImplCopyWithImpl<
+          _$LxdInstanceMemoryStateImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_LxdInstanceMemoryStateToJson(
+    return _$$LxdInstanceMemoryStateImplToJson(
       this,
     );
   }
@@ -914,39 +968,41 @@ abstract class _LxdInstanceMemoryState implements LxdInstanceMemoryState {
       {required final int usage,
       required final int usagePeak,
       required final int swapUsage,
-      required final int swapUsagePeak}) = _$_LxdInstanceMemoryState;
+      required final int swapUsagePeak}) = _$LxdInstanceMemoryStateImpl;
 
   factory _LxdInstanceMemoryState.fromJson(Map<String, dynamic> json) =
-      _$_LxdInstanceMemoryState.fromJson;
-
-  @override
+      _$LxdInstanceMemoryStateImpl.fromJson;
 
   /// Memory usage in bytes
   ///
   /// Example: 73248768
-  int get usage;
   @override
+  int get usage;
 
   /// Peak memory usage in bytes
   ///
   /// Example: 73785344
-  int get usagePeak;
   @override
+  int get usagePeak;
 
   /// SWAP usage in bytes
   ///
   /// Example: 12297557
-  int get swapUsage;
   @override
+  int get swapUsage;
 
   /// Peak SWAP usage in bytes
   ///
   /// Example: 12297557
-  int get swapUsagePeak;
   @override
-  @JsonKey(ignore: true)
-  _$$_LxdInstanceMemoryStateCopyWith<_$_LxdInstanceMemoryState> get copyWith =>
-      throw _privateConstructorUsedError;
+  int get swapUsagePeak;
+
+  /// Create a copy of LxdInstanceMemoryState
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$LxdInstanceMemoryStateImplCopyWith<_$LxdInstanceMemoryStateImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 LxdInstanceNetworkState _$LxdInstanceNetworkStateFromJson(
@@ -988,8 +1044,12 @@ mixin _$LxdInstanceNetworkState {
   /// Example: broadcast
   String get type => throw _privateConstructorUsedError;
 
+  /// Serializes this LxdInstanceNetworkState to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of LxdInstanceNetworkState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $LxdInstanceNetworkStateCopyWith<LxdInstanceNetworkState> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -1023,6 +1083,8 @@ class _$LxdInstanceNetworkStateCopyWithImpl<$Res,
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of LxdInstanceNetworkState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -1066,6 +1128,8 @@ class _$LxdInstanceNetworkStateCopyWithImpl<$Res,
     ) as $Val);
   }
 
+  /// Create a copy of LxdInstanceNetworkState
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $LxdInstanceNetworkCountersCopyWith<$Res> get counters {
@@ -1076,11 +1140,12 @@ class _$LxdInstanceNetworkStateCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_LxdInstanceNetworkStateCopyWith<$Res>
+abstract class _$$LxdInstanceNetworkStateImplCopyWith<$Res>
     implements $LxdInstanceNetworkStateCopyWith<$Res> {
-  factory _$$_LxdInstanceNetworkStateCopyWith(_$_LxdInstanceNetworkState value,
-          $Res Function(_$_LxdInstanceNetworkState) then) =
-      __$$_LxdInstanceNetworkStateCopyWithImpl<$Res>;
+  factory _$$LxdInstanceNetworkStateImplCopyWith(
+          _$LxdInstanceNetworkStateImpl value,
+          $Res Function(_$LxdInstanceNetworkStateImpl) then) =
+      __$$LxdInstanceNetworkStateImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -1097,14 +1162,17 @@ abstract class _$$_LxdInstanceNetworkStateCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_LxdInstanceNetworkStateCopyWithImpl<$Res>
+class __$$LxdInstanceNetworkStateImplCopyWithImpl<$Res>
     extends _$LxdInstanceNetworkStateCopyWithImpl<$Res,
-        _$_LxdInstanceNetworkState>
-    implements _$$_LxdInstanceNetworkStateCopyWith<$Res> {
-  __$$_LxdInstanceNetworkStateCopyWithImpl(_$_LxdInstanceNetworkState _value,
-      $Res Function(_$_LxdInstanceNetworkState) _then)
+        _$LxdInstanceNetworkStateImpl>
+    implements _$$LxdInstanceNetworkStateImplCopyWith<$Res> {
+  __$$LxdInstanceNetworkStateImplCopyWithImpl(
+      _$LxdInstanceNetworkStateImpl _value,
+      $Res Function(_$LxdInstanceNetworkStateImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of LxdInstanceNetworkState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -1116,7 +1184,7 @@ class __$$_LxdInstanceNetworkStateCopyWithImpl<$Res>
     Object? state = null,
     Object? type = null,
   }) {
-    return _then(_$_LxdInstanceNetworkState(
+    return _then(_$LxdInstanceNetworkStateImpl(
       addresses: null == addresses
           ? _value._addresses
           : addresses // ignore: cast_nullable_to_non_nullable
@@ -1151,8 +1219,8 @@ class __$$_LxdInstanceNetworkStateCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_LxdInstanceNetworkState implements _LxdInstanceNetworkState {
-  const _$_LxdInstanceNetworkState(
+class _$LxdInstanceNetworkStateImpl implements _LxdInstanceNetworkState {
+  const _$LxdInstanceNetworkStateImpl(
       {required final List<LxdInstanceNetworkAddress> addresses,
       required this.counters,
       required this.hwaddr,
@@ -1162,8 +1230,8 @@ class _$_LxdInstanceNetworkState implements _LxdInstanceNetworkState {
       required this.type})
       : _addresses = addresses;
 
-  factory _$_LxdInstanceNetworkState.fromJson(Map<String, dynamic> json) =>
-      _$$_LxdInstanceNetworkStateFromJson(json);
+  factory _$LxdInstanceNetworkStateImpl.fromJson(Map<String, dynamic> json) =>
+      _$$LxdInstanceNetworkStateImplFromJson(json);
 
   /// List of IP addresses
   final List<LxdInstanceNetworkAddress> _addresses;
@@ -1216,10 +1284,10 @@ class _$_LxdInstanceNetworkState implements _LxdInstanceNetworkState {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_LxdInstanceNetworkState &&
+            other is _$LxdInstanceNetworkStateImpl &&
             const DeepCollectionEquality()
                 .equals(other._addresses, _addresses) &&
             (identical(other.counters, counters) ||
@@ -1232,7 +1300,7 @@ class _$_LxdInstanceNetworkState implements _LxdInstanceNetworkState {
             (identical(other.type, type) || other.type == type));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -1244,17 +1312,18 @@ class _$_LxdInstanceNetworkState implements _LxdInstanceNetworkState {
       state,
       type);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of LxdInstanceNetworkState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$_LxdInstanceNetworkStateCopyWith<_$_LxdInstanceNetworkState>
-      get copyWith =>
-          __$$_LxdInstanceNetworkStateCopyWithImpl<_$_LxdInstanceNetworkState>(
-              this, _$identity);
+  _$$LxdInstanceNetworkStateImplCopyWith<_$LxdInstanceNetworkStateImpl>
+      get copyWith => __$$LxdInstanceNetworkStateImplCopyWithImpl<
+          _$LxdInstanceNetworkStateImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_LxdInstanceNetworkStateToJson(
+    return _$$LxdInstanceNetworkStateImplToJson(
       this,
     );
   }
@@ -1268,52 +1337,54 @@ abstract class _LxdInstanceNetworkState implements LxdInstanceNetworkState {
       required final String hostName,
       required final int mtu,
       required final String state,
-      required final String type}) = _$_LxdInstanceNetworkState;
+      required final String type}) = _$LxdInstanceNetworkStateImpl;
 
   factory _LxdInstanceNetworkState.fromJson(Map<String, dynamic> json) =
-      _$_LxdInstanceNetworkState.fromJson;
-
-  @override
+      _$LxdInstanceNetworkStateImpl.fromJson;
 
   /// List of IP addresses
-  List<LxdInstanceNetworkAddress> get addresses;
   @override
+  List<LxdInstanceNetworkAddress> get addresses;
 
   /// Traffic counters
-  LxdInstanceNetworkCounters get counters;
   @override
+  LxdInstanceNetworkCounters get counters;
 
   /// MAC address
   ///
   /// Example: 00:16:3e:0c:ee:dd
-  String get hwaddr;
   @override
+  String get hwaddr;
 
   /// Name of the interface on the host
   ///
   /// Example: vethbbcd39c7
-  String get hostName;
   @override
+  String get hostName;
 
   /// MTU (maximum transmit unit) for the interface
   ///
   /// Example: 1500
-  int get mtu;
   @override
+  int get mtu;
 
   /// Administrative state of the interface (up/down)
   ///
   /// Example: up
-  String get state;
   @override
+  String get state;
 
   /// Type of interface (broadcast, loopback, point-to-point, ...)
   ///
   /// Example: broadcast
-  String get type;
   @override
-  @JsonKey(ignore: true)
-  _$$_LxdInstanceNetworkStateCopyWith<_$_LxdInstanceNetworkState>
+  String get type;
+
+  /// Create a copy of LxdInstanceNetworkState
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$LxdInstanceNetworkStateImplCopyWith<_$LxdInstanceNetworkStateImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -1340,8 +1411,12 @@ mixin _$LxdInstanceNetworkAddress {
   /// Address scope
   LxdNetworkScope get scope => throw _privateConstructorUsedError;
 
+  /// Serializes this LxdInstanceNetworkAddress to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of LxdInstanceNetworkAddress
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $LxdInstanceNetworkAddressCopyWith<LxdInstanceNetworkAddress> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -1370,6 +1445,8 @@ class _$LxdInstanceNetworkAddressCopyWithImpl<$Res,
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of LxdInstanceNetworkAddress
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -1400,12 +1477,12 @@ class _$LxdInstanceNetworkAddressCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_LxdInstanceNetworkAddressCopyWith<$Res>
+abstract class _$$LxdInstanceNetworkAddressImplCopyWith<$Res>
     implements $LxdInstanceNetworkAddressCopyWith<$Res> {
-  factory _$$_LxdInstanceNetworkAddressCopyWith(
-          _$_LxdInstanceNetworkAddress value,
-          $Res Function(_$_LxdInstanceNetworkAddress) then) =
-      __$$_LxdInstanceNetworkAddressCopyWithImpl<$Res>;
+  factory _$$LxdInstanceNetworkAddressImplCopyWith(
+          _$LxdInstanceNetworkAddressImpl value,
+          $Res Function(_$LxdInstanceNetworkAddressImpl) then) =
+      __$$LxdInstanceNetworkAddressImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -1416,15 +1493,17 @@ abstract class _$$_LxdInstanceNetworkAddressCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_LxdInstanceNetworkAddressCopyWithImpl<$Res>
+class __$$LxdInstanceNetworkAddressImplCopyWithImpl<$Res>
     extends _$LxdInstanceNetworkAddressCopyWithImpl<$Res,
-        _$_LxdInstanceNetworkAddress>
-    implements _$$_LxdInstanceNetworkAddressCopyWith<$Res> {
-  __$$_LxdInstanceNetworkAddressCopyWithImpl(
-      _$_LxdInstanceNetworkAddress _value,
-      $Res Function(_$_LxdInstanceNetworkAddress) _then)
+        _$LxdInstanceNetworkAddressImpl>
+    implements _$$LxdInstanceNetworkAddressImplCopyWith<$Res> {
+  __$$LxdInstanceNetworkAddressImplCopyWithImpl(
+      _$LxdInstanceNetworkAddressImpl _value,
+      $Res Function(_$LxdInstanceNetworkAddressImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of LxdInstanceNetworkAddress
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -1433,7 +1512,7 @@ class __$$_LxdInstanceNetworkAddressCopyWithImpl<$Res>
     Object? netmask = null,
     Object? scope = null,
   }) {
-    return _then(_$_LxdInstanceNetworkAddress(
+    return _then(_$LxdInstanceNetworkAddressImpl(
       family: null == family
           ? _value.family
           : family // ignore: cast_nullable_to_non_nullable
@@ -1456,15 +1535,15 @@ class __$$_LxdInstanceNetworkAddressCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_LxdInstanceNetworkAddress implements _LxdInstanceNetworkAddress {
-  const _$_LxdInstanceNetworkAddress(
+class _$LxdInstanceNetworkAddressImpl implements _LxdInstanceNetworkAddress {
+  const _$LxdInstanceNetworkAddressImpl(
       {required this.family,
       required this.address,
       required this.netmask,
       required this.scope});
 
-  factory _$_LxdInstanceNetworkAddress.fromJson(Map<String, dynamic> json) =>
-      _$$_LxdInstanceNetworkAddressFromJson(json);
+  factory _$LxdInstanceNetworkAddressImpl.fromJson(Map<String, dynamic> json) =>
+      _$$LxdInstanceNetworkAddressImplFromJson(json);
 
   /// Network family
   @override
@@ -1492,30 +1571,32 @@ class _$_LxdInstanceNetworkAddress implements _LxdInstanceNetworkAddress {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_LxdInstanceNetworkAddress &&
+            other is _$LxdInstanceNetworkAddressImpl &&
             (identical(other.family, family) || other.family == family) &&
             (identical(other.address, address) || other.address == address) &&
             (identical(other.netmask, netmask) || other.netmask == netmask) &&
             (identical(other.scope, scope) || other.scope == scope));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, family, address, netmask, scope);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of LxdInstanceNetworkAddress
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$_LxdInstanceNetworkAddressCopyWith<_$_LxdInstanceNetworkAddress>
-      get copyWith => __$$_LxdInstanceNetworkAddressCopyWithImpl<
-          _$_LxdInstanceNetworkAddress>(this, _$identity);
+  _$$LxdInstanceNetworkAddressImplCopyWith<_$LxdInstanceNetworkAddressImpl>
+      get copyWith => __$$LxdInstanceNetworkAddressImplCopyWithImpl<
+          _$LxdInstanceNetworkAddressImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_LxdInstanceNetworkAddressToJson(
+    return _$$LxdInstanceNetworkAddressImplToJson(
       this,
     );
   }
@@ -1526,34 +1607,36 @@ abstract class _LxdInstanceNetworkAddress implements LxdInstanceNetworkAddress {
       {required final LxdNetworkFamily family,
       required final String address,
       required final String netmask,
-      required final LxdNetworkScope scope}) = _$_LxdInstanceNetworkAddress;
+      required final LxdNetworkScope scope}) = _$LxdInstanceNetworkAddressImpl;
 
   factory _LxdInstanceNetworkAddress.fromJson(Map<String, dynamic> json) =
-      _$_LxdInstanceNetworkAddress.fromJson;
-
-  @override
+      _$LxdInstanceNetworkAddressImpl.fromJson;
 
   /// Network family
-  LxdNetworkFamily get family;
   @override
+  LxdNetworkFamily get family;
 
   /// IP address
   ///
   /// Example: fd42:4c81:5770:1eaf:216:3eff:fe0c:eedd
-  String get address;
   @override
+  String get address;
 
   /// Network mask
   ///
   /// Example: 64
-  String get netmask;
   @override
+  String get netmask;
 
   /// Address scope
-  LxdNetworkScope get scope;
   @override
-  @JsonKey(ignore: true)
-  _$$_LxdInstanceNetworkAddressCopyWith<_$_LxdInstanceNetworkAddress>
+  LxdNetworkScope get scope;
+
+  /// Create a copy of LxdInstanceNetworkAddress
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$LxdInstanceNetworkAddressImplCopyWith<_$LxdInstanceNetworkAddressImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -1604,8 +1687,12 @@ mixin _$LxdInstanceNetworkCounters {
   /// Example: 179
   int get packetsDroppedInbound => throw _privateConstructorUsedError;
 
+  /// Serializes this LxdInstanceNetworkCounters to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of LxdInstanceNetworkCounters
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $LxdInstanceNetworkCountersCopyWith<LxdInstanceNetworkCounters>
       get copyWith => throw _privateConstructorUsedError;
 }
@@ -1639,6 +1726,8 @@ class _$LxdInstanceNetworkCountersCopyWithImpl<$Res,
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of LxdInstanceNetworkCounters
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -1689,12 +1778,12 @@ class _$LxdInstanceNetworkCountersCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_LxdInstanceNetworkCountersCopyWith<$Res>
+abstract class _$$LxdInstanceNetworkCountersImplCopyWith<$Res>
     implements $LxdInstanceNetworkCountersCopyWith<$Res> {
-  factory _$$_LxdInstanceNetworkCountersCopyWith(
-          _$_LxdInstanceNetworkCounters value,
-          $Res Function(_$_LxdInstanceNetworkCounters) then) =
-      __$$_LxdInstanceNetworkCountersCopyWithImpl<$Res>;
+  factory _$$LxdInstanceNetworkCountersImplCopyWith(
+          _$LxdInstanceNetworkCountersImpl value,
+          $Res Function(_$LxdInstanceNetworkCountersImpl) then) =
+      __$$LxdInstanceNetworkCountersImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -1709,15 +1798,17 @@ abstract class _$$_LxdInstanceNetworkCountersCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_LxdInstanceNetworkCountersCopyWithImpl<$Res>
+class __$$LxdInstanceNetworkCountersImplCopyWithImpl<$Res>
     extends _$LxdInstanceNetworkCountersCopyWithImpl<$Res,
-        _$_LxdInstanceNetworkCounters>
-    implements _$$_LxdInstanceNetworkCountersCopyWith<$Res> {
-  __$$_LxdInstanceNetworkCountersCopyWithImpl(
-      _$_LxdInstanceNetworkCounters _value,
-      $Res Function(_$_LxdInstanceNetworkCounters) _then)
+        _$LxdInstanceNetworkCountersImpl>
+    implements _$$LxdInstanceNetworkCountersImplCopyWith<$Res> {
+  __$$LxdInstanceNetworkCountersImplCopyWithImpl(
+      _$LxdInstanceNetworkCountersImpl _value,
+      $Res Function(_$LxdInstanceNetworkCountersImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of LxdInstanceNetworkCounters
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -1730,7 +1821,7 @@ class __$$_LxdInstanceNetworkCountersCopyWithImpl<$Res>
     Object? packetsDroppedOutbound = null,
     Object? packetsDroppedInbound = null,
   }) {
-    return _then(_$_LxdInstanceNetworkCounters(
+    return _then(_$LxdInstanceNetworkCountersImpl(
       bytesReceived: null == bytesReceived
           ? _value.bytesReceived
           : bytesReceived // ignore: cast_nullable_to_non_nullable
@@ -1769,8 +1860,8 @@ class __$$_LxdInstanceNetworkCountersCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_LxdInstanceNetworkCounters implements _LxdInstanceNetworkCounters {
-  const _$_LxdInstanceNetworkCounters(
+class _$LxdInstanceNetworkCountersImpl implements _LxdInstanceNetworkCounters {
+  const _$LxdInstanceNetworkCountersImpl(
       {required this.bytesReceived,
       required this.bytesSent,
       required this.packetsReceived,
@@ -1780,8 +1871,9 @@ class _$_LxdInstanceNetworkCounters implements _LxdInstanceNetworkCounters {
       required this.packetsDroppedOutbound,
       required this.packetsDroppedInbound});
 
-  factory _$_LxdInstanceNetworkCounters.fromJson(Map<String, dynamic> json) =>
-      _$$_LxdInstanceNetworkCountersFromJson(json);
+  factory _$LxdInstanceNetworkCountersImpl.fromJson(
+          Map<String, dynamic> json) =>
+      _$$LxdInstanceNetworkCountersImplFromJson(json);
 
   /// Number of bytes received
   ///
@@ -1837,10 +1929,10 @@ class _$_LxdInstanceNetworkCounters implements _LxdInstanceNetworkCounters {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_LxdInstanceNetworkCounters &&
+            other is _$LxdInstanceNetworkCountersImpl &&
             (identical(other.bytesReceived, bytesReceived) ||
                 other.bytesReceived == bytesReceived) &&
             (identical(other.bytesSent, bytesSent) ||
@@ -1859,7 +1951,7 @@ class _$_LxdInstanceNetworkCounters implements _LxdInstanceNetworkCounters {
                 other.packetsDroppedInbound == packetsDroppedInbound));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -1872,16 +1964,18 @@ class _$_LxdInstanceNetworkCounters implements _LxdInstanceNetworkCounters {
       packetsDroppedOutbound,
       packetsDroppedInbound);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of LxdInstanceNetworkCounters
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$_LxdInstanceNetworkCountersCopyWith<_$_LxdInstanceNetworkCounters>
-      get copyWith => __$$_LxdInstanceNetworkCountersCopyWithImpl<
-          _$_LxdInstanceNetworkCounters>(this, _$identity);
+  _$$LxdInstanceNetworkCountersImplCopyWith<_$LxdInstanceNetworkCountersImpl>
+      get copyWith => __$$LxdInstanceNetworkCountersImplCopyWithImpl<
+          _$LxdInstanceNetworkCountersImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_LxdInstanceNetworkCountersToJson(
+    return _$$LxdInstanceNetworkCountersImplToJson(
       this,
     );
   }
@@ -1898,61 +1992,63 @@ abstract class _LxdInstanceNetworkCounters
           required final int errorsSent,
           required final int packetsDroppedOutbound,
           required final int packetsDroppedInbound}) =
-      _$_LxdInstanceNetworkCounters;
+      _$LxdInstanceNetworkCountersImpl;
 
   factory _LxdInstanceNetworkCounters.fromJson(Map<String, dynamic> json) =
-      _$_LxdInstanceNetworkCounters.fromJson;
-
-  @override
+      _$LxdInstanceNetworkCountersImpl.fromJson;
 
   /// Number of bytes received
   ///
   /// Example: 192021
-  int get bytesReceived;
   @override
+  int get bytesReceived;
 
   /// Number of bytes sent
   ///
   /// Example: 10888579
-  int get bytesSent;
   @override
+  int get bytesSent;
 
   /// Number of packets received
   ///
   /// Example: 1748
-  int get packetsReceived;
   @override
+  int get packetsReceived;
 
   /// Number of packets sent
   ///
   /// Example: 964
-  int get packetsSent;
   @override
+  int get packetsSent;
 
   /// Number of errors received
   ///
   /// Example: 14
-  int get errorsReceived;
   @override
+  int get errorsReceived;
 
   /// Number of errors sent
   ///
   /// Example: 41
-  int get errorsSent;
   @override
+  int get errorsSent;
 
   /// Number of outbound packets dropped
   ///
   /// Example: 541
-  int get packetsDroppedOutbound;
   @override
+  int get packetsDroppedOutbound;
 
   /// Number of inbound packets dropped
   ///
   /// Example: 179
-  int get packetsDroppedInbound;
   @override
-  @JsonKey(ignore: true)
-  _$$_LxdInstanceNetworkCountersCopyWith<_$_LxdInstanceNetworkCounters>
+  int get packetsDroppedInbound;
+
+  /// Create a copy of LxdInstanceNetworkCounters
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$LxdInstanceNetworkCountersImplCopyWith<_$LxdInstanceNetworkCountersImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

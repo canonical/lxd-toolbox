@@ -12,7 +12,7 @@ part of 'response.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 LxdResponse _$LxdResponseFromJson(Map<String, dynamic> json) {
   switch (json['type']) {
@@ -89,6 +89,8 @@ mixin _$LxdResponse {
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
+
+  /// Serializes this LxdResponse to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
 }
 
@@ -108,25 +110,30 @@ class _$LxdResponseCopyWithImpl<$Res, $Val extends LxdResponse>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  /// Create a copy of LxdResponse
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
-abstract class _$$LxdSyncResponseCopyWith<$Res> {
-  factory _$$LxdSyncResponseCopyWith(
-          _$LxdSyncResponse value, $Res Function(_$LxdSyncResponse) then) =
-      __$$LxdSyncResponseCopyWithImpl<$Res>;
+abstract class _$$LxdSyncResponseImplCopyWith<$Res> {
+  factory _$$LxdSyncResponseImplCopyWith(_$LxdSyncResponseImpl value,
+          $Res Function(_$LxdSyncResponseImpl) then) =
+      __$$LxdSyncResponseImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String status, int statusCode, dynamic metadata});
 }
 
 /// @nodoc
-class __$$LxdSyncResponseCopyWithImpl<$Res>
-    extends _$LxdResponseCopyWithImpl<$Res, _$LxdSyncResponse>
-    implements _$$LxdSyncResponseCopyWith<$Res> {
-  __$$LxdSyncResponseCopyWithImpl(
-      _$LxdSyncResponse _value, $Res Function(_$LxdSyncResponse) _then)
+class __$$LxdSyncResponseImplCopyWithImpl<$Res>
+    extends _$LxdResponseCopyWithImpl<$Res, _$LxdSyncResponseImpl>
+    implements _$$LxdSyncResponseImplCopyWith<$Res> {
+  __$$LxdSyncResponseImplCopyWithImpl(
+      _$LxdSyncResponseImpl _value, $Res Function(_$LxdSyncResponseImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of LxdResponse
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -134,7 +141,7 @@ class __$$LxdSyncResponseCopyWithImpl<$Res>
     Object? statusCode = null,
     Object? metadata = freezed,
   }) {
-    return _then(_$LxdSyncResponse(
+    return _then(_$LxdSyncResponseImpl(
       status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
@@ -153,16 +160,16 @@ class __$$LxdSyncResponseCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$LxdSyncResponse implements LxdSyncResponse {
-  const _$LxdSyncResponse(
+class _$LxdSyncResponseImpl implements LxdSyncResponse {
+  const _$LxdSyncResponseImpl(
       {required this.status,
       required this.statusCode,
       required this.metadata,
       final String? $type})
       : $type = $type ?? 'sync';
 
-  factory _$LxdSyncResponse.fromJson(Map<String, dynamic> json) =>
-      _$$LxdSyncResponseFromJson(json);
+  factory _$LxdSyncResponseImpl.fromJson(Map<String, dynamic> json) =>
+      _$$LxdSyncResponseImplFromJson(json);
 
   @override
   final String status;
@@ -180,26 +187,29 @@ class _$LxdSyncResponse implements LxdSyncResponse {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$LxdSyncResponse &&
+            other is _$LxdSyncResponseImpl &&
             (identical(other.status, status) || other.status == status) &&
             (identical(other.statusCode, statusCode) ||
                 other.statusCode == statusCode) &&
             const DeepCollectionEquality().equals(other.metadata, metadata));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, status, statusCode,
       const DeepCollectionEquality().hash(metadata));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of LxdResponse
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$LxdSyncResponseCopyWith<_$LxdSyncResponse> get copyWith =>
-      __$$LxdSyncResponseCopyWithImpl<_$LxdSyncResponse>(this, _$identity);
+  _$$LxdSyncResponseImplCopyWith<_$LxdSyncResponseImpl> get copyWith =>
+      __$$LxdSyncResponseImplCopyWithImpl<_$LxdSyncResponseImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -284,7 +294,7 @@ class _$LxdSyncResponse implements LxdSyncResponse {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$LxdSyncResponseToJson(
+    return _$$LxdSyncResponseImplToJson(
       this,
     );
   }
@@ -294,25 +304,28 @@ abstract class LxdSyncResponse implements LxdResponse {
   const factory LxdSyncResponse(
       {required final String status,
       required final int statusCode,
-      required final dynamic metadata}) = _$LxdSyncResponse;
+      required final dynamic metadata}) = _$LxdSyncResponseImpl;
 
   factory LxdSyncResponse.fromJson(Map<String, dynamic> json) =
-      _$LxdSyncResponse.fromJson;
+      _$LxdSyncResponseImpl.fromJson;
 
   String get status;
   int get statusCode;
   @override
   dynamic get metadata;
-  @JsonKey(ignore: true)
-  _$$LxdSyncResponseCopyWith<_$LxdSyncResponse> get copyWith =>
+
+  /// Create a copy of LxdResponse
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$LxdSyncResponseImplCopyWith<_$LxdSyncResponseImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$LxdAsyncResponseCopyWith<$Res> {
-  factory _$$LxdAsyncResponseCopyWith(
-          _$LxdAsyncResponse value, $Res Function(_$LxdAsyncResponse) then) =
-      __$$LxdAsyncResponseCopyWithImpl<$Res>;
+abstract class _$$LxdAsyncResponseImplCopyWith<$Res> {
+  factory _$$LxdAsyncResponseImplCopyWith(_$LxdAsyncResponseImpl value,
+          $Res Function(_$LxdAsyncResponseImpl) then) =
+      __$$LxdAsyncResponseImplCopyWithImpl<$Res>;
   @useResult
   $Res call(
       {String status,
@@ -322,13 +335,15 @@ abstract class _$$LxdAsyncResponseCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$LxdAsyncResponseCopyWithImpl<$Res>
-    extends _$LxdResponseCopyWithImpl<$Res, _$LxdAsyncResponse>
-    implements _$$LxdAsyncResponseCopyWith<$Res> {
-  __$$LxdAsyncResponseCopyWithImpl(
-      _$LxdAsyncResponse _value, $Res Function(_$LxdAsyncResponse) _then)
+class __$$LxdAsyncResponseImplCopyWithImpl<$Res>
+    extends _$LxdResponseCopyWithImpl<$Res, _$LxdAsyncResponseImpl>
+    implements _$$LxdAsyncResponseImplCopyWith<$Res> {
+  __$$LxdAsyncResponseImplCopyWithImpl(_$LxdAsyncResponseImpl _value,
+      $Res Function(_$LxdAsyncResponseImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of LxdResponse
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -337,7 +352,7 @@ class __$$LxdAsyncResponseCopyWithImpl<$Res>
     Object? operation = null,
     Object? metadata = null,
   }) {
-    return _then(_$LxdAsyncResponse(
+    return _then(_$LxdAsyncResponseImpl(
       status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
@@ -360,8 +375,8 @@ class __$$LxdAsyncResponseCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$LxdAsyncResponse implements LxdAsyncResponse {
-  const _$LxdAsyncResponse(
+class _$LxdAsyncResponseImpl implements LxdAsyncResponse {
+  const _$LxdAsyncResponseImpl(
       {required this.status,
       required this.statusCode,
       required this.operation,
@@ -370,8 +385,8 @@ class _$LxdAsyncResponse implements LxdAsyncResponse {
       : _metadata = metadata,
         $type = $type ?? 'async';
 
-  factory _$LxdAsyncResponse.fromJson(Map<String, dynamic> json) =>
-      _$$LxdAsyncResponseFromJson(json);
+  factory _$LxdAsyncResponseImpl.fromJson(Map<String, dynamic> json) =>
+      _$$LxdAsyncResponseImplFromJson(json);
 
   @override
   final String status;
@@ -396,10 +411,10 @@ class _$LxdAsyncResponse implements LxdAsyncResponse {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$LxdAsyncResponse &&
+            other is _$LxdAsyncResponseImpl &&
             (identical(other.status, status) || other.status == status) &&
             (identical(other.statusCode, statusCode) ||
                 other.statusCode == statusCode) &&
@@ -408,16 +423,19 @@ class _$LxdAsyncResponse implements LxdAsyncResponse {
             const DeepCollectionEquality().equals(other._metadata, _metadata));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, status, statusCode, operation,
       const DeepCollectionEquality().hash(_metadata));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of LxdResponse
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$LxdAsyncResponseCopyWith<_$LxdAsyncResponse> get copyWith =>
-      __$$LxdAsyncResponseCopyWithImpl<_$LxdAsyncResponse>(this, _$identity);
+  _$$LxdAsyncResponseImplCopyWith<_$LxdAsyncResponseImpl> get copyWith =>
+      __$$LxdAsyncResponseImplCopyWithImpl<_$LxdAsyncResponseImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -502,7 +520,7 @@ class _$LxdAsyncResponse implements LxdAsyncResponse {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$LxdAsyncResponseToJson(
+    return _$$LxdAsyncResponseImplToJson(
       this,
     );
   }
@@ -513,38 +531,43 @@ abstract class LxdAsyncResponse implements LxdResponse {
       {required final String status,
       required final int statusCode,
       required final String operation,
-      required final Map<String, dynamic> metadata}) = _$LxdAsyncResponse;
+      required final Map<String, dynamic> metadata}) = _$LxdAsyncResponseImpl;
 
   factory LxdAsyncResponse.fromJson(Map<String, dynamic> json) =
-      _$LxdAsyncResponse.fromJson;
+      _$LxdAsyncResponseImpl.fromJson;
 
   String get status;
   int get statusCode;
   String get operation;
   @override
   Map<String, dynamic> get metadata;
-  @JsonKey(ignore: true)
-  _$$LxdAsyncResponseCopyWith<_$LxdAsyncResponse> get copyWith =>
+
+  /// Create a copy of LxdResponse
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$LxdAsyncResponseImplCopyWith<_$LxdAsyncResponseImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$LxdErrorResponseCopyWith<$Res> {
-  factory _$$LxdErrorResponseCopyWith(
-          _$LxdErrorResponse value, $Res Function(_$LxdErrorResponse) then) =
-      __$$LxdErrorResponseCopyWithImpl<$Res>;
+abstract class _$$LxdErrorResponseImplCopyWith<$Res> {
+  factory _$$LxdErrorResponseImplCopyWith(_$LxdErrorResponseImpl value,
+          $Res Function(_$LxdErrorResponseImpl) then) =
+      __$$LxdErrorResponseImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String error, int errorCode, Map<String, dynamic>? metadata});
 }
 
 /// @nodoc
-class __$$LxdErrorResponseCopyWithImpl<$Res>
-    extends _$LxdResponseCopyWithImpl<$Res, _$LxdErrorResponse>
-    implements _$$LxdErrorResponseCopyWith<$Res> {
-  __$$LxdErrorResponseCopyWithImpl(
-      _$LxdErrorResponse _value, $Res Function(_$LxdErrorResponse) _then)
+class __$$LxdErrorResponseImplCopyWithImpl<$Res>
+    extends _$LxdResponseCopyWithImpl<$Res, _$LxdErrorResponseImpl>
+    implements _$$LxdErrorResponseImplCopyWith<$Res> {
+  __$$LxdErrorResponseImplCopyWithImpl(_$LxdErrorResponseImpl _value,
+      $Res Function(_$LxdErrorResponseImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of LxdResponse
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -552,7 +575,7 @@ class __$$LxdErrorResponseCopyWithImpl<$Res>
     Object? errorCode = null,
     Object? metadata = freezed,
   }) {
-    return _then(_$LxdErrorResponse(
+    return _then(_$LxdErrorResponseImpl(
       error: null == error
           ? _value.error
           : error // ignore: cast_nullable_to_non_nullable
@@ -571,8 +594,8 @@ class __$$LxdErrorResponseCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$LxdErrorResponse implements LxdErrorResponse {
-  const _$LxdErrorResponse(
+class _$LxdErrorResponseImpl implements LxdErrorResponse {
+  const _$LxdErrorResponseImpl(
       {required this.error,
       required this.errorCode,
       required final Map<String, dynamic>? metadata,
@@ -580,8 +603,8 @@ class _$LxdErrorResponse implements LxdErrorResponse {
       : _metadata = metadata,
         $type = $type ?? 'error';
 
-  factory _$LxdErrorResponse.fromJson(Map<String, dynamic> json) =>
-      _$$LxdErrorResponseFromJson(json);
+  factory _$LxdErrorResponseImpl.fromJson(Map<String, dynamic> json) =>
+      _$$LxdErrorResponseImplFromJson(json);
 
   @override
   final String error;
@@ -606,26 +629,29 @@ class _$LxdErrorResponse implements LxdErrorResponse {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$LxdErrorResponse &&
+            other is _$LxdErrorResponseImpl &&
             (identical(other.error, error) || other.error == error) &&
             (identical(other.errorCode, errorCode) ||
                 other.errorCode == errorCode) &&
             const DeepCollectionEquality().equals(other._metadata, _metadata));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, error, errorCode,
       const DeepCollectionEquality().hash(_metadata));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of LxdResponse
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$LxdErrorResponseCopyWith<_$LxdErrorResponse> get copyWith =>
-      __$$LxdErrorResponseCopyWithImpl<_$LxdErrorResponse>(this, _$identity);
+  _$$LxdErrorResponseImplCopyWith<_$LxdErrorResponseImpl> get copyWith =>
+      __$$LxdErrorResponseImplCopyWithImpl<_$LxdErrorResponseImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -710,7 +736,7 @@ class _$LxdErrorResponse implements LxdErrorResponse {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$LxdErrorResponseToJson(
+    return _$$LxdErrorResponseImplToJson(
       this,
     );
   }
@@ -720,16 +746,19 @@ abstract class LxdErrorResponse implements LxdResponse {
   const factory LxdErrorResponse(
       {required final String error,
       required final int errorCode,
-      required final Map<String, dynamic>? metadata}) = _$LxdErrorResponse;
+      required final Map<String, dynamic>? metadata}) = _$LxdErrorResponseImpl;
 
   factory LxdErrorResponse.fromJson(Map<String, dynamic> json) =
-      _$LxdErrorResponse.fromJson;
+      _$LxdErrorResponseImpl.fromJson;
 
   String get error;
   int get errorCode;
   @override
   Map<String, dynamic>? get metadata;
-  @JsonKey(ignore: true)
-  _$$LxdErrorResponseCopyWith<_$LxdErrorResponse> get copyWith =>
+
+  /// Create a copy of LxdResponse
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$LxdErrorResponseImplCopyWith<_$LxdErrorResponseImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

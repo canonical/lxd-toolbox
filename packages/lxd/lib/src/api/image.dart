@@ -125,7 +125,7 @@ class LxdImageSource with _$LxdImageSource {
 
     /// URL of the source server
     ///
-    /// Example: https://images.linuxcontainers.org
+    /// Example: https://images.lxd.canonical.com
     required String server,
 
     /// Type of image

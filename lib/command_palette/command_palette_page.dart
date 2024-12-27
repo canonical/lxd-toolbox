@@ -39,25 +39,26 @@ class CommandPalettePage extends StatelessWidget {
             ),
             actions: CommandStore.commandsOf(context)
                 .where((c) => c.label != null)
-                .map((c) => CommandPaletteAction(
-                      label: c.label!,
-                      actionType: c.children?.isNotEmpty == true
-                          ? CommandPaletteActionType.nested
-                          : CommandPaletteActionType.single,
-                      shortcut: c.shortcuts?.firstOrNull?.localize(context),
-                      childrenActions: c.children
-                          ?.map((c) => CommandPaletteAction(
-                                label: c.label!,
-                                actionType: CommandPaletteActionType.single,
-                                onSelect: () =>
-                                    CommandStore.of(context).execute(c),
-                              ))
-                          .toList(),
-                      onSelect: c.children?.isNotEmpty == true
-                          ? null
-                          : () => CommandStore.of(context).execute(c),
-                    ))
-                .toList(),
+                .map((c) {
+              if (c.children?.isNotEmpty == true) {
+                return CommandPaletteAction.nested(
+                  label: c.label!,
+                  shortcut: c.shortcuts?.firstOrNull?.localize(context),
+                  childrenActions: c.children
+                      ?.map((c) => CommandPaletteAction.single(
+                            label: c.label!,
+                            onSelect: () => CommandStore.of(context).execute(c),
+                          ))
+                      .toList(),
+                );
+              } else {
+                return CommandPaletteAction.single(
+                  label: c.label!,
+                  shortcut: c.shortcuts?.firstOrNull?.localize(context),
+                  onSelect: () => CommandStore.of(context).execute(c),
+                );
+              }
+            }).toList(),
             child: child,
           ),
         ),

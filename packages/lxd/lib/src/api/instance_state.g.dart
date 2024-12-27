@@ -6,10 +6,10 @@ part of 'instance_state.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_LxdInstanceState _$$_LxdInstanceStateFromJson(Map json) =>
-    _$_LxdInstanceState(
+_$LxdInstanceStateImpl _$$LxdInstanceStateImplFromJson(Map json) =>
+    _$LxdInstanceStateImpl(
       status: $enumDecode(_$LxdInstanceStatusEnumMap, json['status']),
-      statusCode: json['status_code'] as int,
+      statusCode: (json['status_code'] as num).toInt(),
       disk: (json['disk'] as Map?)?.map(
         (k, e) => MapEntry(k as String,
             LxdInstanceDiskState.fromJson(Map<String, dynamic>.from(e as Map))),
@@ -24,15 +24,16 @@ _$_LxdInstanceState _$$_LxdInstanceStateFromJson(Map json) =>
             LxdInstanceNetworkState.fromJson(
                 Map<String, dynamic>.from(e as Map))),
       ),
-      pid: json['pid'] as int,
-      processes: json['processes'] as int? ?? -1,
+      pid: (json['pid'] as num).toInt(),
+      processes: (json['processes'] as num?)?.toInt() ?? -1,
       cpu: json['cpu'] == null
           ? null
           : LxdInstanceCpuState.fromJson(
               Map<String, dynamic>.from(json['cpu'] as Map)),
     );
 
-Map<String, dynamic> _$$_LxdInstanceStateToJson(_$_LxdInstanceState instance) =>
+Map<String, dynamic> _$$LxdInstanceStateImplToJson(
+        _$LxdInstanceStateImpl instance) =>
     <String, dynamic>{
       'status': _$LxdInstanceStatusEnumMap[instance.status]!,
       'status_code': instance.statusCode,
@@ -51,38 +52,38 @@ const _$LxdInstanceStatusEnumMap = {
   LxdInstanceStatus.error: 'Error',
 };
 
-_$_LxdInstanceDiskState _$$_LxdInstanceDiskStateFromJson(Map json) =>
-    _$_LxdInstanceDiskState(
-      usage: json['usage'] as int,
+_$LxdInstanceDiskStateImpl _$$LxdInstanceDiskStateImplFromJson(Map json) =>
+    _$LxdInstanceDiskStateImpl(
+      usage: (json['usage'] as num).toInt(),
     );
 
-Map<String, dynamic> _$$_LxdInstanceDiskStateToJson(
-        _$_LxdInstanceDiskState instance) =>
+Map<String, dynamic> _$$LxdInstanceDiskStateImplToJson(
+        _$LxdInstanceDiskStateImpl instance) =>
     <String, dynamic>{
       'usage': instance.usage,
     };
 
-_$_LxdInstanceCpuState _$$_LxdInstanceCpuStateFromJson(Map json) =>
-    _$_LxdInstanceCpuState(
-      usage: json['usage'] as int,
+_$LxdInstanceCpuStateImpl _$$LxdInstanceCpuStateImplFromJson(Map json) =>
+    _$LxdInstanceCpuStateImpl(
+      usage: (json['usage'] as num).toInt(),
     );
 
-Map<String, dynamic> _$$_LxdInstanceCpuStateToJson(
-        _$_LxdInstanceCpuState instance) =>
+Map<String, dynamic> _$$LxdInstanceCpuStateImplToJson(
+        _$LxdInstanceCpuStateImpl instance) =>
     <String, dynamic>{
       'usage': instance.usage,
     };
 
-_$_LxdInstanceMemoryState _$$_LxdInstanceMemoryStateFromJson(Map json) =>
-    _$_LxdInstanceMemoryState(
-      usage: json['usage'] as int,
-      usagePeak: json['usage_peak'] as int,
-      swapUsage: json['swap_usage'] as int,
-      swapUsagePeak: json['swap_usage_peak'] as int,
+_$LxdInstanceMemoryStateImpl _$$LxdInstanceMemoryStateImplFromJson(Map json) =>
+    _$LxdInstanceMemoryStateImpl(
+      usage: (json['usage'] as num).toInt(),
+      usagePeak: (json['usage_peak'] as num).toInt(),
+      swapUsage: (json['swap_usage'] as num).toInt(),
+      swapUsagePeak: (json['swap_usage_peak'] as num).toInt(),
     );
 
-Map<String, dynamic> _$$_LxdInstanceMemoryStateToJson(
-        _$_LxdInstanceMemoryState instance) =>
+Map<String, dynamic> _$$LxdInstanceMemoryStateImplToJson(
+        _$LxdInstanceMemoryStateImpl instance) =>
     <String, dynamic>{
       'usage': instance.usage,
       'usage_peak': instance.usagePeak,
@@ -90,8 +91,9 @@ Map<String, dynamic> _$$_LxdInstanceMemoryStateToJson(
       'swap_usage_peak': instance.swapUsagePeak,
     };
 
-_$_LxdInstanceNetworkState _$$_LxdInstanceNetworkStateFromJson(Map json) =>
-    _$_LxdInstanceNetworkState(
+_$LxdInstanceNetworkStateImpl _$$LxdInstanceNetworkStateImplFromJson(
+        Map json) =>
+    _$LxdInstanceNetworkStateImpl(
       addresses: (json['addresses'] as List<dynamic>)
           .map((e) => LxdInstanceNetworkAddress.fromJson(
               Map<String, dynamic>.from(e as Map)))
@@ -100,13 +102,13 @@ _$_LxdInstanceNetworkState _$$_LxdInstanceNetworkStateFromJson(Map json) =>
           Map<String, dynamic>.from(json['counters'] as Map)),
       hwaddr: json['hwaddr'] as String,
       hostName: json['host_name'] as String,
-      mtu: json['mtu'] as int,
+      mtu: (json['mtu'] as num).toInt(),
       state: json['state'] as String,
       type: json['type'] as String,
     );
 
-Map<String, dynamic> _$$_LxdInstanceNetworkStateToJson(
-        _$_LxdInstanceNetworkState instance) =>
+Map<String, dynamic> _$$LxdInstanceNetworkStateImplToJson(
+        _$LxdInstanceNetworkStateImpl instance) =>
     <String, dynamic>{
       'addresses': instance.addresses.map((e) => e.toJson()).toList(),
       'counters': instance.counters.toJson(),
@@ -117,16 +119,17 @@ Map<String, dynamic> _$$_LxdInstanceNetworkStateToJson(
       'type': instance.type,
     };
 
-_$_LxdInstanceNetworkAddress _$$_LxdInstanceNetworkAddressFromJson(Map json) =>
-    _$_LxdInstanceNetworkAddress(
+_$LxdInstanceNetworkAddressImpl _$$LxdInstanceNetworkAddressImplFromJson(
+        Map json) =>
+    _$LxdInstanceNetworkAddressImpl(
       family: $enumDecode(_$LxdNetworkFamilyEnumMap, json['family']),
       address: json['address'] as String,
       netmask: json['netmask'] as String,
       scope: $enumDecode(_$LxdNetworkScopeEnumMap, json['scope']),
     );
 
-Map<String, dynamic> _$$_LxdInstanceNetworkAddressToJson(
-        _$_LxdInstanceNetworkAddress instance) =>
+Map<String, dynamic> _$$LxdInstanceNetworkAddressImplToJson(
+        _$LxdInstanceNetworkAddressImpl instance) =>
     <String, dynamic>{
       'family': _$LxdNetworkFamilyEnumMap[instance.family]!,
       'address': instance.address,
@@ -145,21 +148,21 @@ const _$LxdNetworkScopeEnumMap = {
   LxdNetworkScope.global: 'global',
 };
 
-_$_LxdInstanceNetworkCounters _$$_LxdInstanceNetworkCountersFromJson(
+_$LxdInstanceNetworkCountersImpl _$$LxdInstanceNetworkCountersImplFromJson(
         Map json) =>
-    _$_LxdInstanceNetworkCounters(
-      bytesReceived: json['bytes_received'] as int,
-      bytesSent: json['bytes_sent'] as int,
-      packetsReceived: json['packets_received'] as int,
-      packetsSent: json['packets_sent'] as int,
-      errorsReceived: json['errors_received'] as int,
-      errorsSent: json['errors_sent'] as int,
-      packetsDroppedOutbound: json['packets_dropped_outbound'] as int,
-      packetsDroppedInbound: json['packets_dropped_inbound'] as int,
+    _$LxdInstanceNetworkCountersImpl(
+      bytesReceived: (json['bytes_received'] as num).toInt(),
+      bytesSent: (json['bytes_sent'] as num).toInt(),
+      packetsReceived: (json['packets_received'] as num).toInt(),
+      packetsSent: (json['packets_sent'] as num).toInt(),
+      errorsReceived: (json['errors_received'] as num).toInt(),
+      errorsSent: (json['errors_sent'] as num).toInt(),
+      packetsDroppedOutbound: (json['packets_dropped_outbound'] as num).toInt(),
+      packetsDroppedInbound: (json['packets_dropped_inbound'] as num).toInt(),
     );
 
-Map<String, dynamic> _$$_LxdInstanceNetworkCountersToJson(
-        _$_LxdInstanceNetworkCounters instance) =>
+Map<String, dynamic> _$$LxdInstanceNetworkCountersImplToJson(
+        _$LxdInstanceNetworkCountersImpl instance) =>
     <String, dynamic>{
       'bytes_received': instance.bytesReceived,
       'bytes_sent': instance.bytesSent,

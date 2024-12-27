@@ -2,15 +2,15 @@ name: accel_key
 publish_to: 'none'
 
 environment:
-  sdk: ">=2.17.0 <3.0.0"
-  flutter: ">=3.0.0"
+  sdk: '>=3.5.0 <4.0.0'
+  flutter: '>=3.24.0'
 
 dependencies:
   collection: ^1.16.0
   ffi: ^2.0.1
   flutter:
     sdk: flutter
-  ubuntu_localizations: ^0.1.6
+  ubuntu_localizations: ^0.5.0
 
 dev_dependencies:
   ffigen: ^7.1.0

@@ -1,7 +1,6 @@
 import 'dart:async';
 
 import 'package:accel_key/accel_key.dart';
-import 'package:collection/collection.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_jsettings/flutter_jsettings.dart';
 
@@ -57,14 +56,14 @@ extension _ObjectX on Object {
     } else if (this is String) {
       keys = [parseAccelKey(this as String)];
     }
-    return keys.whereNotNull().toList();
+    return keys.nonNulls.toList();
   }
 }
 
 extension _LogicalKeySetListX on List<LogicalKeySet> {
   Object? toSetting() {
     if (length > 1) {
-      return map(formatAccelKey).whereNotNull().toList();
+      return map(formatAccelKey).nonNulls.toList();
     } else {
       return formatAccelKey(single);
     }

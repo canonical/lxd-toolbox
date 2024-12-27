@@ -12,7 +12,7 @@ part of 'server.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 LxdServerEnvironment _$LxdServerEnvironmentFromJson(Map<String, dynamic> json) {
   return _LxdServerEnvironment.fromJson(json);
@@ -135,8 +135,12 @@ mixin _$LxdServerEnvironment {
   List<LxdServerStorageDriverInfo> get storageSupportedDrivers =>
       throw _privateConstructorUsedError;
 
+  /// Serializes this LxdServerEnvironment to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of LxdServerEnvironment
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $LxdServerEnvironmentCopyWith<LxdServerEnvironment> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -185,6 +189,8 @@ class _$LxdServerEnvironmentCopyWithImpl<$Res,
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of LxdServerEnvironment
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -315,11 +321,11 @@ class _$LxdServerEnvironmentCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_LxdServerEnvironmentCopyWith<$Res>
+abstract class _$$LxdServerEnvironmentImplCopyWith<$Res>
     implements $LxdServerEnvironmentCopyWith<$Res> {
-  factory _$$_LxdServerEnvironmentCopyWith(_$_LxdServerEnvironment value,
-          $Res Function(_$_LxdServerEnvironment) then) =
-      __$$_LxdServerEnvironmentCopyWithImpl<$Res>;
+  factory _$$LxdServerEnvironmentImplCopyWith(_$LxdServerEnvironmentImpl value,
+          $Res Function(_$LxdServerEnvironmentImpl) then) =
+      __$$LxdServerEnvironmentImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -350,13 +356,15 @@ abstract class _$$_LxdServerEnvironmentCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_LxdServerEnvironmentCopyWithImpl<$Res>
-    extends _$LxdServerEnvironmentCopyWithImpl<$Res, _$_LxdServerEnvironment>
-    implements _$$_LxdServerEnvironmentCopyWith<$Res> {
-  __$$_LxdServerEnvironmentCopyWithImpl(_$_LxdServerEnvironment _value,
-      $Res Function(_$_LxdServerEnvironment) _then)
+class __$$LxdServerEnvironmentImplCopyWithImpl<$Res>
+    extends _$LxdServerEnvironmentCopyWithImpl<$Res, _$LxdServerEnvironmentImpl>
+    implements _$$LxdServerEnvironmentImplCopyWith<$Res> {
+  __$$LxdServerEnvironmentImplCopyWithImpl(_$LxdServerEnvironmentImpl _value,
+      $Res Function(_$LxdServerEnvironmentImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of LxdServerEnvironment
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -385,7 +393,7 @@ class __$$_LxdServerEnvironmentCopyWithImpl<$Res>
     Object? storageVersion = null,
     Object? storageSupportedDrivers = null,
   }) {
-    return _then(_$_LxdServerEnvironment(
+    return _then(_$LxdServerEnvironmentImpl(
       addresses: null == addresses
           ? _value._addresses
           : addresses // ignore: cast_nullable_to_non_nullable
@@ -488,8 +496,8 @@ class __$$_LxdServerEnvironmentCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_LxdServerEnvironment implements _LxdServerEnvironment {
-  const _$_LxdServerEnvironment(
+class _$LxdServerEnvironmentImpl implements _LxdServerEnvironment {
+  const _$LxdServerEnvironmentImpl(
       {final List<String> addresses = const [],
       final List<String> architectures = const [],
       required this.certificate,
@@ -521,8 +529,8 @@ class _$_LxdServerEnvironment implements _LxdServerEnvironment {
         _lxdFeatures = lxdFeatures,
         _storageSupportedDrivers = storageSupportedDrivers;
 
-  factory _$_LxdServerEnvironment.fromJson(Map<String, dynamic> json) =>
-      _$$_LxdServerEnvironmentFromJson(json);
+  factory _$LxdServerEnvironmentImpl.fromJson(Map<String, dynamic> json) =>
+      _$$LxdServerEnvironmentImplFromJson(json);
 
   /// List of addresses the server is listening on
   /// Example: [":8443"]
@@ -719,10 +727,10 @@ class _$_LxdServerEnvironment implements _LxdServerEnvironment {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_LxdServerEnvironment &&
+            other is _$LxdServerEnvironmentImpl &&
             const DeepCollectionEquality()
                 .equals(other._addresses, _addresses) &&
             const DeepCollectionEquality()
@@ -767,7 +775,7 @@ class _$_LxdServerEnvironment implements _LxdServerEnvironment {
                 other._storageSupportedDrivers, _storageSupportedDrivers));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hashAll([
         runtimeType,
@@ -797,16 +805,19 @@ class _$_LxdServerEnvironment implements _LxdServerEnvironment {
         const DeepCollectionEquality().hash(_storageSupportedDrivers)
       ]);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of LxdServerEnvironment
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$_LxdServerEnvironmentCopyWith<_$_LxdServerEnvironment> get copyWith =>
-      __$$_LxdServerEnvironmentCopyWithImpl<_$_LxdServerEnvironment>(
-          this, _$identity);
+  _$$LxdServerEnvironmentImplCopyWith<_$LxdServerEnvironmentImpl>
+      get copyWith =>
+          __$$LxdServerEnvironmentImplCopyWithImpl<_$LxdServerEnvironmentImpl>(
+              this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_LxdServerEnvironmentToJson(
+    return _$$LxdServerEnvironmentImplToJson(
       this,
     );
   }
@@ -838,153 +849,155 @@ abstract class _LxdServerEnvironment implements LxdServerEnvironment {
           required final String storage,
           required final String storageVersion,
           final List<LxdServerStorageDriverInfo> storageSupportedDrivers}) =
-      _$_LxdServerEnvironment;
+      _$LxdServerEnvironmentImpl;
 
   factory _LxdServerEnvironment.fromJson(Map<String, dynamic> json) =
-      _$_LxdServerEnvironment.fromJson;
-
-  @override
+      _$LxdServerEnvironmentImpl.fromJson;
 
   /// List of addresses the server is listening on
   /// Example: [":8443"]
-  List<String> get addresses;
   @override
+  List<String> get addresses;
 
   /// List of architectures supported by the server
   /// Example: ["x86_64", "i686"]
-  List<String> get architectures;
   @override
+  List<String> get architectures;
 
   /// Server certificate as PEM encoded X509
   /// Example: X509 PEM certificate
-  String get certificate;
   @override
+  String get certificate;
 
   /// Server certificate fingerprint as SHA256
   /// Example: fd200419b271f1dc2a5591b693cc5774b7f234e1ff8c6b78ad703b6888fe2b69
-  String? get certificateFingerprint;
   @override
+  String? get certificateFingerprint;
 
   /// List of supported instance drivers (separate by " | ")
   /// Example: lxc | qemu
-  String get driver;
   @override
+  String get driver;
 
   /// List of supported instance driver versions (separate by " | ")
   /// Example: 4.0.7 | 5.2.0
-  String get driverVersion;
   @override
+  String get driverVersion;
 
   /// Current firewall driver
   /// Example: nftables
 //
   /// API extension: firewall_driver
-  String? get firewall;
   @override
+  String? get firewall;
 
   /// OS kernel name
   /// Example: Linux
-  String get kernel;
   @override
+  String get kernel;
 
   /// OS kernel architecture
   /// Example: x86_64
-  String get kernelArchitecture;
   @override
+  String get kernelArchitecture;
 
   /// Map of kernel features that were tested on startup
   /// Example: {"netnsid_getifaddrs": "true", "seccomp_listener": "true"}
 //
   /// API extension: kernel_features
-  Map<String, String>? get kernelFeatures;
   @override
+  Map<String, String>? get kernelFeatures;
 
   /// Kernel version
   /// Example: 5.4.0-36-generic
-  String get kernelVersion;
   @override
+  String get kernelVersion;
 
   /// Map of LXC features that were tested on startup
   /// Example: {"cgroup2": "true", "devpts_fd": "true", "pidfd": "true"}
 //
   /// API extension: lxc_features
-  Map<String, String>? get lxdFeatures;
   @override
+  Map<String, String>? get lxdFeatures;
 
   /// Name of the operating system (Linux distribution)
   /// Example: Ubuntu
 //
   /// API extension: api_os
-  String? get osName;
   @override
+  String? get osName;
 
   /// Version of the operating system (Linux distribution)
   /// Example: 22.04
 //
   /// API extension: api_os
-  String? get osVersion;
   @override
+  String? get osVersion;
 
   /// Current project name
   /// Example: default
 //
   /// API extension: projects
-  String? get project;
   @override
+  String? get project;
 
   /// Server implementation name
   /// Example: lxd
-  String get server;
   @override
+  String get server;
 
   /// Whether the server is part of a cluster
   /// Example: false
 //
   /// API extension: clustering
-  bool? get serverClustered;
   @override
+  bool? get serverClustered;
 
   /// Mode that the event distribution subsystem is operating in on this server.
   /// Either "full-mesh", "hub-server" or "hub-client".
   /// Example: full-mesh
 //
   /// API extension: event_hub
-  String? get serverEventMode;
   @override
+  String? get serverEventMode;
 
   /// Server hostname
   /// Example: castiana
 //
   /// API extension: clustering
-  String? get serverName;
   @override
+  String? get serverName;
 
   /// PID of the LXD process
   /// Example: 1453969
-  int get serverPid;
   @override
+  int get serverPid;
 
   /// Server version
   /// Example: 4.11
-  String get serverVersion;
   @override
+  String get serverVersion;
 
   /// List of active storage drivers (separate by " | ")
   /// Example: dir | zfs
-  String get storage;
   @override
+  String get storage;
 
   /// List of active storage driver versions (separate by " | ")
   /// Example: 1 | 0.8.4-1ubuntu11
-  String get storageVersion;
   @override
+  String get storageVersion;
 
   /// List of supported storage drivers
-  List<LxdServerStorageDriverInfo> get storageSupportedDrivers;
   @override
-  @JsonKey(ignore: true)
-  _$$_LxdServerEnvironmentCopyWith<_$_LxdServerEnvironment> get copyWith =>
-      throw _privateConstructorUsedError;
+  List<LxdServerStorageDriverInfo> get storageSupportedDrivers;
+
+  /// Create a copy of LxdServerEnvironment
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$LxdServerEnvironmentImplCopyWith<_$LxdServerEnvironmentImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 LxdServerStorageDriverInfo _$LxdServerStorageDriverInfoFromJson(
@@ -1015,8 +1028,12 @@ mixin _$LxdServerStorageDriverInfo {
   @JsonKey(name: 'Remote')
   bool get remote => throw _privateConstructorUsedError;
 
+  /// Serializes this LxdServerStorageDriverInfo to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of LxdServerStorageDriverInfo
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $LxdServerStorageDriverInfoCopyWith<LxdServerStorageDriverInfo>
       get copyWith => throw _privateConstructorUsedError;
 }
@@ -1045,6 +1062,8 @@ class _$LxdServerStorageDriverInfoCopyWithImpl<$Res,
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of LxdServerStorageDriverInfo
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -1070,12 +1089,12 @@ class _$LxdServerStorageDriverInfoCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_LxdServerStorageDriverInfoCopyWith<$Res>
+abstract class _$$LxdServerStorageDriverInfoImplCopyWith<$Res>
     implements $LxdServerStorageDriverInfoCopyWith<$Res> {
-  factory _$$_LxdServerStorageDriverInfoCopyWith(
-          _$_LxdServerStorageDriverInfo value,
-          $Res Function(_$_LxdServerStorageDriverInfo) then) =
-      __$$_LxdServerStorageDriverInfoCopyWithImpl<$Res>;
+  factory _$$LxdServerStorageDriverInfoImplCopyWith(
+          _$LxdServerStorageDriverInfoImpl value,
+          $Res Function(_$LxdServerStorageDriverInfoImpl) then) =
+      __$$LxdServerStorageDriverInfoImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -1085,15 +1104,17 @@ abstract class _$$_LxdServerStorageDriverInfoCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_LxdServerStorageDriverInfoCopyWithImpl<$Res>
+class __$$LxdServerStorageDriverInfoImplCopyWithImpl<$Res>
     extends _$LxdServerStorageDriverInfoCopyWithImpl<$Res,
-        _$_LxdServerStorageDriverInfo>
-    implements _$$_LxdServerStorageDriverInfoCopyWith<$Res> {
-  __$$_LxdServerStorageDriverInfoCopyWithImpl(
-      _$_LxdServerStorageDriverInfo _value,
-      $Res Function(_$_LxdServerStorageDriverInfo) _then)
+        _$LxdServerStorageDriverInfoImpl>
+    implements _$$LxdServerStorageDriverInfoImplCopyWith<$Res> {
+  __$$LxdServerStorageDriverInfoImplCopyWithImpl(
+      _$LxdServerStorageDriverInfoImpl _value,
+      $Res Function(_$LxdServerStorageDriverInfoImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of LxdServerStorageDriverInfo
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -1101,7 +1122,7 @@ class __$$_LxdServerStorageDriverInfoCopyWithImpl<$Res>
     Object? version = null,
     Object? remote = null,
   }) {
-    return _then(_$_LxdServerStorageDriverInfo(
+    return _then(_$LxdServerStorageDriverInfoImpl(
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -1120,14 +1141,15 @@ class __$$_LxdServerStorageDriverInfoCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_LxdServerStorageDriverInfo implements _LxdServerStorageDriverInfo {
-  const _$_LxdServerStorageDriverInfo(
+class _$LxdServerStorageDriverInfoImpl implements _LxdServerStorageDriverInfo {
+  const _$LxdServerStorageDriverInfoImpl(
       {@JsonKey(name: 'Name') required this.name,
       @JsonKey(name: 'Version') required this.version,
       @JsonKey(name: 'Remote') required this.remote});
 
-  factory _$_LxdServerStorageDriverInfo.fromJson(Map<String, dynamic> json) =>
-      _$$_LxdServerStorageDriverInfoFromJson(json);
+  factory _$LxdServerStorageDriverInfoImpl.fromJson(
+          Map<String, dynamic> json) =>
+      _$$LxdServerStorageDriverInfoImplFromJson(json);
 
   /// Name of the driver
   /// Example: zfs
@@ -1159,29 +1181,31 @@ class _$_LxdServerStorageDriverInfo implements _LxdServerStorageDriverInfo {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_LxdServerStorageDriverInfo &&
+            other is _$LxdServerStorageDriverInfoImpl &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.version, version) || other.version == version) &&
             (identical(other.remote, remote) || other.remote == remote));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, name, version, remote);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of LxdServerStorageDriverInfo
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$_LxdServerStorageDriverInfoCopyWith<_$_LxdServerStorageDriverInfo>
-      get copyWith => __$$_LxdServerStorageDriverInfoCopyWithImpl<
-          _$_LxdServerStorageDriverInfo>(this, _$identity);
+  _$$LxdServerStorageDriverInfoImplCopyWith<_$LxdServerStorageDriverInfoImpl>
+      get copyWith => __$$LxdServerStorageDriverInfoImplCopyWithImpl<
+          _$LxdServerStorageDriverInfoImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_LxdServerStorageDriverInfoToJson(
+    return _$$LxdServerStorageDriverInfoImplToJson(
       this,
     );
   }
@@ -1193,38 +1217,40 @@ abstract class _LxdServerStorageDriverInfo
           {@JsonKey(name: 'Name') required final String name,
           @JsonKey(name: 'Version') required final String version,
           @JsonKey(name: 'Remote') required final bool remote}) =
-      _$_LxdServerStorageDriverInfo;
+      _$LxdServerStorageDriverInfoImpl;
 
   factory _LxdServerStorageDriverInfo.fromJson(Map<String, dynamic> json) =
-      _$_LxdServerStorageDriverInfo.fromJson;
-
-  @override
+      _$LxdServerStorageDriverInfoImpl.fromJson;
 
   /// Name of the driver
   /// Example: zfs
   ///
   /// API extension: server_supported_storage_drivers
+  @override
   @JsonKey(name: 'Name')
   String get name;
-  @override
 
   /// Version of the driver
   /// Example: 0.8.4-1ubuntu11
   ///
   /// API extension: server_supported_storage_drivers
+  @override
   @JsonKey(name: 'Version')
   String get version;
-  @override
 
   /// Whether the driver has remote volumes
   /// Example: false
   ///
   /// API extension: server_supported_storage_drivers
+  @override
   @JsonKey(name: 'Remote')
   bool get remote;
+
+  /// Create a copy of LxdServerStorageDriverInfo
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
-  _$$_LxdServerStorageDriverInfoCopyWith<_$_LxdServerStorageDriverInfo>
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$LxdServerStorageDriverInfoImplCopyWith<_$LxdServerStorageDriverInfoImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -1270,8 +1296,12 @@ mixin _$LxdServer {
   List<String>? get authMethods => throw _privateConstructorUsedError;
   LxdServerEnvironment get environment => throw _privateConstructorUsedError;
 
+  /// Serializes this LxdServer to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of LxdServer
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $LxdServerCopyWith<LxdServer> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -1304,6 +1334,8 @@ class _$LxdServerCopyWithImpl<$Res, $Val extends LxdServer>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of LxdServer
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -1352,6 +1384,8 @@ class _$LxdServerCopyWithImpl<$Res, $Val extends LxdServer>
     ) as $Val);
   }
 
+  /// Create a copy of LxdServer
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $LxdServerEnvironmentCopyWith<$Res> get environment {
@@ -1362,10 +1396,11 @@ class _$LxdServerCopyWithImpl<$Res, $Val extends LxdServer>
 }
 
 /// @nodoc
-abstract class _$$_LxdServerCopyWith<$Res> implements $LxdServerCopyWith<$Res> {
-  factory _$$_LxdServerCopyWith(
-          _$_LxdServer value, $Res Function(_$_LxdServer) then) =
-      __$$_LxdServerCopyWithImpl<$Res>;
+abstract class _$$LxdServerImplCopyWith<$Res>
+    implements $LxdServerCopyWith<$Res> {
+  factory _$$LxdServerImplCopyWith(
+          _$LxdServerImpl value, $Res Function(_$LxdServerImpl) then) =
+      __$$LxdServerImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -1383,13 +1418,15 @@ abstract class _$$_LxdServerCopyWith<$Res> implements $LxdServerCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_LxdServerCopyWithImpl<$Res>
-    extends _$LxdServerCopyWithImpl<$Res, _$_LxdServer>
-    implements _$$_LxdServerCopyWith<$Res> {
-  __$$_LxdServerCopyWithImpl(
-      _$_LxdServer _value, $Res Function(_$_LxdServer) _then)
+class __$$LxdServerImplCopyWithImpl<$Res>
+    extends _$LxdServerCopyWithImpl<$Res, _$LxdServerImpl>
+    implements _$$LxdServerImplCopyWith<$Res> {
+  __$$LxdServerImplCopyWithImpl(
+      _$LxdServerImpl _value, $Res Function(_$LxdServerImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of LxdServer
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -1402,7 +1439,7 @@ class __$$_LxdServerCopyWithImpl<$Res>
     Object? authMethods = freezed,
     Object? environment = null,
   }) {
-    return _then(_$_LxdServer(
+    return _then(_$LxdServerImpl(
       config: null == config
           ? _value._config
           : config // ignore: cast_nullable_to_non_nullable
@@ -1441,8 +1478,8 @@ class __$$_LxdServerCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_LxdServer implements _LxdServer {
-  const _$_LxdServer(
+class _$LxdServerImpl implements _LxdServer {
+  const _$LxdServerImpl(
       {required final Map<String, dynamic> config,
       final List<String> apiExtensions = const [],
       required this.apiStatus,
@@ -1455,8 +1492,8 @@ class _$_LxdServer implements _LxdServer {
         _apiExtensions = apiExtensions,
         _authMethods = authMethods;
 
-  factory _$_LxdServer.fromJson(Map<String, dynamic> json) =>
-      _$$_LxdServerFromJson(json);
+  factory _$LxdServerImpl.fromJson(Map<String, dynamic> json) =>
+      _$$LxdServerImplFromJson(json);
 
   /// Server configuration map (refer to doc/server.md)
   /// Example: {"core.https_address": ":8443", "core.trust_password": true}
@@ -1540,10 +1577,10 @@ class _$_LxdServer implements _LxdServer {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_LxdServer &&
+            other is _$LxdServerImpl &&
             const DeepCollectionEquality().equals(other._config, _config) &&
             const DeepCollectionEquality()
                 .equals(other._apiExtensions, _apiExtensions) &&
@@ -1559,7 +1596,7 @@ class _$_LxdServer implements _LxdServer {
                 other.environment == environment));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -1572,15 +1609,17 @@ class _$_LxdServer implements _LxdServer {
       const DeepCollectionEquality().hash(_authMethods),
       environment);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of LxdServer
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$_LxdServerCopyWith<_$_LxdServer> get copyWith =>
-      __$$_LxdServerCopyWithImpl<_$_LxdServer>(this, _$identity);
+  _$$LxdServerImplCopyWith<_$LxdServerImpl> get copyWith =>
+      __$$LxdServerImplCopyWithImpl<_$LxdServerImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_LxdServerToJson(
+    return _$$LxdServerImplToJson(
       this,
     );
   }
@@ -1595,56 +1634,58 @@ abstract class _LxdServer implements LxdServer {
       required final String auth,
       required final bool public,
       required final List<String>? authMethods,
-      required final LxdServerEnvironment environment}) = _$_LxdServer;
+      required final LxdServerEnvironment environment}) = _$LxdServerImpl;
 
   factory _LxdServer.fromJson(Map<String, dynamic> json) =
-      _$_LxdServer.fromJson;
-
-  @override
+      _$LxdServerImpl.fromJson;
 
   /// Server configuration map (refer to doc/server.md)
   /// Example: {"core.https_address": ":8443", "core.trust_password": true}
-  Map<String, dynamic> get config;
-  @override // List of supported API extensions
+  @override
+  Map<String, dynamic> get config; // List of supported API extensions
   /// Read only: true
   /// Example: ["etag", "patch", "network", "storage"]
-  List<String> get apiExtensions;
   @override
+  List<String> get apiExtensions;
 
   /// Support status of the current API (one of "devel", "stable" or "deprecated")
   /// Read only: true
   /// Example: stable
-  String get apiStatus;
   @override
+  String get apiStatus;
 
   /// API version number
   /// Read only: true
   /// Example: 1.0
-  String get apiVersion;
   @override
+  String get apiVersion;
 
   /// Whether the client is trusted (one of "trusted" or "untrusted")
   /// Read only: true
   /// Example: untrusted
-  String get auth;
   @override
+  String get auth;
 
   /// Whether the server is public-only (only public endpoints are implemented)
   /// Read only: true
   /// Example: false
-  bool get public;
   @override
+  bool get public;
 
   /// List of supported authentication methods
   /// Read only: true
   /// Example: ["tls", "candid"]
   ///
   /// API extension: macaroon_authentication
+  @override
   List<String>? get authMethods;
   @override
   LxdServerEnvironment get environment;
+
+  /// Create a copy of LxdServer
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
-  _$$_LxdServerCopyWith<_$_LxdServer> get copyWith =>
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$LxdServerImplCopyWith<_$LxdServerImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

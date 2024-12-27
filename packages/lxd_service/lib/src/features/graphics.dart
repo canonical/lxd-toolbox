@@ -23,7 +23,7 @@ class LxdGraphicsFeature extends LxdFeatureProvider {
     return {
       '/etc/profile.d/workshops-graphics.sh': '''
   # Created by Workshops on ${DateTime.now().toIso8601String()}
-  
+
   export DISPLAY=$x11
   # export WAYLAND_DISPLAY=$wayland
   '''
@@ -47,8 +47,8 @@ class LxdGraphicsFeature extends LxdFeatureProvider {
         'bind': 'instance',
         'listen': 'unix:/tmp/.X11-unix/X${x11.split(':').last}',
         'connect': 'unix:/tmp/.X11-unix/X${x11.split(':').last}',
-        'gid': '$gid',
-        'uid': '$uid',
+        'gid': gid,
+        'uid': uid,
         'security.gid': '${getgid()}',
         'security.uid': '${getuid()}',
       },

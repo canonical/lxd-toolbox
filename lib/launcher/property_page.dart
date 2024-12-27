@@ -5,7 +5,7 @@ import 'package:os_logo/os_logo.dart';
 import 'package:provider/provider.dart';
 import 'package:ubuntu_service/ubuntu_service.dart';
 import 'package:wizard_router/wizard_router.dart';
-import 'package:yaru_widgets/yaru_widgets.dart';
+import 'package:yaru/widgets.dart';
 
 import 'launcher_model.dart';
 import 'launcher_page.dart';
@@ -52,7 +52,7 @@ class _PropertyPageState extends State<PropertyPage> {
     return LauncherPage(
       title: Text(l10n.launchInstanceTitle),
       content: YaruBorderContainer(
-        color: Theme.of(context).colorScheme.background,
+        color: Theme.of(context).colorScheme.surface,
         child: Padding(
           padding: const EdgeInsets.all(48),
           child: Row(

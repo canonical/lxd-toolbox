@@ -17,9 +17,9 @@ class LxdUserFeature extends LxdFeatureProvider {
     return {
       '/etc/sudoers.d/90-workshops': '''
   # Created by Workshops on ${DateTime.now().toIso8601String()}
-  
+
   $username ALL=(ALL) NOPASSWD:ALL
-  Defaults:$username env_keep += \"LXD_DIR\"
+  Defaults:$username env_keep += "LXD_DIR"
   '''
     };
   }

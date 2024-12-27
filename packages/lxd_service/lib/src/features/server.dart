@@ -20,7 +20,7 @@ class LxdServerFeature extends LxdFeatureProvider {
     return {
       '/etc/profile.d/workshops-lxd.sh': '''
   # Created by Workshops on ${DateTime.now().toIso8601String()}
-  
+
   export LXD_DIR=/srv/lxd
   '''
     };
@@ -38,8 +38,8 @@ class LxdServerFeature extends LxdFeatureProvider {
         'bind': 'instance',
         'listen': 'unix:/srv/lxd/unix.socket',
         'connect': 'unix:$lxd',
-        'gid': '$gid',
-        'uid': '$uid',
+        'gid': gid,
+        'uid': uid,
       },
     };
   }

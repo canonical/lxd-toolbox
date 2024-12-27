@@ -12,7 +12,7 @@ part of 'project.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 LxdProject _$LxdProjectFromJson(Map<String, dynamic> json) {
   return _LxdProject.fromJson(json);
@@ -25,8 +25,12 @@ mixin _$LxdProject {
   String get name => throw _privateConstructorUsedError;
   List<String> get usedBy => throw _privateConstructorUsedError;
 
+  /// Serializes this LxdProject to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of LxdProject
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $LxdProjectCopyWith<LxdProject> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -54,6 +58,8 @@ class _$LxdProjectCopyWithImpl<$Res, $Val extends LxdProject>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of LxdProject
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -84,11 +90,11 @@ class _$LxdProjectCopyWithImpl<$Res, $Val extends LxdProject>
 }
 
 /// @nodoc
-abstract class _$$_LxdProjectCopyWith<$Res>
+abstract class _$$LxdProjectImplCopyWith<$Res>
     implements $LxdProjectCopyWith<$Res> {
-  factory _$$_LxdProjectCopyWith(
-          _$_LxdProject value, $Res Function(_$_LxdProject) then) =
-      __$$_LxdProjectCopyWithImpl<$Res>;
+  factory _$$LxdProjectImplCopyWith(
+          _$LxdProjectImpl value, $Res Function(_$LxdProjectImpl) then) =
+      __$$LxdProjectImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -99,13 +105,15 @@ abstract class _$$_LxdProjectCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_LxdProjectCopyWithImpl<$Res>
-    extends _$LxdProjectCopyWithImpl<$Res, _$_LxdProject>
-    implements _$$_LxdProjectCopyWith<$Res> {
-  __$$_LxdProjectCopyWithImpl(
-      _$_LxdProject _value, $Res Function(_$_LxdProject) _then)
+class __$$LxdProjectImplCopyWithImpl<$Res>
+    extends _$LxdProjectCopyWithImpl<$Res, _$LxdProjectImpl>
+    implements _$$LxdProjectImplCopyWith<$Res> {
+  __$$LxdProjectImplCopyWithImpl(
+      _$LxdProjectImpl _value, $Res Function(_$LxdProjectImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of LxdProject
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -114,7 +122,7 @@ class __$$_LxdProjectCopyWithImpl<$Res>
     Object? name = null,
     Object? usedBy = null,
   }) {
-    return _then(_$_LxdProject(
+    return _then(_$LxdProjectImpl(
       config: null == config
           ? _value._config
           : config // ignore: cast_nullable_to_non_nullable
@@ -137,8 +145,8 @@ class __$$_LxdProjectCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_LxdProject implements _LxdProject {
-  const _$_LxdProject(
+class _$LxdProjectImpl implements _LxdProject {
+  const _$LxdProjectImpl(
       {required final Map<String, String> config,
       required this.description,
       required this.name,
@@ -146,8 +154,8 @@ class _$_LxdProject implements _LxdProject {
       : _config = config,
         _usedBy = usedBy;
 
-  factory _$_LxdProject.fromJson(Map<String, dynamic> json) =>
-      _$$_LxdProjectFromJson(json);
+  factory _$LxdProjectImpl.fromJson(Map<String, dynamic> json) =>
+      _$$LxdProjectImplFromJson(json);
 
   final Map<String, String> _config;
   @override
@@ -175,10 +183,10 @@ class _$_LxdProject implements _LxdProject {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_LxdProject &&
+            other is _$LxdProjectImpl &&
             const DeepCollectionEquality().equals(other._config, _config) &&
             (identical(other.description, description) ||
                 other.description == description) &&
@@ -186,7 +194,7 @@ class _$_LxdProject implements _LxdProject {
             const DeepCollectionEquality().equals(other._usedBy, _usedBy));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -195,15 +203,17 @@ class _$_LxdProject implements _LxdProject {
       name,
       const DeepCollectionEquality().hash(_usedBy));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of LxdProject
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$_LxdProjectCopyWith<_$_LxdProject> get copyWith =>
-      __$$_LxdProjectCopyWithImpl<_$_LxdProject>(this, _$identity);
+  _$$LxdProjectImplCopyWith<_$LxdProjectImpl> get copyWith =>
+      __$$LxdProjectImplCopyWithImpl<_$LxdProjectImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_LxdProjectToJson(
+    return _$$LxdProjectImplToJson(
       this,
     );
   }
@@ -214,10 +224,10 @@ abstract class _LxdProject implements LxdProject {
       {required final Map<String, String> config,
       required final String description,
       required final String name,
-      required final List<String> usedBy}) = _$_LxdProject;
+      required final List<String> usedBy}) = _$LxdProjectImpl;
 
   factory _LxdProject.fromJson(Map<String, dynamic> json) =
-      _$_LxdProject.fromJson;
+      _$LxdProjectImpl.fromJson;
 
   @override
   Map<String, String> get config;
@@ -227,8 +237,11 @@ abstract class _LxdProject implements LxdProject {
   String get name;
   @override
   List<String> get usedBy;
+
+  /// Create a copy of LxdProject
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
-  _$$_LxdProjectCopyWith<_$_LxdProject> get copyWith =>
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$LxdProjectImplCopyWith<_$LxdProjectImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

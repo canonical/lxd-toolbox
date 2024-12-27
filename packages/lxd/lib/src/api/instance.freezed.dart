@@ -12,7 +12,7 @@ part of 'instance.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 LxdInstance _$LxdInstanceFromJson(Map<String, dynamic> json) {
   return _LxdInstance.fromJson(json);
@@ -115,8 +115,12 @@ mixin _$LxdInstance {
   /// Example: foo
   String get project => throw _privateConstructorUsedError;
 
+  /// Serializes this LxdInstance to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of LxdInstance
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $LxdInstanceCopyWith<LxdInstance> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -159,6 +163,8 @@ class _$LxdInstanceCopyWithImpl<$Res, $Val extends LxdInstance>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of LxdInstance
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -259,11 +265,11 @@ class _$LxdInstanceCopyWithImpl<$Res, $Val extends LxdInstance>
 }
 
 /// @nodoc
-abstract class _$$_LxdInstanceCopyWith<$Res>
+abstract class _$$LxdInstanceImplCopyWith<$Res>
     implements $LxdInstanceCopyWith<$Res> {
-  factory _$$_LxdInstanceCopyWith(
-          _$_LxdInstance value, $Res Function(_$_LxdInstance) then) =
-      __$$_LxdInstanceCopyWithImpl<$Res>;
+  factory _$$LxdInstanceImplCopyWith(
+          _$LxdInstanceImpl value, $Res Function(_$LxdInstanceImpl) then) =
+      __$$LxdInstanceImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -289,13 +295,15 @@ abstract class _$$_LxdInstanceCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_LxdInstanceCopyWithImpl<$Res>
-    extends _$LxdInstanceCopyWithImpl<$Res, _$_LxdInstance>
-    implements _$$_LxdInstanceCopyWith<$Res> {
-  __$$_LxdInstanceCopyWithImpl(
-      _$_LxdInstance _value, $Res Function(_$_LxdInstance) _then)
+class __$$LxdInstanceImplCopyWithImpl<$Res>
+    extends _$LxdInstanceCopyWithImpl<$Res, _$LxdInstanceImpl>
+    implements _$$LxdInstanceImplCopyWith<$Res> {
+  __$$LxdInstanceImplCopyWithImpl(
+      _$LxdInstanceImpl _value, $Res Function(_$LxdInstanceImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of LxdInstance
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -318,7 +326,7 @@ class __$$_LxdInstanceCopyWithImpl<$Res>
     Object? type = null,
     Object? project = null,
   }) {
-    return _then(_$_LxdInstance(
+    return _then(_$LxdInstanceImpl(
       architecture: null == architecture
           ? _value.architecture
           : architecture // ignore: cast_nullable_to_non_nullable
@@ -397,8 +405,8 @@ class __$$_LxdInstanceCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_LxdInstance implements _LxdInstance {
-  const _$_LxdInstance(
+class _$LxdInstanceImpl implements _LxdInstance {
+  const _$LxdInstanceImpl(
       {required this.architecture,
       required final Map<String, String> config,
       required final Map<String, Map<String, String>> devices,
@@ -425,8 +433,8 @@ class _$_LxdInstance implements _LxdInstance {
         _expandedConfig = expandedConfig,
         _expandedDevices = expandedDevices;
 
-  factory _$_LxdInstance.fromJson(Map<String, dynamic> json) =>
-      _$$_LxdInstanceFromJson(json);
+  factory _$LxdInstanceImpl.fromJson(Map<String, dynamic> json) =>
+      _$$LxdInstanceImplFromJson(json);
 
   /// Architecture name
   ///
@@ -604,10 +612,10 @@ class _$_LxdInstance implements _LxdInstance {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_LxdInstance &&
+            other is _$LxdInstanceImpl &&
             (identical(other.architecture, architecture) ||
                 other.architecture == architecture) &&
             const DeepCollectionEquality().equals(other._config, _config) &&
@@ -638,7 +646,7 @@ class _$_LxdInstance implements _LxdInstance {
             (identical(other.project, project) || other.project == project));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -661,15 +669,17 @@ class _$_LxdInstance implements _LxdInstance {
       type,
       project);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of LxdInstance
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$_LxdInstanceCopyWith<_$_LxdInstance> get copyWith =>
-      __$$_LxdInstanceCopyWithImpl<_$_LxdInstance>(this, _$identity);
+  _$$LxdInstanceImplCopyWith<_$LxdInstanceImpl> get copyWith =>
+      __$$LxdInstanceImplCopyWithImpl<_$LxdInstanceImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_LxdInstanceToJson(
+    return _$$LxdInstanceImplToJson(
       this,
     );
   }
@@ -696,18 +706,16 @@ abstract class _LxdInstance implements LxdInstance {
       required final DateTime lastUsedAt,
       required final String location,
       required final LxdInstanceType type,
-      required final String project}) = _$_LxdInstance;
+      required final String project}) = _$LxdInstanceImpl;
 
   factory _LxdInstance.fromJson(Map<String, dynamic> json) =
-      _$_LxdInstance.fromJson;
-
-  @override
+      _$LxdInstanceImpl.fromJson;
 
   /// Architecture name
   ///
   /// Example: x86_64
-  String get architecture;
   @override
+  String get architecture;
 
   /// Instance configuration
   ///
@@ -717,8 +725,8 @@ abstract class _LxdInstance implements LxdInstance {
   /// ```
   ///
   /// See: https://linuxcontainers.org/lxd/docs/master/instances/
-  Map<String, String> get config;
   @override
+  Map<String, String> get config;
 
   /// Instance devices
   ///
@@ -728,92 +736,96 @@ abstract class _LxdInstance implements LxdInstance {
   /// ```
   ///
   /// See: https://linuxcontainers.org/lxd/docs/master/instances/
-  Map<String, Map<String, String>> get devices;
   @override
+  Map<String, Map<String, String>> get devices;
 
   /// Whether the instance is ephemeral (deleted on shutdown)
-  bool get ephemeral;
   @override
+  bool get ephemeral;
 
   /// List of profiles applied to the instance
   ///
   /// Example: ["default"]
-  List<String> get profiles;
   @override
+  List<String> get profiles;
 
   /// If set, instance will be restored to the provided snapshot name
   ///
   /// Example: snap0
+  @override
   @JsonKey(includeIfNull: false)
   String? get restore;
-  @override
 
   /// Whether the instance currently has saved state on disk
-  bool get stateful;
   @override
+  bool get stateful;
 
   /// Instance description
   ///
   /// Example: My test instance
-  String get description;
   @override
+  String get description;
 
   /// Instance creation timestamp
-  DateTime get createdAt;
   @override
+  DateTime get createdAt;
 
   /// Expanded configuration (all profiles and local config merged)
   ///
   /// Example: {"security.nesting": "true"}
+  @override
   @JsonKey(includeIfNull: false)
   Map<String, String>? get expandedConfig;
-  @override
 
   /// Expanded devices (all profiles and local devices merged)
   ///
   /// Example: {"root": {"type": "disk", "pool": "default", "path": "/"}}
+  @override
   @JsonKey(includeIfNull: false)
   Map<String, Map<String, String>>? get expandedDevices;
-  @override
 
   /// Instance name
   ///
   /// Example: foo
-  String get name;
   @override
+  String get name;
 
   /// Instance status
   ///
   /// Example: Running
-  String get status;
   @override
+  String get status;
 
   /// Instance status code
   ///
   /// Example: 101
-  int get statusCode;
   @override
+  int get statusCode;
 
   /// Last start timestamp
-  DateTime get lastUsedAt;
   @override
+  DateTime get lastUsedAt;
 
   /// What cluster member this instance is located on
   ///
   /// Example: lxd01
-  String get location;
   @override
+  String get location;
 
   /// The type of instance
-  LxdInstanceType get type;
   @override
+  LxdInstanceType get type;
 
   /// Instance project name
   ///
   /// Example: foo
-  String get project;
   @override
-  @JsonKey(ignore: true)
-  _$$_LxdInstanceCopyWith<_$_LxdInstance> get copyWith =>
+  String get project;
+
+  /// Create a copy of LxdInstance
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$LxdInstanceImplCopyWith<_$LxdInstanceImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

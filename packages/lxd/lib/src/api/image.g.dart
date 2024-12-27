@@ -6,7 +6,7 @@ part of 'image.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_LxdImage _$$_LxdImageFromJson(Map json) => _$_LxdImage(
+_$LxdImageImpl _$$LxdImageImplFromJson(Map json) => _$LxdImageImpl(
       autoUpdate: json['auto_update'] as bool? ?? false,
       properties: (json['properties'] as Map?)?.map(
             (k, e) => MapEntry(k as String, e as String),
@@ -27,7 +27,7 @@ _$_LxdImage _$$_LxdImageFromJson(Map json) => _$_LxdImage(
       cached: json['cached'] as bool? ?? false,
       filename: json['filename'] as String,
       fingerprint: json['fingerprint'] as String,
-      size: json['size'] as int,
+      size: (json['size'] as num).toInt(),
       updateSource: json['update_source'] == null
           ? null
           : LxdImageSource.fromJson(
@@ -40,7 +40,7 @@ _$_LxdImage _$$_LxdImageFromJson(Map json) => _$_LxdImage(
       uploadedAt: DateTime.parse(json['uploaded_at'] as String),
     );
 
-Map<String, dynamic> _$$_LxdImageToJson(_$_LxdImage instance) =>
+Map<String, dynamic> _$$LxdImageImplToJson(_$LxdImageImpl instance) =>
     <String, dynamic>{
       'auto_update': instance.autoUpdate,
       'properties': instance.properties,
@@ -65,18 +65,20 @@ const _$LxdImageTypeEnumMap = {
   LxdImageType.virtualMachine: 'virtual-machine',
 };
 
-_$_LxdImageAlias _$$_LxdImageAliasFromJson(Map json) => _$_LxdImageAlias(
+_$LxdImageAliasImpl _$$LxdImageAliasImplFromJson(Map json) =>
+    _$LxdImageAliasImpl(
       name: json['name'] as String,
       description: json['description'] as String?,
     );
 
-Map<String, dynamic> _$$_LxdImageAliasToJson(_$_LxdImageAlias instance) =>
+Map<String, dynamic> _$$LxdImageAliasImplToJson(_$LxdImageAliasImpl instance) =>
     <String, dynamic>{
       'name': instance.name,
       'description': instance.description,
     };
 
-_$_LxdImageSource _$$_LxdImageSourceFromJson(Map json) => _$_LxdImageSource(
+_$LxdImageSourceImpl _$$LxdImageSourceImplFromJson(Map json) =>
+    _$LxdImageSourceImpl(
       alias: json['alias'] as String,
       certificate: json['certificate'] as String?,
       protocol: json['protocol'] as String,
@@ -85,7 +87,8 @@ _$_LxdImageSource _$$_LxdImageSourceFromJson(Map json) => _$_LxdImageSource(
           unknownValue: JsonKey.nullForUndefinedEnumValue),
     );
 
-Map<String, dynamic> _$$_LxdImageSourceToJson(_$_LxdImageSource instance) =>
+Map<String, dynamic> _$$LxdImageSourceImplToJson(
+        _$LxdImageSourceImpl instance) =>
     <String, dynamic>{
       'alias': instance.alias,
       'certificate': instance.certificate,
@@ -94,11 +97,11 @@ Map<String, dynamic> _$$_LxdImageSourceToJson(_$_LxdImageSource instance) =>
       'image_type': _$LxdImageTypeEnumMap[instance.imageType],
     };
 
-_$_LxdImageMetadata _$$_LxdImageMetadataFromJson(Map json) =>
-    _$_LxdImageMetadata(
+_$LxdImageMetadataImpl _$$LxdImageMetadataImplFromJson(Map json) =>
+    _$LxdImageMetadataImpl(
       architecture: json['architecture'] as String,
-      creationDate: json['creation_date'] as int,
-      expiryDate: json['expiry_date'] as int,
+      creationDate: (json['creation_date'] as num).toInt(),
+      expiryDate: (json['expiry_date'] as num).toInt(),
       properties: Map<String, String>.from(json['properties'] as Map),
       templates: (json['templates'] as Map).map(
         (k, e) => MapEntry(
@@ -108,7 +111,8 @@ _$_LxdImageMetadata _$$_LxdImageMetadataFromJson(Map json) =>
       ),
     );
 
-Map<String, dynamic> _$$_LxdImageMetadataToJson(_$_LxdImageMetadata instance) =>
+Map<String, dynamic> _$$LxdImageMetadataImplToJson(
+        _$LxdImageMetadataImpl instance) =>
     <String, dynamic>{
       'architecture': instance.architecture,
       'creation_date': instance.creationDate,
@@ -117,16 +121,17 @@ Map<String, dynamic> _$$_LxdImageMetadataToJson(_$_LxdImageMetadata instance) =>
       'templates': instance.templates.map((k, e) => MapEntry(k, e.toJson())),
     };
 
-_$_LxdImageMetadataTemplate _$$_LxdImageMetadataTemplateFromJson(Map json) =>
-    _$_LxdImageMetadataTemplate(
+_$LxdImageMetadataTemplateImpl _$$LxdImageMetadataTemplateImplFromJson(
+        Map json) =>
+    _$LxdImageMetadataTemplateImpl(
       when: (json['when'] as List<dynamic>).map((e) => e as String).toList(),
       createOnly: json['create_only'] as bool,
       template: json['template'] as String,
       properties: Map<String, String>.from(json['properties'] as Map),
     );
 
-Map<String, dynamic> _$$_LxdImageMetadataTemplateToJson(
-        _$_LxdImageMetadataTemplate instance) =>
+Map<String, dynamic> _$$LxdImageMetadataTemplateImplToJson(
+        _$LxdImageMetadataTemplateImpl instance) =>
     <String, dynamic>{
       'when': instance.when,
       'create_only': instance.createOnly,

@@ -107,7 +107,9 @@ class _TerminalViewState extends State<TerminalView> {
                 widget.onContextMenu?.call(details.globalPosition);
               },
               shortcuts: widget.shortcuts,
-              actions: widget.actions,
+              // TODO: Figure out how to enable this feature again.
+              // Either not depending on jp's patch or getting it properly merged upstream.
+              // actions: widget.actions,
             ),
           ),
         );
@@ -119,6 +121,9 @@ class _TerminalViewState extends State<TerminalView> {
 extension _XtermTheme on TerminalThemeData {
   xterm.TerminalTheme toXterm(double opacity) {
     return xterm.TerminalTheme(
+      //TODO: Check design for the proper cursor and selection colors.
+      cursor: palette.white.withOpacity(opacity),
+      selection: palette.white.withOpacity(opacity),
       foreground: scheme.foreground.withOpacity(opacity),
       background: scheme.background,
       black: palette.black.withOpacity(opacity),

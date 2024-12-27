@@ -7,15 +7,17 @@ on:
   pull_request:
   workflow_dispatch:
 
+env:
+  flutter-version: '3.24.x'
 jobs:
   build-runner:
     if: github.event_name != 'push'
     runs-on: ubuntu-22.04
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4
     - uses: subosito/flutter-action@v2
       with:
-        flutter-version: '3.10.x'
+        flutter-version: ${{ env.flutter-version }}
     - run: flutter pub global activate melos
     - run: melos pub-get
     - run: flutter pub get # Bad state: Unable to generate package graph
@@ -26,10 +28,10 @@ jobs:
     if: github.event_name != 'push'
     runs-on: ubuntu-22.04
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4
     - uses: subosito/flutter-action@v2
       with:
-        flutter-version: '3.10.x'
+        flutter-version: ${{ env.flutter-version }}
     - run: flutter pub global activate melos
     - run: melos pub-get
     - run: melos run gen-l10n
@@ -39,16 +41,16 @@ jobs:
     if: github.event_name != 'pull_request'
     runs-on: ubuntu-22.04
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4
     - uses: subosito/flutter-action@v2
       with:
-        flutter-version: '3.10.x'
+        flutter-version: ${{ env.flutter-version }}
     - run: flutter pub global activate melos
     - run: melos pub-get
     - run: flutter pub get # Bad state: Unable to generate package graph
     - run: melos run generate
     - run: melos run gen-l10n
-    - uses: peter-evans/create-pull-request@v4
+    - uses: peter-evans/create-pull-request@v7
       with:
         title: 'Regenerate files'
         commit-message: 'Regenerate files'

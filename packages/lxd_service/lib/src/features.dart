@@ -13,11 +13,11 @@ import 'features/user.dart';
 export 'features/provider.dart';
 
 enum LxdFeature {
-  user(const LxdUserFeature()),
-  home(const LxdHomeFeature()),
-  graphics(const LxdGraphicsFeature()),
-  audio(const LxdAudioFeature()),
-  lxd(const LxdServerFeature());
+  user(LxdUserFeature()),
+  home(LxdHomeFeature()),
+  graphics(LxdGraphicsFeature()),
+  audio(LxdAudioFeature()),
+  lxd(LxdServerFeature());
 
   const LxdFeature(this._provider);
   final LxdFeatureProvider _provider;

@@ -1,8 +1,8 @@
 name: nested_split_view_example
-publish_to: 'none' 
+publish_to: 'none'
 
 environment:
-  sdk: '>=2.18.1 <3.0.0'
+  sdk: '>=3.5.0 <4.0.0'
 
 dependencies:
   flutter:

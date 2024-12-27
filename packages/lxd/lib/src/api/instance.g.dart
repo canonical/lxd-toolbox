@@ -6,7 +6,7 @@ part of 'instance.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_LxdInstance _$$_LxdInstanceFromJson(Map json) => _$_LxdInstance(
+_$LxdInstanceImpl _$$LxdInstanceImplFromJson(Map json) => _$LxdInstanceImpl(
       architecture: json['architecture'] as String,
       config: Map<String, String>.from(json['config'] as Map),
       devices: (json['devices'] as Map).map(
@@ -27,43 +27,34 @@ _$_LxdInstance _$$_LxdInstanceFromJson(Map json) => _$_LxdInstance(
       ),
       name: json['name'] as String,
       status: json['status'] as String,
-      statusCode: json['status_code'] as int,
+      statusCode: (json['status_code'] as num).toInt(),
       lastUsedAt: DateTime.parse(json['last_used_at'] as String),
       location: json['location'] as String,
       type: $enumDecode(_$LxdInstanceTypeEnumMap, json['type']),
       project: json['project'] as String,
     );
 
-Map<String, dynamic> _$$_LxdInstanceToJson(_$_LxdInstance instance) {
-  final val = <String, dynamic>{
-    'architecture': instance.architecture,
-    'config': instance.config,
-    'devices': instance.devices,
-    'ephemeral': instance.ephemeral,
-    'profiles': instance.profiles,
-  };
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('restore', instance.restore);
-  val['stateful'] = instance.stateful;
-  val['description'] = instance.description;
-  val['created_at'] = instance.createdAt.toIso8601String();
-  writeNotNull('expanded_config', instance.expandedConfig);
-  writeNotNull('expanded_devices', instance.expandedDevices);
-  val['name'] = instance.name;
-  val['status'] = instance.status;
-  val['status_code'] = instance.statusCode;
-  val['last_used_at'] = instance.lastUsedAt.toIso8601String();
-  val['location'] = instance.location;
-  val['type'] = _$LxdInstanceTypeEnumMap[instance.type]!;
-  val['project'] = instance.project;
-  return val;
-}
+Map<String, dynamic> _$$LxdInstanceImplToJson(_$LxdInstanceImpl instance) =>
+    <String, dynamic>{
+      'architecture': instance.architecture,
+      'config': instance.config,
+      'devices': instance.devices,
+      'ephemeral': instance.ephemeral,
+      'profiles': instance.profiles,
+      if (instance.restore case final value?) 'restore': value,
+      'stateful': instance.stateful,
+      'description': instance.description,
+      'created_at': instance.createdAt.toIso8601String(),
+      if (instance.expandedConfig case final value?) 'expanded_config': value,
+      if (instance.expandedDevices case final value?) 'expanded_devices': value,
+      'name': instance.name,
+      'status': instance.status,
+      'status_code': instance.statusCode,
+      'last_used_at': instance.lastUsedAt.toIso8601String(),
+      'location': instance.location,
+      'type': _$LxdInstanceTypeEnumMap[instance.type]!,
+      'project': instance.project,
+    };
 
 const _$LxdInstanceTypeEnumMap = {
   LxdInstanceType.container: 'container',

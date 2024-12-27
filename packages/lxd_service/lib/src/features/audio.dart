@@ -26,7 +26,7 @@ class LxdAudioFeature extends LxdFeatureProvider {
       '/etc/pulse/client.conf.d/workshops-no-shm.conf': 'enable-shm=no',
       '/etc/profile.d/workshops-audio.sh': '''
   # Created by Workshops on ${DateTime.now().toIso8601String()}
-  
+
   export PULSE_SERVER=unix:/srv/pulse/native
   '''
     };
@@ -43,8 +43,8 @@ class LxdAudioFeature extends LxdFeatureProvider {
         'bind': 'instance',
         'listen': 'unix:/srv/pulse/native',
         'connect': 'unix:/run/user/${getuid()}/pulse/native',
-        'gid': '$gid',
-        'uid': '$uid',
+        'gid': gid,
+        'uid': uid,
         'mode': '0777',
         'security.gid': '${getgid()}',
         'security.uid': '${getuid()}',

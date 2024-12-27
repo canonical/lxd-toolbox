@@ -12,7 +12,7 @@ part of 'progress_state.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$ProgressState {
@@ -114,28 +114,34 @@ class _$ProgressStateCopyWithImpl<$Res, $Val extends ProgressState>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  /// Create a copy of ProgressState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
-abstract class _$$ProgressNoneCopyWith<$Res> {
-  factory _$$ProgressNoneCopyWith(
-          _$ProgressNone value, $Res Function(_$ProgressNone) then) =
-      __$$ProgressNoneCopyWithImpl<$Res>;
+abstract class _$$ProgressNoneImplCopyWith<$Res> {
+  factory _$$ProgressNoneImplCopyWith(
+          _$ProgressNoneImpl value, $Res Function(_$ProgressNoneImpl) then) =
+      __$$ProgressNoneImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$ProgressNoneCopyWithImpl<$Res>
-    extends _$ProgressStateCopyWithImpl<$Res, _$ProgressNone>
-    implements _$$ProgressNoneCopyWith<$Res> {
-  __$$ProgressNoneCopyWithImpl(
-      _$ProgressNone _value, $Res Function(_$ProgressNone) _then)
+class __$$ProgressNoneImplCopyWithImpl<$Res>
+    extends _$ProgressStateCopyWithImpl<$Res, _$ProgressNoneImpl>
+    implements _$$ProgressNoneImplCopyWith<$Res> {
+  __$$ProgressNoneImplCopyWithImpl(
+      _$ProgressNoneImpl _value, $Res Function(_$ProgressNoneImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of ProgressState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
 
-class _$ProgressNone extends ProgressNone {
-  const _$ProgressNone() : super._();
+class _$ProgressNoneImpl extends ProgressNone {
+  const _$ProgressNoneImpl() : super._();
 
   @override
   String toString() {
@@ -143,9 +149,9 @@ class _$ProgressNone extends ProgressNone {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$ProgressNone);
+        (other.runtimeType == runtimeType && other is _$ProgressNoneImpl);
   }
 
   @override
@@ -257,33 +263,35 @@ class _$ProgressNone extends ProgressNone {
 }
 
 abstract class ProgressNone extends ProgressState {
-  const factory ProgressNone() = _$ProgressNone;
+  const factory ProgressNone() = _$ProgressNoneImpl;
   const ProgressNone._() : super._();
 }
 
 /// @nodoc
-abstract class _$$ProgressErrorCopyWith<$Res> {
-  factory _$$ProgressErrorCopyWith(
-          _$ProgressError value, $Res Function(_$ProgressError) then) =
-      __$$ProgressErrorCopyWithImpl<$Res>;
+abstract class _$$ProgressErrorImplCopyWith<$Res> {
+  factory _$$ProgressErrorImplCopyWith(
+          _$ProgressErrorImpl value, $Res Function(_$ProgressErrorImpl) then) =
+      __$$ProgressErrorImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String? message});
 }
 
 /// @nodoc
-class __$$ProgressErrorCopyWithImpl<$Res>
-    extends _$ProgressStateCopyWithImpl<$Res, _$ProgressError>
-    implements _$$ProgressErrorCopyWith<$Res> {
-  __$$ProgressErrorCopyWithImpl(
-      _$ProgressError _value, $Res Function(_$ProgressError) _then)
+class __$$ProgressErrorImplCopyWithImpl<$Res>
+    extends _$ProgressStateCopyWithImpl<$Res, _$ProgressErrorImpl>
+    implements _$$ProgressErrorImplCopyWith<$Res> {
+  __$$ProgressErrorImplCopyWithImpl(
+      _$ProgressErrorImpl _value, $Res Function(_$ProgressErrorImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of ProgressState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? message = freezed,
   }) {
-    return _then(_$ProgressError(
+    return _then(_$ProgressErrorImpl(
       freezed == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
@@ -294,8 +302,8 @@ class __$$ProgressErrorCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$ProgressError extends ProgressError {
-  const _$ProgressError([this.message]) : super._();
+class _$ProgressErrorImpl extends ProgressError {
+  const _$ProgressErrorImpl([this.message]) : super._();
 
   @override
   final String? message;
@@ -306,21 +314,23 @@ class _$ProgressError extends ProgressError {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ProgressError &&
+            other is _$ProgressErrorImpl &&
             (identical(other.message, message) || other.message == message));
   }
 
   @override
   int get hashCode => Object.hash(runtimeType, message);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of ProgressState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$ProgressErrorCopyWith<_$ProgressError> get copyWith =>
-      __$$ProgressErrorCopyWithImpl<_$ProgressError>(this, _$identity);
+  _$$ProgressErrorImplCopyWith<_$ProgressErrorImpl> get copyWith =>
+      __$$ProgressErrorImplCopyWithImpl<_$ProgressErrorImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -428,20 +438,23 @@ class _$ProgressError extends ProgressError {
 }
 
 abstract class ProgressError extends ProgressState {
-  const factory ProgressError([final String? message]) = _$ProgressError;
+  const factory ProgressError([final String? message]) = _$ProgressErrorImpl;
   const ProgressError._() : super._();
 
   String? get message;
-  @JsonKey(ignore: true)
-  _$$ProgressErrorCopyWith<_$ProgressError> get copyWith =>
+
+  /// Create a copy of ProgressState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$ProgressErrorImplCopyWith<_$ProgressErrorImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$ProgressCreateCopyWith<$Res> {
-  factory _$$ProgressCreateCopyWith(
-          _$ProgressCreate value, $Res Function(_$ProgressCreate) then) =
-      __$$ProgressCreateCopyWithImpl<$Res>;
+abstract class _$$ProgressCreateImplCopyWith<$Res> {
+  factory _$$ProgressCreateImplCopyWith(_$ProgressCreateImpl value,
+          $Res Function(_$ProgressCreateImpl) then) =
+      __$$ProgressCreateImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String name, LxdOperation op});
 
@@ -449,20 +462,22 @@ abstract class _$$ProgressCreateCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$ProgressCreateCopyWithImpl<$Res>
-    extends _$ProgressStateCopyWithImpl<$Res, _$ProgressCreate>
-    implements _$$ProgressCreateCopyWith<$Res> {
-  __$$ProgressCreateCopyWithImpl(
-      _$ProgressCreate _value, $Res Function(_$ProgressCreate) _then)
+class __$$ProgressCreateImplCopyWithImpl<$Res>
+    extends _$ProgressStateCopyWithImpl<$Res, _$ProgressCreateImpl>
+    implements _$$ProgressCreateImplCopyWith<$Res> {
+  __$$ProgressCreateImplCopyWithImpl(
+      _$ProgressCreateImpl _value, $Res Function(_$ProgressCreateImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of ProgressState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? name = null,
     Object? op = null,
   }) {
-    return _then(_$ProgressCreate(
+    return _then(_$ProgressCreateImpl(
       null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -474,6 +489,8 @@ class __$$ProgressCreateCopyWithImpl<$Res>
     ));
   }
 
+  /// Create a copy of ProgressState
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $LxdOperationCopyWith<$Res> get op {
@@ -485,8 +502,8 @@ class __$$ProgressCreateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$ProgressCreate extends ProgressCreate {
-  const _$ProgressCreate(this.name, this.op) : super._();
+class _$ProgressCreateImpl extends ProgressCreate {
+  const _$ProgressCreateImpl(this.name, this.op) : super._();
 
   @override
   final String name;
@@ -499,10 +516,10 @@ class _$ProgressCreate extends ProgressCreate {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ProgressCreate &&
+            other is _$ProgressCreateImpl &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.op, op) || other.op == op));
   }
@@ -510,11 +527,14 @@ class _$ProgressCreate extends ProgressCreate {
   @override
   int get hashCode => Object.hash(runtimeType, name, op);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of ProgressState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$ProgressCreateCopyWith<_$ProgressCreate> get copyWith =>
-      __$$ProgressCreateCopyWithImpl<_$ProgressCreate>(this, _$identity);
+  _$$ProgressCreateImplCopyWith<_$ProgressCreateImpl> get copyWith =>
+      __$$ProgressCreateImplCopyWithImpl<_$ProgressCreateImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -623,21 +643,24 @@ class _$ProgressCreate extends ProgressCreate {
 
 abstract class ProgressCreate extends ProgressState {
   const factory ProgressCreate(final String name, final LxdOperation op) =
-      _$ProgressCreate;
+      _$ProgressCreateImpl;
   const ProgressCreate._() : super._();
 
   String get name;
   LxdOperation get op;
-  @JsonKey(ignore: true)
-  _$$ProgressCreateCopyWith<_$ProgressCreate> get copyWith =>
+
+  /// Create a copy of ProgressState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$ProgressCreateImplCopyWith<_$ProgressCreateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$ProgressInitCopyWith<$Res> {
-  factory _$$ProgressInitCopyWith(
-          _$ProgressInit value, $Res Function(_$ProgressInit) then) =
-      __$$ProgressInitCopyWithImpl<$Res>;
+abstract class _$$ProgressInitImplCopyWith<$Res> {
+  factory _$$ProgressInitImplCopyWith(
+          _$ProgressInitImpl value, $Res Function(_$ProgressInitImpl) then) =
+      __$$ProgressInitImplCopyWithImpl<$Res>;
   @useResult
   $Res call({LxdInstance instance, LxdFeature feature});
 
@@ -645,20 +668,22 @@ abstract class _$$ProgressInitCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$ProgressInitCopyWithImpl<$Res>
-    extends _$ProgressStateCopyWithImpl<$Res, _$ProgressInit>
-    implements _$$ProgressInitCopyWith<$Res> {
-  __$$ProgressInitCopyWithImpl(
-      _$ProgressInit _value, $Res Function(_$ProgressInit) _then)
+class __$$ProgressInitImplCopyWithImpl<$Res>
+    extends _$ProgressStateCopyWithImpl<$Res, _$ProgressInitImpl>
+    implements _$$ProgressInitImplCopyWith<$Res> {
+  __$$ProgressInitImplCopyWithImpl(
+      _$ProgressInitImpl _value, $Res Function(_$ProgressInitImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of ProgressState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? instance = null,
     Object? feature = null,
   }) {
-    return _then(_$ProgressInit(
+    return _then(_$ProgressInitImpl(
       null == instance
           ? _value.instance
           : instance // ignore: cast_nullable_to_non_nullable
@@ -670,6 +695,8 @@ class __$$ProgressInitCopyWithImpl<$Res>
     ));
   }
 
+  /// Create a copy of ProgressState
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $LxdInstanceCopyWith<$Res> get instance {
@@ -681,8 +708,8 @@ class __$$ProgressInitCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$ProgressInit extends ProgressInit {
-  const _$ProgressInit(this.instance, this.feature) : super._();
+class _$ProgressInitImpl extends ProgressInit {
+  const _$ProgressInitImpl(this.instance, this.feature) : super._();
 
   @override
   final LxdInstance instance;
@@ -695,10 +722,10 @@ class _$ProgressInit extends ProgressInit {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ProgressInit &&
+            other is _$ProgressInitImpl &&
             (identical(other.instance, instance) ||
                 other.instance == instance) &&
             (identical(other.feature, feature) || other.feature == feature));
@@ -707,11 +734,13 @@ class _$ProgressInit extends ProgressInit {
   @override
   int get hashCode => Object.hash(runtimeType, instance, feature);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of ProgressState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$ProgressInitCopyWith<_$ProgressInit> get copyWith =>
-      __$$ProgressInitCopyWithImpl<_$ProgressInit>(this, _$identity);
+  _$$ProgressInitImplCopyWith<_$ProgressInitImpl> get copyWith =>
+      __$$ProgressInitImplCopyWithImpl<_$ProgressInitImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -820,21 +849,25 @@ class _$ProgressInit extends ProgressInit {
 
 abstract class ProgressInit extends ProgressState {
   const factory ProgressInit(
-      final LxdInstance instance, final LxdFeature feature) = _$ProgressInit;
+          final LxdInstance instance, final LxdFeature feature) =
+      _$ProgressInitImpl;
   const ProgressInit._() : super._();
 
   LxdInstance get instance;
   LxdFeature get feature;
-  @JsonKey(ignore: true)
-  _$$ProgressInitCopyWith<_$ProgressInit> get copyWith =>
+
+  /// Create a copy of ProgressState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$ProgressInitImplCopyWith<_$ProgressInitImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$ProgressConfigCopyWith<$Res> {
-  factory _$$ProgressConfigCopyWith(
-          _$ProgressConfig value, $Res Function(_$ProgressConfig) then) =
-      __$$ProgressConfigCopyWithImpl<$Res>;
+abstract class _$$ProgressConfigImplCopyWith<$Res> {
+  factory _$$ProgressConfigImplCopyWith(_$ProgressConfigImpl value,
+          $Res Function(_$ProgressConfigImpl) then) =
+      __$$ProgressConfigImplCopyWithImpl<$Res>;
   @useResult
   $Res call({LxdInstance instance, LxdFeature feature});
 
@@ -842,20 +875,22 @@ abstract class _$$ProgressConfigCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$ProgressConfigCopyWithImpl<$Res>
-    extends _$ProgressStateCopyWithImpl<$Res, _$ProgressConfig>
-    implements _$$ProgressConfigCopyWith<$Res> {
-  __$$ProgressConfigCopyWithImpl(
-      _$ProgressConfig _value, $Res Function(_$ProgressConfig) _then)
+class __$$ProgressConfigImplCopyWithImpl<$Res>
+    extends _$ProgressStateCopyWithImpl<$Res, _$ProgressConfigImpl>
+    implements _$$ProgressConfigImplCopyWith<$Res> {
+  __$$ProgressConfigImplCopyWithImpl(
+      _$ProgressConfigImpl _value, $Res Function(_$ProgressConfigImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of ProgressState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? instance = null,
     Object? feature = null,
   }) {
-    return _then(_$ProgressConfig(
+    return _then(_$ProgressConfigImpl(
       null == instance
           ? _value.instance
           : instance // ignore: cast_nullable_to_non_nullable
@@ -867,6 +902,8 @@ class __$$ProgressConfigCopyWithImpl<$Res>
     ));
   }
 
+  /// Create a copy of ProgressState
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $LxdInstanceCopyWith<$Res> get instance {
@@ -878,8 +915,8 @@ class __$$ProgressConfigCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$ProgressConfig extends ProgressConfig {
-  const _$ProgressConfig(this.instance, this.feature) : super._();
+class _$ProgressConfigImpl extends ProgressConfig {
+  const _$ProgressConfigImpl(this.instance, this.feature) : super._();
 
   @override
   final LxdInstance instance;
@@ -892,10 +929,10 @@ class _$ProgressConfig extends ProgressConfig {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ProgressConfig &&
+            other is _$ProgressConfigImpl &&
             (identical(other.instance, instance) ||
                 other.instance == instance) &&
             (identical(other.feature, feature) || other.feature == feature));
@@ -904,11 +941,14 @@ class _$ProgressConfig extends ProgressConfig {
   @override
   int get hashCode => Object.hash(runtimeType, instance, feature);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of ProgressState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$ProgressConfigCopyWith<_$ProgressConfig> get copyWith =>
-      __$$ProgressConfigCopyWithImpl<_$ProgressConfig>(this, _$identity);
+  _$$ProgressConfigImplCopyWith<_$ProgressConfigImpl> get copyWith =>
+      __$$ProgressConfigImplCopyWithImpl<_$ProgressConfigImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1017,21 +1057,25 @@ class _$ProgressConfig extends ProgressConfig {
 
 abstract class ProgressConfig extends ProgressState {
   const factory ProgressConfig(
-      final LxdInstance instance, final LxdFeature feature) = _$ProgressConfig;
+          final LxdInstance instance, final LxdFeature feature) =
+      _$ProgressConfigImpl;
   const ProgressConfig._() : super._();
 
   LxdInstance get instance;
   LxdFeature get feature;
-  @JsonKey(ignore: true)
-  _$$ProgressConfigCopyWith<_$ProgressConfig> get copyWith =>
+
+  /// Create a copy of ProgressState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$ProgressConfigImplCopyWith<_$ProgressConfigImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$ProgressStageCopyWith<$Res> {
-  factory _$$ProgressStageCopyWith(
-          _$ProgressStage value, $Res Function(_$ProgressStage) then) =
-      __$$ProgressStageCopyWithImpl<$Res>;
+abstract class _$$ProgressStageImplCopyWith<$Res> {
+  factory _$$ProgressStageImplCopyWith(
+          _$ProgressStageImpl value, $Res Function(_$ProgressStageImpl) then) =
+      __$$ProgressStageImplCopyWithImpl<$Res>;
   @useResult
   $Res call({LxdInstance instance, LxdOperation op});
 
@@ -1040,20 +1084,22 @@ abstract class _$$ProgressStageCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$ProgressStageCopyWithImpl<$Res>
-    extends _$ProgressStateCopyWithImpl<$Res, _$ProgressStage>
-    implements _$$ProgressStageCopyWith<$Res> {
-  __$$ProgressStageCopyWithImpl(
-      _$ProgressStage _value, $Res Function(_$ProgressStage) _then)
+class __$$ProgressStageImplCopyWithImpl<$Res>
+    extends _$ProgressStateCopyWithImpl<$Res, _$ProgressStageImpl>
+    implements _$$ProgressStageImplCopyWith<$Res> {
+  __$$ProgressStageImplCopyWithImpl(
+      _$ProgressStageImpl _value, $Res Function(_$ProgressStageImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of ProgressState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? instance = null,
     Object? op = null,
   }) {
-    return _then(_$ProgressStage(
+    return _then(_$ProgressStageImpl(
       null == instance
           ? _value.instance
           : instance // ignore: cast_nullable_to_non_nullable
@@ -1065,6 +1111,8 @@ class __$$ProgressStageCopyWithImpl<$Res>
     ));
   }
 
+  /// Create a copy of ProgressState
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $LxdInstanceCopyWith<$Res> get instance {
@@ -1073,6 +1121,8 @@ class __$$ProgressStageCopyWithImpl<$Res>
     });
   }
 
+  /// Create a copy of ProgressState
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $LxdOperationCopyWith<$Res> get op {
@@ -1084,8 +1134,8 @@ class __$$ProgressStageCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$ProgressStage extends ProgressStage {
-  const _$ProgressStage(this.instance, this.op) : super._();
+class _$ProgressStageImpl extends ProgressStage {
+  const _$ProgressStageImpl(this.instance, this.op) : super._();
 
   @override
   final LxdInstance instance;
@@ -1098,10 +1148,10 @@ class _$ProgressStage extends ProgressStage {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ProgressStage &&
+            other is _$ProgressStageImpl &&
             (identical(other.instance, instance) ||
                 other.instance == instance) &&
             (identical(other.op, op) || other.op == op));
@@ -1110,11 +1160,13 @@ class _$ProgressStage extends ProgressStage {
   @override
   int get hashCode => Object.hash(runtimeType, instance, op);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of ProgressState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$ProgressStageCopyWith<_$ProgressStage> get copyWith =>
-      __$$ProgressStageCopyWithImpl<_$ProgressStage>(this, _$identity);
+  _$$ProgressStageImplCopyWith<_$ProgressStageImpl> get copyWith =>
+      __$$ProgressStageImplCopyWithImpl<_$ProgressStageImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1223,21 +1275,24 @@ class _$ProgressStage extends ProgressStage {
 
 abstract class ProgressStage extends ProgressState {
   const factory ProgressStage(
-      final LxdInstance instance, final LxdOperation op) = _$ProgressStage;
+      final LxdInstance instance, final LxdOperation op) = _$ProgressStageImpl;
   const ProgressStage._() : super._();
 
   LxdInstance get instance;
   LxdOperation get op;
-  @JsonKey(ignore: true)
-  _$$ProgressStageCopyWith<_$ProgressStage> get copyWith =>
+
+  /// Create a copy of ProgressState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$ProgressStageImplCopyWith<_$ProgressStageImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$ProgressStartCopyWith<$Res> {
-  factory _$$ProgressStartCopyWith(
-          _$ProgressStart value, $Res Function(_$ProgressStart) then) =
-      __$$ProgressStartCopyWithImpl<$Res>;
+abstract class _$$ProgressStartImplCopyWith<$Res> {
+  factory _$$ProgressStartImplCopyWith(
+          _$ProgressStartImpl value, $Res Function(_$ProgressStartImpl) then) =
+      __$$ProgressStartImplCopyWithImpl<$Res>;
   @useResult
   $Res call({LxdInstance instance, LxdOperation op});
 
@@ -1246,20 +1301,22 @@ abstract class _$$ProgressStartCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$ProgressStartCopyWithImpl<$Res>
-    extends _$ProgressStateCopyWithImpl<$Res, _$ProgressStart>
-    implements _$$ProgressStartCopyWith<$Res> {
-  __$$ProgressStartCopyWithImpl(
-      _$ProgressStart _value, $Res Function(_$ProgressStart) _then)
+class __$$ProgressStartImplCopyWithImpl<$Res>
+    extends _$ProgressStateCopyWithImpl<$Res, _$ProgressStartImpl>
+    implements _$$ProgressStartImplCopyWith<$Res> {
+  __$$ProgressStartImplCopyWithImpl(
+      _$ProgressStartImpl _value, $Res Function(_$ProgressStartImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of ProgressState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? instance = null,
     Object? op = null,
   }) {
-    return _then(_$ProgressStart(
+    return _then(_$ProgressStartImpl(
       null == instance
           ? _value.instance
           : instance // ignore: cast_nullable_to_non_nullable
@@ -1271,6 +1328,8 @@ class __$$ProgressStartCopyWithImpl<$Res>
     ));
   }
 
+  /// Create a copy of ProgressState
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $LxdInstanceCopyWith<$Res> get instance {
@@ -1279,6 +1338,8 @@ class __$$ProgressStartCopyWithImpl<$Res>
     });
   }
 
+  /// Create a copy of ProgressState
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $LxdOperationCopyWith<$Res> get op {
@@ -1290,8 +1351,8 @@ class __$$ProgressStartCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$ProgressStart extends ProgressStart {
-  const _$ProgressStart(this.instance, this.op) : super._();
+class _$ProgressStartImpl extends ProgressStart {
+  const _$ProgressStartImpl(this.instance, this.op) : super._();
 
   @override
   final LxdInstance instance;
@@ -1304,10 +1365,10 @@ class _$ProgressStart extends ProgressStart {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ProgressStart &&
+            other is _$ProgressStartImpl &&
             (identical(other.instance, instance) ||
                 other.instance == instance) &&
             (identical(other.op, op) || other.op == op));
@@ -1316,11 +1377,13 @@ class _$ProgressStart extends ProgressStart {
   @override
   int get hashCode => Object.hash(runtimeType, instance, op);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of ProgressState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$ProgressStartCopyWith<_$ProgressStart> get copyWith =>
-      __$$ProgressStartCopyWithImpl<_$ProgressStart>(this, _$identity);
+  _$$ProgressStartImplCopyWith<_$ProgressStartImpl> get copyWith =>
+      __$$ProgressStartImplCopyWithImpl<_$ProgressStartImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1429,21 +1492,24 @@ class _$ProgressStart extends ProgressStart {
 
 abstract class ProgressStart extends ProgressState {
   const factory ProgressStart(
-      final LxdInstance instance, final LxdOperation op) = _$ProgressStart;
+      final LxdInstance instance, final LxdOperation op) = _$ProgressStartImpl;
   const ProgressStart._() : super._();
 
   LxdInstance get instance;
   LxdOperation get op;
-  @JsonKey(ignore: true)
-  _$$ProgressStartCopyWith<_$ProgressStart> get copyWith =>
+
+  /// Create a copy of ProgressState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$ProgressStartImplCopyWith<_$ProgressStartImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$ProgressStopCopyWith<$Res> {
-  factory _$$ProgressStopCopyWith(
-          _$ProgressStop value, $Res Function(_$ProgressStop) then) =
-      __$$ProgressStopCopyWithImpl<$Res>;
+abstract class _$$ProgressStopImplCopyWith<$Res> {
+  factory _$$ProgressStopImplCopyWith(
+          _$ProgressStopImpl value, $Res Function(_$ProgressStopImpl) then) =
+      __$$ProgressStopImplCopyWithImpl<$Res>;
   @useResult
   $Res call({LxdInstance instance, LxdOperation op});
 
@@ -1452,20 +1518,22 @@ abstract class _$$ProgressStopCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$ProgressStopCopyWithImpl<$Res>
-    extends _$ProgressStateCopyWithImpl<$Res, _$ProgressStop>
-    implements _$$ProgressStopCopyWith<$Res> {
-  __$$ProgressStopCopyWithImpl(
-      _$ProgressStop _value, $Res Function(_$ProgressStop) _then)
+class __$$ProgressStopImplCopyWithImpl<$Res>
+    extends _$ProgressStateCopyWithImpl<$Res, _$ProgressStopImpl>
+    implements _$$ProgressStopImplCopyWith<$Res> {
+  __$$ProgressStopImplCopyWithImpl(
+      _$ProgressStopImpl _value, $Res Function(_$ProgressStopImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of ProgressState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? instance = null,
     Object? op = null,
   }) {
-    return _then(_$ProgressStop(
+    return _then(_$ProgressStopImpl(
       null == instance
           ? _value.instance
           : instance // ignore: cast_nullable_to_non_nullable
@@ -1477,6 +1545,8 @@ class __$$ProgressStopCopyWithImpl<$Res>
     ));
   }
 
+  /// Create a copy of ProgressState
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $LxdInstanceCopyWith<$Res> get instance {
@@ -1485,6 +1555,8 @@ class __$$ProgressStopCopyWithImpl<$Res>
     });
   }
 
+  /// Create a copy of ProgressState
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $LxdOperationCopyWith<$Res> get op {
@@ -1496,8 +1568,8 @@ class __$$ProgressStopCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$ProgressStop extends ProgressStop {
-  const _$ProgressStop(this.instance, this.op) : super._();
+class _$ProgressStopImpl extends ProgressStop {
+  const _$ProgressStopImpl(this.instance, this.op) : super._();
 
   @override
   final LxdInstance instance;
@@ -1510,10 +1582,10 @@ class _$ProgressStop extends ProgressStop {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ProgressStop &&
+            other is _$ProgressStopImpl &&
             (identical(other.instance, instance) ||
                 other.instance == instance) &&
             (identical(other.op, op) || other.op == op));
@@ -1522,11 +1594,13 @@ class _$ProgressStop extends ProgressStop {
   @override
   int get hashCode => Object.hash(runtimeType, instance, op);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of ProgressState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$ProgressStopCopyWith<_$ProgressStop> get copyWith =>
-      __$$ProgressStopCopyWithImpl<_$ProgressStop>(this, _$identity);
+  _$$ProgressStopImplCopyWith<_$ProgressStopImpl> get copyWith =>
+      __$$ProgressStopImplCopyWithImpl<_$ProgressStopImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1635,21 +1709,24 @@ class _$ProgressStop extends ProgressStop {
 
 abstract class ProgressStop extends ProgressState {
   const factory ProgressStop(
-      final LxdInstance instance, final LxdOperation op) = _$ProgressStop;
+      final LxdInstance instance, final LxdOperation op) = _$ProgressStopImpl;
   const ProgressStop._() : super._();
 
   LxdInstance get instance;
   LxdOperation get op;
-  @JsonKey(ignore: true)
-  _$$ProgressStopCopyWith<_$ProgressStop> get copyWith =>
+
+  /// Create a copy of ProgressState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$ProgressStopImplCopyWith<_$ProgressStopImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$ProgressDeleteCopyWith<$Res> {
-  factory _$$ProgressDeleteCopyWith(
-          _$ProgressDelete value, $Res Function(_$ProgressDelete) then) =
-      __$$ProgressDeleteCopyWithImpl<$Res>;
+abstract class _$$ProgressDeleteImplCopyWith<$Res> {
+  factory _$$ProgressDeleteImplCopyWith(_$ProgressDeleteImpl value,
+          $Res Function(_$ProgressDeleteImpl) then) =
+      __$$ProgressDeleteImplCopyWithImpl<$Res>;
   @useResult
   $Res call({LxdInstance instance, LxdOperation op});
 
@@ -1658,20 +1735,22 @@ abstract class _$$ProgressDeleteCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$ProgressDeleteCopyWithImpl<$Res>
-    extends _$ProgressStateCopyWithImpl<$Res, _$ProgressDelete>
-    implements _$$ProgressDeleteCopyWith<$Res> {
-  __$$ProgressDeleteCopyWithImpl(
-      _$ProgressDelete _value, $Res Function(_$ProgressDelete) _then)
+class __$$ProgressDeleteImplCopyWithImpl<$Res>
+    extends _$ProgressStateCopyWithImpl<$Res, _$ProgressDeleteImpl>
+    implements _$$ProgressDeleteImplCopyWith<$Res> {
+  __$$ProgressDeleteImplCopyWithImpl(
+      _$ProgressDeleteImpl _value, $Res Function(_$ProgressDeleteImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of ProgressState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? instance = null,
     Object? op = null,
   }) {
-    return _then(_$ProgressDelete(
+    return _then(_$ProgressDeleteImpl(
       null == instance
           ? _value.instance
           : instance // ignore: cast_nullable_to_non_nullable
@@ -1683,6 +1762,8 @@ class __$$ProgressDeleteCopyWithImpl<$Res>
     ));
   }
 
+  /// Create a copy of ProgressState
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $LxdInstanceCopyWith<$Res> get instance {
@@ -1691,6 +1772,8 @@ class __$$ProgressDeleteCopyWithImpl<$Res>
     });
   }
 
+  /// Create a copy of ProgressState
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $LxdOperationCopyWith<$Res> get op {
@@ -1702,8 +1785,8 @@ class __$$ProgressDeleteCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$ProgressDelete extends ProgressDelete {
-  const _$ProgressDelete(this.instance, this.op) : super._();
+class _$ProgressDeleteImpl extends ProgressDelete {
+  const _$ProgressDeleteImpl(this.instance, this.op) : super._();
 
   @override
   final LxdInstance instance;
@@ -1716,10 +1799,10 @@ class _$ProgressDelete extends ProgressDelete {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ProgressDelete &&
+            other is _$ProgressDeleteImpl &&
             (identical(other.instance, instance) ||
                 other.instance == instance) &&
             (identical(other.op, op) || other.op == op));
@@ -1728,11 +1811,14 @@ class _$ProgressDelete extends ProgressDelete {
   @override
   int get hashCode => Object.hash(runtimeType, instance, op);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of ProgressState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$ProgressDeleteCopyWith<_$ProgressDelete> get copyWith =>
-      __$$ProgressDeleteCopyWithImpl<_$ProgressDelete>(this, _$identity);
+  _$$ProgressDeleteImplCopyWith<_$ProgressDeleteImpl> get copyWith =>
+      __$$ProgressDeleteImplCopyWithImpl<_$ProgressDeleteImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1841,12 +1927,15 @@ class _$ProgressDelete extends ProgressDelete {
 
 abstract class ProgressDelete extends ProgressState {
   const factory ProgressDelete(
-      final LxdInstance instance, final LxdOperation op) = _$ProgressDelete;
+      final LxdInstance instance, final LxdOperation op) = _$ProgressDeleteImpl;
   const ProgressDelete._() : super._();
 
   LxdInstance get instance;
   LxdOperation get op;
-  @JsonKey(ignore: true)
-  _$$ProgressDeleteCopyWith<_$ProgressDelete> get copyWith =>
+
+  /// Create a copy of ProgressState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$ProgressDeleteImplCopyWith<_$ProgressDeleteImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -6,50 +6,54 @@ part of 'resource.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_LxdCpuResources _$$_LxdCpuResourcesFromJson(Map json) => _$_LxdCpuResources(
+_$LxdCpuResourcesImpl _$$LxdCpuResourcesImplFromJson(Map json) =>
+    _$LxdCpuResourcesImpl(
       architecture: json['architecture'] as String,
       sockets:
           (json['sockets'] as List<dynamic>).map((e) => e as String).toList(),
     );
 
-Map<String, dynamic> _$$_LxdCpuResourcesToJson(_$_LxdCpuResources instance) =>
+Map<String, dynamic> _$$LxdCpuResourcesImplToJson(
+        _$LxdCpuResourcesImpl instance) =>
     <String, dynamic>{
       'architecture': instance.architecture,
       'sockets': instance.sockets,
     };
 
-_$_LxdMemoryResources _$$_LxdMemoryResourcesFromJson(Map json) =>
-    _$_LxdMemoryResources(
-      used: json['used'] as int,
-      total: json['total'] as int,
+_$LxdMemoryResourcesImpl _$$LxdMemoryResourcesImplFromJson(Map json) =>
+    _$LxdMemoryResourcesImpl(
+      used: (json['used'] as num).toInt(),
+      total: (json['total'] as num).toInt(),
     );
 
-Map<String, dynamic> _$$_LxdMemoryResourcesToJson(
-        _$_LxdMemoryResources instance) =>
+Map<String, dynamic> _$$LxdMemoryResourcesImplToJson(
+        _$LxdMemoryResourcesImpl instance) =>
     <String, dynamic>{
       'used': instance.used,
       'total': instance.total,
     };
 
-_$_LxdGpuResources _$$_LxdGpuResourcesFromJson(Map json) => _$_LxdGpuResources(
+_$LxdGpuResourcesImpl _$$LxdGpuResourcesImplFromJson(Map json) =>
+    _$LxdGpuResourcesImpl(
       cards: (json['cards'] as List<dynamic>)
           .map((e) => LxdGpuCard.fromJson(Map<String, dynamic>.from(e as Map)))
           .toList(),
     );
 
-Map<String, dynamic> _$$_LxdGpuResourcesToJson(_$_LxdGpuResources instance) =>
+Map<String, dynamic> _$$LxdGpuResourcesImplToJson(
+        _$LxdGpuResourcesImpl instance) =>
     <String, dynamic>{
       'cards': instance.cards.map((e) => e.toJson()).toList(),
     };
 
-_$_LxdGpuCard _$$_LxdGpuCardFromJson(Map json) => _$_LxdGpuCard(
+_$LxdGpuCardImpl _$$LxdGpuCardImplFromJson(Map json) => _$LxdGpuCardImpl(
       driver: json['driver'] as String,
       driverVersion: json['driver_version'] as String,
       vendor: json['vendor'] as String,
       vendorId: json['vendor_id'] as String,
     );
 
-Map<String, dynamic> _$$_LxdGpuCardToJson(_$_LxdGpuCard instance) =>
+Map<String, dynamic> _$$LxdGpuCardImplToJson(_$LxdGpuCardImpl instance) =>
     <String, dynamic>{
       'driver': instance.driver,
       'driver_version': instance.driverVersion,
@@ -57,28 +61,30 @@ Map<String, dynamic> _$$_LxdGpuCardToJson(_$_LxdGpuCard instance) =>
       'vendor_id': instance.vendorId,
     };
 
-_$_LXdNetworkResources _$$_LXdNetworkResourcesFromJson(Map json) =>
-    _$_LXdNetworkResources(
+_$LXdNetworkResourcesImpl _$$LXdNetworkResourcesImplFromJson(Map json) =>
+    _$LXdNetworkResourcesImpl(
       cards: (json['cards'] as List<dynamic>)
           .map((e) =>
               LxdNetworkCard.fromJson(Map<String, dynamic>.from(e as Map)))
           .toList(),
     );
 
-Map<String, dynamic> _$$_LXdNetworkResourcesToJson(
-        _$_LXdNetworkResources instance) =>
+Map<String, dynamic> _$$LXdNetworkResourcesImplToJson(
+        _$LXdNetworkResourcesImpl instance) =>
     <String, dynamic>{
       'cards': instance.cards.map((e) => e.toJson()).toList(),
     };
 
-_$_LxdNetworkCard _$$_LxdNetworkCardFromJson(Map json) => _$_LxdNetworkCard(
+_$LxdNetworkCardImpl _$$LxdNetworkCardImplFromJson(Map json) =>
+    _$LxdNetworkCardImpl(
       driver: json['driver'] as String,
       driverVersion: json['driver_version'] as String,
       vendor: json['vendor'] as String,
       vendorId: json['vendor_id'] as String,
     );
 
-Map<String, dynamic> _$$_LxdNetworkCardToJson(_$_LxdNetworkCard instance) =>
+Map<String, dynamic> _$$LxdNetworkCardImplToJson(
+        _$LxdNetworkCardImpl instance) =>
     <String, dynamic>{
       'driver': instance.driver,
       'driver_version': instance.driverVersion,
@@ -86,29 +92,31 @@ Map<String, dynamic> _$$_LxdNetworkCardToJson(_$_LxdNetworkCard instance) =>
       'vendor_id': instance.vendorId,
     };
 
-_$_LxdStorageResources _$$_LxdStorageResourcesFromJson(Map json) =>
-    _$_LxdStorageResources(
+_$LxdStorageResourcesImpl _$$LxdStorageResourcesImplFromJson(Map json) =>
+    _$LxdStorageResourcesImpl(
       disks: (json['disks'] as List<dynamic>)
           .map((e) =>
               LxdStorageDisk.fromJson(Map<String, dynamic>.from(e as Map)))
           .toList(),
     );
 
-Map<String, dynamic> _$$_LxdStorageResourcesToJson(
-        _$_LxdStorageResources instance) =>
+Map<String, dynamic> _$$LxdStorageResourcesImplToJson(
+        _$LxdStorageResourcesImpl instance) =>
     <String, dynamic>{
       'disks': instance.disks.map((e) => e.toJson()).toList(),
     };
 
-_$_LxdStorageDisk _$$_LxdStorageDiskFromJson(Map json) => _$_LxdStorageDisk(
+_$LxdStorageDiskImpl _$$LxdStorageDiskImplFromJson(Map json) =>
+    _$LxdStorageDiskImpl(
       id: json['id'] as String,
       model: json['model'] as String,
       serial: json['serial'] as String,
-      size: json['size'] as int,
+      size: (json['size'] as num).toInt(),
       type: json['type'] as String,
     );
 
-Map<String, dynamic> _$$_LxdStorageDiskToJson(_$_LxdStorageDisk instance) =>
+Map<String, dynamic> _$$LxdStorageDiskImplToJson(
+        _$LxdStorageDiskImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
       'model': instance.model,
@@ -117,21 +125,23 @@ Map<String, dynamic> _$$_LxdStorageDiskToJson(_$_LxdStorageDisk instance) =>
       'type': instance.type,
     };
 
-_$_LxdUsbResources _$$_LxdUsbResourcesFromJson(Map json) => _$_LxdUsbResources(
+_$LxdUsbResourcesImpl _$$LxdUsbResourcesImplFromJson(Map json) =>
+    _$LxdUsbResourcesImpl(
       devices: (json['devices'] as List<dynamic>)
           .map(
               (e) => LxdUsbDevice.fromJson(Map<String, dynamic>.from(e as Map)))
           .toList(),
     );
 
-Map<String, dynamic> _$$_LxdUsbResourcesToJson(_$_LxdUsbResources instance) =>
+Map<String, dynamic> _$$LxdUsbResourcesImplToJson(
+        _$LxdUsbResourcesImpl instance) =>
     <String, dynamic>{
       'devices': instance.devices.map((e) => e.toJson()).toList(),
     };
 
-_$_LxdUsbDevice _$$_LxdUsbDeviceFromJson(Map json) => _$_LxdUsbDevice(
-      busAddress: json['bus_address'] as int,
-      deviceAddress: json['device_address'] as int,
+_$LxdUsbDeviceImpl _$$LxdUsbDeviceImplFromJson(Map json) => _$LxdUsbDeviceImpl(
+      busAddress: (json['bus_address'] as num).toInt(),
+      deviceAddress: (json['device_address'] as num).toInt(),
       product: json['product'] as String,
       productId: json['product_id'] as String,
       speed: (json['speed'] as num).toDouble(),
@@ -139,7 +149,7 @@ _$_LxdUsbDevice _$$_LxdUsbDeviceFromJson(Map json) => _$_LxdUsbDevice(
       vendorId: json['vendor_id'] as String,
     );
 
-Map<String, dynamic> _$$_LxdUsbDeviceToJson(_$_LxdUsbDevice instance) =>
+Map<String, dynamic> _$$LxdUsbDeviceImplToJson(_$LxdUsbDeviceImpl instance) =>
     <String, dynamic>{
       'bus_address': instance.busAddress,
       'device_address': instance.deviceAddress,
@@ -150,19 +160,21 @@ Map<String, dynamic> _$$_LxdUsbDeviceToJson(_$_LxdUsbDevice instance) =>
       'vendor_id': instance.vendorId,
     };
 
-_$_LxdPciResources _$$_LxdPciResourcesFromJson(Map json) => _$_LxdPciResources(
+_$LxdPciResourcesImpl _$$LxdPciResourcesImplFromJson(Map json) =>
+    _$LxdPciResourcesImpl(
       devices: (json['devices'] as List<dynamic>)
           .map(
               (e) => LxdPciDevice.fromJson(Map<String, dynamic>.from(e as Map)))
           .toList(),
     );
 
-Map<String, dynamic> _$$_LxdPciResourcesToJson(_$_LxdPciResources instance) =>
+Map<String, dynamic> _$$LxdPciResourcesImplToJson(
+        _$LxdPciResourcesImpl instance) =>
     <String, dynamic>{
       'devices': instance.devices.map((e) => e.toJson()).toList(),
     };
 
-_$_LxdPciDevice _$$_LxdPciDeviceFromJson(Map json) => _$_LxdPciDevice(
+_$LxdPciDeviceImpl _$$LxdPciDeviceImplFromJson(Map json) => _$LxdPciDeviceImpl(
       driver: json['driver'] as String,
       driverVersion: json['driver_version'] as String,
       pciAddress: json['pci_address'] as String,
@@ -172,7 +184,7 @@ _$_LxdPciDevice _$$_LxdPciDeviceFromJson(Map json) => _$_LxdPciDevice(
       vendorId: json['vendor_id'] as String,
     );
 
-Map<String, dynamic> _$$_LxdPciDeviceToJson(_$_LxdPciDevice instance) =>
+Map<String, dynamic> _$$LxdPciDeviceImplToJson(_$LxdPciDeviceImpl instance) =>
     <String, dynamic>{
       'driver': instance.driver,
       'driver_version': instance.driverVersion,
@@ -183,27 +195,27 @@ Map<String, dynamic> _$$_LxdPciDeviceToJson(_$_LxdPciDevice instance) =>
       'vendor_id': instance.vendorId,
     };
 
-_$_LxdFirmware _$$_LxdFirmwareFromJson(Map json) => _$_LxdFirmware(
+_$LxdFirmwareImpl _$$LxdFirmwareImplFromJson(Map json) => _$LxdFirmwareImpl(
       date: json['date'] as String,
       vendor: json['vendor'] as String,
       version: json['version'] as String,
     );
 
-Map<String, dynamic> _$$_LxdFirmwareToJson(_$_LxdFirmware instance) =>
+Map<String, dynamic> _$$LxdFirmwareImplToJson(_$LxdFirmwareImpl instance) =>
     <String, dynamic>{
       'date': instance.date,
       'vendor': instance.vendor,
       'version': instance.version,
     };
 
-_$_LxdChassis _$$_LxdChassisFromJson(Map json) => _$_LxdChassis(
+_$LxdChassisImpl _$$LxdChassisImplFromJson(Map json) => _$LxdChassisImpl(
       serial: json['serial'] as String,
       type: json['type'] as String,
       vendor: json['vendor'] as String,
       version: json['version'] as String,
     );
 
-Map<String, dynamic> _$$_LxdChassisToJson(_$_LxdChassis instance) =>
+Map<String, dynamic> _$$LxdChassisImplToJson(_$LxdChassisImpl instance) =>
     <String, dynamic>{
       'serial': instance.serial,
       'type': instance.type,
@@ -211,14 +223,16 @@ Map<String, dynamic> _$$_LxdChassisToJson(_$_LxdChassis instance) =>
       'version': instance.version,
     };
 
-_$_LxdMotherboard _$$_LxdMotherboardFromJson(Map json) => _$_LxdMotherboard(
+_$LxdMotherboardImpl _$$LxdMotherboardImplFromJson(Map json) =>
+    _$LxdMotherboardImpl(
       product: json['product'] as String,
       serial: json['serial'] as String,
       vendor: json['vendor'] as String,
       version: json['version'] as String,
     );
 
-Map<String, dynamic> _$$_LxdMotherboardToJson(_$_LxdMotherboard instance) =>
+Map<String, dynamic> _$$LxdMotherboardImplToJson(
+        _$LxdMotherboardImpl instance) =>
     <String, dynamic>{
       'product': instance.product,
       'serial': instance.serial,
@@ -226,8 +240,8 @@ Map<String, dynamic> _$$_LxdMotherboardToJson(_$_LxdMotherboard instance) =>
       'version': instance.version,
     };
 
-_$_LxdSystemResources _$$_LxdSystemResourcesFromJson(Map json) =>
-    _$_LxdSystemResources(
+_$LxdSystemResourcesImpl _$$LxdSystemResourcesImplFromJson(Map json) =>
+    _$LxdSystemResourcesImpl(
       uuid: json['uuid'] as String,
       vendor: json['vendor'] as String,
       product: json['product'] as String,
@@ -244,8 +258,8 @@ _$_LxdSystemResources _$$_LxdSystemResourcesFromJson(Map json) =>
           Map<String, dynamic>.from(json['motherboard'] as Map)),
     );
 
-Map<String, dynamic> _$$_LxdSystemResourcesToJson(
-        _$_LxdSystemResources instance) =>
+Map<String, dynamic> _$$LxdSystemResourcesImplToJson(
+        _$LxdSystemResourcesImpl instance) =>
     <String, dynamic>{
       'uuid': instance.uuid,
       'vendor': instance.vendor,
@@ -260,7 +274,7 @@ Map<String, dynamic> _$$_LxdSystemResourcesToJson(
       'motherboard': instance.motherboard.toJson(),
     };
 
-_$_LxdResources _$$_LxdResourcesFromJson(Map json) => _$_LxdResources(
+_$LxdResourcesImpl _$$LxdResourcesImplFromJson(Map json) => _$LxdResourcesImpl(
       cpu: LxdCpuResources.fromJson(
           Map<String, dynamic>.from(json['cpu'] as Map)),
       memory: LxdMemoryResources.fromJson(
@@ -279,7 +293,7 @@ _$_LxdResources _$$_LxdResourcesFromJson(Map json) => _$_LxdResources(
           Map<String, dynamic>.from(json['system'] as Map)),
     );
 
-Map<String, dynamic> _$$_LxdResourcesToJson(_$_LxdResources instance) =>
+Map<String, dynamic> _$$LxdResourcesImplToJson(_$LxdResourcesImpl instance) =>
     <String, dynamic>{
       'cpu': instance.cpu.toJson(),
       'memory': instance.memory.toJson(),

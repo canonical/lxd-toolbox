@@ -12,7 +12,7 @@ part of 'operation.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 LxdOperation _$LxdOperationFromJson(Map<String, dynamic> json) {
   return _LxdOperation.fromJson(json);
@@ -92,8 +92,12 @@ mixin _$LxdOperation {
   /// Example: lxd01
   String get location => throw _privateConstructorUsedError;
 
+  /// Serializes this LxdOperation to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of LxdOperation
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $LxdOperationCopyWith<LxdOperation> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -129,6 +133,8 @@ class _$LxdOperationCopyWithImpl<$Res, $Val extends LxdOperation>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of LxdOperation
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -199,11 +205,11 @@ class _$LxdOperationCopyWithImpl<$Res, $Val extends LxdOperation>
 }
 
 /// @nodoc
-abstract class _$$_LxdOperationCopyWith<$Res>
+abstract class _$$LxdOperationImplCopyWith<$Res>
     implements $LxdOperationCopyWith<$Res> {
-  factory _$$_LxdOperationCopyWith(
-          _$_LxdOperation value, $Res Function(_$_LxdOperation) then) =
-      __$$_LxdOperationCopyWithImpl<$Res>;
+  factory _$$LxdOperationImplCopyWith(
+          _$LxdOperationImpl value, $Res Function(_$LxdOperationImpl) then) =
+      __$$LxdOperationImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -222,13 +228,15 @@ abstract class _$$_LxdOperationCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_LxdOperationCopyWithImpl<$Res>
-    extends _$LxdOperationCopyWithImpl<$Res, _$_LxdOperation>
-    implements _$$_LxdOperationCopyWith<$Res> {
-  __$$_LxdOperationCopyWithImpl(
-      _$_LxdOperation _value, $Res Function(_$_LxdOperation) _then)
+class __$$LxdOperationImplCopyWithImpl<$Res>
+    extends _$LxdOperationCopyWithImpl<$Res, _$LxdOperationImpl>
+    implements _$$LxdOperationImplCopyWith<$Res> {
+  __$$LxdOperationImplCopyWithImpl(
+      _$LxdOperationImpl _value, $Res Function(_$LxdOperationImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of LxdOperation
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -245,7 +253,7 @@ class __$$_LxdOperationCopyWithImpl<$Res>
     Object? error = null,
     Object? location = null,
   }) {
-    return _then(_$_LxdOperation(
+    return _then(_$LxdOperationImpl(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -300,8 +308,8 @@ class __$$_LxdOperationCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_LxdOperation implements _LxdOperation {
-  const _$_LxdOperation(
+class _$LxdOperationImpl implements _LxdOperation {
+  const _$LxdOperationImpl(
       {required this.id,
       @JsonKey(name: 'class') required this.type,
       required this.description,
@@ -317,8 +325,8 @@ class _$_LxdOperation implements _LxdOperation {
       : _resources = resources,
         _metadata = metadata;
 
-  factory _$_LxdOperation.fromJson(Map<String, dynamic> json) =>
-      _$$_LxdOperationFromJson(json);
+  factory _$LxdOperationImpl.fromJson(Map<String, dynamic> json) =>
+      _$$LxdOperationImplFromJson(json);
 
   /// UUID of the operation
   ///
@@ -448,10 +456,10 @@ class _$_LxdOperation implements _LxdOperation {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_LxdOperation &&
+            other is _$LxdOperationImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.description, description) ||
@@ -473,7 +481,7 @@ class _$_LxdOperation implements _LxdOperation {
                 other.location == location));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -490,15 +498,17 @@ class _$_LxdOperation implements _LxdOperation {
       error,
       location);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of LxdOperation
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$_LxdOperationCopyWith<_$_LxdOperation> get copyWith =>
-      __$$_LxdOperationCopyWithImpl<_$_LxdOperation>(this, _$identity);
+  _$$LxdOperationImplCopyWith<_$LxdOperationImpl> get copyWith =>
+      __$$LxdOperationImplCopyWithImpl<_$LxdOperationImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_LxdOperationToJson(
+    return _$$LxdOperationImplToJson(
       this,
     );
   }
@@ -517,55 +527,53 @@ abstract class _LxdOperation implements LxdOperation {
       required final Map<String, dynamic>? metadata,
       required final bool mayCancel,
       @JsonKey(name: 'err') required final String error,
-      required final String location}) = _$_LxdOperation;
+      required final String location}) = _$LxdOperationImpl;
 
   factory _LxdOperation.fromJson(Map<String, dynamic> json) =
-      _$_LxdOperation.fromJson;
-
-  @override
+      _$LxdOperationImpl.fromJson;
 
   /// UUID of the operation
   ///
   /// Example: 6916c8a6-9b7d-4abd-90b3-aedfec7ec7da
-  String get id;
   @override
+  String get id;
 
   /// Type of operation (task, token or websocket)
+  @override
   @JsonKey(name: 'class')
   LxdOperationType get type;
-  @override
 
   /// Description of the operation
   ///
   /// Example: Executing command
-  String get description;
   @override
+  String get description;
 
   /// Operation creation time
-  DateTime get createdAt;
   @override
+  DateTime get createdAt;
 
   /// Operation last change
-  DateTime get updatedAt;
   @override
+  DateTime get updatedAt;
 
   /// Status name
   ///
   /// Example: Running
-  String get status;
   @override
+  String get status;
 
   /// Status code
   ///
   /// Example: 103
-  int get statusCode;
   @override
+  int get statusCode;
 
   /// Affected resourcs
   ///
   /// Example: {"containers": ["/1.0/containers/foo"], "instances": ["/1.0/instances/foo"]}
-  Map<String, List<String>>? get resources;
   @override
+  Map<String, List<String>>? get resources;
 
   /// Operation specific metadata
   ///
@@ -587,26 +595,30 @@ abstract class _LxdOperation implements LxdOperation {
   ///   "interactive": true
   /// }
   /// ```
-  Map<String, dynamic>? get metadata;
   @override
+  Map<String, dynamic>? get metadata;
 
   /// Whether the operation can be canceled
-  bool get mayCancel;
   @override
+  bool get mayCancel;
 
   /// Operation error mesage
   ///
   /// Example: Some error message
+  @override
   @JsonKey(name: 'err')
   String get error;
-  @override
 
   /// What cluster member this record was found on
   ///
   /// Example: lxd01
-  String get location;
   @override
-  @JsonKey(ignore: true)
-  _$$_LxdOperationCopyWith<_$_LxdOperation> get copyWith =>
+  String get location;
+
+  /// Create a copy of LxdOperation
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$LxdOperationImplCopyWith<_$LxdOperationImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
