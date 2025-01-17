@@ -71,7 +71,7 @@ dependencies:
       path: packages/ubuntu_widgets
       ref: 2549b38607f8c634404f478f719a6ab6a5344605
   window_manager: ^0.4.2
-  wizard_router: ^0.9.0
+  wizard_router: ^0.10.0
   xdg_directories: ^1.0.0
   yaml: ^3.1.1
   yaru: ^6.0.0
