@@ -20,7 +20,7 @@ dependencies:
   data_size: ^0.2.0
   # TODO: Remove this pin when upgrading to Flutter 3.27.
   # ^2.5.0 we'll get 2.5.18 which requires Flutter 3.27. Some people don't get what a breaking change is.
-  data_table_2: 2.5.16
+  data_table_2: 2.5.18
   fake_async: ^1.3.1
   flutter:
     sdk: flutter
