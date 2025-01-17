@@ -64,7 +64,7 @@ dependencies:
     path: packages/terminal_view
   ubuntu_localizations: ^0.5.0
   ubuntu_logger: ^0.0.2
-  ubuntu_service: ^0.2.0
+  ubuntu_service: ^0.4.0
   ubuntu_widgets:
     git:
       url: https://github.com/canonical/ubuntu-flutter-plugins.git
